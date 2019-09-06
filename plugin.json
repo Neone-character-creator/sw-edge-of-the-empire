@@ -1390,8 +1390,14 @@
           },
           {
             "name": "speciesCareerSkillChoices",
+            "type": "label",
+            "text": "Starting Career Skills"
+          },
+          {
+            "name": "speciesCareerSkillChoices",
             "type": "select",
             "bind": "$state.character.species.careerSkills",
+
             "items": {
               "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
               "text": "name",
@@ -1404,6 +1410,11 @@
         "name": "Career",
         "type": "view",
         "children": [
+          {
+            "name": "careerChoices",
+            "type": "label",
+            "text": "Career"
+          },
           {
             "name": "careerSelect",
             "type": "select",
@@ -1418,6 +1429,11 @@
             "type": "container",
             "direction": "vertical",
             "children": [
+              {
+                "name": "startingSpecialization",
+                "type": "label",
+                "text": "Specialization"
+              },
               {
                 "name": "startingSpecializationSelect",
                 "type": "select",
@@ -1503,7 +1519,7 @@
                 "type": "button",
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.characteristic.isAvailable') !== true",
-                "action": "# {type:'ADVANCEMENT', advancementType:'characteristic', advancement: $state.selectedAdvancement.characteristic.option}"
+                "action": "# {type:'ADVANCEMENT', advancementType:'characteristic', advancement: _.get($state, 'selectedAdvancement.characteristic.option')}"
               }
             ]
           },
@@ -1531,7 +1547,7 @@
                 "type": "button",
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.skill.isAvailable') !== true",
-                "action": "# {type:'ADVANCEMENT', advancementType:'skill', advancement: $state.selectedAdvancement.skill.option}"
+                "action": "# {type:'ADVANCEMENT', advancementType:'skill', advancement: _.get($state, 'selectedAdvancement.skill.option')}"
               }
             ]
           },
@@ -1559,7 +1575,7 @@
                 "type": "button",
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.talent.isAvailable') !== true",
-                "action": "# {type:'ADVANCEMENT', advancementType:'talent', advancement: $state.selectedAdvancement.talent.option.name}"
+                "action": "# {type:'ADVANCEMENT', advancementType:'talent', advancement: _.get($state, 'selectedAdvancement.talent.option.name')}"
               }
             ]
           },
@@ -1817,21 +1833,21 @@
         "rangedLight": {
           "type": "skill",
           "value": {
-            "name": "Cool",
+            "name": "Ranged - Light",
             "characteristic": "Agility"
           }
         },
         "rangedHeavy": {
           "type": "skill",
           "value": {
-            "name": "Cool",
+            "name": "Ranged - Heavy",
             "characteristic": "Agility"
           }
         },
         "knowledgeCoreWorlds": {
           "type": "skill",
           "value": {
-            "name": "Cool",
+            "name": "Knowledge - Core Worlds",
             "characteristic": "Intellect"
           }
         },
@@ -1845,7 +1861,7 @@
         "knowledgeLore": {
           "type": "skill",
           "value": {
-            "name": "Cool",
+            "name": "Knowledge - Lore",
             "characteristic": "Intellect"
           }
         },
