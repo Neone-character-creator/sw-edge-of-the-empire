@@ -1,5 +1,5 @@
 {
-  "gameName": "test",
+  "gameName": "sw-eote",
   "pluginVersion": "1.0",
   "authorName": "Damien Marble",
   "pdfPath": "pdf.pdf",
@@ -9111,6 +9111,14 @@
       "when": "# $this.action.path === 'character.weapons'",
       "effects": [
         "# $state.selectedWeapon = undefined"
+      ]
+    },
+    {
+      "before": "SET",
+      "when": "# $this.action.path === '$state.character.career'",
+      "effects": [
+        "# confirm('This will remove your specializations.')",
+        "# if($this.accumulator){$state.character.specializations = []}"
       ]
     }
   ]
