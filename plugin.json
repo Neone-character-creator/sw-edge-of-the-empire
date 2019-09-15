@@ -9117,8 +9117,7 @@
       "before": "SET",
       "when": "# $this.action.path === '$state.character.career'",
       "effects": [
-        "# confirm('This will remove your specializations.')",
-        "# if($this.accumulator){$state.character.specializations = []}"
+        "# ($state.character.specializations.length == 0 || confirm('This will remove your specializations.')) ? $state.character.specializations = [] : undefined"
       ]
     }
   ]
