@@ -1717,7 +1717,12 @@
         "specializations": "[specialization]",
         "careerStartingSkills": "[string]",
         "speciesCareerSkills": "[string]",
-        "talents": "[talent]",
+        "talents": {
+          "type": "[talent]",
+          "baseValue": [
+            "# _.get($state, 'character.species.startingTalents', [])"
+          ]
+        },
         "forceRating": {
           "type": "number",
           "derivedFrom": [
@@ -1769,7 +1774,7 @@
             ""
           ]
         },
-        "obligations" : "[obligation]"
+        "obligations": "[obligation]"
       }
     },
     "skills": {
@@ -2029,7 +2034,8 @@
         "rank": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.careerStartingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0"
+            "# $state.character.species.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
+            "# $this.accumulator + $state.character.careerStartingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0"
           ]
         }
       }
