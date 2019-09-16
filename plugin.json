@@ -1484,8 +1484,21 @@
             "bind": "$state.character.speciesCareerSkills",
             "items": {
               "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
-              "text": "name",
-              "values": "# Object.keys($model.skills.prototype.definition).map(d => $model.skills.prototype.definition[d].value.name)"
+              "values": "# Object.keys($state.character.skills)"
+            }
+          },
+          {
+            "name": "speciesNonCareerSkillChoices",
+            "type": "label",
+            "text": "# `Non-Skill Choices (choose ${_.get($state,'character.species.startingNonCareerSkillChoices', 0)})`"
+          },
+          {
+            "name": "speciesNonCareerSkillChoices",
+            "type": "select",
+            "bind": "$state.character.humanBonusSkills",
+            "items": {
+              "maxSelections": "# _.get($state, 'character.species.startingNonCareerSkillChoices', 0)",
+              "values": "# Object.keys($state.character.skills).filter(s => !$state.character.skills[s].isCareerSkill)"
             }
           }
         ]
@@ -1774,7 +1787,8 @@
             ""
           ]
         },
-        "obligations": "[obligation]"
+        "obligations": "[obligation]",
+        "humanBonusSkills": "[string]"
       }
     },
     "skills": {
@@ -2034,7 +2048,8 @@
         "rank": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.species.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
+            "# $state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.path[2])",
+            "# $this.accumulator + $state.character.species.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
             "# $this.accumulator + $state.character.careerStartingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0"
           ]
         }
@@ -2242,7 +2257,7 @@
             "characteristic": "willpower"
           },
           "startingExperience": 110,
-          "startingnoniscareerskillchoices": 2,
+          "startingNonCareerSkillChoices": 2,
           "specialAbilities": [
             {
               "name": "Starting Skills",
