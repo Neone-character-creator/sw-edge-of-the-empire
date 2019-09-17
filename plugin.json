@@ -1318,32 +1318,83 @@
                 "text": "Obligations"
               },
               {
+                "name": "summaryObligations",
+                "type": "list",
+                "bind": "$state.character.obligations",
+                "items": {
+                  "child": {
+                    "name": "summaryObligationItem",
+                    "type": "container",
+                    "direction": "horizontal",
+                    "children": [
+                      {
+                        "name": "summaryObligationType",
+                        "type": "textfield",
+                        "label": "Obligation Type",
+                        "value": "# $this.type"
+                      },
+                      {
+                        "name": "summaryObligationDescription",
+                        "type": "textfield",
+                        "label": "Obligation Description",
+                        "value": "# $this.description"
+                      },
+                      {
+                        "name": "summaryObligationRating",
+                        "type": "number",
+                        "label": "Obligation Rating",
+                        "value": "# $this.rating"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Biography",
+        "type": "view",
+        "children": [
+          {
+            "name": "obligation",
+            "type": "container",
+            "children": [
+              {
+                "name": "totalObligation",
+                "weight": 12,
+                "type": "number",
+                "label": "Total Obligation",
+                "text": "# _.sum($state.character.obligations.map(o => o.rating))"
+              },
+              {
                 "name": "newObligation",
                 "type": "container",
                 "direction": "horizontal",
                 "children": [
                   {
-                    "name": "addObligation",
+                    "name": "newObligationAdd",
                     "type": "button",
                     "text": "Add",
-                    "action": "# {type:'ADD', path:'character.obligations', value: _.get($state, 'newObligation')}"
+                    "action": "# {type:'ADD', path: '$state.character.obligations', value: $state.newObligation}"
                   },
                   {
                     "name": "newObligationType",
                     "type": "textfield",
-                    "label": "Obligation Type",
+                    "label": "Type",
                     "bind": "$state.newObligation.type"
                   },
                   {
                     "name": "newObligationDescription",
                     "type": "textfield",
-                    "label": "Obligation Description",
+                    "label": "Description",
                     "bind": "$state.newObligation.description"
                   },
                   {
                     "name": "newObligationRating",
                     "type": "number",
-                    "label": "Obligation Rating",
+                    "label": "Rating",
                     "bind": "$state.newObligation.rating"
                   }
                 ]
@@ -1356,25 +1407,32 @@
                   "child": {
                     "name": "obligationItem",
                     "type": "container",
+                    "key": "id",
                     "direction": "horizontal",
                     "children": [
                       {
-                        "name": "obligationType",
+                        "name": "obligationItemType",
                         "type": "textfield",
-                        "label": "Obligation Type",
-                        "value": "# $this.type"
+                        "label": "Type",
+                        "bind": "$this.type"
                       },
                       {
-                        "name": "obligationDescription",
+                        "name": "obligationItemDescription",
                         "type": "textfield",
-                        "label": "Obligation Description",
-                        "value": "# $this.description"
+                        "label": "Description",
+                        "bind": "$this.description"
                       },
                       {
-                        "name": "obligationRating",
+                        "name": "obligationItemRating",
                         "type": "number",
-                        "label": "Obligation Rating",
-                        "value": "# $this.rating"
+                        "label": "Rating",
+                        "bind": "$this.rating"
+                      },
+                      {
+                        "name": "removeObligation",
+                        "type": "button",
+                        "text": "X",
+                        "action": "# {type:'REMOVE', path: '$state.character.obligations', remove: $index}"
                       }
                     ]
                   }
