@@ -1546,6 +1546,45 @@
             }
           },
           {
+            "name": "speciesBonusSkillChoices",
+            "type": "container",
+            "children": [
+              {
+                "name": "speciesBonusSkillChoices",
+                "type": "label",
+                "text": "Bonus Skill Options"
+              },
+              {
+                "name": "speciesBonusSkillChoices",
+                "type": "list",
+                "bind": "$state.character.species.startingSkillsChoices",
+                "items": {
+                  "child": {
+                    "name": "speciesBonusSkillChoice",
+                    "type": "container",
+                    "direction": "horizontal",
+                    "children": [
+                      {
+                        "name": "speciesBonusSkillChoiceCount",
+                        "type": "label",
+                        "text": "# `Choose ${$this.choices}`"
+                      },
+                      {
+                        "name": "speciesBonusSkillChoiceOptions",
+                        "type": "select",
+                        "bind": "# `$state.character.species.startingSkillChoices[${$index}].selected`",
+                        "items": {
+                          "maxSelections": "# $this.choices",
+                          "values": "# $this.options"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
             "name": "speciesNonCareerSkillChoices",
             "type": "label",
             "text": "# `Non-Skill Choices (choose ${_.get($state,'character.species.startingNonCareerSkillChoices', 0)})`"
@@ -2110,7 +2149,8 @@
         "rank": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.path[2])",
+            "# $state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.path[2]) ? 1 : 0",
+            "# $this.accumulator + _.flatMap(_.get($state, 'character.species.startingSkillChoices', []).map(ssc => ssc.selected)).map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0;",
             "# $this.accumulator + $state.character.species.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
             "# $this.accumulator + $state.character.careerStartingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0"
           ]
@@ -2525,7 +2565,9 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Brawl",
+            "Brawl"
+          ],
+          "startingSkillChoices": [
             {
               "options": [
                 "Survival",
@@ -2968,7 +3010,7 @@
             "characteristic": "willpower"
           },
           "startingExperience": 70,
-          "startingSkills": [
+          "startingSkillsChoices": [
             {
               "options": [
                 "Coercion",
@@ -3009,7 +3051,7 @@
             "characteristic": "willpower"
           },
           "startingExperience": 110,
-          "startingSkills": [
+          "startingSkillsChoices": [
             {
               "options": [
                 "Coercion",
@@ -3211,7 +3253,7 @@
             "base": 10,
             "characteristic": "willpower"
           },
-          "startingSkills": [
+          "startingSkillsChoices": [
             {
               "options": [
                 "Perception",
