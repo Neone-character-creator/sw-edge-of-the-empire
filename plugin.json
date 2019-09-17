@@ -1002,7 +1002,7 @@
                       },
                       {
                         "name": "weaponDamage",
-                        "type": "number",
+                        "type": "textfield",
                         "label": "Damage",
                         "weight": 1,
                         "bind": "$this.damage"
@@ -1065,7 +1065,7 @@
                   },
                   {
                     "name": "newWeaponDamage",
-                    "type": "number",
+                    "type": "textfield",
                     "label": "Damage",
                     "weight": 1,
                     "bind": "$state.selectedWeapon.damage"
@@ -1835,7 +1835,11 @@
         "characteristics": "characteristics",
         "skills": "skills",
         "advancements": "[advancement]",
-        "weapons": "[weapon]",
+        "weapons": {"type": "[weapon]",
+          "baseValue": [
+            "# _.get($state, 'character.species.naturalWeapons', [])"
+          ]
+        },
         "armor": "[armor]",
         "credits": "number",
         "otherItems": "[string]",
@@ -2157,7 +2161,8 @@
           "type": "number",
           "default": 3
         },
-        "specialAbilities": "[specialAbility]"
+        "specialAbilities": "[specialAbility]",
+        "naturalWeapons": "[weapon]"
       },
       "values": [
         {
@@ -2377,6 +2382,15 @@
           "startingExperience": 100,
           "startingSkills": [
             "Perception"
+          ],
+          "naturalWeapons": [
+            {
+              "name": "Claws",
+              "skill": "Brawl",
+              "damage": "Brawl + 1",
+              "criticalRating": 3,
+              "range": "-"
+            }
           ],
           "specialAbilities": [
             {
@@ -8543,7 +8557,7 @@
       "properties": {
         "name": "string",
         "skill": "string",
-        "damage": "number",
+        "damage": "string",
         "criticalRating": "number",
         "range": "string",
         "encumbrance": "number",
