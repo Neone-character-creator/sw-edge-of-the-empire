@@ -3080,6 +3080,15 @@
           "startingSkills": [
             "Coordination"
           ],
+          "naturalWeapons": [
+            {
+              "name": "Claws",
+              "skill": "Brawl",
+              "damage": "Brawl + 1",
+              "criticalRating": 3,
+              "range": "-"
+            }
+          ],
           "specialAbilities": [
             {
               "name": "Green Nikto",
