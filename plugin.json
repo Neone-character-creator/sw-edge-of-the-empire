@@ -3447,7 +3447,10 @@
           "specializations": [
             "Bodyguard",
             "Marauder",
-            "Mercenary Soldier"
+            "Mercenary Soldier",
+            "Enforcer",
+            "Demolitionist",
+            "Heavy"
           ]
         },
         {
@@ -7916,6 +7919,339 @@
               }
             }
           ]
+        },
+        {
+          "name": "Enforcer",
+          "careerSkills": [
+            "Brawl",
+            "Coercion",
+            "Knowledge - Underworld",
+            "Streetwise"
+          ],
+          "talents": [
+            {
+              "id": "enforcer-1",
+              "value": "toughened",
+              "tier": 1
+            },
+            {
+              "id": "enforcer-2",
+              "value": "intimidating",
+              "tier": 1
+            },
+            {
+              "id": "enforcer-3",
+              "value": "fearsome",
+              "tier": 1
+            },
+            {
+              "id": "enforcer-4",
+              "value": "street-smarts",
+              "tier": 1
+            },
+            {
+              "id": "enforcer-5",
+              "value": "durable",
+              "tier": 2
+            },
+            {
+              "id": "enforcer-6",
+              "value": "stunning-blow",
+              "tier": 2
+            },
+            {
+              "id": "enforcer-7",
+              "value": "natural-enforcer",
+              "tier": 2
+            },
+            {
+              "id": "enforcer-8",
+              "value": "talk-the-talk",
+              "tier": 2
+            },
+            {
+              "id": "enforcer-9",
+              "value": "intimidating",
+              "tier": 3
+            },
+            {
+              "id": "enforcer-10",
+              "value": "defensive-stance",
+              "tier": 3
+            },
+            {
+              "id": "enforcer-11",
+              "value": "toughened",
+              "tier": 3
+            },
+            {
+              "id": "enforcer-12",
+              "value": "loom",
+              "tier": 3
+            },
+            {
+              "id": "enforcer-13",
+              "value": "second-wind",
+              "tier": 4
+            },
+            {
+              "id": "enforcer-14",
+              "value": "street-smarts",
+              "tier": 4
+            },
+            {
+              "id": "enforcer-15",
+              "value": "walk-the-walk",
+              "tier": 4
+            },
+            {
+              "id": "enforcer-16",
+              "value": "intimidating",
+              "tier": 4
+            },
+            {
+              "id": "enforcer-17",
+              "value": "fearsome",
+              "tier": 5
+            },
+            {
+              "id": "enforcer-18",
+              "value": "dedication",
+              "tier": 5
+            },
+            {
+              "id": "enforcer-19",
+              "value": "black-market-contacts",
+              "tier": 5
+            },
+            {
+              "id": "enforcer-20",
+              "value": "fearsome",
+              "tier": 5
+            }
+          ]
+        },
+        {
+          "name": "Demolitionist",
+          "careerSkills": [
+            "Computers",
+            "Cool",
+            "Mechanics",
+            "Skulduggery"
+          ],
+          "talents": [
+            {
+              "id": "demolitionist-1",
+              "value": "powerful-blast",
+              "tier": 1
+            },
+            {
+              "id": "demolitionist-2",
+              "value": "grit",
+              "tier": 1
+            },
+            {
+              "id": "demolitionist-3",
+              "value": "selective-detonation",
+              "tier": 1
+            },
+            {
+              "id": "demolitionist-4",
+              "value": "steady-nerves",
+              "tier": 1
+            },
+            {
+              "id": "demolitionist-5",
+              "value": "toughened",
+              "tier": 2
+            },
+            {
+              "id": "demolitionist-6",
+              "value": "time-to-go",
+              "tier": 2
+            },
+            {
+              "id": "demolitionist-7",
+              "value": "powerful-blast",
+              "tier": 2
+            },
+            {
+              "id": "demolitionist-8",
+              "value": "grit",
+              "tier": 2
+            },
+            {
+              "id": "demolitionist-9",
+              "value": "enduring",
+              "tier": 3
+            },
+            {
+              "id": "demolitionist-10",
+              "value": "time-to-go-improved",
+              "tier": 3
+            },
+            {
+              "id": "demolitionist-11",
+              "value": "steady-nerves",
+              "tier": 3
+            },
+            {
+              "id": "demolitionist-12",
+              "value": "rapid-reaction",
+              "tier": 3
+            },
+            {
+              "id": "demolitionist-13",
+              "value": "detonation-improved",
+              "tier": 4
+            },
+            {
+              "id": "demolitionist-14",
+              "value": "powerful-blast",
+              "tier": 4
+            },
+            {
+              "id": "demolitionist-15",
+              "value": "grit",
+              "tier": 4
+            },
+            {
+              "id": "demolitionist-16",
+              "value": "selective-detonation",
+              "tier": 4
+            },
+            {
+              "id": "demolitionist-17",
+              "value": "improvised-detonation-improved",
+              "tier": 5
+            },
+            {
+              "id": "demolitionist-18",
+              "value": "dedication",
+              "tier": 5
+            },
+            {
+              "id": "demolitionist-19",
+              "value": "master-grenadier",
+              "tier": 5
+            },
+            {
+              "id": "demolitionist-20",
+              "value": "selective-detonation",
+              "tier": 5
+            }
+          ]
+        },
+        {
+          "name": "Heavy",
+          "careerSkills": [
+            "Gunnery",
+            "Perception",
+            "Ranged - Heavy",
+            "Resilience"
+          ],
+          "talents": [
+            {
+              "id": "heavy-1",
+              "value": "burly",
+              "tier": 1
+            },
+            {
+              "id": "heavy-2",
+              "value": "barrage",
+              "tier": 1
+            },
+            {
+              "id": "heavy-3",
+              "value": "grit",
+              "tier": 1
+            },
+            {
+              "id": "heavy-4",
+              "value": "toughened",
+              "tier": 1
+            },
+            {
+              "id": "heavy-5",
+              "value": "barrage",
+              "tier": 2
+            },
+            {
+              "id": "heavy-6",
+              "value": "brace",
+              "tier": 2
+            },
+            {
+              "id": "heavy-7",
+              "value": "spare-clip",
+              "tier": 2
+            },
+            {
+              "id": "heavy-8",
+              "value": "durable",
+              "tier": 2
+            },
+            {
+              "id": "heavy-9",
+              "value": "spare-clip",
+              "tier": 3
+            },
+            {
+              "id": "heavy-10",
+              "value": "burly",
+              "tier": 3
+            },
+            {
+              "id": "heavy-11",
+              "value": "heroic-fortitude",
+              "tier": 3
+            },
+            {
+              "id": "heavy-12",
+              "value": "toughened",
+              "tier": 3
+            },
+            {
+              "id": "heavy-13",
+              "value": "brace",
+              "tier": 4
+            },
+            {
+              "id": "heavy-14",
+              "value": "barrage",
+              "tier": 4
+            },
+            {
+              "id": "heavy-15",
+              "value": "rain-of-death",
+              "tier": 4
+            },
+            {
+              "id": "heavy-16",
+              "value": "heroic-resilience",
+              "tier": 4
+            },
+            {
+              "id": "heavy-17",
+              "value": "burly",
+              "tier": 5
+            },
+            {
+              "id": "heavy-18",
+              "value": "dedication",
+              "tier": 5
+            },
+            {
+              "id": "heavy-19",
+              "value": "armor-master",
+              "tier": 5
+            },
+            {
+              "id": "heavy-20",
+              "value": "heavy-hitter",
+              "tier": 5
+            }
+          ]
         }
       ]
     },
@@ -7978,6 +8314,10 @@
           "name": "Bypass Security"
         },
         {
+          "id": "burly",
+          "name": "Burly"
+        },
+        {
           "id": "codebreaker",
           "name": "Codebreaker"
         },
@@ -8034,6 +8374,10 @@
           "name": "Defensive Stance"
         },
         {
+          "id": "detonation-improved",
+          "name": "Improved Detonation"
+        },
+        {
           "id": "disorient",
           "name": "Disorient"
         },
@@ -8056,6 +8400,10 @@
         {
           "id": "familiar-suns",
           "name": "Familiar Suns"
+        },
+        {
+          "id": "fearsome",
+          "name": "Fearsome"
         },
         {
           "id": "feral-strength",
@@ -8150,28 +8498,32 @@
           "name": "Sense Control - Accuracy"
         },
         {
-          "id": "force-sense-duration",
-          "name": "Sense - Duration"
-        },
-        {
           "id": "force-sense-control-evasion",
           "name": "Sense Control - Evade"
-        },
-        {
-          "id": "force-sense-magnitude",
-          "name": "Sense Control - Magnitude"
         },
         {
           "id": "force-sense-control-telepathy",
           "name": "Sense Control - Telepathy"
         },
         {
+          "id": "force-sense-danger",
+          "name": "Sense Danger"
+        },
+        {
+          "id": "force-sense-duration",
+          "name": "Sense - Duration"
+        },
+        {
+          "id": "force-sense-magnitude",
+          "name": "Sense Control - Magnitude"
+        },
+        {
           "id": "force-sense-range",
           "name": "Sense - Range"
         },
         {
-          "id": "force-sense-danger",
-          "name": "Sense Danger"
+          "id": "force-sense-strength",
+          "name": "Sense - Strength"
         },
         {
           "id": "force-sense-emotions",
@@ -8208,6 +8560,10 @@
         {
           "id": "hard-headed-improved",
           "name": "hard-headed-improved"
+        },
+        {
+          "id": "heavy-hitter",
+          "name": "Heavy Hitter"
         },
         {
           "id": "heightened-awareness",
@@ -8298,12 +8654,20 @@
           "name": "lets-ride"
         },
         {
+          "id": "loom",
+          "name": "Master Grenadier"
+        },
+        {
           "id": "magnitude",
           "name": "magnitude"
         },
         {
           "id": "master-doctor",
           "name": "master-doctor"
+        },
+        {
+          "id": "master-grenadier",
+          "name": "Master Grenadier"
         },
         {
           "id": "master-merchant",
@@ -8402,6 +8766,10 @@
           "name": "point-blank"
         },
         {
+          "id": "powerful-blast",
+          "name": "Powerful Blast"
+        },
+        {
           "id": "precise-aim",
           "name": "precise-aim"
         },
@@ -8416,6 +8784,10 @@
         {
           "id": "quick-strike",
           "name": "quick-strike"
+        },
+        {
+          "id": "raind-of-death",
+          "name": "Rain of Death"
         },
         {
           "id": "rapid-reaction",
@@ -8456,6 +8828,10 @@
         {
           "id": "second-wind",
           "name": "second-wind"
+        },
+        {
+          "id": "selective-detonation",
+          "name": "Selective Detonation"
         },
         {
           "id": "shortcut",
@@ -8506,6 +8882,10 @@
           "name": "stalker"
         },
         {
+          "id": "steady-nerves",
+          "name": "Steady Nerves"
+        },
+        {
           "id": "steely-nerved",
           "name": "steely-nerved"
         },
@@ -8524,10 +8904,6 @@
         {
           "id": "street-smarts",
           "name": "street-smarts"
-        },
-        {
-          "id": "force-sense-strength",
-          "name": "Sense - Strength"
         },
         {
           "id": "stroke-of-genius",
@@ -8558,12 +8934,24 @@
           "name": "swift"
         },
         {
+          "id": "talk-the-talk",
+          "name": "Talk the Talk"
+        },
+        {
           "id": "targeted-blow",
           "name": "targeted-blow"
         },
         {
           "id": "technical-aptitude",
           "name": "technical-aptitude"
+        },
+        {
+          "id": "time-to-go",
+          "name": "Time to Go"
+        },
+        {
+          "id": "time-to-go-improved",
+          "name": "Improved Time to Go"
         },
         {
           "id": "tinkerer",
