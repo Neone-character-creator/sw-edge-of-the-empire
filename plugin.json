@@ -1548,6 +1548,7 @@
           {
             "name": "speciesBonusSkillChoices",
             "type": "container",
+            "hiddenWhen": "# _.isEmpty(_.get($state, 'character.species.startingSkillsChoices'))",
             "children": [
               {
                 "name": "speciesBonusSkillChoices",
@@ -1567,15 +1568,15 @@
                       {
                         "name": "speciesBonusSkillChoiceCount",
                         "type": "label",
-                        "text": "# `Choose ${$this.choices}`"
+                        "text": "# `Choose ` + $state.character.species.startingSkillsChoices[$index].choices"
                       },
                       {
                         "name": "speciesBonusSkillChoiceOptions",
                         "type": "select",
-                        "bind": "# `$state.character.species.startingSkillChoices[${$index}].selected`",
+                        "bind": "# `$state.character.species.startingSkillsChoices[${$index}].selected`",
                         "items": {
-                          "maxSelections": "# $this.choices",
-                          "values": "# $this.options"
+                          "maxSelections": "# $state.character.species.startingSkillsChoices[$index].choices",
+                          "values": "# $state.character.species.startingSkillsChoices[$index].options"
                         }
                       }
                     ]
@@ -1587,12 +1588,14 @@
           {
             "name": "speciesNonCareerSkillChoices",
             "type": "label",
-            "text": "# `Non-Skill Choices (choose ${_.get($state,'character.species.startingNonCareerSkillChoices', 0)})`"
+            "hiddenWhen": "# _.get($state, 'character.species.startingNonCareerSkillChoices', 0) <= 0",
+            "text": "# `Non-Career Skill Choices (choose ${_.get($state,'character.species.startingNonCareerSkillChoices', 0)})`"
           },
           {
             "name": "speciesNonCareerSkillChoices",
             "type": "select",
             "bind": "$state.character.humanBonusSkills",
+            "hiddenWhen": "# _.get($state, 'character.species.startingNonCareerSkillChoices', 0) <= 0",
             "items": {
               "maxSelections": "# _.get($state, 'character.species.startingNonCareerSkillChoices', 0)",
               "values": "# Object.keys($state.character.skills).filter(s => !$state.character.skills[s].isCareerSkill)"
@@ -1643,7 +1646,7 @@
                 "text": "# `Specialization Starting Skills (Choose ${_.get($state, 'character.species.startingCareerSkillChoices', 4)})`"
               },
               {
-                "name": "specializationStartingSkillChoices",
+                "name": "specializationstartingSkillsChoices",
                 "type": "select",
                 "bind": "$state.character.careerStartingSkills",
                 "items": {
@@ -2150,7 +2153,7 @@
           "type": "number",
           "derivedFrom": [
             "# $state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.path[2]) ? 1 : 0",
-            "# $this.accumulator + _.flatMap(_.get($state, 'character.species.startingSkillChoices', []).map(ssc => ssc.selected)).map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0;",
+            "# $this.accumulator + _.flatMap(_.get($state, 'character.species.startingSkillsChoices', []).map(ssc => ssc.selected)).filter(x => x).map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0;",
             "# $this.accumulator + $state.character.species.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
             "# $this.accumulator + $state.character.careerStartingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0"
           ]
@@ -2567,7 +2570,7 @@
           "startingSkills": [
             "Brawl"
           ],
-          "startingSkillChoices": [
+          "startingSkillsChoices": [
             {
               "options": [
                 "Survival",
@@ -3065,7 +3068,11 @@
               "name": "Cyborg",
               "description": "All Ganks are cyborgs and each one often possesses several different cybernetic implants. A Gank beings play with up to two cybernetics that cost a total of up to 5,000 credits. If the character takes on additional Obligation for credits at character creation, he may apply these extra funds to the 5,000 credit budgest to purchase cybernetics. Ganks have a cybernetic implant cap of 3 plus Brawn rating."
             }
-          ]
+          ],
+          "bonudCybernetics": {
+            "choices": 2,
+            "maxTotalCost": 5000
+          }
         },
         {
           "name": "Nikto - Red",
