@@ -3412,7 +3412,10 @@
           "specializations": [
             "Doctor",
             "Politico",
-            "Scholar"
+            "Scholar",
+            "Performer",
+            "Marshal",
+            "Entrepreneur"
           ]
         },
         {
@@ -9123,6 +9126,631 @@
                 "advancements": [
                   "driver-16",
                   "driver-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Entrepreneur",
+          "careerSkills": [
+            "Discipline",
+            "Knowledge - Education",
+            "Knowledge - Underworld",
+            "Negotiation"
+          ],
+          "talents": [
+            {
+              "id": "entrepreneur-1",
+              "value": "sound-investments",
+              "tier": 1
+            },
+            {
+              "id": "entrepreneur-2",
+              "value": "plausible-deniability",
+              "tier": 1
+            },
+            {
+              "id": "entrepreneur-3",
+              "value": "rapid-recovery",
+              "tier": 1
+            },
+            {
+              "id": "entrepreneur-4",
+              "value": "grit",
+              "tier": 1
+            },
+            {
+              "id": "entrepreneur-5",
+              "value": "rapid-recovery",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-1",
+                  "entrepreneus-6",
+                  "entrepreneus-9"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-6",
+              "value": "wheel-and-deal",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-5",
+                  "entrepreneus-10"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-7",
+              "value": "sound-investments",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-3",
+                  "entrepreneus-8"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-8",
+              "value": "wheel-and-deal",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-7",
+                  "entrepreneus-12"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-9",
+              "value": "greased-palms",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-5",
+                  "entrepreneus-10"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-10",
+              "value": "wheel-and-deal",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-6",
+                  "entrepreneus-9"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-11",
+              "value": "bought-info",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-7",
+                  "entrepreneus-12"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-12",
+              "value": "sound-investments",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-8",
+                  "entrepreneus-11"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-13",
+              "value": "sound-investments",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-9",
+                  "entrepreneus-14",
+                  "entrepreneur-17"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-14",
+              "value": "toughened",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-13",
+                  "entrepreneus-18"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-15",
+              "value": "master-merchant",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-16",
+                  "entrepreneus-19"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-16",
+              "value": "know-somebody",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-6",
+                  "entrepreneus-9"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-17",
+              "value": "natural-merchant",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-13",
+                  "entrepreneus-18"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-18",
+              "value": "intense-focus",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-14",
+                  "entrepreneus-17",
+                  "entrepreneur-19"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-19",
+              "value": "dedication",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-18",
+                  "entrepreneur-20"
+                ]
+              }
+            },
+            {
+              "id": "entrepreneur-20",
+              "value": "sound-investments",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "entrepreneur-16",
+                  "entrepreneus-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Marshal",
+          "careerSkills": [
+            "Coercion",
+            "Knowledge - Underworld",
+            "Ranged - Light",
+            "Vigilence"
+          ],
+          "talents": [
+            {
+              "id": "marshal-1",
+              "tier": 1,
+              "value": "hard-headed"
+            },
+            {
+              "id": "marshal-2",
+              "tier": 1,
+              "value": "grit"
+            },
+            {
+              "id": "marshal-3",
+              "tier": 1,
+              "value": "street-smarts"
+            },
+            {
+              "id": "marshal-4",
+              "tier": 1,
+              "value": "toughened"
+            },
+            {
+              "id": "marshal-5",
+              "tier": 2,
+              "value": "durable",
+              "requires": {
+                "advancements": [
+                  "marshal-6",
+                  "marshal-9"
+                ]
+              }
+            },
+            {
+              "id": "marshal-6",
+              "tier": 2,
+              "value": "good-cop",
+              "requires": {
+                "advancements": [
+                  "marshal-2",
+                  "marshal-5",
+                  "marshal-7",
+                  "marshal-10"
+                ]
+              }
+            },
+            {
+              "id": "marshal-7",
+              "tier": 2,
+              "value": "bad-cop",
+              "requires": {
+                "advancements": [
+                  "marshal-3",
+                  "marshal-6",
+                  "marshal-8",
+                  "marshal-11"
+                ]
+              }
+            },
+            {
+              "id": "marshal-8",
+              "tier": 2,
+              "value": "quick-draw",
+              "requires": {
+                "advancements": [
+                  "marshal-7",
+                  "marshal-12"
+                ]
+              }
+            },
+            {
+              "id": "marshal-9",
+              "tier": 3,
+              "value": "hard-headed",
+              "requires": {
+                "advancements": [
+                  "marshal-5",
+                  "marshal-13"
+                ]
+              }
+            },
+            {
+              "id": "marshal-10",
+              "tier": 3,
+              "value": "grit",
+              "requires": {
+                "advancements": [
+                  "marshal-6",
+                  "marshal-11",
+                  "marshal-14"
+                ]
+              }
+            },
+            {
+              "id": "marshal-11",
+              "tier": 3,
+              "value": "good-cop",
+              "requires": {
+                "advancements": [
+                  "marshal-7",
+                  "marshal-10",
+                  "marshal-15"
+                ]
+              }
+            },
+            {
+              "id": "marshal-12",
+              "tier": 3,
+              "value": "point-blank",
+              "requires": {
+                "advancements": [
+                  "marshal-8",
+                  "marshal-16"
+                ]
+              }
+            },
+            {
+              "id": "marshal-13",
+              "tier": 4,
+              "value": "durable",
+              "requires": {
+                "advancements": [
+                  "marshal-9",
+                  "marshal-17"
+                ]
+              }
+            },
+            {
+              "id": "marshal-14",
+              "tier": 4,
+              "value": "unrelenting-skeptic",
+              "requires": {
+                "advancements": [
+                  "marshal-10",
+                  "marshal-15",
+                  "marshal-18"
+                ]
+              }
+            },
+            {
+              "id": "marshal-15",
+              "tier": 4,
+              "value": "bad-cop",
+              "requires": {
+                "advancements": [
+                  "marshal-11",
+                  "marshal-14"
+                ]
+              }
+            },
+            {
+              "id": "marshal-16",
+              "tier": 4,
+              "value": "point-blank",
+              "requires": {
+                "advancements": [
+                  "marshal-12"
+                ]
+              }
+            },
+            {
+              "id": "marshal-17",
+              "tier": 5,
+              "value": "hard-headed-improved",
+              "requires": {
+                "advancements": [
+                  "marshal-13"
+                ]
+              }
+            },
+            {
+              "id": "marshal-18",
+              "tier": "unrelenting-skeptic-improved",
+              "value": "durable",
+              "requires": {
+                "advancements": [
+                  "marshal-14"
+                ]
+              }
+            },
+            {
+              "id": "marshal-19",
+              "tier": 5,
+              "value": "dedication",
+              "requires": {
+                "advancements": [
+                  "marshal-18"
+                ]
+              }
+            },
+            {
+              "id": "marshal-20",
+              "tier": 5,
+              "value": "natural-marksman",
+              "requires": {
+                "advancements": [
+                  "marshal-16"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Performer",
+          "careerSkills": [
+            "Charm",
+            "Coordination",
+            "Deception",
+            "Melee"
+          ],
+          "talents": [
+            {
+              "id": "performer-1",
+              "value": "smooth-talker",
+              "tier": 1
+            },
+            {
+              "id": "performer-2",
+              "value": "kill-with-kindness",
+              "tier": 1
+            },
+            {
+              "id": "performer-3",
+              "value": "distracting-behavior",
+              "tier": 1
+            },
+            {
+              "id": "performer-4",
+              "value": "convincing-demeanor",
+              "tier": 1
+            },
+            {
+              "id": "performer-5",
+              "value": "distracting-behavior",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "performer-6",
+                  "performer-9"
+                ]
+              }
+            },
+            {
+              "id": "performer-6",
+              "value": "congenial",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "performer-2",
+                  "performer-5",
+                  "performer-7",
+                  "performer-10"
+                ]
+              }
+            },
+            {
+              "id": "performer-7",
+              "value": "dodge",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "performer-9",
+                  "performer-6",
+                  "performer-8",
+                  "performer-11"
+                ]
+              }
+            },
+            {
+              "id": "performer-8",
+              "value": "jump-up",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "performer-7"
+                ]
+              }
+            },
+            {
+              "id": "performer-9",
+              "value": "distracting-behavior",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "performer-5",
+                  "performer-10",
+                  "performer-13"
+                ]
+              }
+            },
+            {
+              "id": "performer-10",
+              "value": "intense-presence",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "performer-6",
+                  "performer-9"
+                ]
+              }
+            },
+            {
+              "id": "performer-11",
+              "value": "natural-athlete",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "performer-7",
+                  "performer-12",
+                  "performer-15"
+                ]
+              }
+            },
+            {
+              "id": "performer-12",
+              "value": "second-wind",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "performer-11",
+                  "performer-16"
+                ]
+              }
+            },
+            {
+              "id": "performer-13",
+              "value": "smooth-talker",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "performer-9"
+                ]
+              }
+            },
+            {
+              "id": "performer-14",
+              "value": "distracting-behavior-improved",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "performer-13"
+                ]
+              }
+            },
+            {
+              "id": "performer-15",
+              "value": "grit",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "performer-11",
+                  "performer-16"
+                ]
+              }
+            },
+            {
+              "id": "performer-16",
+              "value": "toughened",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "performer-12",
+                  "performer-15"
+                ]
+              }
+            },
+            {
+              "id": "performer-17",
+              "value": "biggest-fan",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "performer-13"
+                ]
+              }
+            },
+            {
+              "id": "performer-18",
+              "value": "deceptive-taunt",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "performer-14"
+                ]
+              }
+            },
+            {
+              "id": "performer-19",
+              "value": "coordination-dodge",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "performer-15"
+                ]
+              }
+            },
+            {
+              "id": "performer-20",
+              "value": "dedication",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "performer-16"
                 ]
               }
             }
