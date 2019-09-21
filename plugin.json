@@ -1877,7 +1877,8 @@
         "characteristics": "characteristics",
         "skills": "skills",
         "advancements": "[advancement]",
-        "weapons": {"type": "[weapon]",
+        "weapons": {
+          "type": "[weapon]",
           "baseValue": [
             "# _.get($state, 'character.species.naturalWeapons', [])"
           ]
@@ -7952,82 +7953,177 @@
             {
               "id": "enforcer-5",
               "value": "durable",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "enforcer-1"
+                ]
+              }
             },
             {
               "id": "enforcer-6",
               "value": "stunning-blow",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "enforcer-2",
+                  "enforcer-7",
+                  "enforcer-10"
+                ]
+              }
             },
             {
               "id": "enforcer-7",
               "value": "natural-enforcer",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "enforcer-6",
+                  "enforcer-8"
+                ]
+              }
             },
             {
               "id": "enforcer-8",
               "value": "talk-the-talk",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "enforcer-4",
+                  "enforcer-7",
+                  "enforcer-12"
+                ]
+              }
             },
             {
               "id": "enforcer-9",
               "value": "intimidating",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "enforcer-10"
+                ]
+              }
             },
             {
               "id": "enforcer-10",
               "value": "defensive-stance",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "enforcer-6",
+                  "enforcer-14"
+                ]
+              }
             },
             {
               "id": "enforcer-11",
               "value": "toughened",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "enforcer-10"
+                ]
+              }
             },
             {
               "id": "enforcer-12",
               "value": "loom",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "enforcer-8",
+                  "enforcer-16"
+                ]
+              }
             },
             {
               "id": "enforcer-13",
               "value": "second-wind",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "enforcer-14",
+                  "enforcer-17"
+                ]
+              }
             },
             {
               "id": "enforcer-14",
               "value": "street-smarts",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "enforcer-10",
+                  "enforcer-13",
+                  "enforcer-15"
+                ]
+              }
             },
             {
               "id": "enforcer-15",
               "value": "walk-the-walk",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "enforcer-14"
+                ]
+              }
             },
             {
               "id": "enforcer-16",
               "value": "intimidating",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "enforcer-12",
+                  "enforcer-20"
+                ]
+              }
             },
             {
               "id": "enforcer-17",
               "value": "fearsome",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "enforcer-13",
+                  "enforcer-18"
+                ]
+              }
             },
             {
               "id": "enforcer-18",
               "value": "dedication",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "enforcer-17",
+                  "enforcer-19"
+                ]
+              }
             },
             {
               "id": "enforcer-19",
               "value": "black-market-contacts",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "enforcer-18",
+                  "enforcer-20"
+                ]
+              }
             },
             {
               "id": "enforcer-20",
               "value": "fearsome",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "enforcer-16",
+                  "enforcer-19"
+                ]
+              }
             }
           ]
         },
@@ -8063,82 +8159,175 @@
             {
               "id": "demolitionist-5",
               "value": "toughened",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "demolitionist-1"
+                ]
+              }
             },
             {
               "id": "demolitionist-6",
               "value": "time-to-go",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "demolitionist-2"
+                ]
+              }
             },
             {
               "id": "demolitionist-7",
               "value": "powerful-blast",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "demolitionist-8",
+                  "demolitionist-11"
+                ]
+              }
             },
             {
               "id": "demolitionist-8",
               "value": "grit",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "demolitionist-4",
+                  "demolitionist-7",
+                  "demolitionist-12"
+                ]
+              }
             },
             {
               "id": "demolitionist-9",
               "value": "enduring",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "demolitionist-5",
+                  "demolitionist-13"
+                ]
+              }
             },
             {
               "id": "demolitionist-10",
               "value": "time-to-go-improved",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "demolitionist-6"
+                ]
+              }
             },
             {
               "id": "demolitionist-11",
               "value": "steady-nerves",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "demolitionist-12",
+                  "demolitionist-15"
+                ]
+              }
             },
             {
               "id": "demolitionist-12",
               "value": "rapid-reaction",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "demolitionist-8",
+                  "demolitionist-16"
+                ]
+              }
             },
             {
               "id": "demolitionist-13",
               "value": "detonation-improved",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "demolitionist-9",
+                  "demolitionist-14"
+                ]
+              }
             },
             {
               "id": "demolitionist-14",
               "value": "powerful-blast",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "demolitionist-13",
+                  "demolitionist-15"
+                ]
+              }
             },
             {
               "id": "demolitionist-15",
               "value": "grit",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "demolitionist-11",
+                  "demolitionist-14",
+                  "demolitionist-16",
+                  "demolitionist-19"
+                ]
+              }
             },
             {
               "id": "demolitionist-16",
               "value": "selective-detonation",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "demolitionist-12",
+                  "demolitionist-15",
+                  "demolitionist-20"
+                ]
+              }
             },
             {
               "id": "demolitionist-17",
               "value": "improvised-detonation-improved",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "demolitionist-13"
+                ]
+              }
             },
             {
               "id": "demolitionist-18",
               "value": "dedication",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "demolitionist-19"
+                ]
+              }
             },
             {
               "id": "demolitionist-19",
               "value": "master-grenadier",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "demolitionist-15"
+                ]
+              }
             },
             {
               "id": "demolitionist-20",
               "value": "selective-detonation",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "demolitionist-19"
+                ]
+              }
             }
           ]
         },
@@ -8174,82 +8363,768 @@
             {
               "id": "heavy-5",
               "value": "barrage",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "heavy-1",
+                  "heavy-6"
+                ]
+              }
             },
             {
               "id": "heavy-6",
               "value": "brace",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "heavy-2",
+                  "heavy-5",
+                  "heavy-7",
+                  "heavy-10"
+                ]
+              }
             },
             {
               "id": "heavy-7",
               "value": "spare-clip",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "heavy-6"
+                ]
+              }
             },
             {
               "id": "heavy-8",
               "value": "durable",
-              "tier": 2
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "heavy-1",
+                  "heavy-12"
+                ]
+              }
             },
             {
               "id": "heavy-9",
               "value": "spare-clip",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "heavy-13"
+                ]
+              }
             },
             {
               "id": "heavy-10",
               "value": "burly",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "heavy-6",
+                  "heavy-14"
+                ]
+              }
             },
             {
               "id": "heavy-11",
               "value": "heroic-fortitude",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "heavy-12"
+                ]
+              }
             },
             {
               "id": "heavy-12",
               "value": "toughened",
-              "tier": 3
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "heavy-8"
+                ]
+              }
             },
             {
               "id": "heavy-13",
               "value": "brace",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "heavy-14"
+                ]
+              }
             },
             {
               "id": "heavy-14",
               "value": "barrage",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "heavy-10"
+                ]
+              }
             },
             {
               "id": "heavy-15",
               "value": "rain-of-death",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "heavy-19"
+                ]
+              }
             },
             {
               "id": "heavy-16",
               "value": "heroic-resilience",
-              "tier": 4
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "heavy-12"
+                ]
+              }
             },
             {
               "id": "heavy-17",
               "value": "burly",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "heavy-13"
+                ]
+              }
             },
             {
               "id": "heavy-18",
               "value": "dedication",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "heavy-17"
+                ]
+              }
             },
             {
               "id": "heavy-19",
               "value": "armor-master",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "heavy-18"
+                ]
+              }
             },
             {
               "id": "heavy-20",
               "value": "heavy-hitter",
-              "tier": 5
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "heavy-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Archaeologist",
+          "careerSkills": [
+            "Athletics",
+            "Discipline",
+            "Knowledge - Education",
+            "Knowledge - Lore"
+          ],
+          "talents": [
+            {
+              "id": "archaeologist-1",
+              "value": "well-rounded"
+            },
+            {
+              "id": "archaeologist-2",
+              "value": "hard-headed"
+            },
+            {
+              "id": "archaeologist-3",
+              "value": "researcher"
+            },
+            {
+              "id": "archaeologist-4",
+              "value": "grit"
+            },
+            {
+              "id": "archaeologist-5",
+              "value": "durable",
+              "requires": {
+                "advancements": [
+                  "archaeologist-6",
+                  "archaeologist-9"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-6",
+              "value": "toughened",
+              "requires": {
+                "advancements": [
+                  "archaeologist-2",
+                  "archaeologist-5",
+                  "archaeologist-7"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-7",
+              "value": "resolve",
+              "requires": {
+                "advancements": [
+                  "archaeologist-3",
+                  "archaeologist-6",
+                  "archaeologist-8"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-8",
+              "value": "knowledge-specialization",
+              "requires": {
+                "advancements": [
+                  "archaeologist-3",
+                  "archaeologist-7",
+                  "archaeologist-12"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-9",
+              "value": "stunning-blow",
+              "requires": {
+                "advancements": [
+                  "archaeologist-5",
+                  "archaeologist-13"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-10',",
+              "value": "knockdown",
+              "requires": {
+                "advancements": [
+                  "archaeologist-9"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-11",
+              "value": "respected-scholar",
+              "requires": {
+                "advancements": [
+                  "archaeologist-15"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-12",
+              "value": "researcher",
+              "requires": {
+                "advancements": [
+                  "archaeologist-8",
+                  "archaeologist-16"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-13",
+              "value": "hard-headed",
+              "requires": {
+                "advancements": [
+                  "archaeologist-8",
+                  "archaeologist-14",
+                  "archaeologist-17"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-14",
+              "value": "enduring",
+              "requires": {
+                "advancements": [
+                  "archaeologist-13",
+                  "archaeologist-15",
+                  "archaeologist-18"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-15",
+              "value": "grit",
+              "requires": {
+                "advancements": [
+                  "archaeologist-14",
+                  "archaeologist-16",
+                  "archaeologist-19"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-16",
+              "value": "knowledge-specialization",
+              "requires": {
+                "advancements": [
+                  "archaeologist-15"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-17",
+              "value": "pin",
+              "requires": {
+                "advancements": [
+                  "archaeologist-12",
+                  "archaeologist-18"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-18",
+              "value": "dedication",
+              "requires": {
+                "advancements": [
+                  "archaeologist-14",
+                  "archaeologist-17",
+                  "archaeologist019"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-19",
+              "value": "respected-scholar",
+              "requires": {
+                "advancements": [
+                  "archaeologist-15",
+                  "archaeologist-18",
+                  "archaeologist-20"
+                ]
+              }
+            },
+            {
+              "id": "archaeologist-20",
+              "value": "museum-worthy",
+              "requires": {
+                "advancements": [
+                  "archaeologist-16",
+                  "archaeologist-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Big-Game Hunter",
+          "careerSkills": [
+            "Knowledge - Xenology",
+            "Ranged - Heavy",
+            "Stealth",
+            "Survival"
+          ],
+          "talents": [
+            {
+              "id": "big-game-hunter-1",
+              "value": "forager",
+              "tier": 1
+            },
+            {
+              "id": "big-game-hunter-2",
+              "value": "grit",
+              "tier": 1
+            },
+            {
+              "id": "big-game-hunter-3",
+              "value": "stalker",
+              "tier": 1
+            },
+            {
+              "id": "big-game-hunter-4",
+              "value": "outdoorsman",
+              "tier": 1
+            },
+            {
+              "id": "big-game-hunter-5",
+              "value": "toughened",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-1",
+                  "big-game-hunter-6"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-6",
+              "value": "outdoorsman",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-5",
+                  "big-game-hunter-7"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-7",
+              "value": "confidence",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-3",
+                  "big-game-hunter-6"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-8",
+              "value": "swift",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-4"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-9",
+              "value": "stalker",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-5"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-10",
+              "value": "natural-hunter",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-11"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-11",
+              "value": "expert-tracker",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-7",
+                  "big-game-hunter-10",
+                  "big-game-hunter-12",
+                  "big-game-hunter-15"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-12",
+              "value": "heightened-awareness",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-7",
+                  "big-game-hunter-10",
+                  "big-game-hunter-12",
+                  "big-game-hunter-15"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-13",
+              "value": "grit",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-14"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-14",
+              "value": "hunters-quarry",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-15"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-15",
+              "value": "quick-strike",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-11"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-16",
+              "value": "expert-tracker",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-14"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-17",
+              "value": "bring-it-down",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-13"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-18",
+              "value": "hunters-quarry-improved",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-14"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-19",
+              "value": "dedication",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-15",
+                  "big-game-hunter-20"
+                ]
+              }
+            },
+            {
+              "id": "big-game-hunter-20",
+              "value": "superior-reflexes",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "big-game-hunter-16",
+                  "big-game-hunter-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Driver",
+          "careerSkills": [
+            "Cool",
+            "Gunnery",
+            "Mechanics",
+            "Piloting - Planetary"
+          ],
+          "talents": [
+            {
+              "id": "driver-1",
+              "value": "full-throttle",
+              "tier": 1
+            },
+            {
+              "id": "driver-2",
+              "value": "all-terrain-driver",
+              "tier": 1
+            },
+            {
+              "id": "driver-3",
+              "value": "fine-tuning",
+              "tier": 1
+            },
+            {
+              "id": "driver-4",
+              "value": "gearhead",
+              "tier": 1
+            },
+            {
+              "id": "driver-5",
+              "value": "grit",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "driver-1",
+                  "driver-6",
+                  "driver-9"
+                ]
+              }
+            },
+            {
+              "id": "driver-6",
+              "value": "skilled-jockey",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "driver-5",
+                  "driver-7"
+                ]
+              }
+            },
+            {
+              "id": "driver-7",
+              "value": "rapid-reaction",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "driver-6",
+                  "driver-8"
+                ]
+              }
+            },
+            {
+              "id": "driver-8",
+              "value": "grit",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "driver-4",
+                  "driver-7"
+                ]
+              }
+            },
+            {
+              "id": "driver-9",
+              "value": "full-throttle-improved",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "driver-5",
+                  "driver-13"
+                ]
+              }
+            },
+            {
+              "id": "driver-10",
+              "value": "tricky-target",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "driver-6"
+                ]
+              }
+            },
+            {
+              "id": "driver-11",
+              "value": "fine-tuning",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "driver-12"
+                ]
+              }
+            },
+            {
+              "id": "driver-12",
+              "value": "toughened",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "driver-8",
+                  "driver-16"
+                ]
+              }
+            },
+            {
+              "id": "driver-13",
+              "value": "defensive-driving",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "driver-9",
+                  "driver-17"
+                ]
+              }
+            },
+            {
+              "id": "driver-14",
+              "value": "skilled-jockey",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "driver-13"
+                ]
+              }
+            },
+            {
+              "id": "driver-15",
+              "value": "natural-driver",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "driver-1",
+                  "driver-6",
+                  "driver-9"
+                ]
+              }
+            },
+            {
+              "id": "driver-16",
+              "value": "gearhead",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "driver-12",
+                  "driver-20"
+                ]
+              }
+            },
+            {
+              "id": "driver-17",
+              "value": "full-throttle-supreme",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "driver-13",
+                  "driver-18"
+                ]
+              }
+            },
+            {
+              "id": "driver-18",
+              "value": "full-stop",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "driver-17",
+                  "driver-19"
+                ]
+              }
+            },
+            {
+              "id": "driver-19",
+              "value": "master-driver",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "driver-18",
+                  "driver-20"
+                ]
+              }
+            },
+            {
+              "id": "driver-20",
+              "value": "dedication",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "driver-16",
+                  "driver-19"
+                ]
+              }
             }
           ]
         }
