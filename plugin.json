@@ -3375,7 +3375,7 @@
       "properties": {
         "name": "string",
         "careerSkills": "[string]",
-        "specializations": "[specialization]"
+        "specializations": "[string]"
       },
       "values": [
         {
@@ -3394,7 +3394,8 @@
           "specializations": [
             "Assassin",
             "Gadgeteer",
-            "Survivalist"
+            "Survivalist",
+            "Martial Artist"
           ]
         },
         {
@@ -10044,7 +10045,8 @@
                   "gambler-12"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-9",
               "value": "second-chances",
               "tier": 3,
@@ -10054,7 +10056,8 @@
                   "gambler-13"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-10",
               "value": "convincing-demeanor",
               "tier": 3,
@@ -10064,7 +10067,8 @@
                   "gambler-14"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-11",
               "value": "fortune-favors-the-bold",
               "tier": 3,
@@ -10073,7 +10077,8 @@
                   "gambler-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-12",
               "value": "natural-rogue",
               "tier": 3,
@@ -10083,7 +10088,8 @@
                   "gambler-16"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-13",
               "value": "up-the-ante",
               "tier": 4,
@@ -10093,7 +10099,8 @@
                   "gambler-17"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-14",
               "value": "up-the-ante",
               "tier": 4,
@@ -10103,7 +10110,8 @@
                   "gambler-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-15",
               "value": "clever-solution",
               "tier": 4,
@@ -10113,7 +10121,8 @@
                   "gambler-16"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-16",
               "value": "second-chances",
               "tier": 4,
@@ -10124,7 +10133,8 @@
                   "gambler-20"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-17",
               "value": "double-or-nothing",
               "tier": 5,
@@ -10134,7 +10144,8 @@
                   "gambler-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-18",
               "value": "smooth-talker",
               "tier": 5,
@@ -10144,7 +10155,8 @@
                   "gambler-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-19",
               "value": "natural-negotiator",
               "tier": 5,
@@ -10154,7 +10166,8 @@
                   "gambler-20"
                 ]
               }
-            },{
+            },
+            {
               "id": "gambler-20",
               "value": "double-or-nothing-improved",
               "tier": 3,
@@ -10180,24 +10193,28 @@
               "id": "gunslinger-1",
               "value": "grit",
               "tier": 1
-            },{
+            },
+            {
               "id": "gunslinger-2",
               "value": "quick-strike",
               "tier": 1
-            },{
+            },
+            {
               "id": "gunslinger-3",
               "value": "rapid-reaction",
               "tier": 1
-            },{
+            },
+            {
               "id": "gunslinger-4",
               "value": "quick-draw",
               "tier": 1
-            },{
+            },
+            {
               "id": "gunslinger-5",
               "value": "lethal-blows",
               "tier": 2,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-1",
                   "gunslinger-9"
                 ]
@@ -10208,151 +10225,772 @@
               "value": "grit",
               "tier": 2,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-2",
                   "gunslinger-10"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-7",
               "value": "quick-strike",
               "tier": 2,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-3",
                   "gunslinger-11"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-8",
               "value": "quick-draw-improved",
               "tier": 2,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-4",
                   "gunslinger-12"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-9",
               "value": "toughened",
               "tier": 3,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-5",
                   "gunslinger-13"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-10",
               "value": "call-em",
               "tier": 3,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-6",
                   "gunslinger-11",
                   "gunslinger-14"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-11",
               "value": "dodge",
               "tier": 3,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-7",
                   "gunslinger-10",
                   "gunslinger-12"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-12",
               "value": "sorry-about-the-mess",
               "tier": 3,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-8",
                   "gunslinger-11",
                   "gunslinger-16"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-13",
               "value": "confidence",
               "tier": 4,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-9",
                   "gunslinger-14"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-14",
               "value": "lethal-blows",
               "tier": 4,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-10",
                   "gunslinger-13",
                   "gunslinger-15",
                   "gunslinger-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-15",
               "value": "guns-blazing",
               "tier": 3,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-8",
                   "gunslinger-11",
                   "gunslinger-16"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-16",
               "value": "rapid-reaction",
               "tier": 3,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-12",
                   "gunslinger-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-17",
               "value": "dedication",
               "tier": 5,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-18",
               "value": "spitfire",
               "tier": 5,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-14"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-19",
               "value": "natural-marksman",
               "tier": 5,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "gunslinger-20",
               "value": "deadly-accuracy",
               "tier": 5,
               "requires": {
-                "advancements":[
+                "advancements": [
                   "gunslinger-18"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Martial Artist",
+          "careerSkills": [
+            "Athletics",
+            "Brawl",
+            "Coordination",
+            "Discipline"
+          ],
+          "talents": [
+            {
+              "id": "martial-artist-1",
+              "value": "iron-body",
+              "tier": 1
+            },
+            {
+              "id": "martial-artist-2",
+              "value": "parry",
+              "tier": 1
+            },
+            {
+              "id": "martial-artist-3",
+              "value": "grit",
+              "tier": 1
+            },
+            {
+              "id": "martial-artist-4",
+              "value": "precision-strike",
+              "tier": 1
+            },
+            {
+              "id": "martial-artist-5",
+              "value": "parry",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "martial-artist-1",
+                  "martial-artist-6",
+                  "martial-artist-9"
+                ]
+              }
+            },
+            {
+              "id": "martial-artist-6",
+              "value": "toughened",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "martial-artist-5",
+                  "martial-artist-7",
+                  "martial-artist-10"
+                ]
+              }
+            },
+            {
+              "id": "martial-artist-7",
+              "value": "martial-grace",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "martial-artist-1",
+                  "martial-artist-6",
+                  "martial-artist-9"
+                ]
+              }
+            },
+            {
+              "id": "martial-artist-8",
+              "value": "grit",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "martial-artist-4",
+                  "martial-artist-7"
+                ]
+              }
+            },
+            {
+              "id": "martial-artist-9",
+              "value": "unarmed-parry",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "martial-artist-5",
+                  "martial-artist-10"
+                ]
+              }
+            },
+            {
+              "id": "martial-artist-10",
+              "value": "grapple",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "martial-artist-6",
+                  "martial-artist-9",
+                  "martial-artist-11",
+                  "martial-artist-14"
+                ]
+              }
+            },
+            {
+              "id": "martial-artist-11",
+              "value": "iron-body",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "martial-artist-7",
+                  "martial-artist-10",
+                  "martial-artist-12",
+                  "martial-artist-15"
+                ]
+              }
+            },{
+              "id": "martial-artist-12",
+              "value": "precision-strike-improved",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "martial-artist-11",
+                  "martial-artist-16"
+                ]
+              }
+            },{
+              "id": "martial-artist-13",
+              "value": "overbalance",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "martial-artist-9"
+                ]
+              }
+            },{
+              "id": "martial-artist-14",
+              "value": "toughened",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "martial-artist-10",
+                  "martial-artist-15",
+                  "martial-artist-18"
+                ]
+              }
+            },{
+              "id": "martial-artist-15",
+              "value": "mind-over-matter",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "martial-artist-11",
+                  "martial-artist-14"
+                ]
+              }
+            },{
+              "id": "martial-artist-16",
+              "value": "grit",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "martial-artist-12"
+                ]
+              }
+            },{
+              "id": "martial-artist-17",
+              "value": "coordination-dodge",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "martial-artist-18"
+                ]
+              }
+            },{
+              "id": "martial-artist-18",
+              "value": "dedication",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "martial-artist-14"
+                ]
+              }
+            },{
+              "id": "martial-artist-19",
+              "value": "natural-brawler",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "martial-artist-1",
+                  "martial-artist-6",
+                  "martial-artist-9"
+                ]
+              }
+            },{
+              "id": "martial-artist-20",
+              "value": "precision-strike-supreme",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "martial-artist-19"
+                ]
+              }
+            }
+          ]
+        },{
+          "name": "Operator",
+          "careerSkills": [
+            "Astrogation",
+            "Gunnery",
+            "Piloting - Planetary",
+            "Piloting - Space"
+          ],
+          "talents": [
+            {
+              "id": "operator-1",
+              "value": "grit",
+              "tier": 1
+            },{
+              "id": "operator-2",
+              "value": "galaxy-mapper",
+              "tier": 1
+            },{
+              "id": "operator-3",
+              "value": "shortcut",
+              "tier": 1
+            },{
+              "id": "operator-4",
+              "value": "overwhelm-defenses",
+              "tier": 1
+            },{
+              "id": "operator-5",
+              "value": "full-throttle",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "operator-1",
+                  "operator-6",
+                  "operator-9"
+                ]
+              }
+            },{
+              "id": "operator-6",
+              "value": "planet-mapper",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "operator-5",
+                  "operator-10"
+                ]
+              }
+            },{
+              "id": "operator-7",
+              "value": "grit",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "operator-3",
+                  "operator-8",
+                  "operator-11"
+                ]
+              }
+            },{
+              "id": "operator-8",
+              "value": "debilitating-shot",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "operator-1",
+                  "operator-6",
+                  "operator-9"
+                ]
+              }
+            },{
+              "id": "operator-9",
+              "value": "skilled-jockey",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "operator-5",
+                  "operator-13"
+                ]
+              }
+            },{
+              "id": "operator-10",
+              "value": "all-terrain-driver",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "operator-6",
+                  "operator-9",
+                  "operator-11",
+                  "operator-14"
+                ]
+              }
+            },{
+              "id": "operator-11",
+              "tier": 3,
+              "value": "offensive-driving",
+              "requires": {
+                "advancements": [
+                  "operator-7",
+                  "operator-10",
+                  "operator-12",
+                  "operator-15"
+                ]
+              }
+            },{
+              "id": "operator-12",
+              "tier": 3,
+              "value": "grit",
+              "requires": {
+                "advancements": [
+                  "operator-8",
+                  "operator-11",
+                  "operator-16"
+                ]
+              }
+            },{
+              "id": "operator-13",
+              "tier": 4,
+              "value": "lets-ride",
+              "requires": {
+                "advancements": [
+                  "operator-7",
+                  "operator-10",
+                  "operator-12",
+                  "operator-15"
+                ]
+              }
+            },{
+              "id": "operator-14",
+              "tier": 4,
+              "value": "shortcut",
+              "requires": {
+                "advancements": [
+                  "operator-10",
+                  "operator-13",
+                  "operator-15",
+                  "operator-18"
+                ]
+              }
+            },{
+              "id": "operator-15",
+              "tier": 4,
+              "value": "grit",
+              "requires": {
+                "advancements": [
+                  "operator-11",
+                  "operator-14",
+                  "operator-16",
+                  "operator-19"
+                ]
+              }
+            },{
+              "id": "operator-16",
+              "tier": 4,
+              "value": "overwhelm-defenses",
+              "requires": {
+                "advancements": [
+                  "operator-12",
+                  "operator-15"
+                ]
+              }
+            },{
+              "id": "operator-17",
+              "tier": 5,
+              "value": "dedication",
+              "requires": {
+                "advancements": [
+                  "operator-13",
+                  "operator-18"
+                ]
+              }
+            },{
+              "id": "operator-18",
+              "tier": 5,
+              "value": "shortcut-improved",
+              "requires": {
+                "advancements": [
+                  "operator-7",
+                  "operator-10",
+                  "operator-12",
+                  "operator-15"
+                ]
+              }
+            },{
+              "id": "operator-19",
+              "tier": 5,
+              "value": "skilled-jcokey",
+              "requires": {
+                "advancements": [
+                  "operator-15",
+                  "operator-18",
+                  "operator-20"
+                ]
+              }
+            },{
+              "id": "operator-20",
+              "tier": 5,
+              "value": "hindering-shot",
+              "requires": {
+                "advancements": [
+                  "operator-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Skiptracer",
+          "careerSkills": [
+            "Cool",
+            "Knowledge - Underworld",
+            "Negotiation",
+            "Skulduggery"
+          ],
+          "talents": [
+            {
+              "id": "skiptracer-1",
+              "tier": 1,
+              "value": "bypass-security"
+            },{
+              "id": "skiptracer-2",
+              "tier": 1,
+              "value": "hard-boiled"
+            },{
+              "id": "skiptracer-3",
+              "tier": 1,
+              "value": "good-cop"
+            },{
+              "id": "skiptracer-4",
+              "tier": 1,
+              "value": "rapid-recovery"
+            },{
+              "id": "skiptracer-5",
+              "tier": 2,
+              "value": "toughened",
+              "requires": {
+                "advancements": [
+                  "skiptracer-1",
+                  "skiptracer-6",
+                  "skiptracer-9"
+                ]
+              }
+            },{
+              "id": "skiptracer-6",
+              "tier": 2,
+              "value": "expert-tracker",
+              "requires": {
+                "advancements": [
+                  "skiptracer-2",
+                  "skiptracer-5",
+                  "skiptracer-7",
+                  "skiptracer-10"
+                ]
+              }
+            },{
+              "id": "skiptracer-7",
+              "tier": 2,
+              "value": "street-smarts",
+              "requires": {
+                "advancements": [
+                  "skiptracer-3",
+                  "skiptracer-6",
+                  "skiptracer-8",
+                  "skiptracer-11"
+                ]
+              }
+            },{
+              "id": "skiptracer-8",
+              "tier": 2,
+              "value": "bought-info",
+              "requires": {
+                "advancements": [
+                  "skiptracer-4",
+                  "skiptracer-7",
+                  "skiptracer-12"
+                ]
+              }
+            },{
+              "id": "skiptracer-9",
+              "tier": 3,
+              "value": "hard-boiled",
+              "requires": {
+                "advancements": [
+                  "skiptracer-4",
+                  "skiptracer-10",
+                  "skiptracer-13"
+                ]
+              }
+            },{
+              "id": "skiptracer-10",
+              "tier": 3,
+              "value": "rapid-recovery",
+              "requires": {
+                "advancements": [
+                  "skiptracer-6",
+                  "skiptracer-9",
+                  "skiptracer-11",
+                  "skiptracer-14"
+                ]
+              }
+            },{
+              "id": "skiptracer-11",
+              "tier": 3,
+              "value": "street-smarts-improved",
+              "requires": {
+                "advancements": [
+                  "skiptracer-7",
+                  "skiptracer-10",
+                  "skiptracer-12"
+                ]
+              }
+            },{
+              "id": "skiptracer-12",
+              "tier": 3,
+              "value": "street-smarts",
+              "requires": {
+                "advancements": [
+                  "skiptracer-8",
+                  "skiptracer-11",
+                  "skiptracer-16"
+                ]
+              }
+            },{
+              "id": "skiptracer-13",
+              "tier": 4,
+              "value": "bypass-security",
+              "requires": {
+                "advancements": [
+                  "skiptracer-9"
+                ]
+              }
+            },{
+              "id": "skiptracer-14",
+              "tier": 4,
+              "value": "nobodys-fool",
+              "requires": {
+                "advancements": [
+                  "skiptracer-10",
+                  "skiptracer-15",
+                  "skiptracer-18"
+                ]
+              }
+            },{
+              "id": "skiptracer-15",
+              "tier": 4,
+              "value": "good-cop",
+              "requires": {
+                "advancements": [
+                  "skiptracer-11",
+                  "skiptracer-14",
+                  "skiptracer-16",
+                  "skiptracer-19"
+                ]
+              }
+            },{
+              "id": "skiptracer-16",
+              "tier": 4,
+              "value": "informant",
+              "requires": {
+                "advancements": [
+                  "skiptracer-12",
+                  "skiptracer-15"
+                ]
+              }
+            },{
+              "id": "skiptracer-17",
+              "tier": 5,
+              "value": "reconstruct-the-scene",
+              "requires": {
+                "advancements": [
+                  "skiptracer-4",
+                  "skiptracer-7",
+                  "skiptracer-12"
+                ]
+              }
+            },{
+              "id": "skiptracer-18",
+              "tier": 5,
+              "value": "hard-boiled",
+              "requires": {
+                "advancements": [
+                  "skiptracer-14",
+                  "skiptracer-19"
+                ]
+              }
+            },{
+              "id": "skiptracer-19",
+              "tier": 5,
+              "value": "dedication",
+              "requires": {
+                "advancements": [
+                  "skiptracer-15",
+                  "skiptracer-18",
+                  "skiptracer-20"
+                ]
+              }
+            },{
+              "id": "skiptracer-20",
+              "tier": 5,
+              "value": "soft-spot",
+              "requires": {
+                "advancements": [
+                  "skiptracer-19"
                 ]
               }
             }
@@ -10366,6 +11004,10 @@
         "name": "string"
       },
       "values": [
+        {
+          "id": "all-terrain-driver",
+          "name": "All Terrain Driver"
+        },
         {
           "id": "anatomy-lessons",
           "name": "Anatomy Lessons"
@@ -10491,6 +11133,10 @@
           "name": "Dead To Rights Improved"
         },
         {
+          "id": "debilitating-shot",
+          "name": "Debilitating Shot"
+        },
+        {
           "id": "deceptive-taunt",
           "name": "Deceptive Taunt"
         },
@@ -10568,7 +11214,7 @@
         },
         {
           "id": "fearsome",
-           "name": "Fearsome"
+          "name": "Fearsome"
         },
         {
           "id": "feral-strength",
@@ -10727,6 +11373,10 @@
           "name": "Good Cop"
         },
         {
+          "id": "grapple",
+          "name": "Grapple"
+        },
+        {
           "id": "greased-palms",
           "name": "Greased Palms"
         },
@@ -10737,6 +11387,10 @@
         {
           "id": "guns-blazing",
           "name": "Guns Blazing"
+        },
+        {
+          "id": "hard-boiled",
+          "name": "Hard Boiled"
         },
         {
           "id": "hard-headed",
@@ -10771,16 +11425,20 @@
           "name": "Hunter"
         },
         {
-          "id" : "hunters-quarry",
+          "id": "hunters-quarry",
           "name": "Hunter's Quarry"
         },
         {
           "id": "hunters-quarry-improved",
-          "name" :  "Improved Hunter's Quarry"
+          "name": "Improved Hunter's Quarry"
         },
         {
           "id": "indistinguishable",
           "name": "Indistinguishable"
+        },
+        {
+          "id": "informant",
+          "name": "Informant"
         },
         {
           "id": "insight",
@@ -10809,6 +11467,10 @@
         {
           "id": "intimidating",
           "name": "intimidating"
+        },
+        {
+          "id": "iron-body",
+          "name": "Iron Body"
         },
         {
           "id": "jump-up",
@@ -10853,6 +11515,10 @@
         {
           "id": "magnitude",
           "name": "magnitude"
+        },
+        {
+          "id": "martial-grace",
+          "name": "Martial Grace"
         },
         {
           "id": "master-doctor",
@@ -10963,12 +11629,32 @@
           "name": "nobodys-fool"
         },
         {
+          "id": "offensive-driver",
+          "name": "Offensive Driver"
+        },
+        {
+          "id": "overwhelm-defenses",
+          "name": "Overwhelm Defenses"
+        },
+        {
           "id": "overwhelm-emotions",
           "name": "overwhelm-emotions"
         },
         {
           "id": "outdoorsman",
           "name": "outdoorsman"
+        },
+        {
+          "id": "overbalance",
+          "name": "Overbalance"
+        },
+        {
+          "id": "parry",
+          "name": "Parry"
+        },
+        {
+          "id": "planet-mapper",
+          "name": "Planet Mapper"
         },
         {
           "id": "plausible-deniability",
@@ -10985,6 +11671,18 @@
         {
           "id": "precise-aim",
           "name": "precise-aim"
+        },
+        {
+          "id": "precision-strike",
+          "name": "Precision Strike"
+        },
+        {
+          "id": "precision-strike-improved",
+          "name": "Improved Precision Strike"
+        },
+        {
+          "id": "precision-strike-supreme",
+          "name": "Supreme Precision Strike"
         },
         {
           "id": "pressure-point",
@@ -11013,6 +11711,10 @@
         {
           "id": "rapid-recovery",
           "name": "rapid-recovery"
+        },
+        {
+          "id": "reconstruct-the-scene",
+          "name": "Reconstruct The Scene"
         },
         {
           "id": "redundant-systems",
@@ -11057,6 +11759,10 @@
         {
           "id": "shortcut",
           "name": "shortcut"
+        },
+        {
+          "id": "shortcut-improved",
+          "name": "Improved Shortcut"
         },
         {
           "id": "side-step",
@@ -11203,6 +11909,10 @@
           "name": "true-aim"
         },
         {
+          "id": "unarmed-parry",
+          "name": "Unarmed Parry"
+        },
+        {
           "id": "uncanny-reaction",
           "name": "Uncanny Reactions"
         },
@@ -11237,7 +11947,8 @@
         {
           "id": "wheel-and-deal",
           "name": "Wheel And Deal"
-        }, {
+        },
+        {
           "id": "works-like-a-charm",
           "name": "Works Like a Charm"
         }
