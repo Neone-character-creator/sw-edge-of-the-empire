@@ -3433,7 +3433,10 @@
           "specializations": [
             "Fringer",
             "Scout",
-            "Trader"
+            "Trader",
+            "Charmer",
+            "Gambler",
+            "Gunslinger"
           ]
         },
         {
@@ -9751,6 +9754,411 @@
               "requires": {
                 "advancements": [
                   "performer-16"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Charmer",
+          "careerSkills": [
+            "Charm",
+            "Cool",
+            "Leadership",
+            "Negotiation"
+          ],
+          "talents": [
+            {
+              "id": "charmer-1",
+              "value": "smooth-talker",
+              "tier": 1
+            },
+            {
+              "id": "charmer-2",
+              "value": "inspiring-rhetoric",
+              "tier": 1
+            },
+            {
+              "id": "charmer-3",
+              "value": "kill-with-kindness",
+              "tier": 1
+            },
+            {
+              "id": "charmer-4",
+              "value": "grit",
+              "tier": 1
+            },
+            {
+              "id": "charmer-5",
+              "value": "kill-with-kindness",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "charmer-1",
+                  "charmer-9"
+                ]
+              }
+            },
+            {
+              "id": "charmer-6",
+              "value": "inspiring-rhetoric-improved",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "charmer-2",
+                  "charmer-7"
+                ]
+              }
+            },
+            {
+              "id": "charmer-7",
+              "value": "congenial",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "charmer-3",
+                  "charmer-6",
+                  "charmer-11"
+                ]
+              }
+            },
+            {
+              "id": "charmer-8",
+              "value": "plausible-deniability",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "charmer-1",
+                  "charmer-9"
+                ]
+              }
+            },
+            {
+              "id": "charmer-9",
+              "value": "disarming-smile",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "charmer-5",
+                  "charmer-13"
+                ]
+              }
+            },
+            {
+              "id": "charmer-10",
+              "value": "works-like-a-charm",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "charmer-11"
+                ]
+              }
+            },
+            {
+              "id": "charmer-11",
+              "value": "disarming-smile",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "charmer-7",
+                  "charmer-15"
+                ]
+              }
+            },
+            {
+              "id": "charmer-12",
+              "value": "grit",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "charmer-8",
+                  "charmer-16"
+                ]
+              }
+            },
+            {
+              "id": "charmer-13",
+              "value": "smooth-talker",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "charmer-9",
+                  "charmer-14",
+                  "charmer-17"
+                ]
+              }
+            },
+            {
+              "id": "charmer-14",
+              "value": "congenial",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "charmer-13",
+                  "charmer-15"
+                ]
+              }
+            },
+            {
+              "id": "charmer-15",
+              "value": "just-kidding",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "charmer-11",
+                  "charmer-14",
+                  "charmer-16",
+                  "charmer-19"
+                ]
+              }
+            },
+            {
+              "id": "charmer-16",
+              "value": "intense-presence",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "charmer-12",
+                  "charmer-15",
+                  "charmer-20"
+                ]
+              }
+            },
+            {
+              "id": "charmer-17",
+              "value": "natural-charmer",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "charmer-13",
+                  "charmer-18"
+                ]
+              }
+            },
+            {
+              "id": "charmer-18",
+              "value": "dedication",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "charmer-17",
+                  "charmer-19"
+                ]
+              }
+            },
+            {
+              "id": "charmer-19",
+              "value": "dont-shoot",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "charmer-15",
+                  "charmer-18",
+                  "charmer-20"
+                ]
+              }
+            },
+            {
+              "id": "charmer-20",
+              "value": "resolve",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "charmer-16",
+                  "charmer-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Gambler",
+          "careerSkills": [
+            "Computers",
+            "Cool",
+            "Deception",
+            "Skulduggery"
+          ],
+          "talents": [
+            {
+              "id": "gambler-1",
+              "value": "convincing-demeanor",
+              "tier": 1
+            },
+            {
+              "id": "gambler-2",
+              "value": "grit",
+              "tier": 1
+            },
+            {
+              "id": "gambler-3",
+              "value": "toughened",
+              "tier": 1
+            },
+            {
+              "id": "gambler-4",
+              "value": "up-the-ante",
+              "tier": 1
+            },
+            {
+              "id": "gambler-5",
+              "value": "grit",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "gambler-1",
+                  "gambler-9"
+                ]
+              }
+            },
+            {
+              "id": "gambler-6",
+              "value": "second-chances",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "gambler-2",
+                  "gambler-10"
+                ]
+              }
+            },
+            {
+              "id": "gambler-7",
+              "value": "dedication",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "gambler-8"
+                ]
+              }
+            },
+            {
+              "id": "gambler-8",
+              "value": "double-or-nothing-supreme",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "gambler-12"
+                ]
+              }
+            },{
+              "id": "gambler-9",
+              "value": "second-chances",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "gambler-5",
+                  "gambler-13"
+                ]
+              }
+            },{
+              "id": "gambler-10",
+              "value": "convincing-demeanor",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "gambler-6",
+                  "gambler-14"
+                ]
+              }
+            },{
+              "id": "gambler-11",
+              "value": "fortune-favors-the-bold",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "gambler-15"
+                ]
+              }
+            },{
+              "id": "gambler-12",
+              "value": "natural-rogue",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "gambler-8",
+                  "gambler-16"
+                ]
+              }
+            },{
+              "id": "gambler-13",
+              "value": "up-the-ante",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "gambler-9",
+                  "gambler-17"
+                ]
+              }
+            },{
+              "id": "gambler-14",
+              "value": "up-the-ante",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "gambler-10",
+                  "gambler-15"
+                ]
+              }
+            },{
+              "id": "gambler-15",
+              "value": "clever-solution",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "gambler-14",
+                  "gambler-16"
+                ]
+              }
+            },{
+              "id": "gambler-16",
+              "value": "second-chances",
+              "tier": 4,
+              "requires": {
+                "advancements": [
+                  "gambler-12",
+                  "gambler-15",
+                  "gambler-20"
+                ]
+              }
+            },{
+              "id": "gambler-17",
+              "value": "double-or-nothing",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "gambler-13",
+                  "gambler-18"
+                ]
+              }
+            },{
+              "id": "gambler-18",
+              "value": "smooth-talker",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "gambler-17",
+                  "gambler-18"
+                ]
+              }
+            },{
+              "id": "gambler-19",
+              "value": "natural-negotiator",
+              "tier": 5,
+              "requires": {
+                "advancements": [
+                  "gambler-18",
+                  "gambler-20"
+                ]
+              }
+            },{
+              "id": "gambler-20",
+              "value": "double-or-nothing-improved",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "gambler-8",
+                  "gambler-16"
                 ]
               }
             }
