@@ -3475,7 +3475,10 @@
           "specializations": [
             "Pilot",
             "Scoundrel",
-            "Thief"
+            "Thief",
+            "Charmer",
+            "Gambler",
+            "Gunslinger"
           ]
         },
         {
@@ -10163,6 +10166,197 @@
               }
             }
           ]
+        },
+        {
+          "name": "Gunslinger",
+          "careerSkills": [
+            "Coercion",
+            "Cool",
+            "Knowledge - Outer Rim",
+            "Ranged - Light"
+          ],
+          "talents": [
+            {
+              "id": "gunslinger-1",
+              "value": "grit",
+              "tier": 1
+            },{
+              "id": "gunslinger-2",
+              "value": "quick-strike",
+              "tier": 1
+            },{
+              "id": "gunslinger-3",
+              "value": "rapid-reaction",
+              "tier": 1
+            },{
+              "id": "gunslinger-4",
+              "value": "quick-draw",
+              "tier": 1
+            },{
+              "id": "gunslinger-5",
+              "value": "lethal-blows",
+              "tier": 2,
+              "requires": {
+                "advancements":[
+                  "gunslinger-1",
+                  "gunslinger-9"
+                ]
+              }
+            },
+            {
+              "id": "gunslinger-6",
+              "value": "grit",
+              "tier": 2,
+              "requires": {
+                "advancements":[
+                  "gunslinger-2",
+                  "gunslinger-10"
+                ]
+              }
+            },{
+              "id": "gunslinger-7",
+              "value": "quick-strike",
+              "tier": 2,
+              "requires": {
+                "advancements":[
+                  "gunslinger-3",
+                  "gunslinger-11"
+                ]
+              }
+            },{
+              "id": "gunslinger-8",
+              "value": "quick-draw-improved",
+              "tier": 2,
+              "requires": {
+                "advancements":[
+                  "gunslinger-4",
+                  "gunslinger-12"
+                ]
+              }
+            },{
+              "id": "gunslinger-9",
+              "value": "toughened",
+              "tier": 3,
+              "requires": {
+                "advancements":[
+                  "gunslinger-5",
+                  "gunslinger-13"
+                ]
+              }
+            },{
+              "id": "gunslinger-10",
+              "value": "call-em",
+              "tier": 3,
+              "requires": {
+                "advancements":[
+                  "gunslinger-6",
+                  "gunslinger-11",
+                  "gunslinger-14"
+                ]
+              }
+            },{
+              "id": "gunslinger-11",
+              "value": "dodge",
+              "tier": 3,
+              "requires": {
+                "advancements":[
+                  "gunslinger-7",
+                  "gunslinger-10",
+                  "gunslinger-12"
+                ]
+              }
+            },{
+              "id": "gunslinger-12",
+              "value": "sorry-about-the-mess",
+              "tier": 3,
+              "requires": {
+                "advancements":[
+                  "gunslinger-8",
+                  "gunslinger-11",
+                  "gunslinger-16"
+                ]
+              }
+            },{
+              "id": "gunslinger-13",
+              "value": "confidence",
+              "tier": 4,
+              "requires": {
+                "advancements":[
+                  "gunslinger-9",
+                  "gunslinger-14"
+                ]
+              }
+            },{
+              "id": "gunslinger-14",
+              "value": "lethal-blows",
+              "tier": 4,
+              "requires": {
+                "advancements":[
+                  "gunslinger-10",
+                  "gunslinger-13",
+                  "gunslinger-15",
+                  "gunslinger-18"
+                ]
+              }
+            },{
+              "id": "gunslinger-15",
+              "value": "guns-blazing",
+              "tier": 3,
+              "requires": {
+                "advancements":[
+                  "gunslinger-8",
+                  "gunslinger-11",
+                  "gunslinger-16"
+                ]
+              }
+            },{
+              "id": "gunslinger-16",
+              "value": "rapid-reaction",
+              "tier": 3,
+              "requires": {
+                "advancements":[
+                  "gunslinger-12",
+                  "gunslinger-15"
+                ]
+              }
+            },{
+              "id": "gunslinger-17",
+              "value": "dedication",
+              "tier": 5,
+              "requires": {
+                "advancements":[
+                  "gunslinger-18"
+                ]
+              }
+            },{
+              "id": "gunslinger-18",
+              "value": "spitfire",
+              "tier": 5,
+              "requires": {
+                "advancements":[
+                  "gunslinger-14"
+                ]
+              }
+            },{
+              "id": "gunslinger-19",
+              "value": "natural-marksman",
+              "tier": 5,
+              "requires": {
+                "advancements":[
+                  "gunslinger-15"
+                ]
+              }
+            },{
+              "id": "gunslinger-20",
+              "value": "deadly-accuracy",
+              "tier": 5,
+              "requires": {
+                "advancements":[
+                  "gunslinger-18"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -10189,6 +10383,10 @@
           "name": "Bacta Specialist"
         },
         {
+          "id": "bad-cop",
+          "name": "Bad Cop"
+        },
+        {
           "id": "bad-motivator",
           "name": "Bad Motivator"
         },
@@ -10199,6 +10397,10 @@
         {
           "id": "barrage",
           "name": "Barrage"
+        },
+        {
+          "id": "biggest-fan",
+          "name": "Biggest Fan"
         },
         {
           "id": "black-market-contacts",
@@ -10213,6 +10415,10 @@
           "name": "Body Guard"
         },
         {
+          "id": "bought-info",
+          "name": "Bought Info"
+        },
+        {
           "id": "brace",
           "name": "Brace"
         },
@@ -10221,12 +10427,24 @@
           "name": "Brilliant Evasion"
         },
         {
+          "id": "bring-it-down",
+          "name": "Bring It Down"
+        },
+        {
           "id": "bypass-security",
           "name": "Bypass Security"
         },
         {
           "id": "burly",
           "name": "Burly"
+        },
+        {
+          "id": "call-em",
+          "name": "Call 'Em"
+        },
+        {
+          "id": "clever-solution",
+          "name": "Clever Solution"
         },
         {
           "id": "codebreaker",
@@ -10241,12 +10459,20 @@
           "name": "Confidence"
         },
         {
+          "id": "congenial",
+          "name": "Congenial"
+        },
+        {
           "id": "contraption",
           "name": "Contraption"
         },
         {
           "id": "convincing-demeanor",
           "name": "Convincing Demeanor"
+        },
+        {
+          "id": "coordination-dodge",
+          "name": "Coordination Dodge"
         },
         {
           "id": "crippling-blow",
@@ -10263,6 +10489,10 @@
         {
           "id": "dead-to-rights-improved",
           "name": "Dead To Rights Improved"
+        },
+        {
+          "id": "deceptive-taunt",
+          "name": "Deceptive Taunt"
         },
         {
           "id": "dedication",
@@ -10289,12 +10519,36 @@
           "name": "Improved Detonation"
         },
         {
+          "id": "disarming-smile",
+          "name": "Disarming Smile"
+        },
+        {
           "id": "disorient",
           "name": "Disorient"
         },
         {
+          "id": "distracting-behavior",
+          "name": "Distracting Behavior"
+        },
+        {
+          "id": "distracting-behavior-improved",
+          "name": "Improved Distracting Behavior"
+        },
+        {
           "id": "dodge",
           "name": "Dodge"
+        },
+        {
+          "id": "dont-shoot",
+          "name": "Don't Shoot"
+        },
+        {
+          "id": "double-or-nothing-improved",
+          "name": "Improved Double or Nothing"
+        },
+        {
+          "id": "double-or-nothing-supreme",
+          "name": "Supreme Double or Nothing"
         },
         {
           "id": "durable",
@@ -10314,7 +10568,7 @@
         },
         {
           "id": "fearsome",
-          "name": "Fearsome"
+           "name": "Fearsome"
         },
         {
           "id": "feral-strength",
@@ -10441,28 +10695,48 @@
           "name": "Sense Emotions"
         },
         {
+          "id": "fortune-favors-the-bold",
+          "name": "Fortune Favors the Bold"
+        },
+        {
+          "id": "full-stop",
+          "name": "Full Stop"
+        },
+        {
           "id": "full-throttle",
           "name": "full-throttle"
         },
         {
           "id": "full-throttle-improved",
-          "name": "full-throttle-improved"
+          "name": "Improved Full Throttle "
         },
         {
           "id": "full-throttle-supreme",
-          "name": "full-throttle-supreme"
+          "name": "Supreme Full Throttle "
         },
         {
           "id": "galaxy-mapper",
-          "name": "galaxy-mapper"
+          "name": "Galaxy Mapper"
         },
         {
           "id": "gearhead",
-          "name": "gearhead"
+          "name": "Gearhead"
+        },
+        {
+          "id": "good-cop",
+          "name": "Good Cop"
+        },
+        {
+          "id": "greased-palms",
+          "name": "Greased Palms"
         },
         {
           "id": "grit",
           "name": "grit"
+        },
+        {
+          "id": "guns-blazing",
+          "name": "Guns Blazing"
         },
         {
           "id": "hard-headed",
@@ -10478,11 +10752,11 @@
         },
         {
           "id": "heightened-awareness",
-          "name": "heightened-awareness"
+          "name": "Heightened Awareness"
         },
         {
           "id": "heroic-fortitude",
-          "name": "heroic-fortitude"
+          "name": "Heroic Fortitude"
         },
         {
           "id": "hidden-storage",
@@ -10494,11 +10768,19 @@
         },
         {
           "id": "hunter",
-          "name": "hunter"
+          "name": "Hunter"
+        },
+        {
+          "id" : "hunters-quarry",
+          "name": "Hunter's Quarry"
+        },
+        {
+          "id": "hunters-quarry-improved",
+          "name" :  "Improved Hunter's Quarry",
         },
         {
           "id": "indistinguishable",
-          "name": "indistinguishable"
+          "name": "Indistinguishable"
         },
         {
           "id": "insight",
@@ -10522,7 +10804,7 @@
         },
         {
           "id": "intense-presence",
-          "name": "intense-presence"
+          "name": "Intense Presence"
         },
         {
           "id": "intimidating",
@@ -10542,15 +10824,15 @@
         },
         {
           "id": "knockdown",
-          "name": "knockdown"
+          "name": "Knockdown"
         },
         {
           "id": "knowledge-specialization",
-          "name": "knowledge-specialization"
+          "name": "Knowledge Specialization"
         },
         {
           "id": "known-schematic",
-          "name": "known-schematic"
+          "name": "Known Schematic"
         },
         {
           "id": "know-somebody",
@@ -10566,7 +10848,7 @@
         },
         {
           "id": "loom",
-          "name": "Master Grenadier"
+          "name": "Loom"
         },
         {
           "id": "magnitude",
@@ -10575,6 +10857,10 @@
         {
           "id": "master-doctor",
           "name": "master-doctor"
+        },
+        {
+          "id": "master-driver",
+          "name": "Master Driver"
         },
         {
           "id": "master-grenadier",
@@ -10605,6 +10891,14 @@
           "name": "mental-fortress"
         },
         {
+          "id": "museum-worthy",
+          "name": "Museum Worthy"
+        },
+        {
+          "id": "natural-athlete",
+          "name": "Natural Athlete"
+        },
+        {
           "id": "natural-brawler",
           "name": "natural-brawler"
         },
@@ -10613,12 +10907,12 @@
           "name": "natural-charmer"
         },
         {
-          "id": "natural-negotiator",
-          "name": "natural-negotiator"
-        },
-        {
           "id": "natural-doctor",
           "name": "natural-doctor"
+        },
+        {
+          "id": "natural-driver",
+          "name": "Natural Driver"
         },
         {
           "id": "natural-enforcer",
@@ -10631,6 +10925,14 @@
         {
           "id": "natural-marksman",
           "name": "natural-marksman"
+        },
+        {
+          "id": "natural-merchant",
+          "name": "Natural Merchant"
+        },
+        {
+          "id": "natural-negotiator",
+          "name": "natural-negotiator"
         },
         {
           "id": "natural-outdoorsman",
@@ -10670,7 +10972,7 @@
         },
         {
           "id": "plausible-deniability",
-          "name": "plausible-deniability"
+          "name": "Plausible Deniability"
         },
         {
           "id": "point-blank",
@@ -10693,11 +10995,15 @@
           "name": "quick-draw"
         },
         {
+          "id": "quick-draw-improved",
+          "name": "Improved Quick Draw"
+        },
+        {
           "id": "quick-strike",
           "name": "quick-strike"
         },
         {
-          "id": "raind-of-death",
+          "id": "rain-of-death",
           "name": "Rain of Death"
         },
         {
@@ -10722,7 +11028,7 @@
         },
         {
           "id": "respected-scholar",
-          "name": "respected-scholar"
+          "name": "Respected Scholar"
         },
         {
           "id": "scathing-tirade",
@@ -10735,6 +11041,10 @@
         {
           "id": "scathing-tirade-supreme",
           "name": "scathing-tirade-supreme"
+        },
+        {
+          "id": "second-chances",
+          "name": "Second Chances"
         },
         {
           "id": "second-wind",
@@ -10758,7 +11068,7 @@
         },
         {
           "id": "skilled-jockey",
-          "name": "skilled-jockey"
+          "name": "Skilled Jockey"
         },
         {
           "id": "skilled-slicer",
@@ -10779,6 +11089,14 @@
         {
           "id": "solid-repairs",
           "name": "solid-repairs"
+        },
+        {
+          "id": "sorry-for-the-mess",
+          "name": "Sorry for the Mess"
+        },
+        {
+          "id": "sound-investment",
+          "name": "Sound Investment",
         },
         {
           "id": "spare-clip",
@@ -10842,7 +11160,7 @@
         },
         {
           "id": "swift",
-          "name": "swift"
+          "name": "Swift"
         },
         {
           "id": "talk-the-talk",
@@ -10878,7 +11196,7 @@
         },
         {
           "id": "tricky-target",
-          "name": "tricky-target"
+          "name": "Tricky Target"
         },
         {
           "id": "true-aim",
@@ -10891,6 +11209,18 @@
         {
           "id": "uncanny-senses",
           "name": "uncanny-senses"
+        },
+        {
+          "id": "unrelenting-skeptic",
+          "name": "Unrelenting Skeptic"
+        },
+        {
+          "id": "unrelenting-skeptic-improved",
+          "name": "Improved Unrelenting Skeptic"
+        },
+        {
+          "id": "up-the-ante",
+          "name": "Up the Ante"
         },
         {
           "id": "utility-belt",
@@ -10906,7 +11236,10 @@
         },
         {
           "id": "wheel-and-deal",
-          "name": "wheel-and-deal"
+          "name": "Wheel And Deal"
+        }, {
+          "id": "works-like-a-charm",
+          "name": "Works Like a Charm"
         }
       ]
     },
