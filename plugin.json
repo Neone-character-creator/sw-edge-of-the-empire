@@ -1911,6 +1911,13 @@
                     "direction": "horizontal",
                     "children": [
                       {
+                        "name": "removeCybernetics",
+                        "type": "button",
+                        "text": "X",
+                        "hiddenWhen": "# _.get($state, 'character.bonusCybernetics', []).includes($this)",
+                        "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $index}"
+                      },
+                      {
                         "name": "cyberneticsName",
                         "type": "textfield",
                         "label": "Name",
