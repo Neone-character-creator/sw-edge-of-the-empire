@@ -1532,7 +1532,7 @@
         ]
       },
       {
-        "name": "Career",
+        "name": "Career and Specializations",
         "type": "view",
         "children": [
           {
@@ -1567,55 +1567,76 @@
                   "text": "name",
                   "values": "# ($state.character.career.specializations || []).map(sn => $model.specialization.values.find(s => s.name === sn)).concat([$model.specialization.values.find(s => s.name === 'Force Sensitive Exile')])"
                 }
-              },
-              {
-                "name": "startingSpecializationStartingSkills",
-                "type": "label",
-                "text": "# `Specialization Starting Skills (Choose ${_.get($state, 'character.species.startingCareerSkillChoices', 4)})`"
-              },
-              {
-                "name": "specializationstartingSkillsChoices",
-                "type": "select",
-                "bind": "$state.character.careerStartingSkills",
-                "items": {
-                  "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
-                  "text": "name",
-                  "values": "# _.get($state, 'character.career.careerSkills', [])"
-                }
-              },
-              {
-                "name": "startingSpecializationAvailableTalents",
-                "type": "list",
-                "keyProperty": "id",
-                "bind": "$state.character.specializations[0].talents",
-                "items": {
-                  "child": {
-                    "name": "startingSpecializationAvailableTalentsWrapper",
-                    "type": "container",
-                    "direction": "horizontal",
-                    "children": [
-                      {
-                        "name": "startingSpecializationTalentIsBought",
-                        "type": "checkbox",
-                        "value": "# $state.character.advancements.map(a => a.id).includes($this.id)"
-                      },
-                      {
-                        "name": "startingSpecializationTalentName",
-                        "type": "textfield",
-                        "label": "Talent Name",
-                        "value": "# $model.talent.values.find(t => $this.value === t.id).name"
-                      },
-                      {
-                        "name": "startingSpecializationTalentCost",
-                        "label": "cost",
-                        "type": "number",
-                        "value": "# $this.tier * 5"
-                      }
-                    ]
-                  }
-                }
               }
             ]
+          },
+          {
+            "name": "specializations",
+            "type": "list",
+            "bind": "$state.character.specializations",
+            "items": {
+              "child": {
+                "name": "specialization",
+                "type": "container",
+                "direction": "vertical",
+                "children": [
+                  {
+                    "name": "specialization",
+                    "type": "label",
+                    "text": "# $this.name"
+                  },
+                  {
+                    "name": "specializationStartingSkills",
+                    "type": "label",
+                    "hiddenWhen": "# $index != 0",
+                    "text": "# `Specialization Starting Skills (Choose ${_.get($state, 'character.species.startingCareerSkillChoices', 4)})`"
+                  },
+                  {
+                    "name": "specializationstartingSkillsChoices",
+                    "type": "select",
+                    "hiddenWhen": "# $index != 0",
+                    "bind": "$state.character.careerStartingSkills",
+                    "items": {
+                      "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
+                      "text": "name",
+                      "values": "# _.get($state, 'character.career.careerSkills', [])"
+                    }
+                  },
+                  {
+                    "name": "startingSpecializationAvailableTalents",
+                    "type": "list",
+                    "keyProperty": "id",
+                    "bind": "$state.character.specializations[$index].talents",
+                    "items": {
+                      "child": {
+                        "name": "startingSpecializationAvailableTalentsWrapper",
+                        "type": "container",
+                        "direction": "horizontal",
+                        "children": [
+                          {
+                            "name": "startingSpecializationTalentIsBought",
+                            "type": "checkbox",
+                            "value": "# $state.character.advancements.map(a => a.id).includes($this.id)"
+                          },
+                          {
+                            "name": "startingSpecializationTalentName",
+                            "type": "textfield",
+                            "label": "Talent Name",
+                            "value": "# $model.talent.values.find(t => $this.value === t.id).name"
+                          },
+                          {
+                            "name": "startingSpecializationTalentCost",
+                            "label": "cost",
+                            "type": "number",
+                            "value": "# $this.tier * 5"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
           }
         ]
       },
@@ -2054,6 +2075,34 @@
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.talent.isAvailable') !== true",
                 "action": "# {type:'ADVANCEMENT', advancementType:'talent', advancement: _.get($state, 'selectedAdvancement.talent.option.value')}"
+              }
+            ]
+          },
+          {
+            "name": "specializationAdvancement",
+            "type": "container",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "specializationAdvancement",
+                "type": "label",
+                "text": "Specialization"
+              },
+              {
+                "name": "specializationAdvancement",
+                "type": "select",
+                "bind": "$state.selectedAdvancement.specialization",
+                "items": {
+                  "text": "option.name",
+                  "values": "# $state.availableAdvancements.specialization.options"
+                }
+              },
+              {
+                "name": "specializationSubmit",
+                "type": "button",
+                "text": "Buy",
+                "disabledWhen": "# _.get($state, 'selectedAdvancement.specialization.isAvailable') !== true",
+                "action": "# {type:'ADVANCEMENT', advancementType:'specialization', advancement: _.get($state, 'selectedAdvancement.specialization.option')}"
               }
             ]
           },
@@ -3911,7 +3960,9 @@
             "Assassin",
             "Gadgeteer",
             "Survivalist",
-            "Martial Artist"
+            "Martial Artist",
+            "Operator",
+            "Skiptracer"
           ]
         },
         {
@@ -14017,6 +14068,14 @@
         },
         "cost": "# $this.tier * 5",
         "effect": "# $state.character.talents.push($state.selectedAdvancement.talent.option)"
+      },
+      "specialization": {
+        "description": "New Specialization",
+        "uses": "$state.character.availableExperience",
+        "options": ["# $state.character.career.specializations.filter(s => !$state.character.specializations.map(cs => cs.name).includes(s))",
+        "# $this.accumulator.map(n => $model.specialization.values.find(s => s.name === n))"],
+        "cost": "# ($state.character.specializations.length + 1 * 10)",
+        "effect": "# $state.character.specializations.push($state.selectedAdvancement.specialization.option)"
       }
     },
     "obligation": {
