@@ -1515,7 +1515,7 @@
               {
                 "name": "speciesBonusCybernetics",
                 "type": "label",
-                "text": "# 'Bonus Cybernetics: Choose up to ' + $state.character.species.bonusCybernetics.choices + ' worth up to ' + $state.character.species.bonusCybernetics.maxTotalCost + ' credits'"
+                "text": "# 'Bonus Cybernetics: Choose up to ' + $state.character.species.bonusCybernetics.choices + ' worth up to ' + $state.character.bonusCyberneticsMaxCost + ' credits'"
               },
               {
                 "name": "speciesBonusCybernetics",
@@ -1523,7 +1523,7 @@
                 "bind": "$state.character.bonusCybernetics",
                 "items": {
                   "text": "name",
-                  "values": "# $state.character.bonusCybernetics.concat($model.cybernetics.values.filter(c => c.cost <= $state.character.species.bonusCybernetics.maxTotalCost - _.sum($state.character.bonusCybernetics.map(bc => bc.cost))))",
+                  "values": "# $state.character.bonusCybernetics.concat($model.cybernetics.values.filter(c => c.cost <= $state.character.bonusCyberneticsMaxCost - _.sum($state.character.bonusCybernetics.map(bc => bc.cost))))",
                   "maxSelections": "# $state.character.species.bonusCybernetics.choices"
                 }
               }
@@ -2173,7 +2173,14 @@
             "# _.get($state, 'character.bonusCybernetics')"
           ]
         },
-        "bonusCybernetics": "[cybernetics]"
+        "bonusCybernetics": "[cybernetics]",
+        "bonusCyberneticsMaxCost": {
+          "type": "number",
+          "derivedFrom": [
+            "# _.get($state, 'character.species.bonusCybernetics.maxTotalCost', 0)",
+            "# $this.accumulator + _.sum($state.character.obligationBonuses.map(o => o.bonusCyberneticsCredits))"
+          ]
+        }
       }
     },
     "skills": {
@@ -14033,6 +14040,16 @@
           "obligation": 10,
           "bonusCredits": 2500,
           "description": "+2500 credits / +10 Obligation"
+        },
+        {
+          "obligation": 5,
+          "bonusCyberneticsCredits": 1000,
+          "description": "+1000 bonus cybernetics credits / +5 Obligation"
+        },
+        {
+          "obligation": 10,
+          "bonusCyberneticsCredits": 2500,
+          "description": "+2500 bonus cybernetics credits / +10 Obligation"
         }
       ]
     }
