@@ -1438,20 +1438,6 @@
             ]
           },
           {
-            "name": "speciesCareerSkillChoices",
-            "type": "label",
-            "text": "# 'Starting Career Skills (choose ' + _.get($state, 'character.species.startingCareerSkillChoices', 0) + ')'"
-          },
-          {
-            "name": "speciesCareerSkillChoices",
-            "type": "select",
-            "bind": "$state.character.speciesCareerSkills",
-            "items": {
-              "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
-              "values": "# Object.keys($state.character.skills)"
-            }
-          },
-          {
             "name": "speciesBonusSkillChoices",
             "type": "container",
             "hiddenWhen": "# _.isEmpty(_.get($state, 'character.species.startingSkillsChoices'))",
@@ -1567,6 +1553,20 @@
                   "text": "name",
                   "values": "# ($state.character.career.specializations || []).map(sn => $model.specialization.values.find(s => s.name === sn)).concat([$model.specialization.values.find(s => s.name === 'Force Sensitive Exile')])"
                 }
+              },
+              {
+                "name": "careerStartingSkills",
+                "type": "label",
+                "text": "# 'Character Starting Skills (choose ' + _.get($state, 'character.species.startingCareerSkillChoices', 0) + ' career skills)'"
+              },
+              {
+                "name": "speciesCareerSkillChoices",
+                "type": "select",
+                "bind": "$state.character.startingSkills",
+                "items": {
+                  "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
+                  "values": "# _.uniq(_.get($state, 'character.career.careerSkills', []).concat(_.get($state, 'character.specializations[0].careerSkills', [])))"
+                }
               }
             ]
           },
@@ -1584,23 +1584,6 @@
                     "name": "specialization",
                     "type": "label",
                     "text": "# $this.name"
-                  },
-                  {
-                    "name": "specializationStartingSkills",
-                    "type": "label",
-                    "hiddenWhen": "# $index != 0",
-                    "text": "# `Specialization Starting Skills (Choose ${_.get($state, 'character.species.startingCareerSkillChoices', 4)})`"
-                  },
-                  {
-                    "name": "specializationstartingSkillsChoices",
-                    "type": "select",
-                    "hiddenWhen": "# $index != 0",
-                    "bind": "$state.character.careerStartingSkills",
-                    "items": {
-                      "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
-                      "text": "name",
-                      "values": "# _.get($state, 'character.career.careerSkills', [])"
-                    }
                   },
                   {
                     "name": "startingSpecializationAvailableTalents",
@@ -2143,8 +2126,8 @@
         "defense": "defense",
         "career": "career",
         "specializations": "[specialization]",
-        "careerStartingSkills": "[string]",
-        "speciesCareerSkills": "[string]",
+        "startingCareerSkills": "[string]",
+        "startingSkills": "[string]",
         "talents": {
           "type": "[talent]",
           "baseValue": [
@@ -2480,9 +2463,9 @@
         "isCareerSkill": {
           "type": "boolean",
           "derivedFrom": [
-            "# $state.character.speciesCareerSkills.map(s => s.toLowerCase()).includes($this.path[2])",
-            "# $this.accumulator || ($state.character.career.specializations.map(s => s.careerSkills).includes($this.ancestors[0].name))",
-            "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.ancestors[0].name))"
+            "# _.get($state, 'character.career.careerSkills', []).includes($this.path[2])",
+            "# $this.accumulator || _.get($state, 'character.specializations[0].careerSkills', []).includes($this.path[2].name)",
+            "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.path[2].name))"
           ]
         },
         "characteristic": "string",
@@ -2490,9 +2473,8 @@
           "type": "number",
           "derivedFrom": [
             "# $state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.path[2]) ? 1 : 0",
-            "# $this.accumulator + _.flatMap(_.get($state, 'character.species.startingSkillsChoices', []).map(ssc => ssc.selected)).filter(x => x).map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0;",
-            "# $this.accumulator + $state.character.species.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
-            "# $this.accumulator + $state.character.careerStartingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
+            "# $this.accumulator + _.flatMap(_.get($state, 'character.startingSkills', []).map(ssc => ssc.selected)).filter(x => x).map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0;",
+            "# $this.accumulator + $state.character.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
             "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c, 'bonusSkills' + $this.path[2], 0)))"
           ]
         }
@@ -2568,14 +2550,14 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Streetwise"
+            "streetwise"
           ],
           "startingTalents": [
             "convincing-demeanor"
           ],
           "specialAbilities": [
             {
-              "name": "Streetwise",
+              "name": "streetwise",
               "description": "Bothans begin the game with one rank in Streetwise. They still may not train Streetwise above rank 2 during character creation. They also start with one rank in the Convincing Demeanor talent."
             }
           ]
@@ -2610,7 +2592,7 @@
             },
             {
               "name": "Inorganic",
-              "description": "Since droids are inorganic, they do not gain the benefits of recovering with bacta tank, stimpack or Medicine care."
+              "description": "Since droids are inorganic, they do not gain the benefits of recovering with bacta tank, stimpack or medicine care."
             },
             {
               "name": "Mechanical Being",
@@ -2640,7 +2622,7 @@
           },
           "startingExperience": 110,
           "startingSkills": [
-            "Discipline"
+            "discipline"
           ],
           "specialAbilities": [
             {
@@ -2671,7 +2653,7 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Discipline"
+            "discipline"
           ],
           "specialAbilities": [
             {
@@ -2767,7 +2749,7 @@
           "naturalWeapons": [
             {
               "name": "Claws",
-              "skill": "Brawl",
+              "skill": "brawl",
               "damage": "Brawl + 1",
               "criticalRating": 3,
               "range": "-"
@@ -2843,7 +2825,7 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Brawl"
+            "brawl"
           ],
           "specialAbilities": [
             {
@@ -2874,7 +2856,7 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Brawl",
+            "brawl",
             "Resilience"
           ],
           "specialAbilities": [
@@ -2906,7 +2888,7 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Brawl"
+            "brawl"
           ],
           "startingSkillsChoices": [
             {
@@ -2946,11 +2928,11 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Brawl",
+            "brawl",
             {
               "options": [
                 "Athletics",
-                "Coercion"
+                "coercion"
               ],
               "choices": 1
             }
@@ -2986,9 +2968,9 @@
           "startingSkills": [
             {
               "options": [
-                "Brawl",
-                "Ranged - Heavy",
-                "Ranged - Light"
+                "brawl",
+                "ranged-Heavy",
+                "ranged-Light"
               ],
               "choices": 1
             }
@@ -3055,7 +3037,7 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Cool"
+            "cool"
           ],
           "specialAbilities": [
             {
@@ -3086,7 +3068,7 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Piloting - Space"
+            "piloting-space"
           ],
           "specialAbilities": [
             {
@@ -3158,7 +3140,7 @@
             },
             {
               "name": "Mood Readers",
-              "description": "Arcona add [Triumph] to any Charm or Negotiation checks they make."
+              "description": "Arcona add [Triumph] to any Charm or negotiation checks they make."
             }
           ]
         },
@@ -3184,7 +3166,7 @@
           },
           "startingExperience": 80,
           "startingSkills": [
-            "Negotiation"
+            "negotiation"
           ],
           "startingTalents": [
             "durable"
@@ -3221,7 +3203,7 @@
             {
               "options": [
                 "Charm",
-                "Negotiation"
+                "negotiation"
               ],
               "choices": 1
             }
@@ -3260,7 +3242,7 @@
           "specialAbilities": [
             {
               "name": "Beguiling Pheromones",
-              "description": "Once per check as an incidental, a Faleen may suffer 2 strain to upgrade the ability of a Charm, Deception or Negotiation check against a living sentient being within a short range once. This ability has no effect on targets wearing breath masks or without respiratory systems."
+              "description": "Once per check as an incidental, a Faleen may suffer 2 strain to upgrade the ability of a Charm, Deception or negotiation check against a living sentient being within a short range once. This ability has no effect on targets wearing breath masks or without respiratory systems."
             }
           ]
         },
@@ -3317,7 +3299,7 @@
           },
           "startingExperience": 95,
           "startingSkills": [
-            "Negotiation"
+            "negotiation"
           ],
           "specialAbilities": [
             {
@@ -3354,8 +3336,8 @@
           "startingSkillsChoices": [
             {
               "options": [
-                "Coercion",
-                "Discipline"
+                "coercion",
+                "discipline"
               ],
               "choices": 1
             }
@@ -3395,7 +3377,7 @@
           "startingSkillsChoices": [
             {
               "options": [
-                "Coercion",
+                "coercion",
                 "Vigilance"
               ],
               "choices": 1
@@ -3465,12 +3447,12 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Coordination"
+            "coordination"
           ],
           "naturalWeapons": [
             {
               "name": "Claws",
-              "skill": "Brawl",
+              "skill": "brawl",
               "damage": "Brawl + 1",
               "criticalRating": 3,
               "range": "-"
@@ -3635,7 +3617,7 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Knowledge - Education"
+            "knowledge-education"
           ],
           "specialAbilities": [
             {
@@ -3736,7 +3718,7 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Streetwise"
+            "streetwise"
           ],
           "startingTalents": [
             "heightened-awareness"
@@ -3797,7 +3779,7 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Brawl"
+            "brawl"
           ],
           "startingTalents": [
             "defensive-driving"
@@ -3946,15 +3928,15 @@
         {
           "name": "Bounty Hunter",
           "careerSkills": [
-            "Athletics",
-            "Brawl",
-            "Perception",
-            "Piloting - Planetary",
-            "Piloting - Space",
-            "Ranged - Heavy",
-            "Streetwise",
-            "Streetwise",
-            "Vigilance"
+            "athletics",
+            "brawl",
+            "perception",
+            "piloting-planetary",
+            "piloting-space",
+            "ranged-Heavy",
+            "streetwise",
+            "streetwise",
+            "vigilance"
           ],
           "specializations": [
             "Assassin",
@@ -3968,14 +3950,14 @@
         {
           "name": "Colonist",
           "careerSkills": [
-            "Charm",
-            "Deception",
-            "Knowledge - Core Worlds",
-            "Knowledge - Education",
-            "Knowledge - Lore",
-            "Leadership",
-            "Negotiation",
-            "Streetwise"
+            "charm",
+            "deception",
+            "knowledge-core worlds",
+            "knowledge-education",
+            "knowledge-lore",
+            "leadership",
+            "negotiation",
+            "streetwise"
           ],
           "specializations": [
             "Doctor",
@@ -3989,14 +3971,14 @@
         {
           "name": "Explorer",
           "careerSkills": [
-            "Astrogation",
-            "Cool",
-            "Knowledge - Lore",
-            "Knowledge - Outer Rim",
-            "Knowledge - Xenology",
-            "Perception",
-            "Piloting - Space",
-            "Survival"
+            "astrogation",
+            "cool",
+            "knowledge-lore",
+            "knowledge-outer rim",
+            "knowledge-xenology",
+            "perception",
+            "piloting-space",
+            "survival"
           ],
           "specializations": [
             "Fringer",
@@ -4010,14 +3992,14 @@
         {
           "name": "Hired Gun",
           "careerSkills": [
-            "Athletics",
-            "Brawl",
-            "Discipline",
-            "Melee",
-            "Piloting - Planetary",
-            "Ranged - Light",
-            "Resilience",
-            "Vigilance"
+            "athletics",
+            "brawl",
+            "discipline",
+            "melee",
+            "piloting-planetary",
+            "ranged-Light",
+            "resilience",
+            "vigilance"
           ],
           "specializations": [
             "Bodyguard",
@@ -4031,14 +4013,14 @@
         {
           "name": "Smuggler",
           "careerSkills": [
-            "Coordination",
-            "Deception",
-            "Knowledge - Underworld",
-            "Perception",
-            "Piloting - Space",
-            "Skulduggery",
-            "Streetwise",
-            "Vigilance"
+            "coordination",
+            "deception",
+            "knowledge-underworld",
+            "perception",
+            "piloting-space",
+            "skulduggery",
+            "streetwise",
+            "vigilance"
           ],
           "specializations": [
             "Pilot",
@@ -4052,14 +4034,14 @@
         {
           "name": "Technician",
           "careerSkills": [
-            "Astrogation",
-            "Computers",
-            "Coordination",
-            "Discipline",
-            "Knowledge - Outer Rim",
-            "Mechanics",
-            "Perception",
-            "Piloting - Planetary"
+            "astrogation",
+            "computers",
+            "coordination",
+            "discipline",
+            "knowledge-outer rim",
+            "mechanics",
+            "perception",
+            "piloting-planetary"
           ],
           "specializations": [
             "Mechanic",
@@ -4079,10 +4061,10 @@
         {
           "name": "Assassin",
           "careerSkills": [
-            "Melee",
-            "Ranged - Heavy",
-            "Skulduggery",
-            "Stealth"
+            "melee",
+            "ranged-Heavy",
+            "skulduggery",
+            "stealth"
           ],
           "talents": [
             {
@@ -4288,10 +4270,10 @@
         {
           "name": "Gadgeteer",
           "careerSkills": [
-            "Brawl",
-            "Coercion",
-            "Mechanics",
-            "ranged - Light"
+            "brawl",
+            "coercion",
+            "mechanics",
+            "ranged-Light"
           ],
           "talents": [
             {
@@ -4479,10 +4461,10 @@
         {
           "name": "Survivalist",
           "careerSkills": [
-            "Knowledge - Xenology",
-            "Perception",
-            "Resilience",
-            "Survival"
+            "knowledge-xenology",
+            "perception",
+            "resilience",
+            "survival"
           ],
           "talents": [
             {
@@ -4688,10 +4670,10 @@
         {
           "name": "Doctor",
           "careerSkills": [
-            "Cool",
-            "Knowledge - Education",
-            "Medicine",
-            "Resilience"
+            "cool",
+            "knowledge-education",
+            "medicine",
+            "resilience"
           ],
           "talents": [
             {
@@ -4898,10 +4880,10 @@
         {
           "name": "Politico",
           "careerSkills": [
-            "Charm",
-            "Coercion",
-            "Deception",
-            "Knowledge - Core Worlds"
+            "charm",
+            "coercion",
+            "deception",
+            "knowledge-core worlds"
           ],
           "talents": [
             {
@@ -5102,10 +5084,10 @@
         {
           "name": "Scholar",
           "careerSkills": [
-            "Knowledge - Outer Rim",
-            "Knowledge - Underworld",
-            "Knowledge - Xenology",
-            "Perception"
+            "knowledge-outer rim",
+            "knowledge-underworld",
+            "knowledge-xenology",
+            "perception"
           ],
           "talents": [
             {
@@ -5307,10 +5289,10 @@
         {
           "name": "Fringer",
           "careerSkills": [
-            "Astrogation",
-            "Coordination",
-            "Negotiation",
-            "Streetwise"
+            "astrogation",
+            "coordination",
+            "negotiation",
+            "streetwise"
           ],
           "talents": [
             {
@@ -5510,10 +5492,10 @@
         {
           "name": "Scout",
           "careerSkills": [
-            "Athletics",
-            "Medicine",
-            "Piloting - Planetary",
-            "Survival"
+            "athletics",
+            "medicine",
+            "piloting-planetary",
+            "survival"
           ],
           "talents": [
             {
@@ -5718,10 +5700,10 @@
         {
           "name": "Trader",
           "careerSkills": [
-            "Deception",
-            "Knowledge - Core Worlds",
-            "Knowledge - Underworld",
-            "Negotiation"
+            "deception",
+            "knowledge-core worlds",
+            "knowledge-underworld",
+            "negotiation"
           ],
           "talents": [
             {
@@ -5916,10 +5898,10 @@
         {
           "name": "Bodyguard",
           "careerSkills": [
-            "Gunnery",
-            "Perception",
-            "Piloting - Planetary",
-            "ranged - Heavy"
+            "gunnery",
+            "perception",
+            "piloting-planetary",
+            "ranged-Heavy"
           ],
           "talents": [
             {
@@ -6122,10 +6104,10 @@
         {
           "name": "Marauder",
           "careerSkills": [
-            "Coercion",
-            "Melee",
-            "Resilience",
-            "Survival"
+            "coercion",
+            "melee",
+            "resilience",
+            "survival"
           ],
           "talents": [
             {
@@ -6335,10 +6317,10 @@
         {
           "name": "Mercenary Soldier",
           "careerSkills": [
-            "Discipline",
-            "Gunnery",
-            "Leadership",
-            "ranged - Heavy"
+            "discipline",
+            "gunnery",
+            "leadership",
+            "ranged-heavy"
           ],
           "talents": [
             {
@@ -6548,10 +6530,10 @@
         {
           "name": "Pilot",
           "careerSkills": [
-            "Astrogation",
-            "Gunnery",
-            "Piloting - Planetary",
-            "Piloting - Space"
+            "astrogation",
+            "gunnery",
+            "piloting-planetary",
+            "piloting-space"
           ],
           "talents": [
             {
@@ -6758,10 +6740,10 @@
         {
           "name": "Scoundrel",
           "careerSkills": [
-            "Charm",
-            "Cool",
-            "Deception",
-            "ranged - Light"
+            "charm",
+            "cool",
+            "deception",
+            "ranged-light"
           ],
           "talents": [
             {
@@ -6970,10 +6952,10 @@
         {
           "name": "Thief",
           "careerSkills": [
-            "Computers",
-            "Skulduggery",
-            "Stealth",
-            "Vigilance"
+            "computers",
+            "skulduggery",
+            "stealth",
+            "vigilance"
           ],
           "talents": [
             {
@@ -7186,10 +7168,10 @@
         {
           "name": "Mechanic",
           "careerSkills": [
-            "Brawl",
-            "Mechanics",
-            "Piloting - Space",
-            "Skulduggery"
+            "brawl",
+            "mechanics",
+            "piloting-space",
+            "skulduggery"
           ],
           "talents": [
             {
@@ -7402,10 +7384,10 @@
         {
           "name": "Outlaw Tech",
           "careerSkills": [
-            "Knowledge - Education",
-            "Knowledge - Underworld",
-            "Mechanics",
-            "Streetwise"
+            "knowledge-education",
+            "knowledge-underworld",
+            "mechanics",
+            "streetwise"
           ],
           "talents": [
             {
@@ -7623,10 +7605,10 @@
         {
           "name": "Slicer",
           "careerSkills": [
-            "Computers",
-            "Skulduggery",
-            "Stealth",
-            "Vigilance"
+            "computers",
+            "skulduggery",
+            "stealth",
+            "vigilance"
           ],
           "talents": [
             {
@@ -7840,7 +7822,6 @@
         },
         {
           "name": "Force Sensitive Exile",
-          "careerSkills": [],
           "talents": [
             {
               "id": "force-sensitive-1",
@@ -8501,10 +8482,10 @@
         {
           "name": "Enforcer",
           "careerSkills": [
-            "Brawl",
-            "Coercion",
-            "Knowledge - Underworld",
-            "Streetwise"
+            "brawl",
+            "coercion",
+            "knowledge-underworld",
+            "streetwise"
           ],
           "talents": [
             {
@@ -8707,10 +8688,10 @@
         {
           "name": "Demolitionist",
           "careerSkills": [
-            "Computers",
-            "Cool",
-            "Mechanics",
-            "Skulduggery"
+            "computers",
+            "cool",
+            "mechanics",
+            "skulduggery"
           ],
           "talents": [
             {
@@ -8911,10 +8892,10 @@
         {
           "name": "Heavy",
           "careerSkills": [
-            "Gunnery",
-            "Perception",
-            "Ranged - Heavy",
-            "Resilience"
+            "gunnery",
+            "perception",
+            "ranged-Heavy",
+            "resilience"
           ],
           "talents": [
             {
@@ -9108,10 +9089,10 @@
         {
           "name": "Archaeologist",
           "careerSkills": [
-            "Athletics",
-            "Discipline",
-            "Knowledge - Education",
-            "Knowledge - Lore"
+            "athletics",
+            "discipline",
+            "knowledge-education",
+            "knowledge-lore"
           ],
           "talents": [
             {
@@ -9300,10 +9281,10 @@
         {
           "name": "Big-Game Hunter",
           "careerSkills": [
-            "Knowledge - Xenology",
-            "Ranged - Heavy",
-            "Stealth",
-            "Survival"
+            "knowledge-xenology",
+            "ranged-Heavy",
+            "stealth",
+            "survival"
           ],
           "talents": [
             {
@@ -9502,10 +9483,10 @@
         {
           "name": "Driver",
           "careerSkills": [
-            "Cool",
-            "Gunnery",
-            "Mechanics",
-            "Piloting - Planetary"
+            "cool",
+            "gunnery",
+            "mechanics",
+            "piloting-planetary"
           ],
           "talents": [
             {
@@ -9708,10 +9689,10 @@
         {
           "name": "Entrepreneur",
           "careerSkills": [
-            "Discipline",
-            "Knowledge - Education",
-            "Knowledge - Underworld",
-            "Negotiation"
+            "discipline",
+            "knowledge-education",
+            "knowledge-underworld",
+            "negotiation"
           ],
           "talents": [
             {
@@ -9918,10 +9899,10 @@
         {
           "name": "Marshal",
           "careerSkills": [
-            "Coercion",
-            "Knowledge - Underworld",
-            "Ranged - Light",
-            "Vigilence"
+            "coercion",
+            "knowledge-underworld",
+            "ranged-Light",
+            "vigilance"
           ],
           "talents": [
             {
@@ -10127,10 +10108,10 @@
         {
           "name": "Performer",
           "careerSkills": [
-            "Charm",
-            "Coordination",
-            "Deception",
-            "Melee"
+            "charm",
+            "coordination",
+            "deception",
+            "melee"
           ],
           "talents": [
             {
@@ -10333,10 +10314,10 @@
         {
           "name": "Charmer",
           "careerSkills": [
-            "Charm",
-            "Cool",
-            "Leadership",
-            "Negotiation"
+            "charm",
+            "cool",
+            "leadership",
+            "negotiation"
           ],
           "talents": [
             {
@@ -10545,10 +10526,10 @@
         {
           "name": "Gambler",
           "careerSkills": [
-            "Computers",
-            "Cool",
-            "Deception",
-            "Skulduggery"
+            "computers",
+            "cool",
+            "deception",
+            "skulduggery"
           ],
           "talents": [
             {
@@ -10750,10 +10731,10 @@
         {
           "name": "Gunslinger",
           "careerSkills": [
-            "Coercion",
-            "Cool",
-            "Knowledge - Outer Rim",
-            "Ranged - Light"
+            "coercion",
+            "cool",
+            "knowledge-outer rim",
+            "ranged-light"
           ],
           "talents": [
             {
@@ -10959,10 +10940,10 @@
         {
           "name": "Martial Artist",
           "careerSkills": [
-            "Athletics",
-            "Brawl",
-            "Coordination",
-            "Discipline"
+            "athletics",
+            "brawl",
+            "coordination",
+            "discipline"
           ],
           "talents": [
             {
@@ -11170,10 +11151,10 @@
         {
           "name": "Operator",
           "careerSkills": [
-            "Astrogation",
-            "Gunnery",
-            "Piloting - Planetary",
-            "Piloting - Space"
+            "astrogation",
+            "gunnery",
+            "piloting-planetary",
+            "piloting-space"
           ],
           "talents": [
             {
@@ -11393,10 +11374,10 @@
         {
           "name": "Skiptracer",
           "careerSkills": [
-            "Cool",
-            "Knowledge - Underworld",
-            "Negotiation",
-            "Skulduggery"
+            "cool",
+            "knowledge-underworld",
+            "negotiation",
+            "skulduggery"
           ],
           "talents": [
             {
@@ -11614,10 +11595,10 @@
         {
           "name": "Cyber Tech",
           "careerSkills": [
-            "Athletics",
-            "Mechanics",
-            "Medicine",
-            "Vigilence"
+            "athletics",
+            "mechanics",
+            "medicine",
+            "vigilance"
           ],
           "talents": [
             {
@@ -11825,10 +11806,10 @@
         {
           "name": "Droid Tech",
           "careerSkills": [
-            "Computers",
-            "Cool",
-            "Mechanics",
-            "Leadership"
+            "computers",
+            "cool",
+            "mechanics",
+            "leadership"
           ],
           "talents": [
             {
@@ -12038,10 +12019,10 @@
         {
           "name": "Modder",
           "careerSkills": [
-            "Gunnery",
-            "Mechanics",
-            "Piloting - Space",
-            "Streetwise"
+            "gunnery",
+            "mechanics",
+            "piloting-space",
+            "streetwise"
           ],
           "talents": [
             {
@@ -13407,7 +13388,7 @@
         },
         {
           "name": "Heavy Repeating Rifle",
-          "skill": "Gunnery",
+          "skill": "gunnery",
           "damage": 15,
           "criticalRating": 2,
           "range": "Long",
@@ -13542,7 +13523,7 @@
         },
         {
           "name": "Missile Tube",
-          "skill": "Gunnery",
+          "skill": "gunnery",
           "damage": 20,
           "criticalRating": 2,
           "range": "Extreme",
@@ -13612,7 +13593,7 @@
         },
         {
           "name": "Brass Knuckles",
-          "skill": "Brawl",
+          "skill": "brawl",
           "damage": 1,
           "criticalRating": 4,
           "range": "Engaged",
@@ -13626,7 +13607,7 @@
         },
         {
           "name": "Shock Gloves",
-          "skill": "Brawl",
+          "skill": "brawl",
           "damage": 0,
           "criticalRating": 5,
           "range": "Engaged",
