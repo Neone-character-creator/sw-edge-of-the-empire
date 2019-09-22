@@ -1360,48 +1360,68 @@
           {
             "name": "obligation",
             "type": "container",
+            "direction": "horizontal",
             "children": [
               {
-                "name": "totalObligation",
-                "weight": 12,
-                "type": "number",
-                "label": "Total Obligation",
-                "text": "# _.sum($state.character.obligations.map(o => o.rating))"
-              },
-              {
-                "name": "newObligation",
+                "name": "obligationInputs",
+                "weight": 6,
                 "type": "container",
-                "direction": "horizontal",
+                "direction": "vertical",
                 "children": [
                   {
-                    "name": "newObligationAdd",
-                    "type": "button",
-                    "text": "Add",
-                    "action": "# {type:'ADD', path: '$state.character.obligations', value: $state.newObligation}"
-                  },
-                  {
-                    "name": "newObligationType",
-                    "type": "textfield",
-                    "label": "Type",
-                    "bind": "$state.newObligation.type"
-                  },
-                  {
-                    "name": "newObligationDescription",
-                    "type": "textfield",
-                    "label": "Description",
-                    "bind": "$state.newObligation.description"
-                  },
-                  {
-                    "name": "newObligationRating",
+                    "name": "totalObligation",
                     "type": "number",
-                    "label": "Rating",
-                    "bind": "$state.newObligation.rating"
+                    "label": "Total Obligation",
+                    "text": "# _.sum($state.character.obligations.map(o => o.rating))"
+                  },
+                  {
+                    "name": "newObligation",
+                    "type": "container",
+                    "direction": "horizontal",
+                    "children": [
+                      {
+                        "name": "newObligationAdd",
+                        "type": "button",
+                        "text": "Add",
+                        "action": "# {type:'ADD', path: '$state.character.obligations', value: $state.newObligation}"
+                      },
+                      {
+                        "name": "newObligationType",
+                        "type": "textfield",
+                        "label": "Type",
+                        "bind": "$state.newObligation.type"
+                      },
+                      {
+                        "name": "newObligationDescription",
+                        "type": "textfield",
+                        "label": "Description",
+                        "bind": "$state.newObligation.description"
+                      },
+                      {
+                        "name": "newObligationRating",
+                        "type": "number",
+                        "label": "Rating",
+                        "bind": "$state.newObligation.rating"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "bonusObligation",
+                    "type": "select",
+                    "bind": "$state.character.obligationBonuses",
+                    "label": "Extra Obligation",
+                    "items": {
+                      "maxSelections": 4,
+                      "text": "description",
+                      "values": "# $rules.obligation.extraStartingObligationOptions"
+                    }
                   }
                 ]
               },
               {
                 "name": "obligations",
                 "type": "list",
+                "weight": 6,
                 "bind": "$state.character.obligations",
                 "items": {
                   "child": {
@@ -1859,7 +1879,8 @@
         "totalExperience": {
           "type": "number",
           "baseValue": [
-            "# $state.character.species.startingExperience"
+            "# $state.character.species.startingExperience",
+            "# $this + _.sum($state.character.obligationBonuses.map(ob => ob.bonusXp))"
           ]
         },
         "wounds": {
@@ -1884,7 +1905,12 @@
           ]
         },
         "armor": "[armor]",
-        "credits": "number",
+        "credits": {
+          "type": "number",
+          "baseValue": [
+            "# _.sum($state.character.obligationBonuses.map(ob => ob.bonusCredits))"
+          ]
+        },
         "otherItems": "[string]",
         "motivations": {
           "type": "[string]",
@@ -1893,6 +1919,7 @@
           ]
         },
         "obligations": "[obligation]",
+        "obligationBonuses": "[obligationBonus]",
         "humanBonusSkills": "[string]"
       }
     },
@@ -13498,6 +13525,14 @@
         "description": "string",
         "rating": "number"
       }
+    },
+    "obligationBonus": {
+      "properties": {
+        "description": "string",
+        "obligation": "number",
+        "bonusXp": "number",
+        "bonusCredits": "number"
+      }
     }
   },
   "rules": {
@@ -13560,6 +13595,30 @@
         "cost": "# $this.tier * 5",
         "effect": "# $state.character.talents.push($state.selectedAdvancement.talent.option)"
       }
+    },
+    "obligation": {
+      "extraStartingObligationOptions": [
+        {
+          "obligation": 5,
+          "bonusXp": 5,
+          "description": "+5 XP / +5 Obligation"
+        },
+        {
+          "obligation": 10,
+          "bonusXp": 10,
+          "description": "+10 XP / +10 Obligation"
+        },
+        {
+          "obligation": 5,
+          "bonusCredits": 1000,
+          "description": "+1000 credits / +5 Obligation"
+        },
+        {
+          "obligation": 10,
+          "bonusCredits": 2500,
+          "description": "+2500 credits / +10 Obligation"
+        }
+      ]
     }
   },
   "hooks": [
