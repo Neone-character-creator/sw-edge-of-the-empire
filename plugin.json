@@ -966,63 +966,63 @@
             ]
           },
           {
-            "name": "weapons",
+            "name": "summaryWeapons",
             "type": "container",
             "direction": "vertical",
             "children": [
               {
-                "name": "weaponLabel",
+                "name": "summaryWeaponLabel",
                 "type": "label",
                 "text": "# 'Weapons'"
               },
               {
-                "name": "weaponList",
+                "name": "summaryWeaponList",
                 "type": "list",
                 "keyProperty": "name",
                 "bind": "$state.character.weapons",
                 "items": {
                   "child": {
-                    "name": "weaponItem",
+                    "name": "summaryWeaponItem",
                     "type": "container",
                     "direction": "horizontal",
                     "children": [
                       {
-                        "name": "weaponName",
+                        "name": "summaryWeaponName",
                         "type": "textfield",
                         "label": "Name",
                         "weight": 2,
                         "bind": "$this.name"
                       },
                       {
-                        "name": "weaponSkill",
+                        "name": "summaryWeaponSkill",
                         "type": "textfield",
                         "label": "Skill",
                         "weight": 1,
                         "bind": "$this.skill"
                       },
                       {
-                        "name": "weaponDamage",
+                        "name": "summaryWeaponDamage",
                         "type": "textfield",
                         "label": "Damage",
                         "weight": 1,
                         "bind": "$this.damage"
                       },
                       {
-                        "name": "weaponRange",
+                        "name": "summaryWeaponRange",
                         "type": "textfield",
                         "label": "Range",
                         "weight": 1,
                         "bind": "$this.range"
                       },
                       {
-                        "name": "weaponCrit",
+                        "name": "summaryWeaponCrit",
                         "type": "number",
                         "label": "Crit",
                         "weight": 1,
                         "bind": "$this.criticalRating"
                       },
                       {
-                        "name": "weaponSpecial",
+                        "name": "summaryWeaponSpecial",
                         "type": "textfield",
                         "label": "Special",
                         "weight": 2,
@@ -1031,67 +1031,6 @@
                     ]
                   }
                 }
-              },
-              {
-                "name": "newWeapon",
-                "type": "container",
-                "direction": "horizontal",
-                "children": [
-                  {
-                    "name": "addWeapon",
-                    "type": "button",
-                    "text": "# 'Add'",
-                    "weight": 1,
-                    "disabledWhen": "# !_.get($state, 'selectedWeapon')",
-                    "action": "# {type:'ADD', path:'character.weapons', value:$state.selectedWeapon}"
-                  },
-                  {
-                    "name": "newWeaponName",
-                    "type": "select",
-                    "weight": 2,
-                    "label": "Weapon",
-                    "bind": "$state.selectedWeapon",
-                    "items": {
-                      "text": "name",
-                      "values": "# $model.weapon.values"
-                    }
-                  },
-                  {
-                    "name": "newWeaponSkill",
-                    "type": "textfield",
-                    "label": "Skill",
-                    "weight": 1,
-                    "bind": "$state.selectedWeapon.skill"
-                  },
-                  {
-                    "name": "newWeaponDamage",
-                    "type": "textfield",
-                    "label": "Damage",
-                    "weight": 1,
-                    "bind": "$state.selectedWeapon.damage"
-                  },
-                  {
-                    "name": "newWeaponRange",
-                    "type": "textfield",
-                    "label": "Range",
-                    "weight": 1,
-                    "bind": "$state.selectedWeapon.range"
-                  },
-                  {
-                    "name": "newWeaponCrit",
-                    "type": "number",
-                    "label": "Crit",
-                    "weight": 1,
-                    "bind": "$state.selectedWeapon.criticalRating"
-                  },
-                  {
-                    "name": "newWeaponSpecial",
-                    "type": "textfield",
-                    "label": "Special",
-                    "weight": 2,
-                    "bind": "$state.selectedWeapon.special"
-                  }
-                ]
               }
             ]
           },
@@ -1620,6 +1559,28 @@
               "maxSelections": "# _.get($state, 'character.species.startingNonCareerSkillChoices', 0)",
               "values": "# Object.keys($state.character.skills).filter(s => !$state.character.skills[s].isCareerSkill)"
             }
+          },
+          {
+            "name": "speciesBonusCybernetics",
+            "type": "container",
+            "hiddenWhen": "# _.get($state, 'character.species.bonusCybernetics') === undefined",
+            "children": [
+              {
+                "name": "speciesBonusCybernetics",
+                "type": "label",
+                "text": "# 'Bonus Cybernetics: Choose up to ' + $state.character.species.bonusCybernetics.choices + ' worth up to ' + $state.character.species.bonusCybernetics.maxTotalCost + ' credits'"
+              },
+              {
+                "name": "speciesBonusCybernetics",
+                "type": "select",
+                "bind": "$state.character.bonusCybernetics",
+                "items": {
+                  "text": "name",
+                  "values": "# $state.character.bonusCybernetics.concat($model.cybernetics.values.filter(c => c.cost <= $state.character.species.bonusCybernetics.maxTotalCost - _.sum($state.character.bonusCybernetics.map(bc => bc.cost))))",
+                  "maxSelections": "# $state.character.species.bonusCybernetics.choices"
+                }
+              }
+            ]
           }
         ]
       },
@@ -1706,6 +1667,156 @@
                     ]
                   }
                 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Equipment",
+        "type": "view",
+        "children": [
+          {
+            "name": "weapons",
+            "type": "container",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "newWeapon",
+                "type": "container",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "addWeapon",
+                    "type": "button",
+                    "text": "# 'Add'",
+                    "weight": 1,
+                    "disabledWhen": "# !_.get($state, 'selectedWeapon')",
+                    "action": "# {type:'ADD', path:'$state.character.weapons', value:$state.selectedWeapon}"
+                  },
+                  {
+                    "name": "newWeaponName",
+                    "type": "select",
+                    "weight": 2,
+                    "label": "Weapon",
+                    "bind": "$state.selectedWeapon",
+                    "items": {
+                      "text": "name",
+                      "values": "# $model.weapon.values"
+                    }
+                  },
+                  {
+                    "name": "newWeaponSkill",
+                    "type": "textfield",
+                    "label": "Skill",
+                    "weight": 1,
+                    "bind": "$state.selectedWeapon.skill"
+                  },
+                  {
+                    "name": "newWeaponDamage",
+                    "type": "textfield",
+                    "label": "Damage",
+                    "weight": 1,
+                    "bind": "$state.selectedWeapon.damage"
+                  },
+                  {
+                    "name": "newWeaponRange",
+                    "type": "textfield",
+                    "label": "Range",
+                    "weight": 1,
+                    "bind": "$state.selectedWeapon.range"
+                  },
+                  {
+                    "name": "newWeaponCrit",
+                    "type": "number",
+                    "label": "Crit",
+                    "weight": 1,
+                    "bind": "$state.selectedWeapon.criticalRating"
+                  },
+                  {
+                    "name": "newWeaponSpecial",
+                    "type": "textfield",
+                    "label": "Special",
+                    "weight": 2,
+                    "bind": "$state.selectedWeapon.special"
+                  }
+                ]
+              },
+              {
+                "name": "equipmentWeapons",
+                "type": "container",
+                "direction": "vertical",
+                "children": [
+                  {
+                    "name": "weaponLabel",
+                    "type": "label",
+                    "text": "# 'Weapons'"
+                  },
+                  {
+                    "name": "weaponList",
+                    "type": "list",
+                    "keyProperty": "name",
+                    "bind": "$state.character.weapons",
+                    "items": {
+                      "child": {
+                        "name": "weaponItem",
+                        "type": "container",
+                        "direction": "horizontal",
+                        "children": [
+                          {
+                            "name": "removeWeapon",
+                            "type": "button",
+                            "text": "X",
+                            "weight": 1,
+                            "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $index}"
+                          },
+                          {
+                            "name": "weaponName",
+                            "type": "textfield",
+                            "label": "Name",
+                            "weight": 2,
+                            "bind": "$this.name"
+                          },
+                          {
+                            "name": "weaponSkill",
+                            "type": "textfield",
+                            "label": "Skill",
+                            "weight": 1,
+                            "bind": "$this.skill"
+                          },
+                          {
+                            "name": "weaponDamage",
+                            "type": "textfield",
+                            "label": "Damage",
+                            "weight": 1,
+                            "bind": "$this.damage"
+                          },
+                          {
+                            "name": "weaponRange",
+                            "type": "textfield",
+                            "label": "Range",
+                            "weight": 1,
+                            "bind": "$this.range"
+                          },
+                          {
+                            "name": "weaponCrit",
+                            "type": "number",
+                            "label": "Crit",
+                            "weight": 1,
+                            "bind": "$this.criticalRating"
+                          },
+                          {
+                            "name": "weaponSpecial",
+                            "type": "textfield",
+                            "label": "Special",
+                            "weight": 2,
+                            "bind": "$this.special"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -1920,7 +2031,14 @@
         },
         "obligations": "[obligation]",
         "obligationBonuses": "[obligationBonus]",
-        "humanBonusSkills": "[string]"
+        "humanBonusSkills": "[string]",
+        "cybernetics": {
+          "type": "[cybernetics]",
+          "baseValue":[
+            "# _.get($state, 'character.bonusCybernetics')"
+          ]
+        },
+        "bonusCybernetics": "[cybernetics]"
       }
     },
     "skills": {
@@ -2183,7 +2301,8 @@
             "# $state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.path[2]) ? 1 : 0",
             "# $this.accumulator + _.flatMap(_.get($state, 'character.species.startingSkillsChoices', []).map(ssc => ssc.selected)).filter(x => x).map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0;",
             "# $this.accumulator + $state.character.species.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
-            "# $this.accumulator + $state.character.careerStartingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0"
+            "# $this.accumulator + $state.character.careerStartingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
+            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c, 'bonusSkills' + $this.path[2], 0)))"
           ]
         }
       }
@@ -3097,7 +3216,7 @@
               "description": "All Ganks are cyborgs and each one often possesses several different cybernetic implants. A Gank beings play with up to two cybernetics that cost a total of up to 5,000 credits. If the character takes on additional Obligation for credits at character creation, he may apply these extra funds to the 5,000 credit budgest to purchase cybernetics. Ganks have a cybernetic implant cap of 3 plus Brawn rating."
             }
           ],
-          "bonudCybernetics": {
+          "bonusCybernetics": {
             "choices": 2,
             "maxTotalCost": 5000
           }
@@ -3579,37 +3698,43 @@
         "brawn": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.species.baseCharacteristics.brawn"
+            "# $state.character.species.baseCharacteristics.brawn",
+            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c.bonusCharacteristics, 'brawn', 0)))"
           ]
         },
         "agility": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.species.baseCharacteristics.agility"
+            "# $state.character.species.baseCharacteristics.agility",
+            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c.bonusCharacteristics, 'agility', 0)))"
           ]
         },
         "intellect": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.species.baseCharacteristics.intellect"
+            "# $state.character.species.baseCharacteristics.intellect",
+            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c.bonusCharacteristics, 'intellect', 0)))"
           ]
         },
         "cunning": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.species.baseCharacteristics.cunning"
+            "# $state.character.species.baseCharacteristics.cunning",
+            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c.bonusCharacteristics, 'cunning', 0)))"
           ]
         },
         "willpower": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.species.baseCharacteristics.willpower"
+            "# $state.character.species.baseCharacteristics.willpower",
+            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c.bonusCharacteristics, 'willpower', 0)))"
           ]
         },
         "presence": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.species.baseCharacteristics.presence"
+            "# $state.character.species.baseCharacteristics.presence",
+            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c.bonusCharacteristics, 'presence', 0)))"
           ]
         }
       }
@@ -13533,6 +13658,158 @@
         "bonusXp": "number",
         "bonusCredits": "number"
       }
+    },
+    "cybernetics": {
+      "properties": {
+        "name": "string",
+        "cost": "number",
+        "characteristicBonus": "characteristics",
+        "soakBonus": "number",
+        "skillBonus": "skills"
+      },
+      "values": [
+        {
+          "name": "Cybernetic Arm Mod V",
+          "cost": 10000,
+          "characteristicBonus": {
+            "brawn": 1
+          }
+        },{
+          "name": "Cybernetic Arm Mod VI",
+          "cost": 10000,
+          "characteristicBonus": {
+            "agility": 1
+          }
+        },{
+          "name": "Cybernetic Leg Mod II",
+          "cost": 10000,
+          "characteristicBonus": {
+            "brawn": 1
+          }
+        },{
+          "name": "Cybernetic Leg Mod III",
+          "cost": 10000,
+          "characteristicBonus": {
+            "agility": 1
+          }
+        },{
+          "name": "Cybernetic Brain Implant",
+          "cost": 10000,
+          "characteristicBonus": {
+            "intellect": 1
+          }
+        },
+        {
+          "name": "Implant Armor",
+          "cost": 7500,
+          "soakBonus": 1
+        },
+        {
+          "name": "Cybernetic Eyes",
+          "cost": 7500,
+          "skillBonus": {
+            "Perception": 1,
+            "Vigilance": 1
+          }
+        },
+        {
+          "name": "Immune Implant",
+          "cost": 5000,
+          "skillBonus": {
+            "Resilience": 1
+          }
+        },
+        {
+          "name": "Cybernetic Weapon",
+          "cost": 4000,
+          "naturalWeapons": [
+            {
+              "name": "Cybernetic Weapon",
+              "skill": "ranged (Light)",
+              "damage": 5,
+              "criticalRating": 4,
+              "range": "Medium",
+              "encumbrance": 1,
+              "hardpoints": 2,
+              "price": 300,
+              "rarity": 4,
+              "special": [
+                "Stun setting"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Cyberscanner Limb",
+          "cost": 4000
+        },
+        {
+          "name": "Prosthetic Replacement Limb",
+          "cost": 2000
+        },
+        {
+          "name": "Prosthetic Replacement Organ",
+          "cost": 1000
+        },
+        {
+          "name": "Avionics Interface",
+          "cost": 8000
+        },
+        {
+          "name": "Adrenal Implant",
+          "cost": 2250,
+          "bonusTalents": [
+            "rapid-recovery"
+          ]
+        },
+        {
+          "name": "Cybernetic Reflexes",
+          "cost": 2750,
+          "bonusTalents": [
+            "rapid-reaction"
+          ]
+        },
+        {
+          "name": "Cybernetic Respirator",
+          "cost": 2000,
+          "bonusTalents": [
+            "blooded"
+          ]
+        },
+        {
+          "name": "Gank Comm Implant",
+          "cost": 250
+        },
+        {
+          "name": "Implanted Cyberjack",
+          "cost": 3750
+        },
+        {
+          "name": "Neuromachine Interface",
+          "cost": 3500
+        },
+        {
+          "name": "Q-22 Retinal Tracker",
+          "cost": 2500
+        },
+        {
+          "name": "Repulsor Fist",
+          "cost": 4750,
+          "naturalWeapons": [
+            {
+              "name": "Repulsor Fist",
+              "skill": "brawl",
+              "damage": 8,
+              "criticalRating": 3,
+              "range": "melee",
+              "special": [
+                "Concussive 1",
+                "Slow-Firing 2"
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "rules": {
