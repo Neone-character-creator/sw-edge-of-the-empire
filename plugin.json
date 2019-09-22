@@ -1035,56 +1035,56 @@
             ]
           },
           {
-            "name": "armor",
+            "name": "summaryArmor",
             "type": "container",
             "direction": "vertical",
             "children": [
               {
-                "name": "armorLabel",
+                "name": "summaryArmorLabel",
                 "type": "label",
                 "text": "# 'Armor'"
               },
               {
-                "name": "armorList",
+                "name": "summaryArmorList",
                 "type": "list",
                 "keyProperty": "name",
                 "bind": "$state.character.armor",
                 "items": {
                   "child": {
-                    "name": "armorItem",
+                    "name": "summaryArmorItem",
                     "type": "container",
                     "direction": "horizontal",
                     "children": [
                       {
-                        "name": "armorName",
+                        "name": "summaryArmorName",
                         "type": "textfield",
                         "label": "Name",
                         "weight": 2,
                         "bind": "$this.name"
                       },
                       {
-                        "name": "armorDefense",
+                        "name": "summaryArmorDefense",
                         "type": "number",
                         "label": "Defense",
                         "weight": 1,
                         "bind": "$this.defense"
                       },
                       {
-                        "name": "armorSoak",
+                        "name": "summaryArmorSoak",
                         "type": "number",
                         "label": "Soak",
                         "weight": 1,
                         "bind": "$this.soak"
                       },
                       {
-                        "name": "armorEncumbrance",
+                        "name": "summaryArmorEncumbrance",
                         "type": "number",
                         "label": "Encumbrance",
                         "weight": 1,
                         "bind": "$this.encumbrance"
                       },
                       {
-                        "name": "armorHardpoints",
+                        "name": "summaryArmorHardpoints",
                         "type": "number",
                         "label": "Hard Points",
                         "weight": 1,
@@ -1093,59 +1093,6 @@
                     ]
                   }
                 }
-              },
-              {
-                "name": "newArmor",
-                "type": "container",
-                "children": [
-                  {
-                    "name": "addArmor",
-                    "type": "button",
-                    "text": "# 'Add'",
-                    "weight": 1,
-                    "disabledWhen": "# !_.get($state, 'selectedArmor')",
-                    "action": "# {type:'ADD', path:'character.armor', value:$state.selectedArmor}"
-                  },
-                  {
-                    "name": "newArmorName",
-                    "type": "select",
-                    "label": "Armor",
-                    "bind": "$state.selectedArmor",
-                    "weight": 2,
-                    "items": {
-                      "text": "name",
-                      "values": "# $model.armor.values"
-                    }
-                  },
-                  {
-                    "name": "newArmorDefense",
-                    "type": "number",
-                    "weight": 1,
-                    "label": "Defense",
-                    "bind": "$state.selectedArmor.defense"
-                  },
-                  {
-                    "name": "newArmorSoak",
-                    "type": "number",
-                    "weight": 1,
-                    "label": "Soak",
-                    "bind": "$state.selectedArmor.soak"
-                  },
-                  {
-                    "name": "newArmorEncumbrance",
-                    "weight": 1,
-                    "type": "number",
-                    "label": "Encumbrance",
-                    "bind": "$state.selectedArmor.encumbrance"
-                  },
-                  {
-                    "name": "newArmorHardPoints",
-                    "weight": 1,
-                    "type": "number",
-                    "label": "Hard Points",
-                    "bind": "$state.selectedArmor.hardpoints"
-                  }
-                ]
               }
             ]
           },
@@ -1682,6 +1629,11 @@
             "direction": "vertical",
             "children": [
               {
+                "name": "weaponLabel",
+                "type": "label",
+                "text": "# 'Weapons'"
+              },
+              {
                 "name": "newWeapon",
                 "type": "container",
                 "direction": "horizontal",
@@ -1748,11 +1700,6 @@
                 "direction": "vertical",
                 "children": [
                   {
-                    "name": "weaponLabel",
-                    "type": "label",
-                    "text": "# 'Weapons'"
-                  },
-                  {
                     "name": "weaponList",
                     "type": "list",
                     "keyProperty": "name",
@@ -1814,6 +1761,187 @@
                           }
                         ]
                       }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "armor",
+            "type": "container",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "armorLabel",
+                "type": "label",
+                "text": "# 'Armor'"
+              },
+              {
+                "name": "armorList",
+                "type": "list",
+                "keyProperty": "name",
+                "bind": "$state.character.armor",
+                "items": {
+                  "child": {
+                    "name": "armorItem",
+                    "type": "container",
+                    "direction": "horizontal",
+                    "children": [
+                      {
+                        "name": "removeArmor",
+                        "type": "button",
+                        "text": "X",
+                        "weight": 1,
+                        "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $index}"
+                      },
+                      {
+                        "name": "armorName",
+                        "type": "textfield",
+                        "label": "Name",
+                        "weight": 2,
+                        "bind": "$this.name"
+                      },
+                      {
+                        "name": "armorDefense",
+                        "type": "number",
+                        "label": "Defense",
+                        "weight": 1,
+                        "bind": "$this.defense"
+                      },
+                      {
+                        "name": "armorSoak",
+                        "type": "number",
+                        "label": "Soak",
+                        "weight": 1,
+                        "bind": "$this.soak"
+                      },
+                      {
+                        "name": "armorEncumbrance",
+                        "type": "number",
+                        "label": "Encumbrance",
+                        "weight": 1,
+                        "bind": "$this.encumbrance"
+                      },
+                      {
+                        "name": "armorHardpoints",
+                        "type": "number",
+                        "label": "Hard Points",
+                        "weight": 1,
+                        "bind": "$this.hardpoints"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "name": "newArmor",
+                "type": "container",
+                "children": [
+                  {
+                    "name": "addArmor",
+                    "type": "button",
+                    "text": "# 'Add'",
+                    "weight": 1,
+                    "disabledWhen": "# !_.get($state, 'selectedArmor')",
+                    "action": "# {type:'ADD', path:'$state.character.armor', value:$state.selectedArmor}"
+                  },
+                  {
+                    "name": "newArmorName",
+                    "type": "select",
+                    "label": "Armor",
+                    "bind": "$state.selectedArmor",
+                    "weight": 2,
+                    "items": {
+                      "text": "name",
+                      "values": "# $model.armor.values"
+                    }
+                  },
+                  {
+                    "name": "newArmorDefense",
+                    "type": "number",
+                    "weight": 1,
+                    "label": "Defense",
+                    "bind": "$state.selectedArmor.defense"
+                  },
+                  {
+                    "name": "newArmorSoak",
+                    "type": "number",
+                    "weight": 1,
+                    "label": "Soak",
+                    "bind": "$state.selectedArmor.soak"
+                  },
+                  {
+                    "name": "newArmorEncumbrance",
+                    "weight": 1,
+                    "type": "number",
+                    "label": "Encumbrance",
+                    "bind": "$state.selectedArmor.encumbrance"
+                  },
+                  {
+                    "name": "newArmorHardPoints",
+                    "weight": 1,
+                    "type": "number",
+                    "label": "Hard Points",
+                    "bind": "$state.selectedArmor.hardpoints"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "cybernetics",
+            "type": "container",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "cyberneticsLabel",
+                "type": "label",
+                "text": "Cybernetics"
+              },
+              {
+                "name": "cyberneticsList",
+                "type": "list",
+                "keyProperty": "name",
+                "bind": "$state.character.cybernetics",
+                "items": {
+                  "child": {
+                    "name": "cyberneticsItem",
+                    "type": "container",
+                    "direction": "horizontal",
+                    "children": [
+                      {
+                        "name": "cyberneticsName",
+                        "type": "textfield",
+                        "label": "Name",
+                        "weight": 2,
+                        "bind": "$this.name"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "name": "newCybernetics",
+                "type": "container",
+                "children": [
+                  {
+                    "name": "addCybernetics",
+                    "type": "button",
+                    "text": "# 'Add'",
+                    "weight": 1,
+                    "disabledWhen": "# !_.get($state, 'selectedCybernetics')",
+                    "action": "# {type:'ADD', path:'$state.character.cybernetics', value:$state.selectedCybernetics}"
+                  },
+                  {
+                    "name": "newCybernetics",
+                    "type": "select",
+                    "label": "Cybernetics",
+                    "bind": "$state.selectedCybernetics",
+                    "weight": 2,
+                    "items": {
+                      "text": "name",
+                      "values": "# $model.cybernetics.values"
                     }
                   }
                 ]
@@ -2034,7 +2162,7 @@
         "humanBonusSkills": "[string]",
         "cybernetics": {
           "type": "[cybernetics]",
-          "baseValue":[
+          "baseValue": [
             "# _.get($state, 'character.bonusCybernetics')"
           ]
         },
@@ -13674,25 +13802,29 @@
           "characteristicBonus": {
             "brawn": 1
           }
-        },{
+        },
+        {
           "name": "Cybernetic Arm Mod VI",
           "cost": 10000,
           "characteristicBonus": {
             "agility": 1
           }
-        },{
+        },
+        {
           "name": "Cybernetic Leg Mod II",
           "cost": 10000,
           "characteristicBonus": {
             "brawn": 1
           }
-        },{
+        },
+        {
           "name": "Cybernetic Leg Mod III",
           "cost": 10000,
           "characteristicBonus": {
             "agility": 1
           }
-        },{
+        },
+        {
           "name": "Cybernetic Brain Implant",
           "cost": 10000,
           "characteristicBonus": {
