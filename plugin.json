@@ -3306,6 +3306,228 @@
               "description": "Drall have a mind for problems and their solutions. In addition to using his skill or characteristic rating, a Drall adds □ to the dicepool when providing skilled assistance."
             }
           ]
+        },
+        {
+          "name": "Clawdite",
+          "plural": "Clawdite",
+          "source": "no-disintegrations",
+          "baseCharacteristics": {
+            "brawn": 2,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 3,
+            "willpower": 1,
+            "presence": 2
+          },
+          "woundsThreshold": {
+            "characteristic": "brawn",
+            "base": 9
+          },
+          "strainThreshold": {
+            "characteristic": "willpower",
+            "base": 9
+          },
+          "startingExperience": 95,
+          "startingSkills": [
+            "Resilience"
+          ],
+          "specialAbilities": [
+            {
+              "name": "Clawdite",
+              "description": "Clawdite begin the game with one rank in Resilience."
+            },
+            {
+              "name": "Changeling"
+            }
+          ]
+        },
+        {
+          "name": "Devaronian",
+          "plural": "Devaronians",
+          "source": "no-disintegrations",
+          "baseCharacteristics": {
+            "brawn": 2,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 3,
+            "willpower": 2,
+            "presence": 1
+          },
+          "woundThreshold": {
+            "characteristic": "brawn",
+            "base": 11
+          },
+          "strainThreshold": {
+            "characteristic": "willpower",
+            "base": 10
+          },
+          "startingExperience": 95,
+          "startingSkillChoices": [
+            {
+              "choices": 1,
+              "options": [
+                "Survival",
+                "Deception"
+              ]
+            }
+          ],
+          "specialAbilities": [
+            {
+              "name": "Resilient Metabolism"
+            }
+          ]
+        },
+        {
+          "name": "Kalleran",
+          "plural": "Kallerans",
+          "source": "no-disintegrations",
+          "baseCharacteristics": {
+            "brawn": 3,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 1,
+            "presence": 1
+          },
+          "woundThreshold": {
+            "characteristic": "brawn",
+            "base": 8
+          },
+          "strainThreshold": {
+            "characteristic": "willpower",
+            "base": 12
+          },
+          "startingExperience": 90,
+          "startingSkills": [
+            "Streetwise"
+          ],
+          "startingTalents": [
+            "heightened-awareness"
+          ],
+          "specialAbilities": [
+            {
+              "name": "Hypersensetive Antennar"
+            }
+          ]
+        },
+        {
+          "name": "Besalisk",
+          "source": "special-modifications",
+          "startingExperience": 85,
+          "baseCharacteristics": {
+            "brawn": 3,
+            "agility": 1,
+            "intellect": 2,
+            "cunning": 1,
+            "willpower": 2,
+            "presence": 2
+          },
+          "strainThreshold": {
+            "characteristic": "willpower",
+            "base": 7
+          },
+          "woundThreshold": {
+            "characteristic": "brawn",
+            "base": 12
+          },
+          "startingSkills": [
+            "Resilience"
+          ],
+          "specialAbilities": [
+            {
+              "name": "Additional Limbs"
+            }
+          ]
+        },
+        {
+          "name": "Dug",
+          "source": "special-modifications",
+          "baseCharacteristics": {
+            "brawn": "2",
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 2,
+            "presence": 1
+          },
+          "woundThreshold": {
+            "characteristic": "brawn",
+            "base": 9
+          },
+          "strainThreshold": {
+            "characteristic": "willpower",
+            "base": 8
+          },
+          "startingExperience": 90,
+          "startingSkills": [
+            "Brawl"
+          ],
+          "startingTalents": [
+            "defensive-driving"
+          ],
+          "specialAbilities": [
+            {
+              "name": "Born to Ride"
+            }
+          ]
+        },
+        {
+          "name": "Mustafarian - Northern",
+          "source": "special-modifications",
+          "baseCharacteristics": {
+            "brawn": 2,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 2,
+            "presence": 1
+          },
+          "woundThreshold": {
+            "characteristic": "brawn",
+            "base": 10
+          },
+          "strainThreshold": {
+            "characteristic": "willpower",
+            "base": 10
+          },
+          "startingExperience": 100,
+          "startingTalents": [
+            "eye-for-detail"
+          ],
+          "specialAbilities": [
+            {
+              "name": "Northern Mustafarian"
+            }
+          ]
+        },
+        {
+          "name": "Mustafarian - Southern",
+          "source": "special-modifications",
+          "baseCharacteristics": {
+            "brawn": 2,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 2,
+            "presence": 1
+          },
+          "woundThreshold": {
+            "characteristic": "brawn",
+            "base": 10
+          },
+          "strainThreshold": {
+            "characteristic": "willpower",
+            "base": 10
+          },
+          "startingExperience": 100,
+          "startingTalents": [
+            "enduring"
+          ],
+          "specialAbilities": [
+            {
+              "name": "Southern Mustafarian"
+            }
+          ]
         }
       ]
     },
@@ -10501,7 +10723,8 @@
                   "martial-artist-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-12",
               "value": "precision-strike-improved",
               "tier": 3,
@@ -10511,7 +10734,8 @@
                   "martial-artist-16"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-13",
               "value": "overbalance",
               "tier": 4,
@@ -10520,7 +10744,8 @@
                   "martial-artist-9"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-14",
               "value": "toughened",
               "tier": 4,
@@ -10531,7 +10756,8 @@
                   "martial-artist-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-15",
               "value": "mind-over-matter",
               "tier": 4,
@@ -10541,7 +10767,8 @@
                   "martial-artist-14"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-16",
               "value": "grit",
               "tier": 4,
@@ -10550,7 +10777,8 @@
                   "martial-artist-12"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-17",
               "value": "coordination-dodge",
               "tier": 5,
@@ -10559,7 +10787,8 @@
                   "martial-artist-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-18",
               "value": "dedication",
               "tier": 5,
@@ -10568,7 +10797,8 @@
                   "martial-artist-14"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-19",
               "value": "natural-brawler",
               "tier": 5,
@@ -10579,7 +10809,8 @@
                   "martial-artist-9"
                 ]
               }
-            },{
+            },
+            {
               "id": "martial-artist-20",
               "value": "precision-strike-supreme",
               "tier": 5,
@@ -10590,7 +10821,8 @@
               }
             }
           ]
-        },{
+        },
+        {
           "name": "Operator",
           "careerSkills": [
             "Astrogation",
@@ -10603,19 +10835,23 @@
               "id": "operator-1",
               "value": "grit",
               "tier": 1
-            },{
+            },
+            {
               "id": "operator-2",
               "value": "galaxy-mapper",
               "tier": 1
-            },{
+            },
+            {
               "id": "operator-3",
               "value": "shortcut",
               "tier": 1
-            },{
+            },
+            {
               "id": "operator-4",
               "value": "overwhelm-defenses",
               "tier": 1
-            },{
+            },
+            {
               "id": "operator-5",
               "value": "full-throttle",
               "tier": 2,
@@ -10626,7 +10862,8 @@
                   "operator-9"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-6",
               "value": "planet-mapper",
               "tier": 2,
@@ -10636,7 +10873,8 @@
                   "operator-10"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-7",
               "value": "grit",
               "tier": 2,
@@ -10647,7 +10885,8 @@
                   "operator-11"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-8",
               "value": "debilitating-shot",
               "tier": 2,
@@ -10658,7 +10897,8 @@
                   "operator-9"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-9",
               "value": "skilled-jockey",
               "tier": 3,
@@ -10668,7 +10908,8 @@
                   "operator-13"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-10",
               "value": "all-terrain-driver",
               "tier": 3,
@@ -10680,7 +10921,8 @@
                   "operator-14"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-11",
               "tier": 3,
               "value": "offensive-driving",
@@ -10692,7 +10934,8 @@
                   "operator-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-12",
               "tier": 3,
               "value": "grit",
@@ -10703,7 +10946,8 @@
                   "operator-16"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-13",
               "tier": 4,
               "value": "lets-ride",
@@ -10715,7 +10959,8 @@
                   "operator-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-14",
               "tier": 4,
               "value": "shortcut",
@@ -10727,7 +10972,8 @@
                   "operator-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-15",
               "tier": 4,
               "value": "grit",
@@ -10739,7 +10985,8 @@
                   "operator-19"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-16",
               "tier": 4,
               "value": "overwhelm-defenses",
@@ -10749,7 +10996,8 @@
                   "operator-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-17",
               "tier": 5,
               "value": "dedication",
@@ -10759,7 +11007,8 @@
                   "operator-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-18",
               "tier": 5,
               "value": "shortcut-improved",
@@ -10771,7 +11020,8 @@
                   "operator-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-19",
               "tier": 5,
               "value": "skilled-jcokey",
@@ -10782,7 +11032,8 @@
                   "operator-20"
                 ]
               }
-            },{
+            },
+            {
               "id": "operator-20",
               "tier": 5,
               "value": "hindering-shot",
@@ -10807,19 +11058,23 @@
               "id": "skiptracer-1",
               "tier": 1,
               "value": "bypass-security"
-            },{
+            },
+            {
               "id": "skiptracer-2",
               "tier": 1,
               "value": "hard-boiled"
-            },{
+            },
+            {
               "id": "skiptracer-3",
               "tier": 1,
               "value": "good-cop"
-            },{
+            },
+            {
               "id": "skiptracer-4",
               "tier": 1,
               "value": "rapid-recovery"
-            },{
+            },
+            {
               "id": "skiptracer-5",
               "tier": 2,
               "value": "toughened",
@@ -10830,7 +11085,8 @@
                   "skiptracer-9"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-6",
               "tier": 2,
               "value": "expert-tracker",
@@ -10842,7 +11098,8 @@
                   "skiptracer-10"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-7",
               "tier": 2,
               "value": "street-smarts",
@@ -10854,7 +11111,8 @@
                   "skiptracer-11"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-8",
               "tier": 2,
               "value": "bought-info",
@@ -10865,7 +11123,8 @@
                   "skiptracer-12"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-9",
               "tier": 3,
               "value": "hard-boiled",
@@ -10876,7 +11135,8 @@
                   "skiptracer-13"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-10",
               "tier": 3,
               "value": "rapid-recovery",
@@ -10888,7 +11148,8 @@
                   "skiptracer-14"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-11",
               "tier": 3,
               "value": "street-smarts-improved",
@@ -10899,7 +11160,8 @@
                   "skiptracer-12"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-12",
               "tier": 3,
               "value": "street-smarts",
@@ -10910,7 +11172,8 @@
                   "skiptracer-16"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-13",
               "tier": 4,
               "value": "bypass-security",
@@ -10919,7 +11182,8 @@
                   "skiptracer-9"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-14",
               "tier": 4,
               "value": "nobodys-fool",
@@ -10930,7 +11194,8 @@
                   "skiptracer-18"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-15",
               "tier": 4,
               "value": "good-cop",
@@ -10942,7 +11207,8 @@
                   "skiptracer-19"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-16",
               "tier": 4,
               "value": "informant",
@@ -10952,7 +11218,8 @@
                   "skiptracer-15"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-17",
               "tier": 5,
               "value": "reconstruct-the-scene",
@@ -10963,7 +11230,8 @@
                   "skiptracer-12"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-18",
               "tier": 5,
               "value": "hard-boiled",
@@ -10973,7 +11241,8 @@
                   "skiptracer-19"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-19",
               "tier": 5,
               "value": "dedication",
@@ -10984,13 +11253,651 @@
                   "skiptracer-20"
                 ]
               }
-            },{
+            },
+            {
               "id": "skiptracer-20",
               "tier": 5,
               "value": "soft-spot",
               "requires": {
                 "advancements": [
                   "skiptracer-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Cyber Tech",
+          "careerSkills": [
+            "Athletics",
+            "Mechanics",
+            "Medicine",
+            "Vigilence"
+          ],
+          "talents": [
+            {
+              "id": "cyber-tech-1",
+              "tier": 1,
+              "value": "cyberneticist"
+            },
+            {
+              "id": "cyber-tech-2",
+              "tier": 1,
+              "value": "more-machine-than-man"
+            },
+            {
+              "id": "cyber-tech-3",
+              "tier": 1,
+              "value": "engineered-redundancies"
+            },
+            {
+              "id": "cyber-tech-4",
+              "tier": 1,
+              "value": "toughened"
+            },
+            {
+              "id": "cyber-tech-5",
+              "tier": 2,
+              "value": "cyberneticist",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-1",
+                  "cyber-tech-9"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-6",
+              "tier": 2,
+              "value": "toughened",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-2",
+                  "cyber-tech-7",
+                  "cyber-tech-10"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-7",
+              "tier": 2,
+              "value": "energy-transfer",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-6",
+                  "cyber-tech-8",
+                  "cyber-tech-11"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-8",
+              "tier": 2,
+              "value": "cyberneticist",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-4",
+                  "cyber-tech-7",
+                  "cyber-tech-12"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-9",
+              "tier": 3,
+              "value": "overcharge",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-5",
+                  "cyber-tech-13"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-10",
+              "tier": 3,
+              "value": "more-machine-than-man",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-6",
+                  "cyber-tech-11",
+                  "cyber-tech-14"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-11",
+              "tier": 3,
+              "value": "durable",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-10",
+                  "cyber-tech-12",
+                  "cyber-tech-15"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-12",
+              "tier": 3,
+              "value": "surgeon",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-8",
+                  "cyber-tech-11"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-13",
+              "tier": 4,
+              "value": "overcharge-improved",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-9",
+                  "cyber-tech-14",
+                  "cyber-tech-17"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-14",
+              "tier": 4,
+              "value": "utility-belt",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-10",
+                  "cyber-tech-13",
+                  "cyber-tech-15"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-15",
+              "tier": 4,
+              "value": "more-machine-than-man",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-11",
+                  "cyber-tech-14",
+                  "cyber-tech-16"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-16",
+              "tier": 4,
+              "value": "surgeon",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-15"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-17",
+              "tier": 5,
+              "value": "more-machine-than-man",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-13",
+                  "cyber-tech-18"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-18",
+              "tier": 5,
+              "value": "durable",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-17"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-19",
+              "tier": 5,
+              "value": "overcharge-supreme",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-18"
+                ]
+              }
+            },
+            {
+              "id": "cyber-tech-20",
+              "tier": 5,
+              "value": "dedication",
+              "requires": {
+                "advancements": [
+                  "cyber-tech-16"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Droid Tech",
+          "careerSkills": [
+            "Computers",
+            "Cool",
+            "Mechanics",
+            "Leadership"
+          ],
+          "talents": [
+            {
+              "id": "droid-tech-1",
+              "tier": 1,
+              "value": "machine-mender"
+            },
+            {
+              "id": "droid-tech-2",
+              "tier": 1,
+              "value": "hidden-storage"
+            },
+            {
+              "id": "droid-tech-3",
+              "tier": 1,
+              "value": "speaks-binary"
+            },
+            {
+              "id": "droid-tech-4",
+              "tier": 1,
+              "value": "grit"
+            },
+            {
+              "id": "droid-tech-5",
+              "tier": 2,
+              "value": "deft-maker",
+              "requires": {
+                "advancements": [
+                  "droid-tech-1",
+                  "droid-tech-6",
+                  "droid-tech-9"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-6",
+              "tier": 2,
+              "value": "eye-for-detail",
+              "requires": {
+                "advancements": [
+                  "droid-tech-2",
+                  "droid-tech-5"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-7",
+              "tier": 2,
+              "value": "grit",
+              "requires": {
+                "advancements": [
+                  "droid-tech-3",
+                  "droid-tech-8",
+                  "droid-tech-11"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-8",
+              "tier": 2,
+              "value": "speaks-binary",
+              "requires": {
+                "advancements": [
+                  "droid-tech-4",
+                  "droid-tech-7"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-9",
+              "tier": 3,
+              "value": "grit",
+              "requires": {
+                "advancements": [
+                  "droid-tech-5",
+                  "droid-tech-10",
+                  "droid-tech-13"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-10",
+              "tier": 3,
+              "value": "speaks-binary-supreme",
+              "requires": {
+                "advancements": [
+                  "droid-tech-11"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-11",
+              "tier": 3,
+              "value": "speaks-binary",
+              "requires": {
+                "advancements": [
+                  "droid-tech-7",
+                  "droid-tech-12"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-12",
+              "tier": 3,
+              "value": "deft-maker",
+              "requires": {
+                "advancements": [
+                  "droid-tech-8",
+                  "droid-tech-11",
+                  "droid-tech-16"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-13",
+              "tier": 4,
+              "value": "redundant-systems",
+              "requires": {
+                "advancements": [
+                  "droid-tech-9",
+                  "droid-tech-17"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-14",
+              "tier": 4,
+              "value": "machine-mender",
+              "requires": {
+                "advancements": [
+                  "droid-tech-15",
+                  "droid-tech-18"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-15",
+              "tier": 4,
+              "value": "speaks-binary",
+              "requires": {
+                "advancements": [
+                  "droid-tech-11",
+                  "droid-tech-14",
+                  "droid-tech-16"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-16",
+              "tier": 4,
+              "value": "deft-maker",
+              "requires": {
+                "advancements": [
+                  "droid-tech-12",
+                  "droid-tech-15",
+                  "droid-tech-20"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-17",
+              "tier": 5,
+              "value": "eye-for-detail",
+              "requires": {
+                "advancements": [
+                  "droid-tech-13",
+                  "droid-tech-17"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-18",
+              "tier": 5,
+              "value": "reroute-processors",
+              "requires": {
+                "advancements": [
+                  "droid-tech-14",
+                  "droid-tech-17",
+                  "droid-tech-19"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-19",
+              "tier": 5,
+              "value": "dedication",
+              "requires": {
+                "advancements": [
+                  "droid-tech-13",
+                  "droid-tech-17"
+                ]
+              }
+            },
+            {
+              "id": "droid-tech-20",
+              "tier": 5,
+              "value": "machine-mender",
+              "requires": {
+                "advancements": [
+                  "droid-tech-16",
+                  "droid-tech-19"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Modder",
+          "careerSkills": [
+            "Gunnery",
+            "Mechanics",
+            "Piloting - Space",
+            "Streetwise"
+          ],
+          "talents": [
+            {
+              "id": "modder-1",
+              "tier": 1,
+              "value": "tinkerer"
+            },
+            {
+              "id": "modder-2",
+              "tier": 1,
+              "value": "resolve"
+            },
+            {
+              "id": "modder-3",
+              "tier": 1,
+              "value": "know-somebody"
+            },
+            {
+              "id": "modder-4",
+              "tier": 1,
+              "value": "signature-vehicle"
+            },
+            {
+              "id": "modder-5",
+              "tier": 2,
+              "value": "gearhead",
+              "requires": {
+                "advancements": [
+                  "modder-1",
+                  "modder-6",
+                  "modder-9"
+                ]
+              }
+            },
+            {
+              "id": "modder-6",
+              "tier": 2,
+              "value": "tinkerer",
+              "requires": {
+                "advancements": [
+                  "modder-2",
+                  "modder-5",
+                  "modder-10"
+                ]
+              }
+            },
+            {
+              "id": "modder-7",
+              "tier": 2,
+              "value": "fancy-paint-job",
+              "requires": {
+                "advancements": [
+                  "modder-3",
+                  "modder-8"
+                ]
+              }
+            },
+            {
+              "id": "modder-8",
+              "tier": 2,
+              "value": "larger-project",
+              "requires": {
+                "advancements": [
+                  "modder-4",
+                  "modder-7",
+                  "modder-12"
+                ]
+              }
+            },
+            {
+              "id": "modder-9",
+              "tier": 3,
+              "value": "resourceful-refit",
+              "requires": {
+                "advancements": [
+                  "modder-5",
+                  "modder-10",
+                  "modder-13"
+                ]
+              }
+            },
+            {
+              "id": "modder-10",
+              "tier": 3,
+              "value": "resolve",
+              "requires": {
+                "advancements": [
+                  "modder-6",
+                  "modder-9",
+                  "modder-11",
+                  "modder-14"
+                ]
+              }
+            },
+            {
+              "id": "modder-11",
+              "tier": 3,
+              "value": "larger-project",
+              "requires": {
+                "advancements": [
+                  "modder-7",
+                  "modder-12"
+                ]
+              }
+            },
+            {
+              "id": "modder-12",
+              "tier": 3,
+              "value": "toughened",
+              "requires": {
+                "advancements": [
+                  "modder-8",
+                  "modder-11",
+                  "modder-16"
+                ]
+              }
+            },
+            {
+              "id": "modder-13",
+              "tier": 4,
+              "value": "jury-rigged",
+              "requires": {
+                "advancements": [
+                  "modder-9"
+                ]
+              }
+            },
+            {
+              "id": "modder-14",
+              "tier": 4,
+              "value": "hidden-storage",
+              "requires": {
+                "advancements": [
+                  "modder-10",
+                  "modder-15",
+                  "modder-18"
+                ]
+              }
+            },
+            {
+              "id": "modder-15",
+              "tier": 4,
+              "value": "tinkerer",
+              "requires": {
+                "advancements": [
+                  "modder-14",
+                  "modder-16",
+                  "modder-19"
+                ]
+              }
+            },
+            {
+              "id": "modder-16",
+              "tier": 4,
+              "value": "gearhead",
+              "requires": {
+                "advancements": [
+                  "modder-12",
+                  "modder-15"
+                ]
+              }
+            },
+            {
+              "id": "modder-17",
+              "tier": 5,
+              "value": "jury-rigged",
+              "requires": {
+                "advancements": [
+                  "modder-18"
+                ]
+              }
+            },
+            {
+              "id": "modder-18",
+              "tier": 5,
+              "value": "dedication",
+              "requires": {
+                "advancements": [
+                  "modder-14",
+                  "modder-19"
+                ]
+              }
+            },
+            {
+              "id": "modder-19",
+              "tier": 5,
+              "value": "natural-tinkerer",
+              "requires": {
+                "advancements": [
+                  "modder-15",
+                  "modder-18"
+                ]
+              }
+            },
+            {
+              "id": "modder-20",
+              "tier": 5,
+              "value": "custom-loadout",
+              "requires": {
+                "advancements": [
+                  "modder-16"
                 ]
               }
             }
@@ -11121,6 +12028,14 @@
           "name": "Crippling Blow"
         },
         {
+          "id": "custom-loadout",
+          "name": "Custom Loadout"
+        },
+        {
+          "id": "cyberneticist",
+          "name": "Cyberneticist"
+        },
+        {
           "id": "deadly-accuracy",
           "name": "Deadly Accuracy"
         },
@@ -11205,12 +12120,28 @@
           "name": "Enduring"
         },
         {
+          "id": "energy-transfer",
+          "name": "Energy Transfer"
+        },
+        {
+          "id": "engineered-redundancies",
+          "name": "Engineered Redundancies"
+        },
+        {
+          "id": "eye-for-detail",
+          "name": "Eye For Detail"
+        },
+        {
           "id": "expert-tracker",
           "name": "Expert Tracker"
         },
         {
           "id": "familiar-suns",
           "name": "Familiar Suns"
+        },
+        {
+          "id": "fancy-paint-job",
+          "name": "Fancy Paooint Job"
         },
         {
           "id": "fearsome",
@@ -11501,6 +12432,10 @@
           "name": "know-somebody"
         },
         {
+          "id": "larger-project",
+          "name": "Larger Project"
+        },
+        {
           "id": "lethal-blows",
           "name": "lethal-blows"
         },
@@ -11511,6 +12446,10 @@
         {
           "id": "loom",
           "name": "Loom"
+        },
+        {
+          "id": "machine-mender",
+          "name": "Machine Mender"
         },
         {
           "id": "magnitude",
@@ -11555,6 +12494,10 @@
         {
           "id": "mental-fortress",
           "name": "mental-fortress"
+        },
+        {
+          "id": "more-machine-than-man",
+          "name": "More Machine Than Man"
         },
         {
           "id": "museum-worthy",
@@ -11649,6 +12592,18 @@
           "name": "Overbalance"
         },
         {
+          "id": "overcharge",
+          "name": "Overcharge"
+        },
+        {
+          "id": "overcharge-improved",
+          "name": "Improved Overcharge"
+        },
+        {
+          "id": "overcharge-supreme",
+          "name": "Supreme Overcharge"
+        },
+        {
           "id": "parry",
           "name": "Parry"
         },
@@ -11721,12 +12676,20 @@
           "name": "redundant-systems"
         },
         {
+          "id": "reroute-processors",
+          "name": "Reroute Processors"
+        },
+        {
           "id": "researcher",
           "name": "researcher"
         },
         {
           "id": "resolve",
           "name": "resolve"
+        },
+        {
+          "id": "resourceful-refit",
+          "name": "Resourceful Refit"
         },
         {
           "id": "respected-scholar",
@@ -11767,6 +12730,10 @@
         {
           "id": "side-step",
           "name": "side-step"
+        },
+        {
+          "id": "signature-vehicle",
+          "name": "Signature Vehicle"
         },
         {
           "id": "sixth-sense",
@@ -11811,6 +12778,14 @@
         {
           "id": "speaks-binary",
           "name": "speaks-binary"
+        },
+        {
+          "id": "speaks-binary-improved",
+          "name": "Improved Speaks Binary"
+        },
+        {
+          "id": "speaks-binary-supreme",
+          "name": "Supreme Speaks Binary"
         },
         {
           "id": "stalker",
