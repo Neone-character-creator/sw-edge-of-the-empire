@@ -1565,7 +1565,7 @@
                 "bind": "$state.character.specializations[0]",
                 "items": {
                   "text": "name",
-                  "values": "# ($state.character.career.specializations || []).map(sn => $model.specialization.values.find(s => s.name === sn)).concat([$model.specialization.values.find(s => s.name === 'Force Sensitive Exile')])"
+                  "values": "# $state.availableAdvancements.specialization.options.filter(s => s.option.allowedAsFirstSpecialization !== false).map(s => s.option)"
                 }
               }
             ]
@@ -2985,8 +2985,8 @@
             {
               "options": [
                 "brawl",
-                "ranged-Heavy",
-                "ranged-Light"
+                "ranged-heavy",
+                "ranged-light"
               ],
               "choices": 1
             }
@@ -3938,7 +3938,8 @@
       "properties": {
         "name": "string",
         "careerSkills": "[string]",
-        "specializations": "[string]"
+        "specializations": "[string]",
+        "signatureAbilities": "[signatureAbility]"
       },
       "values": [
         {
@@ -3949,7 +3950,7 @@
             "perception",
             "piloting-planetary",
             "piloting-space",
-            "ranged-Heavy",
+            "ranged-heavy",
             "streetwise",
             "streetwise",
             "vigilance"
@@ -3961,6 +3962,9 @@
             "Martial Artist",
             "Operator",
             "Skiptracer"
+          ],
+          "signatureAbilities": [
+            "last-one-standing"
           ]
         },
         {
@@ -4013,7 +4017,7 @@
             "discipline",
             "melee",
             "piloting-planetary",
-            "ranged-Light",
+            "ranged-light",
             "resilience",
             "vigilance"
           ],
@@ -4078,7 +4082,7 @@
           "name": "Assassin",
           "careerSkills": [
             "melee",
-            "ranged-Heavy",
+            "ranged-heavy",
             "skulduggery",
             "stealth"
           ],
@@ -4289,7 +4293,7 @@
             "brawl",
             "coercion",
             "mechanics",
-            "ranged-Light"
+            "ranged-light"
           ],
           "talents": [
             {
@@ -5917,7 +5921,7 @@
             "gunnery",
             "perception",
             "piloting-planetary",
-            "ranged-Heavy"
+            "ranged-heavy"
           ],
           "talents": [
             {
@@ -7838,6 +7842,7 @@
         },
         {
           "name": "Force Sensitive Exile",
+          "allowedAsFirstSpecialization": false,
           "talents": [
             {
               "id": "force-sensitive-1",
@@ -8910,7 +8915,7 @@
           "careerSkills": [
             "gunnery",
             "perception",
-            "ranged-Heavy",
+            "ranged-heavy",
             "resilience"
           ],
           "talents": [
@@ -9298,7 +9303,7 @@
           "name": "Big-Game Hunter",
           "careerSkills": [
             "knowledge-xenology",
-            "ranged-Heavy",
+            "ranged-heavy",
             "stealth",
             "survival"
           ],
@@ -9917,7 +9922,7 @@
           "careerSkills": [
             "coercion",
             "knowledge-underworld",
-            "ranged-Light",
+            "ranged-light",
             "vigilance"
           ],
           "talents": [
@@ -14004,6 +14009,204 @@
           ]
         }
       ]
+    },
+    "signatureAbility": {
+      "properties": {
+        "name": "string",
+        "talents": "[talent]"
+      },
+      "values": [
+        {
+          "id": "last-one-standing",
+          "name": "Last One Standing",
+          "talents": [
+            {
+              "id": "last-one-standing-1",
+              "value": "last-one-standing-base",
+              "tier": 6
+            },
+            {
+              "id": "last-one-standing-2",
+              "tier": 2,
+              "vbalue": "last-one-standing-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "last-one-standing-1"
+                ]
+              }
+            },
+            {
+              "id": "last-one-standing-3",
+              "tier": 2,
+              "value": "last-one-standing-add-boost",
+              "requires": {
+                "advancements": [
+                  "last-one-standing-1"
+                ]
+              }
+            },
+            {
+              "id": "last-one-standing-4",
+              "tier": 2,
+              "value": "last-one-standing-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "last-one-standing-1"
+                ]
+              }
+            },
+            {
+              "id": "last-one-standing-5",
+              "tier": 2,
+              "value": "last-one-standing-add-boost",
+              "requires": {
+                "advancements": [
+                  "last-one-standing-1"
+                ]
+              }
+            },
+            {
+              "id": "last-one-standing-6",
+              "tier": 3,
+              "value": "last-one-standing-reduce-difficulty",
+              "requires": {
+                "advancements": [
+                  "last-one-standing-2",
+                  "last-one-standing-7"
+                ]
+              }
+            },
+            {
+              "id": "last-one-standing-7",
+              "tier": 3,
+              "value": "last-one-standing-increase-effect",
+              "requires": {
+                "advancements": [
+                  "last-one-standing-1",
+                  "last-one-standing-6",
+                  "last-one-standing-8"
+                ]
+              }
+            },
+            {
+              "id": "last-one-standing-8",
+              "tier": 3,
+              "value": "last-one-standing-increase-effect",
+              "requires": {
+                "advancements": [
+                  "last-one-standing-4",
+                  "last-one-standing-7",
+                  "last-one-standing-9"
+                ]
+              }
+            },
+            {
+              "id": "last-one-standing-9",
+              "tier": 3,
+              "value": "last-one-standing-destiny",
+              "requires": {
+                "advancements": [
+                  "last-one-standing-5",
+                  "last-one-standing-8"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "unmatched-protection",
+          "name": "Unmatched Protection",
+          "talents": [
+            {
+              "id": "unmatched-protection-1",
+              "value": "unmatched-protection-base",
+              "tier": 6
+            },
+            {
+              "id": "unmatched-protection-2",
+              "value": "unmatched-protection-duration",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "unmatched-protection-1"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-protection-3",
+              "value": "unmatched-protection-duration",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "unmatched-protection-1"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-protection-4",
+              "value": "unmatched-protection-soak",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "unmatched-protection-5"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-protection-5",
+              "value": "unmatched-protection-protect-ally",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "unmatched-protection-1"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-protection-6",
+              "value": "unmatched-protection-duration",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "unmatched-protection-2",
+                  "unmatched-protection-7"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-protection-7",
+              "value": "unmatched-protection-destiny",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "unmatched-protection-3",
+                  "unmatched-protection-6"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-protection-8",
+              "value": "unmatched-protection-additional-reduction",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "unmatched-protection-9"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-protection-9",
+              "value": "unmatched-protection-additional-reduction",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "unmatched-protection-5"
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "rules": {
@@ -14036,7 +14239,10 @@
       "talent": {
         "description": "Acquire Talent",
         "uses": "$state.character.availableExperience",
-        "options": "# $state.character.specializations.reduce((concatenated, nextSpecialization) => {return concatenated.concat(nextSpecialization.talents)}, [])",
+        "options": [
+          "# $state.character.specializations.reduce((concatenated, nextSpecialization) => {return concatenated.concat(nextSpecialization.talents)}, [])",
+          "# $this.accumulator.concat(_.flatMap($state.character.signatureAbilities, sa=> sa.talents))"
+        ],
         "when": {
           "all": [
             "# !$state.character.advancements.find(a => a.id === $this.id)",
@@ -14070,11 +14276,25 @@
         "description": "New Specialization",
         "uses": "$state.character.availableExperience",
         "options": [
-          "# $state.character.career.specializations.filter(s => !$state.character.specializations.map(cs => cs.name).includes(s))",
+          "# ['Force Sensitive Exile'].concat($state.character.career.specializations.filter(s => !$state.character.specializations.map(cs => cs.name).includes(s)))",
           "# $this.accumulator.map(n => $model.specialization.values.find(s => s.name === n))"
+        ],
+        "when": [
+          "# $this.allowedAsFirstSpecialization !== false || $state.character.specializations.length > 0"
         ],
         "cost": "# ($state.character.specializations.length + 1 * 10)",
         "effect": "# $state.character.specializations.push($state.selectedAdvancement.specialization.option)"
+      },
+      "signatureAbility": {
+        "description": "New Signature Ability",
+        "uses": "$state.character.availableExperience",
+        "options": "# $state.character.career.signatureAbilities.map(sa => $model.signatureAbility.values.find(a => a.id === sa))",
+        "when": {
+          "all": [
+            "# $state.character.specializations.length > $state.character.advancements.filter(a => a.type === 'signatureAbility').length"
+          ]
+        },
+        "effects": "# $state.character.signatureAbilities.push($state.selectedAdvancement.signatureAbility.option)"
       }
     },
     "obligation": {
