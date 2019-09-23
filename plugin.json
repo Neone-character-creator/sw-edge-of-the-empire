@@ -1545,6 +1545,7 @@
             "type": "select",
             "bind": "$state.character.careerStartingSkills",
             "items": {
+              "translate": "# $this.substring(0,1).toUpperCase() + $this.substring(1)",
               "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
               "values": "# _.get($state, 'character.career.careerSkills', [])"
             }
@@ -1564,6 +1565,7 @@
                 "type": "select",
                 "bind": "$state.character.specializations[0]",
                 "items": {
+                  "translate": "# $this.substring(0, 1).toUpperCase() + $this.substring(1)",
                   "text": "name",
                   "values": "# $state.availableAdvancements.specialization.options.filter(s => s.option.allowedAsFirstSpecialization !== false).map(s => s.option)"
                 }
@@ -1580,6 +1582,7 @@
             "type": "select",
             "bind": "$state.character.specializationStartingSkills",
             "items": {
+              "translate": "# $this.substring(0,1).toUpperCase() + $this.substring(1)",
               "maxSelections": "# $state.character.species && $state.character.species.startingSpecializationSkillChoices",
               "values": "# _.get($state, 'character.specializations[0].careerSkills', [])"
             }
