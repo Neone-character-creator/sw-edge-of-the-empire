@@ -1415,13 +1415,13 @@
                 "name": "specieswoundsThreshold",
                 "type": "textfield",
                 "label": "Wounds Threshold",
-                "value": "# '' + $state.character.species.woundsThreshold.characteristic  + '(' + $state.character.characteristics[$state.character.species.woundsThreshold.characteristic] + ') + '  + $state.character.species.woundsThreshold.base"
+                "value": "# '' + ($state.character.species.woundsThreshold.characteristic.substring(0,1).toUpperCase() + $state.character.species.woundsThreshold.characteristic.substring(1))  + '(' + $state.character.characteristics[$state.character.species.woundsThreshold.characteristic] + ') + '  + $state.character.species.woundsThreshold.base"
               },
               {
                 "name": "speciesstrainThreshold",
                 "type": "textfield",
                 "label": "Strain Threshold",
-                "value": "# '' + $state.character.species.strainThreshold.characteristic +  '(' + $state.character.characteristics[$state.character.species.strainThreshold.characteristic] + ') + ' +  $state.character.species.strainThreshold.base "
+                "value": "# '' + ($state.character.species.strainThreshold.characteristic.substring(0,1).toUpperCase() + $state.character.species.strainThreshold.characteristic.substring(1)) +  '(' + $state.character.characteristics[$state.character.species.strainThreshold.characteristic] + ') + ' +  $state.character.species.strainThreshold.base "
               },
               {
                 "name": "speciesStartingExperience",
@@ -2250,21 +2250,21 @@
           "type": "skill",
           "value": {
             "name": "Charm",
-            "characteristics": "Presence"
+            "characteristic": "Presence"
           }
         },
         "coercion": {
           "type": "skill",
           "value": {
             "name": "Coercion",
-            "characteristics": "Willpower"
+            "characteristic": "Willpower"
           }
         },
         "computers": {
           "type": "skill",
           "value": {
             "name": "Computers",
-            "characteristics": "Intellect"
+            "characteristic": "Intellect"
           }
         },
         "cool": {
