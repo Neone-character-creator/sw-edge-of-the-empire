@@ -13762,6 +13762,344 @@
             "Vicious 1",
             "Defensive 1"
           ]
+        },
+        {
+          "name": "Model 44 Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 6,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 4,
+          "price": 500,
+          "rarity": 3,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Model 80 Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 6,
+          "criticalRating": 2,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 3,
+          "price": 550,
+          "rarity": 5,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "IR-5 Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 3,
+          "price": 750,
+          "rarity": 6,
+          "special": [
+            "Autofire",
+            "Inaccurate 1"
+          ]
+        },
+        {
+          "name": "DL-7H Heavy Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 8,
+          "criticalRating": 2,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 3,
+          "price": 850,
+          "rarity": 6
+        },
+        {
+          "name": "ACP Array Gun",
+          "skill": "Ranged (Heavy)",
+          "damage": 6,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 5,
+          "hardpoints": 3,
+          "price": 890,
+          "rarity": 6,
+          "special": [
+            "Blast 5",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "DH-X Heavy Blaster Rifle",
+          "skill": "Ranged (Heavy)",
+          "damage": 10,
+          "criticalRating": 3,
+          "range": "Long",
+          "encumbrance": 7,
+          "hardpoints": 4,
+          "price": 1900,
+          "rarity": 6,
+          "special": [
+            "Cumbersome 3",
+            "Pierce 2"
+          ]
+        },
+        {
+          "name": "OK-98 Blaster Carbine",
+          "skill": "Ranged (Heavy)",
+          "damage": 9,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 4,
+          "hardpoints": 3,
+          "price": 1100,
+          "rarity": 5,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "SE-14r Light Repeating Blaster",
+          "skill": "Ranged (Light)",
+          "damage": 6,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 3,
+          "price": 1000,
+          "rarity": 6,
+          "special": [
+            "Autofire",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "VX Sidewinder Repeating Blaster",
+          "skill": "Gunnery",
+          "damage": 12,
+          "criticalRating": 3,
+          "range": "Long",
+          "encumbrance": 8,
+          "hardpoints": 4,
+          "price": 3350,
+          "rarity": 7,
+          "special": [
+            "Autofire",
+            "Cumbersome 5",
+            "Pierce 1",
+            "Vicious 1"
+          ]
+        },
+        {
+          "name": "HOB Heavy Repeating Blaster",
+          "skill": "Gunnery",
+          "damage": 15,
+          "criticalRating": 3,
+          "range": "Extreme",
+          "encumbrance": 10,
+          "hardpoints": 4,
+          "price": 6500,
+          "rarity": 8,
+          "special": [
+            "Autofire",
+            "Cumbersome 6",
+            "Pierce 2",
+            "Vicious 1"
+          ]
+        },
+        {
+          "name": "Assault Carbine",
+          "skill": "Ranged (Heavy)",
+          "damage": 6,
+          "criticalRating": 5,
+          "range": "Short",
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "price": 250,
+          "rarity": 4,
+          "special": [
+            "Autofire",
+            "Inaccurate 1"
+          ]
+        },
+        {
+          "name": "Fiver Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 4,
+          "range": "Short",
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "price": 200,
+          "rarity": 4,
+          "special": [
+            "Accurate 1",
+            "Limited Ammo 5"
+          ]
+        },
+        {
+          "name": "Flamestrike",
+          "skill": "Gunnery",
+          "damage": 9,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 8,
+          "hardpoints": 3,
+          "price": 2000,
+          "rarity": 8,
+          "special": [
+            "Burn 4",
+            "Blast 9",
+            "Cumbersome 4",
+            "Vicious 2"
+          ]
+        },
+        {
+          "name": "Flechette Launcher (Anti-Infantry)",
+          "skill": "Gunnery",
+          "damage": 8,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 6,
+          "hardpoints": 4,
+          "price": 2500,
+          "rarity": 6,
+          "special": [
+            "Blast 8",
+            "Cumbersome 3",
+            "Limited Ammo 4",
+            "Pierce 6",
+            "Prepare 1",
+            "Viscious 1"
+          ]
+        },
+        {
+          "name": "Flechette Launcher (Anti_Vehicle)",
+          "skill": "Gunnery",
+          "damage": 10,
+          "criticalRating": 2,
+          "range": "Medium",
+          "encumbrance": 6,
+          "hardpoints": 4,
+          "price": 2500,
+          "rarity": 6,
+          "special": [
+            "Breach 2",
+            "Cumbersome 3",
+            "Limited Ammo 4",
+            "Prepare 1",
+            "Viscious 3"
+          ]
+        },
+        {
+          "name": "Grenade Launcher",
+          "skill": "Gunnery",
+          "damage": 8,
+          "criticalRating": 4,
+          "range": "Medium",
+          "encumbrance": 85,
+          "hardpoints": 3,
+          "price": 1250,
+          "rarity": 4,
+          "special": [
+            "Blast 6",
+            "Cumbersome 3",
+            "Limited Ammo 6"
+          ]
+        },
+        {
+          "name": "Blast Knuckles",
+          "skill": "Brawl",
+          "damage": 4,
+          "criticalRating": 4,
+          "range": "Engaged",
+          "encumbrance": 2,
+          "hardpoints": 0,
+          "price": 500,
+          "rarity": 6,
+          "special": [
+            "Inaccurate 1"
+          ]
+        },
+        {
+          "name": "Vamblade",
+          "skill": "Brawl",
+          "damage": 1,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "price": 500,
+          "rarity": 6,
+          "special": [
+            "Defensive 1"
+          ]
+        },
+        {
+          "name": "Vibroknuclkes",
+          "skill": "Brawl",
+          "damage": 1,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 350,
+          "rarity": 4,
+          "special": [
+            "Pierce 1",
+            "Viscious 1"
+          ]
+        },
+        {
+          "name": "Ryyk Blade",
+          "skill": "Melee",
+          "damage": 2,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 3,
+          "hardpoints": 3,
+          "price": 400,
+          "rarity": 8,
+          "special": [
+            "Cumbersome 3",
+            "Defensive 1",
+            "Superior"
+          ]
+        },
+        {
+          "name": "Therm-Ax",
+          "skill": "Melee",
+          "damage": 2,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 4,
+          "hardpoints": 3,
+          "price": 850,
+          "rarity": 5,
+          "special": [
+            "Burn 2",
+            "Sunder",
+            "Viscious 1"
+          ]
+        },
+        {
+          "name": "Vibro-Greatsword",
+          "skill": "Melee",
+          "damage": 3,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 4,
+          "hardpoints": 3,
+          "price": 900,
+          "rarity": 6,
+          "special": [
+            "Defensive 1",
+            "Pierce 1",
+            "Viscious 2"
+          ]
         }
       ]
     },
