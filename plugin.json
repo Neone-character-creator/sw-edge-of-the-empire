@@ -1536,6 +1536,20 @@
             }
           },
           {
+            "name": "careerStartingSkills",
+            "type": "label",
+            "text": "# 'Career Starting Skills (choose ' + _.get($state, 'character.species.startingCareerSkillChoices', 0) + ' career skills)'"
+          },
+          {
+            "name": "careerStartingSkills",
+            "type": "select",
+            "bind": "$state.character.careerStartingSkills",
+            "items": {
+              "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
+              "values": "# _.get($state, 'character.career.careerSkills', [])"
+            }
+          },
+          {
             "name": "careerstartingSpecialization",
             "type": "container",
             "direction": "vertical",
@@ -1543,7 +1557,7 @@
               {
                 "name": "startingSpecialization",
                 "type": "label",
-                "text": "Specialization"
+                "text": "Starting Specialization"
               },
               {
                 "name": "startingSpecializationSelect",
@@ -1553,22 +1567,22 @@
                   "text": "name",
                   "values": "# ($state.character.career.specializations || []).map(sn => $model.specialization.values.find(s => s.name === sn)).concat([$model.specialization.values.find(s => s.name === 'Force Sensitive Exile')])"
                 }
-              },
-              {
-                "name": "careerStartingSkills",
-                "type": "label",
-                "text": "# 'Character Starting Skills (choose ' + _.get($state, 'character.species.startingCareerSkillChoices', 0) + ' career skills)'"
-              },
-              {
-                "name": "speciesCareerSkillChoices",
-                "type": "select",
-                "bind": "$state.character.startingSkills",
-                "items": {
-                  "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
-                  "values": "# _.uniq(_.get($state, 'character.career.careerSkills', []).concat(_.get($state, 'character.specializations[0].careerSkills', [])))"
-                }
               }
             ]
+          },
+          {
+            "name": "specializationStartingSkills",
+            "type": "label",
+            "text": "# 'Specialization Starting Skills (choose ' + _.get($state, 'character.species.startingSpecializationSkillChoices', 0) + ' career skills)'"
+          },
+          {
+            "name": "specializationStartingSkills",
+            "type": "select",
+            "bind": "$state.character.specializationStartingSkills",
+            "items": {
+              "maxSelections": "# $state.character.species && $state.character.species.startingSpecializationSkillChoices",
+              "values": "# _.get($state, 'character.specializations[0].careerSkills', [])"
+            }
           },
           {
             "name": "specializations",
@@ -2127,7 +2141,8 @@
         "career": "career",
         "specializations": "[specialization]",
         "startingCareerSkills": "[string]",
-        "startingSkills": "[string]",
+        "careerStartingSkills": "[string]",
+        "specializationStartingSkills": "[string]",
         "talents": {
           "type": "[talent]",
           "baseValue": [
@@ -2464,8 +2479,8 @@
           "type": "boolean",
           "derivedFrom": [
             "# _.get($state, 'character.career.careerSkills', []).includes($this.path[2])",
-            "# $this.accumulator || _.get($state, 'character.specializations[0].careerSkills', []).includes($this.path[2].name)",
-            "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.path[2].name))"
+            "# $this.accumulator || _.get($state, 'character.specializations[0].careerSkills', []).includes($this.path[2])",
+            "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.path[2]))"
           ]
         },
         "characteristic": "string",
@@ -2473,8 +2488,9 @@
           "type": "number",
           "derivedFrom": [
             "# $state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.path[2]) ? 1 : 0",
-            "# $this.accumulator + _.flatMap(_.get($state, 'character.startingSkills', []).map(ssc => ssc.selected)).filter(x => x).map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0;",
-            "# $this.accumulator + $state.character.startingSkills.map(s => s.toLowerCase()).includes($this.path[2]) ? 1 : 0",
+            "# $this.accumulator + _.flatMap(_.get($state, 'character.careerStartingSkills', []).map(ssc => ssc.selected)).filter(x => x).includes($this.path[2]) ? 1 : 0;",
+            "# $this.accumulator + $state.character.careerStartingSkills.includes($this.path[2]) ? 1 : 0",
+            "# $this.accumulator + $state.character.specializationStartingSkills.includes($this.path[2]) ? 1 : 0",
             "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c, 'bonusSkills' + $this.path[2], 0)))"
           ]
         }
@@ -2520,9 +2536,9 @@
           "type": "number",
           "default": 4
         },
-        "firstSpecialtyTrainedSkills": {
+        "startingSpecializationSkillChoices": {
           "type": "number",
-          "default": 3
+          "default": 2
         },
         "specialAbilities": "[specialAbility]",
         "naturalWeapons": "[weapon]"
@@ -2584,7 +2600,7 @@
           },
           "startingExperience": 175,
           "startingCareerSkillChoices": 6,
-          "firstspecialtytrainedskills": 4,
+          "startingSpecializationSkillChoices": 3,
           "specialAbilities": [
             {
               "name": "Droid",
@@ -3131,7 +3147,7 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Vigilance"
+            "vigilance"
           ],
           "specialAbilities": [
             {
@@ -3202,7 +3218,7 @@
           "startingSkills": [
             {
               "options": [
-                "Charm",
+                "charm",
                 "negotiation"
               ],
               "choices": 1
@@ -3237,7 +3253,7 @@
           },
           "startingExperience": 90,
           "startingSkills": [
-            "Charm"
+            "charm"
           ],
           "specialAbilities": [
             {
@@ -3268,7 +3284,7 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Perception"
+            "perception"
           ],
           "specialAbilities": [
             {
@@ -3422,7 +3438,7 @@
             }
           ],
           "startingSkills": [
-            "Resilience"
+            "resilience"
           ]
         },
         {
@@ -3491,7 +3507,7 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Survival"
+            "survival"
           ],
           "startingTalents": [
             "natural-outdoorsman"
@@ -3520,7 +3536,7 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Athletics"
+            "athletics"
           ],
           "specialAbilities": [
             {
@@ -3551,7 +3567,7 @@
           },
           "startingExperience": 100,
           "startingSkills": [
-            "Athletics"
+            "athletics"
           ],
           "specialAbilities": [
             {
@@ -3648,7 +3664,7 @@
           },
           "startingExperience": 95,
           "startingSkills": [
-            "Resilience"
+            "resilience"
           ],
           "specialAbilities": [
             {
@@ -3750,7 +3766,7 @@
             "base": 12
           },
           "startingSkills": [
-            "Resilience"
+            "resilience"
           ],
           "specialAbilities": [
             {
@@ -14053,8 +14069,10 @@
       "specialization": {
         "description": "New Specialization",
         "uses": "$state.character.availableExperience",
-        "options": ["# $state.character.career.specializations.filter(s => !$state.character.specializations.map(cs => cs.name).includes(s))",
-        "# $this.accumulator.map(n => $model.specialization.values.find(s => s.name === n))"],
+        "options": [
+          "# $state.character.career.specializations.filter(s => !$state.character.specializations.map(cs => cs.name).includes(s))",
+          "# $this.accumulator.map(n => $model.specialization.values.find(s => s.name === n))"
+        ],
         "cost": "# ($state.character.specializations.length + 1 * 10)",
         "effect": "# $state.character.specializations.push($state.selectedAdvancement.specialization.option)"
       }
