@@ -14100,6 +14100,1423 @@
             "Pierce 1",
             "Viscious 2"
           ]
+        },
+        {
+          "name": "X-30 Lancer",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 4,
+          "range": "Long",
+          "encumbrance": 1,
+          "hardpoints": 3,
+          "price": 1000,
+          "rarity": 5,
+          "special": [
+            "Accurate 1",
+            "Pierce 1"
+          ]
+        },
+        {
+          "name": "E-11s",
+          "skill": "Ranged (Heavy)",
+          "damage": 10,
+          "criticalRating": 3,
+          "range": "Extreme",
+          "encumbrance": 6,
+          "hardpoints": 3,
+          "price": 3500,
+          "rarity": 7,
+          "special": [
+            "Accurate 1",
+            "Cumbersome 3",
+            "Pierce 2",
+            "Slow Firing 1"
+          ]
+        },
+        {
+          "name": "LBR-9",
+          "skill": "Ranged (Heavy)",
+          "damage": 10,
+          "criticalRating": 0,
+          "range": "Long",
+          "encumbrance": 6,
+          "hardpoints": 4,
+          "price": 2800,
+          "rarity": 4,
+          "special": [
+            "Disorient 2",
+            "Stun Damage"
+          ]
+        },
+        {
+          "name": "Model 77",
+          "skill": "Ranged (Heavy)",
+          "damage": 6,
+          "criticalRating": 0,
+          "range": "Long",
+          "encumbrance": 3,
+          "hardpoints": 3,
+          "price": 1100,
+          "rarity": 6,
+          "special": [
+            "Pierce 4",
+            "Stun Damage"
+          ]
+        },
+        {
+          "name": "Model 38",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 3,
+          "range": "Extreme",
+          "encumbrance": 5,
+          "hardpoints": 3,
+          "price": 1100,
+          "rarity": 6,
+          "special": [
+            "Accurate 2",
+            "Pierce 3"
+          ]
+        },
+        {
+          "name": "Hammer",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 4,
+          "range": "Short",
+          "encumbrance": 5,
+          "hardpoints": 4,
+          "price": 1500,
+          "rarity": 5,
+          "special": [
+            "Blast 6",
+            "Knockdown"
+          ]
+        },
+        {
+          "name": "Net Gun",
+          "skill": "Ranged (Heavy)",
+          "damage": 3,
+          "criticalRating": 0,
+          "range": "Short",
+          "encumbrance": 4,
+          "hardpoints": 2,
+          "price": 750,
+          "rarity": 5,
+          "special": [
+            "Ensnare 5"
+          ]
+        },
+        {
+          "name": "Glop Grenade",
+          "skill": "Ranged (Light)",
+          "damage": 0,
+          "criticalRating": 0,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 100,
+          "rarity": 6,
+          "special": [
+            "Blast 1",
+            "Pierce 1"
+          ]
+        },
+        {
+          "name": "G9-GP Pulse Drill",
+          "skill": "Melee",
+          "damage": 5,
+          "criticalRating": 4,
+          "range": "Long",
+          "encumbrance": 1,
+          "hardpoints": 3,
+          "price": 1000,
+          "rarity": 5,
+          "special": [
+            "Accurate 1",
+            "Pierce 1"
+          ]
+        },
+        {
+          "name": "Huntsman Vibrospear",
+          "skill": "Melee",
+          "damage": 3,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 4,
+          "hardpoints": 2,
+          "price": 950,
+          "rarity": 6,
+          "special": [
+            "Pierce 2",
+            "Vicious 21"
+          ]
+        },
+        {
+          "name": "Mk VIII Vibrosaw",
+          "skill": "Melee",
+          "damage": 4,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 6,
+          "hardpoints": 3,
+          "price": 1500,
+          "rarity": 5,
+          "special": [
+            "Cumbersome 5",
+            "Pierce 2",
+            "Sunder",
+            "Vicious 2"
+          ]
+        },
+        {
+          "name": "12 Defender",
+          "skill": "Ranged (Light)",
+          "damage": 4,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 6,
+          "hardpoints": 3,
+          "price": 1500,
+          "rarity": 5,
+          "special": [
+            "Cumbersome 5",
+            "Pierce 2",
+            "Sunder",
+            "Vicious 2"
+          ]
+        },
+        {
+          "name": "12 Defender",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 5,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 25,
+          "rarity": 4,
+          "special": [
+            "Inferior",
+            "Limited Ammo 2"
+          ]
+        },
+        {
+          "name": "Quickfire",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 250,
+          "rarity": 4,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Sonic Rifle",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 6,
+          "range": "Long",
+          "encumbrance": 4,
+          "hardpoints": 3,
+          "price": 1200,
+          "rarity": 6,
+          "special": [
+            "Concussive 1",
+            "Slow-Firing 1",
+            "Stun Damage"
+          ]
+        },
+        {
+          "name": "Spray Stick",
+          "skill": "Ranged (Heavy)",
+          "damage": 0,
+          "criticalRating": 0,
+          "range": "Long",
+          "encumbrance": 4,
+          "hardpoints": 0,
+          "price": 2500,
+          "rarity": 8,
+          "special": [
+            "Accurate 2",
+            "Ensnare 4",
+            "Slow-Firing 1",
+            "Stun 8"
+          ]
+        },
+        {
+          "name": "Suppressor",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 0,
+          "range": "Medium",
+          "encumbrance": 4,
+          "hardpoints": 2,
+          "price": 2000,
+          "rarity": 5,
+          "special": [
+            "Blast 5",
+            "Disorient 3",
+            "Stun Damage"
+          ]
+        },
+        {
+          "name": "Tangle Gun",
+          "skill": "Ranged (Heavy)",
+          "damage": 1,
+          "criticalRating": 4,
+          "range": "Short",
+          "encumbrance": 2,
+          "hardpoints": 0,
+          "price": 500,
+          "rarity": 5,
+          "special": [
+            "Ensnare 3"
+          ]
+        },
+        {
+          "name": "Czerka Arms A95 Stingbeam",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 400,
+          "rarity": 5,
+          "special": [
+            "Stun Setting",
+            "Vicious 1"
+          ]
+        },
+        {
+          "name": "Czerka Arms 411 Holdout Blaster",
+          "skill": "Ranged (Light)",
+          "damage": 4,
+          "criticalRating": 4,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 350,
+          "rarity": 5,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Liquidsilver L7 Light Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 6,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 425,
+          "rarity": 4,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Merr-Sonn Model 53 \"Quicktrigger\" Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 6,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 4,
+          "price": 450,
+          "rarity": 4,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Raider Arms Model 1 \"Nova Viper\" Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 7,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 2,
+          "price": 4500,
+          "rarity": 9,
+          "special": [
+            "Accurate 2",
+            "Pierce 2",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Czerka Arms C-10 \"Dragoneye Reaper\" Heavy Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 8,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 3,
+          "hardpoints": 3,
+          "price": 1000,
+          "rarity": 7,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Herloss HBt-4 Hunting Blaster",
+          "skill": "Ranged (Heavy)",
+          "damage": 10,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 5,
+          "hardpoints": 2,
+          "price": 900,
+          "rarity": 6,
+          "special": [
+            "Cumbersome 2",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Corondexx VES-700 Pulse Rifle",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 4,
+          "hardpoints": 3,
+          "price": 950,
+          "rarity": 6,
+          "special": [
+            "Blast",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Felebreck Droid Disabler",
+          "skill": "Ranged (Light)",
+          "damage": 12,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 1050,
+          "rarity": 5,
+          "special": [
+            "Concussive 1",
+            "Ion",
+            "Limited Ammo 3"
+          ]
+        },
+        {
+          "name": "FWG-5 Flechette Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 6,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 2,
+          "price": 825,
+          "rarity": 7,
+          "special": [
+            "Guided 3",
+            "Limited Ammo 3"
+          ]
+        },
+        {
+          "name": "Adostic Arms 8-Gauge Scatter Gun",
+          "skill": "Ranged (Heavy)",
+          "damage": 7,
+          "criticalRating": 6,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 550,
+          "rarity": 4,
+          "special": [
+            "Blast 3",
+            "Knockdown"
+          ]
+        },
+        {
+          "name": "Ascian Throwing Dagger",
+          "skill": "Ranged (Light)",
+          "damage": 1,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 65,
+          "rarity": 7,
+          "special": [
+            "Pierce 2",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "Knockout Grenade",
+          "skill": "Ranged (Light)",
+          "damage": 12,
+          "criticalRating": 0,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 120,
+          "rarity": 5,
+          "special": [
+            "Blast 10",
+            "Stun Damage",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "SSB-1 Static Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 2,
+          "criticalRating": 4,
+          "range": "Short",
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "price": 850,
+          "rarity": 7,
+          "special": [
+            "Disorient 1",
+            "Stun 8"
+          ]
+        },
+        {
+          "name": "TaggeCo CryoBan Projector",
+          "skill": "Ranged (Heavy)",
+          "damage": 6,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 3,
+          "hardpoints": 0,
+          "price": 500,
+          "rarity": 4,
+          "special": [
+            "Blast 6",
+            "Cumbersome 3",
+            "Vicious 2"
+          ]
+        },
+        {
+          "name": "Shock Boots",
+          "skill": "Brawl",
+          "damage": 0,
+          "criticalRating": 5,
+          "range": "Engaged",
+          "encumbrance": 2,
+          "hardpoints": 0,
+          "price": 1250,
+          "rarity": 5,
+          "special": [
+            "Disorient 3",
+            "Stun 3"
+          ]
+        },
+        {
+          "name": "Punch Dagger",
+          "skill": "Melee",
+          "damage": 1,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 75,
+          "rarity": 4,
+          "special": [
+            "Pierce 1"
+          ]
+        },
+        {
+          "name": "Vibrorapier",
+          "skill": "Melee",
+          "damage": 2,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 2,
+          "hardpoints": 2,
+          "price": 1200,
+          "rarity": 7,
+          "special": [
+            "Defensive 1",
+            "Pierce 5"
+          ]
+        },
+        {
+          "name": "Blade-breaker",
+          "skill": "Melee",
+          "damage": 1,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 250,
+          "rarity": 5,
+          "special": [
+            "Defensive 2",
+            "Pierce 1",
+            "Sunder"
+          ]
+        },
+        {
+          "name": "Boonta Blaster",
+          "skill": "Ranged (Light)",
+          "damage": 6,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 1000,
+          "rarity": 8,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Greff-Timms ATA Pulse-Wave Blaster",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 2,
+          "hardpoints": 2,
+          "price": 750,
+          "rarity": 6,
+          "special": [
+            "Vicious 3"
+          ]
+        },
+        {
+          "name": "Greff-Timms ATA Pulse-Wave Blaster",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 2,
+          "hardpoints": 2,
+          "price": 750,
+          "rarity": 6,
+          "special": [
+            "Vicious 3"
+          ]
+        },
+        {
+          "name": "ACP Repeater Gun",
+          "skill": "Ranged (Heavy)",
+          "damage": 7,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 3,
+          "hardpoints": 1,
+          "price": 1000,
+          "rarity": 6,
+          "special": [
+            "Auto-fire",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Weequay Blaster Lance",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 3,
+          "range": "Extreme",
+          "encumbrance": 5,
+          "hardpoints": 2,
+          "price": 850,
+          "rarity": 6,
+          "special": [
+            "Accurate 1",
+            "Cumbersome 2"
+          ]
+        },
+        {
+          "name": "SakTek D-29 Repulsor Rifle",
+          "skill": "Gunnery",
+          "damage": 8,
+          "criticalRating": 4,
+          "range": "Medium",
+          "encumbrance": 3,
+          "hardpoints": 3,
+          "price": 1550,
+          "rarity": 7,
+          "special": [
+            "Disorient 3",
+            "Knockdown",
+            "Stun Damage"
+          ]
+        },
+        {
+          "name": "Kelvarek Consolidated Arms KD-30 \"Dissuader\" Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 4,
+          "criticalRating": 5,
+          "range": "Short",
+          "encumbrance": 2,
+          "hardpoints": 0,
+          "price": 350,
+          "rarity": 6,
+          "special": [
+            "Pierce 2",
+            "Vicious 1"
+          ]
+        },
+        {
+          "name": "Prax Arms Stealth-2VX Palm Shooter",
+          "skill": "Ranged (Light)",
+          "damage": 1,
+          "criticalRating": 5,
+          "range": "Short",
+          "encumbrance": 0,
+          "hardpoints": 0,
+          "price": 300,
+          "rarity": 5,
+          "special": [
+            "Limited Ammo 3"
+          ]
+        },
+        {
+          "name": "Vodran Hunting Rifle",
+          "skill": "Ranged (Heavy)",
+          "damage": 7,
+          "criticalRating": 4,
+          "range": "Long",
+          "encumbrance": 4,
+          "hardpoints": 2,
+          "price": 800,
+          "rarity": 7,
+          "special": [
+            "Cumbersome 2"
+          ]
+        },
+        {
+          "name": "Tenloss L70 Acid Projector",
+          "skill": "Ranged (Heavy)",
+          "damage": 6,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "price": 1250,
+          "rarity": 7,
+          "special": [
+            "Blast 6",
+            "Burn 3",
+            "Vicious 1"
+          ]
+        },
+        {
+          "name": "Poison Gas Grenade",
+          "skill": "Ranged (Light)",
+          "damage": 0,
+          "criticalRating": 0,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 50,
+          "rarity": 5,
+          "special": [
+            "Blast 2",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "Arg'garok",
+          "skill": "Melee",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 5,
+          "hardpoints": 3,
+          "price": 1000,
+          "rarity": 7,
+          "special": [
+            "Cumbersome 5",
+            "Inferior 1",
+            "Pierce 1",
+            "Sunder"
+          ]
+        },
+        {
+          "name": "Beastmaster's Vibro-glave",
+          "skill": "Melee",
+          "damage": 5,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 3,
+          "hardpoints": 3,
+          "price": 975,
+          "rarity": 6,
+          "special": [
+            "Defensive 2",
+            "Pierce 3"
+          ]
+        },
+        {
+          "name": "Morgukai Cortosis Staff",
+          "skill": "Melee",
+          "damage": 8,
+          "criticalRating": 1,
+          "range": "Engaged",
+          "encumbrance": 3,
+          "hardpoints": 0,
+          "price": 9000,
+          "rarity": 7,
+          "special": [
+            "Breach 1",
+            "Cortosis",
+            "Defensive 1"
+          ]
+        },
+        {
+          "name": "Neuronic Whip",
+          "skill": "Melee",
+          "damage": 1,
+          "criticalRating": 4,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 750,
+          "rarity": 6,
+          "special": [
+            "Disorient 4",
+            "Ensnare 1",
+            "Stun Damage"
+          ]
+        },
+        {
+          "name": "Tuskbeast Pike",
+          "skill": "Melee",
+          "damage": 4,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 3,
+          "hardpoints": 1,
+          "price": 1050,
+          "rarity": 8,
+          "special": [
+            "Defensive 1",
+            "Knockdown"
+          ]
+        },
+        {
+          "name": "CDEF Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 4,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 150,
+          "rarity": 4,
+          "special": [
+            "Inferior",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Dueling Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 9,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 2,
+          "hardpoints": 2,
+          "price": 750,
+          "rarity": 4,
+          "special": [
+            "Accurate 1",
+            "Limited Ammo 1",
+            "pierce 1"
+          ]
+        },
+        {
+          "name": "HL-27 Light Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 2,
+          "price": 450,
+          "rarity": 4,
+          "special": [
+            "Accurate 1",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "XL-2 \"Flashfire\" Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 450,
+          "rarity": 4,
+          "special": [
+            "Disorient 1",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "H-7 \"Equalizer\" Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 7,
+          "criticalRating": 2,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 3,
+          "price": 1200,
+          "rarity": 4,
+          "special": [
+            "Stun Setting",
+            "Superior"
+          ]
+        },
+        {
+          "name": "Spukami Pocket Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 200,
+          "rarity": 2,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "CR-2 Heavy Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 7,
+          "criticalRating": 4,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 2,
+          "price": 600,
+          "rarity": 4,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "SKZ Sporting Blaster",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 2,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 3,
+          "price": 1200,
+          "rarity": 4,
+          "special": [
+            "Stun Setting",
+            "Superior"
+          ]
+        },
+        {
+          "name": "ASP-9 Autopistol",
+          "skill": "Ranged (Light)",
+          "damage": 7,
+          "criticalRating": 2,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 150,
+          "rarity": 4,
+          "special": [
+            "Auto-Fire"
+          ]
+        },
+        {
+          "name": "Mark V Hunting Rifle",
+          "skill": "Ranged (Heavy)",
+          "damage": 7,
+          "criticalRating": 5,
+          "range": "Long",
+          "encumbrance": 5,
+          "hardpoints": 2,
+          "price": 1750,
+          "rarity": 4,
+          "special": [
+            "Accurate 1",
+            "Cumbersome 2"
+          ]
+        },
+        {
+          "name": "Selonian Shard Shooter",
+          "skill": "Ranged (Heavy)",
+          "damage": 5,
+          "criticalRating": 3,
+          "range": "Medium",
+          "encumbrance": 4,
+          "hardpoints": 2,
+          "price": 1500,
+          "rarity": 4,
+          "special": [
+            "Auto-Fire",
+            "Pierce 1"
+          ]
+        },
+        {
+          "name": "Corellian Compound Bow",
+          "skill": "Ranged (Heavy)",
+          "damage": 5,
+          "criticalRating": 5,
+          "range": "Medium",
+          "encumbrance": 3,
+          "hardpoints": 1,
+          "price": 200,
+          "rarity": 4,
+          "special": [
+            "Cumbersome 3",
+            "Knockdown",
+            "Limited Ammo 1",
+            "Pierce 1"
+          ]
+        },
+        {
+          "name": "Styanax Lance",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 8,
+          "hardpoints": 2,
+          "price": 200,
+          "rarity": 4,
+          "special": [
+            "Cumbersome 4",
+            "Limited Ammo 1",
+            "Pierce 3",
+            "Vicious 1"
+          ]
+        },
+        {
+          "name": "Corellian Cutlass",
+          "skill": "Melee",
+          "damage": 2,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "price": 300,
+          "rarity": 4,
+          "special": [
+            "Defensive 1",
+            "Vicious 2"
+          ]
+        },
+        {
+          "name": "J-7b Beamdrill",
+          "skill": "Melee",
+          "damage": 9,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 6,
+          "hardpoints": 0,
+          "price": 3000,
+          "rarity": 4,
+          "special": [
+            "Breach 1",
+            "Cumbersome 4",
+            "Inaccurate 2",
+            "Sunder"
+          ]
+        },
+        {
+          "name": "Drall Flashstick",
+          "skill": "Melee",
+          "damage": 9,
+          "criticalRating": 0,
+          "range": "Engaged",
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "price": 300,
+          "rarity": 4,
+          "special": [
+            "Defensive 1",
+            "Vicious 2"
+          ]
+        },
+        {
+          "name": "Selonian Glaive",
+          "skill": "Melee",
+          "damage": 3,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 5,
+          "hardpoints": 3,
+          "price": 1200,
+          "rarity": 7,
+          "special": [
+            "Defensive 1",
+            "Pierce 3"
+          ]
+        },
+        {
+          "name": "\"Precision-X\" Marksman Rifle",
+          "skill": "Ranged (Heavy)",
+          "damage": 9,
+          "criticalRating": 3,
+          "range": "Long",
+          "encumbrance": 5,
+          "hardpoints": 1,
+          "price": 1500,
+          "rarity": 4,
+          "special": [
+            "Pierce 1",
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "\"Subduer-9\" Riot Blaster",
+          "skill": "Ranged (Heavy)",
+          "damage": 10,
+          "criticalRating": 6,
+          "range": "Short",
+          "encumbrance": 6,
+          "hardpoints": 3,
+          "price": 1250,
+          "rarity": 4,
+          "special": [
+            "Blast 6",
+            "Cumbersome 3",
+            "Stun Damage"
+          ]
+        },
+        {
+          "name": "\"Firecaller\" Light Flame Projector",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "price": 1200,
+          "rarity": 4,
+          "special": [
+            "Blast 2",
+            "Burn 2",
+            "Pierce 2",
+            "Vicious 3"
+          ]
+        },
+        {
+          "name": "Grapnel-Harpoon Launcher",
+          "skill": "Ranged (Light)",
+          "damage": 3,
+          "criticalRating": 5,
+          "range": "Medium",
+          "encumbrance": 2,
+          "hardpoints": 0,
+          "price": 450,
+          "rarity": 4,
+          "special": [
+            "Ensnae 3"
+          ]
+        },
+        {
+          "name": "Nova Design \"Impact\" Repulsor Cannon",
+          "skill": "Ranged (Heavy)",
+          "damage": 3,
+          "criticalRating": 6,
+          "range": "Medium",
+          "encumbrance": 5,
+          "hardpoints": 1,
+          "price": 1000,
+          "rarity": 4,
+          "special": [
+            "Blast 3",
+            "Concussive 1",
+            "Knockdown",
+            "Prepare 1",
+            "Slow-Firing 1"
+          ]
+        },
+        {
+          "name": "\"Firecaller\" Light Flame Projector",
+          "skill": "Ranged (Heavy)",
+          "damage": 5,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "price": 1200,
+          "rarity": 4,
+          "special": [
+            "Blast 2",
+            "Burn 2",
+            "Pierce 2",
+            "Vicious 3"
+          ]
+        },
+        {
+          "name": "Anti-Armor Micro-Rocket",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 4,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 300,
+          "rarity": 5,
+          "special": [
+            "Breach 1",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "Explosive Micro-Rocket",
+          "skill": "Ranged (Heavy)",
+          "damage": 7,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 150,
+          "rarity": 4,
+          "special": [
+            "Blast 6",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "Flechette Micro-Rocket",
+          "skill": "Ranged (Heavy)",
+          "damage": 6,
+          "criticalRating": 2,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 175,
+          "rarity": 5,
+          "special": [
+            "Blast 5",
+            "Vicious 2",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "Incendiary Micro-Rocket",
+          "skill": "Ranged (Heavy)",
+          "damage": 8,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 175,
+          "rarity": 5,
+          "special": [
+            "Blast 6",
+            "Burn 2",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "Ion Micro-Rocket",
+          "skill": "Ranged (Heavy)",
+          "damage": 10,
+          "criticalRating": 3,
+          "range": "Short",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "price": 100,
+          "rarity": 5,
+          "special": [
+            "Ion",
+            "Sunder",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "Micro-Rocket Launcher Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 0,
+          "criticalRating": 0,
+          "range": "Medium",
+          "encumbrance": 3,
+          "hardpoints": 0,
+          "price": 500,
+          "rarity": 5
+        },
+        {
+          "name": "Czerka \"Peacekeeper\" Stun Baton",
+          "skill": "Melee",
+          "damage": 2,
+          "criticalRating": 4,
+          "range": "Engaged",
+          "encumbrance": 3,
+          "hardpoints": 2,
+          "price": 500,
+          "rarity": 3,
+          "special": [
+            "Cumbersome 3",
+            "Disorient 2",
+            "Stun 3"
+          ]
+        },
+        {
+          "name": "Ion Pike",
+          "skill": "Melee",
+          "damage": 10,
+          "criticalRating": 3,
+          "range": "Engaged",
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "price": 750,
+          "rarity": 3,
+          "special": [
+            "Inaccurate 1",
+            "Ion",
+            "Pierce 4"
+          ]
+        },
+        {
+          "name": "BlasTech DL-19C Blaster Pistol",
+          "skill": "Ranged (Light)",
+          "damage": 5,
+          "criticalRating": 4,
+          "range": "Medium",
+          "encumbrance": 1,
+          "hardpoints": 4,
+          "price": 450,
+          "rarity": 3,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "DDC MR6 Modular Rifle",
+          "skill": "Ranged (Heavy)",
+          "damage": 7,
+          "criticalRating": 4,
+          "range": "Medium",
+          "encumbrance": 3,
+          "hardpoints": 6,
+          "price": 1000,
+          "rarity": 3,
+          "special": [
+            "Stun Setting"
+          ]
+        },
+        {
+          "name": "Electromag-Pulse Disruptor",
+          "skill": "Melee",
+          "damage": 5,
+          "criticalRating": 4,
+          "range": "Engaged",
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "price": 180,
+          "rarity": 3,
+          "special": [
+            "Disorient 1",
+            "Ion"
+          ]
+        },
+        {
+          "name": "Ion Thruster Gun",
+          "skill": "Ranged (Heavy)",
+          "damage": 5,
+          "criticalRating": 4,
+          "range": "Short",
+          "encumbrance": 8,
+          "hardpoints": 0,
+          "price": 300,
+          "rarity": 3,
+          "special": [
+            "Concussive 1",
+            "Cumbersome 5",
+            "Ion",
+            "Prepare 1"
+          ]
+        },
+        {
+          "name": "Multi-Goo Gun",
+          "skill": "Ranged (Light)",
+          "damage": 2,
+          "criticalRating": 0,
+          "range": "Short",
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "price": 250,
+          "rarity": 3,
+          "special": [
+            "Disorient 1",
+            "Ensnare 4",
+            "Knockdown"
+          ]
+        },
+        {
+          "name": "Repulsor Gun",
+          "skill": "Ranged (Heavy)",
+          "damage": 3,
+          "criticalRating": 5,
+          "range": "Short",
+          "encumbrance": 5,
+          "hardpoints": 0,
+          "price": 200,
+          "rarity": 3,
+          "special": [
+            "Knockdown"
+          ]
+        },
+        {
+          "name": "Rivet Gun",
+          "skill": "Ranged (Light)",
+          "damage": 4,
+          "criticalRating": 3,
+          "range": "Rngaged",
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "price": 900,
+          "rarity": 1,
+          "special": [
+            "Ensnare 1",
+            "Inaccurate 2",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "name": "Hand Grinder",
+          "skill": "Melee",
+          "damage": 2,
+          "criticalRating": 4,
+          "range": "Engaged",
+          "encumbrance": 5,
+          "hardpoints": 4,
+          "price": 500,
+          "rarity": 3,
+          "special": [
+            "Cumbersome 3",
+            "Prepare 1",
+            "Vicious 4"
+          ]
+        },
+        {
+          "name": "Welding Rod",
+          "skill": "Melee",
+          "damage": 3,
+          "criticalRating": 2,
+          "range": "Engaged",
+          "encumbrance": 4,
+          "hardpoints": 0,
+          "price": 1750,
+          "rarity": 3,
+          "special": [
+            "Breach 1",
+            "Inaccurate 2"
+          ]
         }
       ]
     },
