@@ -12674,7 +12674,14 @@
         },
         {
           "id": "armor-master-improved",
-          "name": "Armor Master Improved"
+          "name": "Armor Master Improved",
+          "effects": [
+            {
+              "if": "#$state.character.armor.find(a => a.soak >= 2)",
+              "target": "$state.character.soak",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "bacta-specialist",
@@ -12922,7 +12929,13 @@
         },
         {
           "id": "enduring",
-          "name": "Enduring"
+          "name": "Enduring",
+          "effects": [
+            {
+              "target": "$state.character.soak",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "energy-transfer",
