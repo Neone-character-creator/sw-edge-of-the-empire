@@ -2065,8 +2065,8 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.talent",
                 "items": {
-                  "text": "option.value.name",
-                  "values": "# $state.availableAdvancements.talent.options.map(o => _.cloneDeep(o)).map(o => {o.option.value = $model.talent.values.find(t => t.id === o.option.value);return o;})"
+                  "text": "option.value",
+                  "values": "# $state.availableAdvancements.talent.options"
                 }
               },
               {
@@ -2155,7 +2155,7 @@
         "forceRating": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.advancements.filter(a => a.type === 'talent').map(a => a.option.value === 'force-rating').length",
+            "# $state.character.advancements.filter(a => a.type === 'talent').map(a => a.value.id === 'force-rating').length",
             "# _.get($state, 'character.species.name') === 'Droid' ? 0 : $this.accumulator"
           ]
         },
@@ -4270,7 +4270,17 @@
             },
             {
               "id": "assassin-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -4451,7 +4461,17 @@
             },
             {
               "id": "gadgeteer-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -4658,7 +4678,17 @@
             },
             {
               "id": "survivalist-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -4879,7 +4909,17 @@
             },
             {
               "id": "doctor-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -5071,7 +5111,17 @@
             },
             {
               "id": "politico-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -5291,7 +5341,17 @@
             },
             {
               "id": "scholar-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": [
                 "scholar-18",
@@ -5470,7 +5530,17 @@
             },
             {
               "id": "fringer-17",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -5688,7 +5758,17 @@
             },
             {
               "id": "scout-18",
-              "id": "dedication",
+              "id": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -5896,7 +5976,17 @@
             },
             {
               "id": "trader-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -6082,7 +6172,17 @@
             },
             {
               "id": "bodyguard-17",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -6327,7 +6427,17 @@
             },
             {
               "id": "marauder-20",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -6528,7 +6638,17 @@
             },
             {
               "id": "mercenary-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -6728,7 +6848,17 @@
             },
             {
               "id": "pilot-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -6926,7 +7056,17 @@
             },
             {
               "id": "scoundrel-17",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -7178,7 +7318,17 @@
             },
             {
               "id": "thief-20",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -7384,7 +7534,17 @@
             },
             {
               "id": "mechanic-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -7593,7 +7753,17 @@
             },
             {
               "id": "outlaw-tech-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -7832,7 +8002,17 @@
             },
             {
               "id": "slicer-20",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -8035,7 +8215,17 @@
             },
             {
               "id": "force-sensitive-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -8676,7 +8866,17 @@
             },
             {
               "id": "enforcer-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -8883,7 +9083,17 @@
             },
             {
               "id": "demolitionist-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -9080,7 +9290,17 @@
             },
             {
               "id": "heavy-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -9270,7 +9490,17 @@
             },
             {
               "id": "archaeologist-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "requires": {
                 "advancements": [
                   "archaeologist-14",
@@ -9482,7 +9712,17 @@
             },
             {
               "id": "big-game-hunter-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -9699,7 +9939,17 @@
             },
             {
               "id": "driver-20",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -9898,7 +10148,17 @@
             },
             {
               "id": "entrepreneur-19",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -10110,7 +10370,17 @@
             {
               "id": "marshal-19",
               "tier": 5,
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "requires": {
                 "advancements": [
                   "marshal-18"
@@ -10325,7 +10595,17 @@
             },
             {
               "id": "performer-20",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -10513,7 +10793,17 @@
             },
             {
               "id": "charmer-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -10600,7 +10890,17 @@
             },
             {
               "id": "gambler-7",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 2,
               "requires": {
                 "advancements": [
@@ -10921,7 +11221,17 @@
             },
             {
               "id": "gunslinger-17",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -11140,7 +11450,17 @@
             },
             {
               "id": "martial-artist-18",
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "tier": 5,
               "requires": {
                 "advancements": [
@@ -11350,7 +11670,17 @@
             {
               "id": "operator-17",
               "tier": 5,
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "requires": {
                 "advancements": [
                   "operator-13",
@@ -11595,7 +11925,17 @@
             {
               "id": "skiptracer-19",
               "tier": 5,
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "requires": {
                 "advancements": [
                   "skiptracer-15",
@@ -11818,7 +12158,17 @@
             {
               "id": "cyber-tech-20",
               "tier": 5,
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "requires": {
                 "advancements": [
                   "cyber-tech-16"
@@ -12019,7 +12369,17 @@
             {
               "id": "droid-tech-19",
               "tier": 5,
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "requires": {
                 "advancements": [
                   "droid-tech-13",
@@ -12222,7 +12582,17 @@
             {
               "id": "modder-18",
               "tier": 5,
-              "value": "dedication",
+              "value": {
+                "options": [
+                  "dedication-agility",
+                  "dedication-brawn",
+                  "dedication-cunning",
+                  "dedication-intellect",
+                  "dedication-presence",
+                  "dedication-willpower"
+                ],
+                "choices": 1
+              },
               "requires": {
                 "advancements": [
                   "modder-14",
@@ -12406,8 +12776,28 @@
           "name": "Deceptive Taunt"
         },
         {
-          "id": "dedication",
-          "name": "Dedication"
+          "id": "dedication-agility",
+          "name": "Dedication (Agility)"
+        },
+        {
+          "id": "dedication-brawn",
+          "name": "Dedication (Brawn)"
+        },
+        {
+          "id": "dedication-cunning",
+          "name": "Dedication (Cunning)"
+        },
+        {
+          "id": "dedication-intellect",
+          "name": "Dedication (Intellect)"
+        },
+        {
+          "id": "dedication-presence",
+          "name": "Dedication (Presence)"
+        },
+        {
+          "id": "dedication-willpower",
+          "name": "Dedication (Willpower)"
         },
         {
           "id": "defensive-driving",
@@ -14422,7 +14812,7 @@
           ]
         },
         {
-          "name": "Merr-Sonn Model 53 \"Quicktrigger\" Blaster Pistol",
+          "name": "Merr-Sonn Model 53 'Quicktrigger' Blaster Pistol",
           "skill": "Ranged (Light)",
           "damage": 6,
           "criticalRating": 3,
@@ -14436,7 +14826,7 @@
           ]
         },
         {
-          "name": "Raider Arms Model 1 \"Nova Viper\" Blaster Pistol",
+          "name": "Raider Arms Model 1 'Nova Viper' Blaster Pistol",
           "skill": "Ranged (Light)",
           "damage": 7,
           "criticalRating": 3,
@@ -14452,7 +14842,7 @@
           ]
         },
         {
-          "name": "Czerka Arms C-10 \"Dragoneye Reaper\" Heavy Blaster Pistol",
+          "name": "Czerka Arms C-10 'Dragoneye Reaper' Heavy Blaster Pistol",
           "skill": "Ranged (Light)",
           "damage": 8,
           "criticalRating": 3,
@@ -14752,7 +15142,7 @@
           ]
         },
         {
-          "name": "Kelvarek Consolidated Arms KD-30 \"Dissuader\" Pistol",
+          "name": "Kelvarek Consolidated Arms KD-30 'Dissuader' Pistol",
           "skill": "Ranged (Light)",
           "damage": 4,
           "criticalRating": 5,
@@ -14951,7 +15341,7 @@
           ]
         },
         {
-          "name": "XL-2 \"Flashfire\" Blaster Pistol",
+          "name": "XL-2 'Flashfire' Blaster Pistol",
           "skill": "Ranged (Light)",
           "damage": 5,
           "criticalRating": 3,
@@ -14966,7 +15356,7 @@
           ]
         },
         {
-          "name": "H-7 \"Equalizer\" Blaster Pistol",
+          "name": "H-7 'Equalizer' Blaster Pistol",
           "skill": "Ranged (Light)",
           "damage": 7,
           "criticalRating": 2,
@@ -15164,7 +15554,7 @@
           ]
         },
         {
-          "name": "\"Precision-X\" Marksman Rifle",
+          "name": "'Precision-X' Marksman Rifle",
           "skill": "Ranged (Heavy)",
           "damage": 9,
           "criticalRating": 3,
@@ -15179,7 +15569,7 @@
           ]
         },
         {
-          "name": "\"Subduer-9\" Riot Blaster",
+          "name": "'Subduer-9' Riot Blaster",
           "skill": "Ranged (Heavy)",
           "damage": 10,
           "criticalRating": 6,
@@ -15195,7 +15585,7 @@
           ]
         },
         {
-          "name": "\"Firecaller\" Light Flame Projector",
+          "name": "'Firecaller' Light Flame Projector",
           "skill": "Ranged (Light)",
           "damage": 5,
           "criticalRating": 2,
@@ -15226,7 +15616,7 @@
           ]
         },
         {
-          "name": "Nova Design \"Impact\" Repulsor Cannon",
+          "name": "Nova Design 'Impact' Repulsor Cannon",
           "skill": "Ranged (Heavy)",
           "damage": 3,
           "criticalRating": 6,
@@ -15244,7 +15634,7 @@
           ]
         },
         {
-          "name": "\"Firecaller\" Light Flame Projector",
+          "name": "'Firecaller' Light Flame Projector",
           "skill": "Ranged (Heavy)",
           "damage": 5,
           "criticalRating": 2,
@@ -15350,7 +15740,7 @@
           "rarity": 5
         },
         {
-          "name": "Czerka \"Peacekeeper\" Stun Baton",
+          "name": "Czerka 'Peacekeeper' Stun Baton",
           "skill": "Melee",
           "damage": 2,
           "criticalRating": 4,
@@ -15984,7 +16374,12 @@
         },
         "when": "# $state.character.characteristics[$this] < 6 ",
         "cost": "# ($state.character.characteristics[$this] + 1) * 10",
-        "effect": "$state.character.characteristics[$this] = $state.character.characteristics[$this] += 1"
+        "effects": [
+          {
+            "target": "# $state.character.characteristics[$this]",
+            "add": 1
+          }
+        ]
       },
       "skill": {
         "description": "Skill Training",
@@ -15992,7 +16387,12 @@
         "options": "# Object.keys($model.skills.prototype.definition) ",
         "when": "# $state.character.skills[$this].rank < 5 ",
         "cost": "# ($state.character.skills[$this].rank + 1) * 5 ",
-        "effect": "# $state.character.skills[$this].rank += 1"
+        "effects": [
+          {
+            "target": "# $state.character.skills[$this]",
+            "add": 1
+          }
+        ]
       },
       "talent": {
         "description": "Acquire Talent",
@@ -16028,7 +16428,12 @@
           ]
         },
         "cost": "# $this.tier * 5",
-        "effect": "# $state.character.talents.push($state.selectedAdvancement.talent.option)"
+        "effects": [
+          {
+            "target": "$state.character.talents",
+            "push": "# $state.selectedAdvancement.talent.option.value"
+          }
+        ]
       },
       "specialization": {
         "description": "New Specialization",
@@ -16041,7 +16446,12 @@
           "# $this.allowedAsFirstSpecialization !== false || $state.character.specializations.length > 0"
         ],
         "cost": "# ($state.character.specializations.length + 1 * 10)",
-        "effect": "# $state.character.specializations.push($state.selectedAdvancement.specialization.option)"
+        "effects": [
+          {
+            "target": "$state.character.specializations",
+            "push": "# $state.selectedAdvancement.specialization.option.value"
+          }
+        ]
       },
       "signatureAbility": {
         "description": "New Signature Ability",
@@ -16052,7 +16462,12 @@
             "# $state.character.specializations.length > $state.character.advancements.filter(a => a.type === 'signatureAbility').length"
           ]
         },
-        "effects": "# $state.character.signatureAbilities.push($state.selectedAdvancement.signatureAbility.option)"
+        "effects": [
+          {
+            "target": "$state.character.signatureAbilities",
+            "push": "# $state.selectedAdvancement.signatureAbility.option.value"
+          }
+        ]
       }
     },
     "obligation": {
