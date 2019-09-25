@@ -1814,7 +1814,7 @@
                         "type": "button",
                         "text": "X",
                         "weight": 1,
-                        "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $index}"
+                        "action": "# {type:'REMOVE', path: '$state.character.armor', remove: $index}"
                       },
                       {
                         "name": "armorName",
@@ -12663,7 +12663,14 @@
         },
         {
           "id": "armor-master",
-          "name": "Armor Master"
+          "name": "Armor Master",
+          "effects": [
+            {
+              "if": "#$state.character.armor.length",
+              "target": "$state.character.soak",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "armor-master-improved",
