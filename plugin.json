@@ -2070,6 +2070,28 @@
                 }
               },
               {
+                "name": "talentAdvancementOptions",
+                "type": "container",
+                "direction": "vertical",
+                "hiddenWhen": "# !_.get($state, 'selectedAdvancement.talent.option.value.options')",
+                "children": [
+                  {
+                    "name": "talentAdvancementOptions",
+                    "type": "label",
+                    "text": "# 'Choose ' + _.get($state, 'selectedAdvancement.talent.option.value.choices')"
+                  },
+                  {
+                    "name": "talentAdvancementOptions",
+                    "type": "select",
+                    "bind": "$state.selectedAdvancement.talent.option.value.chosen",
+                    "items": {
+                      "values": "# _.get($state, 'selectedAdvancement.talent.option.value.options')",
+                      "maxSelections": "# _.get($state, 'selectedAdvancement.talent.option.value.choices')"
+                    }
+                  }
+                ]
+              },
+              {
                 "name": "talentSubmit",
                 "type": "button",
                 "text": "# 'Buy'",
