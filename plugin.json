@@ -12799,27 +12799,63 @@
         },
         {
           "id": "dedication-agility",
-          "name": "Dedication (Agility)"
+          "name": "Dedication (Agility)",
+          "effects": [
+            {
+              "target": "$state.character.characteristics.agility",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "dedication-brawn",
-          "name": "Dedication (Brawn)"
+          "name": "Dedication (Brawn)",
+          "effects": [
+            {
+              "target": "$state.character.characteristics.brawn",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "dedication-cunning",
-          "name": "Dedication (Cunning)"
+          "name": "Dedication (Cunning)",
+          "effects": [
+            {
+              "target": "$state.character.characteristics.cunning",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "dedication-intellect",
-          "name": "Dedication (Intellect)"
+          "name": "Dedication (Intellect)",
+          "effects": [
+            {
+              "target": "$state.character.characteristics.intellect",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "dedication-presence",
-          "name": "Dedication (Presence)"
+          "name": "Dedication (Presence)",
+          "effects": [
+            {
+              "target": "$state.character.characteristics.presence",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "dedication-willpower",
-          "name": "Dedication (Willpower)"
+          "name": "Dedication (Willpower)",
+          "effects": [
+            {
+              "target": "$state.character.characteristics.willpower",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "defensive-driving",
