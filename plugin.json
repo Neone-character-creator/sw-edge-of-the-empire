@@ -2190,6 +2190,34 @@
             ]
           },
           {
+            "name": "signatureAbilityAdvancements",
+            "type": "container",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "signatureAbilityAdvancement",
+                "type": "label",
+                "text": "Signature Abilities"
+              },
+              {
+                "name": "signatureAbilityAdvancement",
+                "type": "select",
+                "bind": "$state.selectedAdvancement.signatureAbility",
+                "items": {
+                  "text": "option.name",
+                  "values": "# $state.availableAdvancements.signatureAbility.options"
+                }
+              },
+              {
+                "name": "specialAbilitySubmit",
+                "type": "button",
+                "text": "Buy",
+                "disabledWhen": "# _.get($state, 'selectedAdvancement.signatureAbility.isAvailable') !== true",
+                "action": "# {type:'ADVANCEMENT', advancementType:'signatureAbility', advancement: _.get($state, 'selectedAdvancement.signatureAbility.option')}"
+              }
+            ]
+          },
+          {
             "name": "purchasedAdvancements",
             "type": "list",
             "bind": "$state.character.advancements",
@@ -2265,13 +2293,13 @@
         "wounds": {
           "type": "number",
           "derivedFrom": [
-            "# _.get($state.character.characteristics, _.get($state, 'character.species.woundsThreshold.characteristics'), 0) + _.get($state, 'character.species.woundsThreshold.base', 0)"
+            "# _.get($state.character.characteristics, _.get($state, 'character.species.woundsThreshold.characteristic'), 0) + _.get($state, 'character.species.woundsThreshold.base', 0)"
           ]
         },
         "strain": {
           "type": "number",
           "derivedFrom": [
-            "# _.get($state.character.characteristics, _.get($state, 'character.species.strainThreshold.characteristics'), 0) + _.get($state, 'character.species.strainThreshold.base', 0)"
+            "# _.get($state.character.characteristics, _.get($state, 'character.species.strainThreshold.characteristic'), 0) + _.get($state, 'character.species.strainThreshold.base', 0)"
           ]
         },
         "characteristics": "characteristics",
@@ -4050,7 +4078,8 @@
             "Skiptracer"
           ],
           "signatureAbilities": [
-            "last-one-standing"
+            "last-one-standing",
+            "unmatched-protection"
           ]
         },
         {
