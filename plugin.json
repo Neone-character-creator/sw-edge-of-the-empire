@@ -16537,6 +16537,104 @@
               }
             }
           ]
+        },
+        {
+          "id": "inventive-creation",
+          "name": "Inventive Creation",
+          "talents": [
+            {
+              "id": "inventive-creation-1",
+              "value": "inventive-creation-base",
+              "tier": 6
+            },
+            {
+              "id": "inventive-creation-2",
+              "value": "inventive-creation-reduce-setback",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "inventive-creation-3"
+                ]
+              }
+            },
+            {
+              "id": "inventive-creation-3",
+              "value": "inventive-creation-increase-rarity",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "inventive-creation-1",
+                  "inventive-creation-2"
+                ]
+              }
+            },
+            {
+              "id": "inventive-creation-4",
+              "value": "inventive-creation-reduce-setback",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "inventive-creation-5",
+                  "inventive-creation-8"
+                ]
+              }
+            },
+            {
+              "id": "inventive-creation-5",
+              "value": "inventive-creation-increase-rarity",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "inventive-creation-1",
+                  "inventive-creation-4"
+                ]
+              }
+            },
+            {
+              "id": "inventive-creation-6",
+              "value": "inventive-creation-reduce-difficulty",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "inventive-creation-2",
+                  "inventive-creation-7"
+                ]
+              }
+            },
+            {
+              "id": "inventive-creation-7",
+              "value": "inventive-creation-increase-rarity",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "inventive-creation-6",
+                  "inventive-creation-8"
+                ]
+              }
+            },
+            {
+              "id": "inventive-creation-8",
+              "value": "inventive-creation-destiny",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "inventive-creation-4",
+                  "inventive-creation-7",
+                  "inventive-creation-9"
+                ]
+              }
+            },
+            {
+              "id": "inventive-creation-9",
+              "value": "inventive-creation-change-scale",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "inventive-creation-8"
+                ]
+              }
+            }
+          ]
         }
       ]
     }
