@@ -1113,7 +1113,7 @@
                 "direction": "vertical",
                 "children": [
                   {
-                    "name": "otherItems",
+                    "name": "summaryOtherItems",
                     "type": "list",
                     "bind": "$state.character.otherItems",
                     "items": {
@@ -1973,6 +1973,67 @@
                     }
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "name": "otherItems",
+            "type": "container",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "otherItems",
+                "type": "label",
+                "text": "Other Items"
+              },
+              {
+                "name": "newItem",
+                "type": "container",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "addItem",
+                    "type": "button",
+                    "text": "Add",
+                    "disabledWhen": "# !_.get($state, 'selectedOtherItem')",
+                    "action": "# {type:'ADD', path: '$state.character.otherItems', value: $state.selectedOtherItem}"
+                  },
+                  {
+                    "name": "newOtherItemName",
+                    "type": "textfield",
+                    "label": "Item Name",
+                    "bind": "$state.selectedOtherItem.name"
+                  },
+                  {
+                    "name": "newOtherItemWeight",
+                    "type": "number",
+                    "label": "Weight",
+                    "bind": "$state.selectedOtherItem.weight"
+                  }
+                ]
+              },
+              {
+                "name": "otherItems",
+                "type": "list",
+                "bind": "$state.character.otherItems",
+                "items": {
+                  "child": {
+                    "name": "otherItem",
+                    "type": "container",
+                    "children": [
+                      {
+                        "name": "otherItemName",
+                        "type": "textfield",
+                        "value": "#$this.name"
+                      },
+                      {
+                        "name": "otherItemWeight",
+                        "type": "number",
+                        "value": "#$this.weight"
+                      }
+                    ]
+                  }
+                }
               }
             ]
           }
@@ -13048,6 +13109,10 @@
         {
           "id": "force-move-strength",
           "name": "Move - Strength"
+        },
+        {
+          "id": "force-rating",
+          "name": "Force Rating"
         },
         {
           "id": "force-sense-basic-power",
