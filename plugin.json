@@ -4078,8 +4078,8 @@
             "Skiptracer"
           ],
           "signatureAbilities": [
-            "last-one-standing",
-            "unmatched-protection"
+            "always-get-my-mark",
+            "unmatched-devastation"
           ]
         },
         {
@@ -4143,6 +4143,10 @@
             "Enforcer",
             "Demolitionist",
             "Heavy"
+          ],
+          "signatureAbilities": [
+            "last-one-standing",
+            "unmatched-protection"
           ]
         },
         {
@@ -16730,6 +16734,98 @@
               "requires": {
                 "advancements": [
                   "unmatched-calibration-5"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "always-get-my-mark",
+          "name": "Always Get My Mark",
+          "tier": 6,
+          "talents": [
+            {
+              "id": "always-get-my-mark-1",
+              "value": "always-get-my-mark-base-ability",
+              "tier": 6
+            },
+            {
+              "id": "always-get-my-mark-2",
+              "value": "always-get-my-mark-change-skill",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "always-get-my-mark-1"
+                ]
+              }
+            },
+            {
+              "id": "always-get-my-mark-3",
+              "value": "always-get-my-mark-destiny",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "always-get-my-mark-4"
+                ]
+              }
+            },
+            {
+              "id": "always-get-my-mark-4",
+              "value": "always-get-my-mark-increase-effect",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "always-get-my-mark-1"
+                ]
+              }
+            },
+            {
+              "id": "always-get-my-mark-5",
+              "value": "always-get-my-mark-change-skill",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "always-get-my-mark-4"
+                ]
+              }
+            },
+            {
+              "id": "always-get-my-mark-6",
+              "value": "always-get-my-mark-reduce-difficulty",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "always-get-my-mark-2"
+                ]
+              }
+            },
+            {
+              "id": "always-get-my-mark-7",
+              "value": "always-get-my-mark-takedown",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "always-get-my-mark-6"
+                ]
+              }
+            },
+            {
+              "id": "always-get-my-mark-8",
+              "values": "always-get-my-mark-increase-range",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "always-get-my-mark-4"
+                ]
+              }
+            },
+            {
+              "id": "always-get-my-mark-9",
+              "values": "always-get-my-mark-increase-effect",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "always-get-my-mark-8"
                 ]
               }
             }
