@@ -16830,6 +16830,99 @@
               }
             }
           ]
+        },
+        {
+          "id": "unmatched-devastation",
+          "name": "Unmatched Devastation",
+          "talents": [
+            {
+              "id": "unmatched-devastation-1",
+              "value": "unmatched-devastation-base-ability",
+              "tier": 6
+            },
+            {
+              "id": "unmatched-devastation-2",
+              "value": "unmatched-devastation-increase-number",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "unmatched-devastation-1"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-devastation-3",
+              "value": "unmatched-devastation-draw-and-fire",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "unmatched-devastation-1",
+                  "unmatched-devastation-4"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-devastation-4",
+              "value": "unmatched-devastation-target-priority",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "unmatched-devastation-1",
+                  "unmatched-devastation-3"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-devastation-5",
+              "value": "unmatched-devastation-remove-setback",
+              "tier": 2,
+              "requires": {
+                "advancements": [
+                  "unmatched-devastation-4"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-devastation-6",
+              "value": "unmatched-devastation-increase-number",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "unmatched-devastation-7"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-devastation-7",
+              "value": "unmatched-devastation-remove-setback",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "unmatched-devastation-3"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-devastation-8",
+              "value": "unmatched-devastation-improve-mobility",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "unmatched-devastation-7"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-devastation-9",
+              "value": "unmatched-devastation-increase-number",
+              "tier": 3,
+              "requires": {
+                "advancements": [
+                  "unmatched-devastation-5"
+                ]
+              }
+            }
+          ]
         }
       ]
     }
