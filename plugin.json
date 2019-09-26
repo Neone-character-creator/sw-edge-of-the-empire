@@ -39,7 +39,7 @@
                 "name": "specializations",
                 "type": "textfield",
                 "label": "Specialization Trees",
-                "value": "# $state.character.career.specializations.join(', ')"
+                "value": "# $state.character.specializations.map(s => s.name).join(', ')"
               }
             ]
           },
