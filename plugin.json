@@ -13131,7 +13131,13 @@
         },
         {
           "id": "grit",
-          "name": "grit"
+          "name": "grit",
+          "effects": [
+            {
+              "target": "$state.character.strain",
+              "add": 1
+            }
+          ]
         },
         {
           "id": "guns-blazing",
@@ -13691,7 +13697,13 @@
         },
         {
           "id": "toughened",
-          "name": "Toughened"
+          "name": "Toughened",
+          "effects": [
+            {
+              "target": "$state.character.wounds",
+              "add": 2
+            }
+          ]
         },
         {
           "id": "tricky-target",
@@ -16454,7 +16466,7 @@
         "cost": "# ($state.character.characteristics[$this] + 1) * 10",
         "effects": [
           {
-            "target": "# $state.character.characteristics[$this]",
+            "target": "# `$state.character.characteristics[`+ $this +`]`",
             "add": 1
           }
         ]
