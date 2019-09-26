@@ -4182,6 +4182,9 @@
             "Mechanic",
             "Outlaw Tech",
             "Slicer"
+          ],
+          "signatureAbilities": [
+            "inventive-creation"
           ]
         }
       ]
