@@ -2064,6 +2064,7 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.characteristic",
                 "items": {
+                  "disabledWhen": "# !$this.isAvailable",
                   "text": "option",
                   "values": "# $state.availableAdvancements.characteristic.options"
                 }
@@ -2098,6 +2099,7 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.skill",
                 "items": {
+                  "disabledWhen": "# !$this.isAvailable",
                   "text": "option",
                   "values": "# $state.availableAdvancements.skill.options"
                 }
@@ -2126,6 +2128,7 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.talent",
                 "items": {
+                  "disabledWhen": "# !$this.isAvailable",
                   "text": "option.value",
                   "values": "# $state.availableAdvancements.talent.options"
                 }
@@ -2176,6 +2179,7 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.specialization",
                 "items": {
+                  "disabledWhen": "# !$this.isAvailable",
                   "text": "option.name",
                   "values": "# $state.availableAdvancements.specialization.options"
                 }
@@ -2204,6 +2208,7 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.signatureAbility",
                 "items": {
+                  "disabledWhen": "# !$this.isAvailable",
                   "text": "option.name",
                   "values": "# $state.availableAdvancements.signatureAbility.options"
                 }
