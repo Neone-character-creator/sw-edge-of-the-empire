@@ -2147,7 +2147,7 @@
                     "name": "singlePurchasedAdvancementRemoveButton",
                     "type": "button",
                     "text": "# `Remove`",
-                    "action": "# `REMOVE-ADVANCEMENT ${$this.value}`"
+                    "action": "# {type: 'REMOVE', path: '$state.character.advancements', index: $index}"
                   }
                 ]
               }
