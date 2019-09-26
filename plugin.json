@@ -2157,7 +2157,7 @@
                 "type": "button",
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.talent.isAvailable') !== true",
-                "action": "# {type:'ADVANCEMENT', advancementType:'talent', advancement: _.get($state, 'selectedAdvancement.talent.option.value')}"
+                "action": "# {type:'ADVANCEMENT', advancementType:'talent', advancement: _.get($state, 'selectedAdvancement.talent.option')}"
               }
             ]
           },
@@ -2266,7 +2266,7 @@
         "forceRating": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.advancements.filter(a => a.type === 'talent').map(a => a.value.id === 'force-rating').length",
+            "# $state.character.advancements.filter(a => a.type === 'talent').map(a => a.advancement.id === 'force-rating').length",
             "# _.get($state, 'character.species.name') === 'Droid' ? 0 : $this.accumulator"
           ]
         },
@@ -16587,7 +16587,7 @@
         ],
         "when": {
           "all": [
-            "# !$state.character.advancements.find(a => a.id === $this.id)",
+            "# !$state.character.advancements.find(a => a.advancement.id === $this.id)",
             {
               "any": [
                 "# $this.requires === undefined",
