@@ -4106,6 +4106,10 @@
             "Performer",
             "Marshal",
             "Entrepreneur"
+          ],
+          "signatureAbilities": [
+            "unmatched-expertise",
+            "insightful-revelation"
           ]
         },
         {
@@ -17105,6 +17109,183 @@
               }
             }
           ]
+        },
+        {
+          "id": "insightful-revelation",
+          "name": "Insightful Revelation",
+          "talents": [
+            {
+              "id": "insightful-revelation-1",
+              "value": "insightful-revelation-base-ability"
+            },
+            {
+              "id": "insightful-revelation-2",
+              "value": "insightful-revelation-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "insightful-revelation-3",
+                  "insightful-revelation-6"
+                ]
+              }
+            },
+            {
+              "id": "insightful-revelation-3",
+              "value": "insightful-revelation-destiny",
+              "requires": {
+                "advancements": [
+                  "insightful-revelation-1",
+                  "insightful-revelation-2",
+                  "insightful-revelation-4",
+                  "insightful-revelation-7"
+                ]
+              }
+            },
+            {
+              "id": "insightful-revelation-4",
+              "value": "insightful-revelation-reduce-difficulty",
+              "requires": {
+                "advancements": [
+                  "insightful-revelation-1",
+                  "insightful-revelation-3",
+                  "insightful-revelation-5",
+                  "insightful-revelation-8"
+                ]
+              }
+            },
+            {
+              "id": "insightful-revelation-5",
+              "value": "insightful-revelation-additional-skills",
+              "requires": {
+                "advancements": [
+                  "insightful-revelation-4",
+                  "insightful-revelation-9"
+                ]
+              }
+            },
+            {
+              "id": "insightful-revelation-6",
+              "value": "insightful-revelation-add-boost",
+              "requires": {
+                "advancements": [
+                  "insightful-revelation-2",
+                  "insightful-revelation-7"
+                ]
+              }
+            },
+            {
+              "id": "insightful-revelation-7",
+              "value": "insightful-revelation-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "insightful-revelation-3",
+                  "insightful-revelation-6",
+                  "insightful-revelation-8"
+                ]
+              }
+            },
+            {
+              "id": "insightful-revelation-8",
+              "value": "insightful-revelation-increase-effect",
+              "requires": {
+                "advancements": [
+                  "insightful-revelation-7",
+                  "insightful-revelation-9"
+                ]
+              }
+            },
+            {
+              "id": "insightful-revelation-9",
+              "value": "insightful-revelation-duration",
+              "requires": {
+                "advancements": [
+                  "insightful-revelation-5",
+                  "insightful-revelation-8"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "unmatched-expertise",
+          "name": "Unmatched Expertise",
+          "talents": [
+            {
+              "id": "unmatched-expertise-1",
+              "value": "unmatched-expertise-base-ability"
+            },
+            {
+              "id": "unmatched-expertise-2",
+              "value": "unmatched-expertise-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "unmatched-expertise-1"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-expertise-3",
+              "value": "unmatched-expertise-activation",
+              "requires": {
+                "advancements": [
+                  "unmatched-expertise-1"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-expertise-4",
+              "value": "unmatched-expertise-activation",
+              "requires": {
+                "advancements": [
+                  "unmatched-expertise-3"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-expertise-5",
+              "value": "unmatched-expertise-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "unmatched-expertise-1"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-expertise-6",
+              "value": "unmatched-expertise-reduce-difficulty",
+              "requires": {
+                "advancements": [
+                  "unmatched-expertise-2"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-expertise-7",
+              "value": "unmatched-expertise-superior-reduction",
+              "requires": {
+                "advancements": [
+                  "unmatched-expertise-6"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-expertise-8",
+              "value": "unmatched-expertise-destiny",
+              "requires": {
+                "advancements": [
+                  "unmatched-expertise-4"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-expertise-9",
+              "value": "unmatched-expertise-reduce-difficulty",
+              "requires": {
+                "advancements": [
+                  "unmatched-expertise-5"
+                ]
+              }
+            }
+          ]
         }
       ]
     }
@@ -17209,6 +17390,7 @@
         "description": "New Signature Ability",
         "uses": "$state.character.availableExperience",
         "options": "# $state.character.career.signatureAbilities.map(sa => $model.signatureAbility.values.find(a => a.id === sa))",
+        "cost": 30,
         "when": {
           "all": [
             "# $state.character.specializations.length > $state.character.advancements.filter(a => a.type === 'signatureAbility').length"
@@ -17218,6 +17400,10 @@
           {
             "target": "$state.character.signatureAbilities",
             "push": "# $state.selectedAdvancement.signatureAbility.option.value"
+          },
+          {
+            "target": "$state.character.talents",
+            "push": "# $state.selectedAdvancement.signatureAbility.option.talents[0].value"
           }
         ]
       }
