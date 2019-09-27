@@ -4173,6 +4173,10 @@
             "Charmer",
             "Gambler",
             "Gunslinger"
+          ],
+          "signatureAbilities": [
+            "narrow-escape",
+            "unmatched-fortune"
           ]
         },
         {
@@ -16924,6 +16928,179 @@
               "requires": {
                 "advancements": [
                   "unmatched-devastation-5"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "narrow-escape",
+          "name": "Narrow Escape",
+          "talents": [
+            {
+              "id": "narrow-escape-1",
+              "value": "narrow-escape-base-ability"
+            },
+            {
+              "id": "narrow-escape-2",
+              "value": "narrow-escape-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "narrow-escape-3"
+                ]
+              }
+            },
+            {
+              "id": "narrow-escape-3",
+              "value": "narrow-escape-increase-effect",
+              "requires": {
+                "advancements": [
+                  "narrow-escape-1",
+                  "narrow-escape-2"
+                ]
+              }
+            },
+            {
+              "id": "narrow-escape-4",
+              "value": "narrow-escape-add-boost",
+              "requires": {
+                "advancements": [
+                  "narrow-escape-1",
+                  "narrow-escape8"
+                ]
+              }
+            },
+            {
+              "id": "narrow-escape-5",
+              "value": "narrow-escape-change-scale",
+              "requires": {
+                "advancements": [
+                  "narrow-escape-4"
+                ]
+              }
+            },
+            {
+              "id": "narrow-escape-6",
+              "value": "narrow-escape-reduce-difficulty",
+              "requires": {
+                "advancements": [
+                  "narrow-escape-2",
+                  "narrow-escape-7"
+                ]
+              }
+            },
+            {
+              "id": "narrow-escape-7",
+              "value": "narrow-escape-increase-effect",
+              "requires": {
+                "advancements": [
+                  "narrow-escape-6",
+                  "narrow-escape-8"
+                ]
+              }
+            },
+            {
+              "id": "narrow-escape-8",
+              "value": "narrow-escape-change-skill",
+              "requires": {
+                "advancements": [
+                  "narrow-escape-4",
+                  "narrow-escape-7"
+                ]
+              }
+            },
+            {
+              "id": "narrow-escape-9",
+              "value": "narrow-escape-destiny",
+              "requires": {
+                "advancements": [
+                  "narrow-escape-8"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "unmatched-fortune",
+          "name": "Unmatched Fortune",
+          "talents": [
+            {
+              "id": "unmatched-fortune-1",
+              "value": "unmatched-fortune-base-ability"
+            },
+            {
+              "id": "unmatched-fortune-2",
+              "value": "unmatched-fortune-frequency",
+              "requires": {
+                "advancements": [
+                  "unmatched-fortune-1",
+                  "unmatched-fortune-3"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-fortune-3",
+              "value": "unmatched-fortune-increase-number",
+              "requires": {
+                "advancements": [
+                  "unmatched-fortune-2",
+                  "unmatched-fortune-4"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-fortune-4",
+              "value": "unmatched-fortune-shared-luck",
+              "requires": {
+                "advancements": [
+                  "unmatched-fortune-3",
+                  "unmatched-fortune-5"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-fortune-5",
+              "value": "unmatched-fortune-increase-number",
+              "requires": {
+                "advancements": [
+                  "unmatched-fortune-1",
+                  "unmatched-fortune-4"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-fortune-6",
+              "value": "unmatched-fortune-destiny",
+              "requires": {
+                "advancements": [
+                  "unmatched-fortune-2"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-fortune-7",
+              "value": "unmatched-fortune-increase-effect",
+              "requires": {
+                "advancements": [
+                  "unmatched-fortune-3"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-fortune-8",
+              "value": "unmatched-fortune-increase-range",
+              "requires": {
+                "advancements": [
+                  "unmatched-fortune-4"
+                ]
+              }
+            },
+            {
+              "id": "unmatched-fortune-9",
+              "value": "unmatched-fortune-frequency",
+              "requires": {
+                "advancements": [
+                  "unmatched-fortune-8"
                 ]
               }
             }
