@@ -17521,7 +17521,7 @@
             {
               "action": "ADD",
               "target": "$state.character.totalExperience",
-              "amount": 5
+              "value": 5
             }
           ]
         },
@@ -17533,7 +17533,7 @@
             {
               "action": "ADD",
               "target": "$state.character.totalExperience",
-              "amount": 10
+              "value": 10
             }
           ]
         },
@@ -17544,7 +17544,7 @@
             {
               "action": "ADD",
               "target": "$state.character.credits",
-              "amount": 1000
+              "value": 1000
             }
           ]
         },
@@ -17555,7 +17555,7 @@
             {
               "action": "ADD",
               "target": "$state.character.credits",
-              "amount": 2500
+              "value": 2500
             }
           ]
         },
@@ -17566,7 +17566,7 @@
             {
               "action": "ADD",
               "target": "$state.character.bonusCyberneticsMaxCost",
-              "amount": 1000
+              "value": 1000
             }
           ]
         },
@@ -17577,7 +17577,7 @@
             {
               "action": "ADD",
               "target": "$state.character.bonusCyberneticsMaxCost",
-              "amount": 2500
+              "value": 2500
             }
           ]
         }
