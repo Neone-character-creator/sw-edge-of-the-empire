@@ -1338,7 +1338,7 @@
                         "name": "removeObligation",
                         "type": "button",
                         "text": "X",
-                        "action": "# {type:'REMOVE', path: '$state.character.obligations', remove: $index}"
+                        "action": "# {type:'REMOVE', path: '$state.character.obligations', remove: $this}"
                       }
                     ]
                   }
@@ -1736,7 +1736,7 @@
                             "type": "button",
                             "text": "X",
                             "weight": 1,
-                            "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $index}"
+                            "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $this}"
                           },
                           {
                             "name": "weaponName",
@@ -1814,7 +1814,7 @@
                         "type": "button",
                         "text": "X",
                         "weight": 1,
-                        "action": "# {type:'REMOVE', path: '$state.character.armor', remove: $index}"
+                        "action": "# {type:'REMOVE', path: '$state.character.armor', remove: $this}"
                       },
                       {
                         "name": "armorName",
@@ -1936,7 +1936,7 @@
                         "type": "button",
                         "text": "X",
                         "hiddenWhen": "# _.get($state, 'character.bonusCybernetics', []).includes($this)",
-                        "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $index}"
+                        "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $this}"
                       },
                       {
                         "name": "cyberneticsName",
@@ -2241,7 +2241,7 @@
                     "name": "singlePurchasedAdvancementRemoveButton",
                     "type": "button",
                     "text": "# `Remove`",
-                    "action": "# {type: 'REMOVE', path: '$state.character.advancements', index: $index}"
+                    "action": "# {type: 'REMOVE', path: '$state.character.advancements', index: $this}"
                   }
                 ]
               }
