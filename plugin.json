@@ -2121,7 +2121,7 @@
               {
                 "name": "talentAdvancementLabel",
                 "type": "label",
-                "text": "# 'Talents'"
+                "text": "Talents"
               },
               {
                 "name": "talentAdvancement",
@@ -2129,8 +2129,11 @@
                 "bind": "$state.selectedAdvancement.talent",
                 "items": {
                   "disabledWhen": "# !$this.isAvailable",
-                  "text": "option.value",
-                  "values": "# $state.availableAdvancements.talent.options"
+                  "text": "option.description",
+                  "values": "# $state.availableAdvancements.talent.options",
+                  "translate": [
+                    "#$this.option.effect.value"
+                  ]
                 }
               },
               {
@@ -2160,7 +2163,11 @@
                 "type": "button",
                 "text": "Buy",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.talent.isAvailable') !== true",
-                "action": "# {type:'ADD', target:'$state.character.advancements', value: _.get($state, 'selectedAdvancement.talent.option')}"
+                "action": {
+                  "type": "PUSH",
+                  "target": "$state.character.talents",
+                  "value": "#$state.selectedAdvancement.talent.option"
+                }
               }
             ]
           },
@@ -2189,7 +2196,15 @@
                 "type": "button",
                 "text": "Buy",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.specialization.isAvailable') !== true",
-                "action": "# {type:'ADVANCEMENT', advancementType:'specialization', advancement: _.get($state, 'selectedAdvancement.specialization.option')}"
+                "action": {
+                  "type": "PUSH",
+                  "target": "$state.character.advancements",
+                  "effects": {
+                    "type": "PUSH",
+                    "target": "$state.character.specializations",
+                    "value": "#$state.selectedAdvancement.specialization.option"
+                  } 
+                }
               }
             ]
           },
@@ -4225,7 +4240,12 @@
           "talents": [
             {
               "id": "assassin-1",
-              "value": "grit",
+              "description": "Grit",
+              "effects": {
+                "action": "PUSH",
+                "target": "$state.character.talents",
+                "value": "#$models.talents.values.grit"
+              },
               "tier": 1,
               "requires": {
                 "career": "Assassin"
@@ -4233,7 +4253,12 @@
             },
             {
               "id": "assassin-2",
-              "value": "lethal-blows",
+              "description": "Lethal Blows",
+              "effects": {
+                "action": "PUSH",
+                "target": "$state.character.talents",
+                "value": "#$models.talents.values['lethal-blows']"
+              },
               "tier": 1,
               "requires": {
                 "career": "Assassin"
