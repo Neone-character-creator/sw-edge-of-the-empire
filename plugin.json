@@ -1545,7 +1545,7 @@
             "type": "select",
             "bind": "$state.character.careerStartingSkills",
             "items": {
-              "translate": "# $this.substring(0,1).toUpperCase() + $this.substring(1)",
+              "translate": "# _.upperFirst($this.name)",
               "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
               "values": "# _.get($state, 'character.career.careerSkills', [])"
             }
@@ -1565,8 +1565,7 @@
                 "type": "select",
                 "bind": "$state.character.specializations[0]",
                 "items": {
-                  "translate": "# $this.substring(0, 1).toUpperCase() + $this.substring(1)",
-                  "text": "name",
+                  "translate": "# _.upperFirst($this.name)",
                   "values": "# $state.availableAdvancements.specialization.options.filter(s => s.option.allowedAsFirstSpecialization !== false).map(s => s.option)"
                 }
               }
@@ -2131,9 +2130,7 @@
                   "disabledWhen": "# !$this.isAvailable",
                   "text": "option.description",
                   "values": "# $state.availableAdvancements.talent.options",
-                  "translate": [
-                    "#$this.option.effect.value"
-                  ]
+                  "translate": "# $this.option.description + ' (' + $this.cost + ')'"
                 }
               },
               {
@@ -4266,7 +4263,12 @@
             },
             {
               "id": "assassin-3",
-              "value": "stalker",
+              "description": "Stalker",
+              "effects": {
+                "action": "PUSH",
+                "target": "$state.character.talents",
+                "value": "#$models.talents.values.stalker"
+              },
               "tier": 1,
               "requires": {
                 "career": "Assassin"
@@ -4274,7 +4276,12 @@
             },
             {
               "id": "assassin-4",
-              "value": "dodge",
+              "description": "Dodge",
+              "effects": {
+                "action": "PUSH",
+                "target": "$state.character.talents",
+                "value": "#$models.talents.values.dodge"
+              },
               "tier": 1,
               "requires": {
                 "career": "Assassin"
