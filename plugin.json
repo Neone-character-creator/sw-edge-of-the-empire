@@ -1133,7 +1133,7 @@
                         "type": "button",
                         "text": "Add",
                         "weight": 1,
-                        "action": "# {type:'ADD', path: 'character.otherItems', value: $state.newItem }"
+                        "action": "# {type:'PUSH', path: 'character.otherItems', value: $state.newItem }"
                       },
                       {
                         "name": "newOtherItem",
@@ -1269,7 +1269,7 @@
                         "name": "newObligationAdd",
                         "type": "button",
                         "text": "Add",
-                        "action": "# {type:'ADD', path: '$state.character.obligations', value: $state.newObligation}"
+                        "action": "# {type:'PUSH', path: '$state.character.obligations', value: $state.newObligation}"
                       },
                       {
                         "name": "newObligationType",
@@ -1545,7 +1545,7 @@
             "type": "select",
             "bind": "$state.character.careerStartingSkills",
             "items": {
-              "translate": "# _.upperFirst($this.name)",
+              "translate": "# _.upperFirst($this)",
               "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
               "values": "# _.get($state, 'character.career.careerSkills', [])"
             }
@@ -1581,7 +1581,7 @@
             "type": "select",
             "bind": "$state.character.specializationStartingSkills",
             "items": {
-              "translate": "# $this.substring(0,1).toUpperCase() + $this.substring(1)",
+              "translate": "# _.upperFirst($this)",
               "maxSelections": "# $state.character.species && $state.character.species.startingSpecializationSkillChoices",
               "values": "# _.get($state, 'character.specializations[0].careerSkills', [])"
             }
@@ -1664,7 +1664,7 @@
                     "text": "# 'Add'",
                     "weight": 1,
                     "disabledWhen": "# !_.get($state, 'selectedWeapon')",
-                    "action": "# {type:'ADD', path:'$state.character.weapons', value:$state.selectedWeapon}"
+                    "action": "# {type:'PUSH', path:'$state.character.weapons', value:$state.selectedWeapon}"
                   },
                   {
                     "name": "newWeaponName",
@@ -1864,7 +1864,7 @@
                     "text": "# 'Add'",
                     "weight": 1,
                     "disabledWhen": "# !_.get($state, 'selectedArmor')",
-                    "action": "# {type:'ADD', path:'$state.character.armor', value:$state.selectedArmor}"
+                    "action": "# {type:'PUSH', path:'$state.character.armor', value:$state.selectedArmor}"
                   },
                   {
                     "name": "newArmorName",
@@ -1958,7 +1958,7 @@
                     "text": "# 'Add'",
                     "weight": 1,
                     "disabledWhen": "# !_.get($state, 'selectedCybernetics')",
-                    "action": "# {type:'ADD', path:'$state.character.cybernetics', value:$state.selectedCybernetics}"
+                    "action": "# {type:'PUSH', path:'$state.character.cybernetics', value:$state.selectedCybernetics}"
                   },
                   {
                     "name": "newCybernetics",
@@ -1995,7 +1995,7 @@
                     "type": "button",
                     "text": "Add",
                     "disabledWhen": "# !_.get($state, 'selectedOtherItem')",
-                    "action": "# {type:'ADD', path: '$state.character.otherItems', value: $state.selectedOtherItem}"
+                    "action": "# {type:'PUSH', path: '$state.character.otherItems', value: $state.selectedOtherItem}"
                   },
                   {
                     "name": "newOtherItemName",
@@ -2079,7 +2079,7 @@
                 "type": "button",
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.characteristic.isAvailable') !== true",
-                "action": "# {type:'ADD', target:'$state.character.advancements', value: _.get($state, 'selectedAdvancement.characteristic.option')}"
+                "action": "# {type:'PUSH', path:'$state.character.advancements', value: _.get($state, 'selectedAdvancement.characteristic.option')}"
               }
             ]
           },
@@ -2108,7 +2108,7 @@
                 "type": "button",
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.skill.isAvailable') !== true",
-                "action": "# {type:'ADD', target:'$state.character.advancements', value: _.get($state, 'selectedAdvancement.skill.option')}"
+                "action": "# {type:'PUSH', path:'$state.character.advancements', value: _.get($state, 'selectedAdvancement.skill.option')}"
               }
             ]
           },
@@ -2128,7 +2128,6 @@
                 "bind": "$state.selectedAdvancement.talent",
                 "items": {
                   "disabledWhen": "# !$this.isAvailable",
-                  "text": "option.description",
                   "values": "# $state.availableAdvancements.talent.options",
                   "translate": "# $this.option.description + ' (' + $this.cost + ')'"
                 }
@@ -2162,7 +2161,7 @@
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.talent.isAvailable') !== true",
                 "action": {
                   "type": "PUSH",
-                  "target": "$state.character.talents",
+                  "path": "$state.character.talents",
                   "value": "#$state.selectedAdvancement.talent.option"
                 }
               }
@@ -2198,9 +2197,9 @@
                   "target": "$state.character.advancements",
                   "effects": {
                     "type": "PUSH",
-                    "target": "$state.character.specializations",
+                    "path": "$state.character.specializations",
                     "value": "#$state.selectedAdvancement.specialization.option"
-                  } 
+                  }
                 }
               }
             ]
