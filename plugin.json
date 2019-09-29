@@ -2161,7 +2161,7 @@
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.talent.isAvailable') !== true",
                 "action": {
                   "type": "PUSH",
-                  "path": "$state.character.talents",
+                  "path": "$state.character.advancements",
                   "value": "#$state.selectedAdvancement.talent.option"
                 }
               }
@@ -4240,7 +4240,7 @@
               "effects": {
                 "action": "PUSH",
                 "target": "$state.character.talents",
-                "value": "#$models.talents.values.grit"
+                "value": "grit"
               },
               "tier": 1,
               "requires": {
@@ -4266,7 +4266,7 @@
               "effects": {
                 "action": "PUSH",
                 "target": "$state.character.talents",
-                "value": "#$models.talents.values.stalker"
+                "value": "stalker"
               },
               "tier": 1,
               "requires": {
@@ -4279,7 +4279,7 @@
               "effects": {
                 "action": "PUSH",
                 "target": "$state.character.talents",
-                "value": "#$models.talents.values.dodge"
+                "value": "dodge"
               },
               "tier": 1,
               "requires": {
