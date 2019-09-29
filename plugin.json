@@ -1360,7 +1360,7 @@
             "label": "Select Species",
             "items": {
               "text": "name",
-              "values": "# $models.species.values"
+              "values": "# $models.species.values()"
             }
           },
           {
@@ -1509,7 +1509,7 @@
                 "bind": "$state.character.bonusCybernetics",
                 "items": {
                   "text": "name",
-                  "values": "# $state.character.bonusCybernetics.concat($models.cybernetics.values.filter(c => c.cost <= $state.character.bonusCyberneticsMaxCost - _.sum($state.character.bonusCybernetics.map(bc => bc.cost))))",
+                  "values": "# $state.character.bonusCybernetics.concat($models.cybernetics.values().filter(c => c.cost <= $state.character.bonusCyberneticsMaxCost - _.sum($state.character.bonusCybernetics.map(bc => bc.cost))))",
                   "maxSelections": "# $state.character.species.bonusCybernetics.choices"
                 }
               }
@@ -1532,7 +1532,7 @@
             "bind": "$state.character.career",
             "items": {
               "text": "name",
-              "values": "# $models.career.values"
+              "values": "# $models.career.values()"
             }
           },
           {
@@ -1615,13 +1615,13 @@
                           {
                             "name": "startingSpecializationTalentIsBought",
                             "type": "checkbox",
-                            "value": "# $state.character.advancements.map(a => a.id).includes($this.id)"
+                            "value": "# $state.character.advancements.talents.map(a => a.id).includes($this.id)"
                           },
                           {
                             "name": "startingSpecializationTalentName",
                             "type": "textfield",
                             "label": "Talent Name",
-                            "value": "# $models.talent.values.find(t => $this.value === t.id).name"
+                            "value": "# $models.talent.values().find(t => $this.value === t.id).name"
                           },
                           {
                             "name": "startingSpecializationTalentCost",
@@ -1674,7 +1674,7 @@
                     "bind": "$state.selectedWeapon",
                     "items": {
                       "text": "name",
-                      "values": "# $models.weapon.values"
+                      "values": "# $models.weapon.values()"
                     }
                   },
                   {
@@ -1874,7 +1874,7 @@
                     "weight": 2,
                     "items": {
                       "text": "name",
-                      "values": "# $models.armor.values"
+                      "values": "# $models.armor.values()"
                     }
                   },
                   {
@@ -1968,7 +1968,7 @@
                     "weight": 2,
                     "items": {
                       "text": "name",
-                      "values": "# $models.cybernetics.values"
+                      "values": "# $models.cybernetics.values()"
                     }
                   }
                 ]
@@ -2056,7 +2056,7 @@
               {
                 "name": "characteristicAdvancementLabel",
                 "type": "label",
-                "text": "# 'Characteristics'"
+                "text": "Characteristics"
               },
               {
                 "name": "characteristicAdvancement",
@@ -2064,8 +2064,8 @@
                 "bind": "$state.selectedAdvancement.characteristic",
                 "items": {
                   "disabledWhen": "# !$this.isAvailable",
-                  "text": "option",
-                  "values": "# $state.availableAdvancements.characteristic.options"
+                  "translate": "#_.upperFirst($this.characteristic)",
+                  "values": "# $models.characteristicAdvancement.values()"
                 }
               },
               {
@@ -2079,7 +2079,11 @@
                 "type": "button",
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.characteristic.isAvailable') !== true",
-                "action": "# {type:'PUSH', path:'$state.character.advancements', value: _.get($state, 'selectedAdvancement.characteristic.option')}"
+                "action": {
+                  "type": "PUSH",
+                  "path": "$state.character.advancements.characteristics",
+                  "value": "#$state.selectedAdvancement.characteristic"
+                }
               }
             ]
           },
@@ -2108,7 +2112,7 @@
                 "type": "button",
                 "text": "# 'Buy'",
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.skill.isAvailable') !== true",
-                "action": "# {type:'PUSH', path:'$state.character.advancements', value: _.get($state, 'selectedAdvancement.skill.option')}"
+                "action": "# {type:'PUSH', path:'$state.character.advancements.skills', value: _.get($state, 'selectedAdvancement.skill.option')}"
               }
             ]
           },
@@ -2161,7 +2165,7 @@
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.talent.isAvailable') !== true",
                 "action": {
                   "type": "PUSH",
-                  "path": "$state.character.advancements",
+                  "path": "$state.character.advancements.talents",
                   "value": "#$state.selectedAdvancement.talent.option"
                 }
               }
@@ -2194,12 +2198,12 @@
                 "disabledWhen": "# _.get($state, 'selectedAdvancement.specialization.isAvailable') !== true",
                 "action": {
                   "type": "PUSH",
-                  "target": "$state.character.advancements",
-                  "effects": {
+                  "target": "$state.character.advancements.specializations",
+                  "effects": [{
                     "type": "PUSH",
                     "path": "$state.character.specializations",
                     "value": "#$state.selectedAdvancement.specialization.option"
-                  }
+                  }]
                 }
               }
             ]
@@ -2234,25 +2238,25 @@
             ]
           },
           {
-            "name": "purchasedAdvancements",
+            "name": "purchasedCharacteristicAdvancements",
             "type": "list",
-            "bind": "$state.character.advancements",
+            "bind": "$state.character.advancements.characteristics",
             "items": {
               "child": {
-                "name": "singlePurchasedAdvancement",
+                "name": "singlePurchasedCharacteristicAdvancement",
                 "type": "container",
                 "direction": "horizontal",
                 "children": [
                   {
-                    "name": "singlePurchasedAdvancementLabel",
+                    "name": "singlePurchasedAdvancementCharacteristic",
                     "type": "label",
                     "text": "# `${$this.type} Advancement ${$this.value}`"
                   },
                   {
-                    "name": "singlePurchasedAdvancementRemoveButton",
+                    "name": "singlePurchasedAdvancementCharacteristicRemove",
                     "type": "button",
                     "text": "# `Remove`",
-                    "action": "# {type: 'REMOVE', path: '$state.character.advancements', index: $this}"
+                    "action": "# {type: 'REMOVE', path: '$state.character.advancements.characteristics', index: $this}"
                   }
                 ]
               }
@@ -2280,10 +2284,7 @@
           ]
         },
         "forceRating": {
-          "type": "number",
-          "derivedFrom": [
-            "# $state.character.advancements.filter(a => a.type === 'talent').map(a => a.advancement.id === 'force-rating').length"
-          ]
+          "type": "number"
         },
         "soak": {
           "type": "number",
@@ -2294,9 +2295,7 @@
         },
         "availableExperience": {
           "type": "number",
-          "derivedFrom": [
-            "# $state.character.advancements.map(a => a.cost).reduce((x, y)=> x-y, $state.character.totalExperience)"
-          ]
+          "derivedFrom": ["# $this.accumulator + $state.character.totalExperience"]
         },
         "totalExperience": {
           "type": "number"
@@ -2315,7 +2314,7 @@
         },
         "characteristics": "characteristics",
         "skills": "skills",
-        "advancements": "[advancement]",
+        "advancements": "advancements",
         "weapons": {
           "type": "[weapon]",
           "baseValue": [
@@ -2347,7 +2346,16 @@
             "# _.get($state, 'character.species.bonusCybernetics.maxTotalCost', 0)",
             "# $this.accumulator + _.sum($state.character.obligationBonuses.map(o => o.bonusCyberneticsCredits))"
           ]
-        }
+        },
+        "signatureAbilities": "[signatureAbilities]"
+      }
+    },
+    "advancements": {
+      "properties": {
+        "characteristics": "[characteristicAdvancement]",
+        "talents": "[talentAdvancement]",
+        "specializations": "[specializationAdvancement]",
+        "signatureAbilities": "[signatureAbilityAdvancement]"
       }
     },
     "skills": {
@@ -4253,7 +4261,7 @@
               "effects": {
                 "action": "PUSH",
                 "target": "$state.character.talents",
-                "value": "#$models.talents.values['lethal-blows']"
+                "value": "#$models.talent.values()['lethal-blows']"
               },
               "tier": 1,
               "requires": {
@@ -17418,6 +17426,57 @@
           ]
         }
       ]
+    },
+    "characteristicAdvancement": {
+      "properties": {
+        "characteristic": "string",
+        "isAvailable": {
+          "type":"boolean",
+          "derivedFrom": "#$state.character.characteristics[$this.characteristic] < 6"
+        },
+        "cost": {
+          "type": "number",
+          "derivedFrom": "#($state.character.characteristics[$this.characteristic] + 1) * 10"
+        }
+      },
+      "values": [
+        {
+          "id": "characteristic-advancement-brawn",
+          "characteristic": "brawn"
+        },
+        {
+          "id": "characteristic-advancement-agility",
+          "characteristic": "agility"
+        },
+        {
+          "id": "characteristic-advancement-intellect",
+          "characteristic": "intellect"
+        },
+        {
+          "id": "characteristic-advancement-cunning",
+          "characteristic": "cunning"
+        },
+        {
+          "id": "characteristic-advancement-willpower",
+          "characteristic": "willpower"
+        },
+        {
+          "id": "characteristic-advancement-presence",
+          "characteristic": "presence"
+        }
+      ],
+      "effects": [
+        {
+          "action": "ADD",
+          "target": "#'$state.character.characteristics[' + $this.characteristic + ']'",
+          "value": 1
+        },
+        {
+          "action": "SUBTRACT",
+          "target":"$state.character.availableExperience",
+          "value": "# ($state.character.characteristics[$this.characteristic] + 1) * 10"
+        }
+      ]
     }
   },
   "rules": {
@@ -17469,7 +17528,7 @@
         ],
         "requires": {
           "all": [
-            "# !$state.character.advancements.find(a => a.advancement.id === $this.id)",
+            "# !$state.character.advancements.talents.find(a => a.advancement.id === $this.id)",
             {
               "any": [
                 "# $this.requires === undefined",
@@ -17478,7 +17537,7 @@
                     {
                       "any": [
                         "# $this.requires.advancements === undefined",
-                        "# _.intersection($this.requires.advancements, $state.character.advancements.filter(a => a.type === 'talent').map(a => a.id)).length > 0"
+                        "# _.intersection($this.requires.advancements, $state.character.advancements.talents.map(a => a.id)).length > 0"
                       ]
                     },
                     {
@@ -17506,7 +17565,7 @@
         "uses": "$state.character.availableExperience",
         "options": [
           "# ['Force Sensitive Exile'].concat($state.character.career.specializations.filter(s => !$state.character.specializations.map(cs => cs.name).includes(s)))",
-          "# $this.accumulator.map(n => $models.specialization.values.find(s => s.name === n))"
+          "# $this.accumulator.map(n => $models.specialization.values().find(s => s.name === n))"
         ],
         "requires": [
           "# $this.allowedAsFirstSpecialization !== false || $state.character.specializations.length > 0"
@@ -17522,11 +17581,11 @@
       "signatureAbility": {
         "description": "New Signature Ability",
         "uses": "$state.character.availableExperience",
-        "options": "# $state.character.career.signatureAbilities.map(sa => $models.signatureAbility.values.find(a => a.id === sa))",
+        "options": "# $state.character.career.signatureAbilities.map(sa => $models.signatureAbility.values().find(a => a.id === sa))",
         "cost": 30,
         "requires": {
           "all": [
-            "# $state.character.specializations.length > $state.character.advancements.filter(a => a.type === 'signatureAbility').length"
+            "# $state.character.signatureAbilities.length > $state.character.advancements.signatureAbilities.length"
           ]
         },
         "effects": [
@@ -17616,13 +17675,6 @@
     }
   },
   "hooks": [
-    {
-      "after": "ADD",
-      "when": "# $this.action.path === 'character.advancements'",
-      "effects": [
-        "# $state.selectedAdvancement = undefined"
-      ]
-    },
     {
       "after": "ADD",
       "when": "# $this.action.path === 'character.weapons'",
