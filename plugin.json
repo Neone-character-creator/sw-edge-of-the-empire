@@ -2643,8 +2643,8 @@
           "type": "boolean",
           "derivedFrom": [
             "# _.get($state, 'character.career.careerSkills', []).includes($this.path[2])",
-            "# $this.accumulator || _.get($state, 'character.specializations[0].careerSkills', []).includes($this.name)",
-            "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.name))"
+            "# $this.accumulator || _.get($state, 'character.specializations[0].careerSkills', []).includes($this.path[2])",
+            "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.path[2]))"
           ]
         },
         "characteristic": "string",
@@ -4153,12 +4153,12 @@
             "streetwise"
           ],
           "specializations": [
-            "Doctor",
-            "Politico",
-            "Scholar",
-            "Performer",
-            "Marshal",
-            "Entrepreneur"
+            "doctor",
+            "politico",
+            "scholar",
+            "performer",
+            "marshal",
+            "entrepreneur"
           ],
           "signatureAbilities": [
             "unmatched-expertise",
@@ -4178,12 +4178,12 @@
             "survival"
           ],
           "specializations": [
-            "Fringer",
-            "Scout",
-            "Trader",
-            "Archaeologist",
-            "Big-Game Hunter",
-            "Driver"
+            "fringer",
+            "scout",
+            "trader",
+            "archaeologist",
+            "big-game-hunter",
+            "driver"
           ]
         },
         {
@@ -4199,12 +4199,12 @@
             "vigilance"
           ],
           "specializations": [
-            "Bodyguard",
-            "Marauder",
-            "Mercenary Soldier",
-            "Enforcer",
-            "Demolitionist",
-            "Heavy"
+            "bodyguard",
+            "marauder",
+            "mercenary-soldier",
+            "enforcer",
+            "demolitionist",
+            "heavy"
           ],
           "signatureAbilities": [
             "last-one-standing",
@@ -4224,12 +4224,12 @@
             "vigilance"
           ],
           "specializations": [
-            "Pilot",
-            "Scoundrel",
-            "Thief",
-            "Charmer",
-            "Gambler",
-            "Gunslinger"
+            "pilot",
+            "scoundrel",
+            "thief",
+            "charmer",
+            "gambler",
+            "gunslinger"
           ],
           "signatureAbilities": [
             "narrow-escape",
@@ -4249,9 +4249,9 @@
             "piloting-planetary"
           ],
           "specializations": [
-            "Mechanic",
-            "Outlaw Tech",
-            "Slicer"
+            "mechanic",
+            "outlaw-tech",
+            "slicer"
           ],
           "signatureAbilities": [
             "inventive-creation",
@@ -4262,12 +4262,14 @@
     },
     "specialization": {
       "properties": {
+        "id": "string",
         "name": "string",
         "careerSkills": "[string]",
         "talents": "[talentAdvancement]"
       },
       "values": [
         {
+          "id": "assassin",
           "name": "Assassin",
           "careerSkills": [
             "melee",
@@ -4552,6 +4554,7 @@
           ]
         },
         {
+          "id": "gadgeteer",
           "name": "Gadgeteer",
           "careerSkills": [
             "brawl",
@@ -4776,6 +4779,7 @@
           ]
         },
         {
+          "id": "survivalist",
           "name": "Survivalist",
           "careerSkills": [
             "knowledge-xenology",
@@ -5018,6 +5022,7 @@
           ]
         },
         {
+          "id": "doctor",
           "name": "Doctor",
           "careerSkills": [
             "cool",
@@ -5261,6 +5266,7 @@
           ]
         },
         {
+          "id": "politico",
           "name": "Politico",
           "careerSkills": [
             "charm",
@@ -5498,6 +5504,7 @@
           ]
         },
         {
+          "id": "scholar",
           "name": "Scholar",
           "careerSkills": [
             "knowledge-outer rim",
@@ -5736,6 +5743,7 @@
           ]
         },
         {
+          "id": "fringer",
           "name": "Fringer",
           "careerSkills": [
             "astrogation",
@@ -5972,6 +5980,7 @@
           ]
         },
         {
+          "id": "scout",
           "name": "Scout",
           "careerSkills": [
             "athletics",
@@ -6213,6 +6222,7 @@
           ]
         },
         {
+          "id": "trader",
           "name": "Trader",
           "careerSkills": [
             "deception",
@@ -6444,6 +6454,7 @@
           ]
         },
         {
+          "id": "bodyguard",
           "name": "Bodyguard",
           "careerSkills": [
             "gunnery",
@@ -6683,6 +6694,7 @@
           ]
         },
         {
+          "id": "marauder",
           "name": "Marauder",
           "careerSkills": [
             "coercion",
@@ -6929,6 +6941,7 @@
           ]
         },
         {
+          "id": "mercenary-soldier",
           "name": "Mercenary Soldier",
           "careerSkills": [
             "discipline",
@@ -7175,6 +7188,7 @@
           ]
         },
         {
+          "id": "pilot",
           "name": "Pilot",
           "careerSkills": [
             "astrogation",
@@ -7418,6 +7432,7 @@
           ]
         },
         {
+          "id": "scountrel",
           "name": "Scoundrel",
           "careerSkills": [
             "charm",
@@ -7663,6 +7678,7 @@
           ]
         },
         {
+          "id": "thief",
           "name": "Thief",
           "careerSkills": [
             "computers",
@@ -7912,6 +7928,7 @@
           ]
         },
         {
+          "id": "mechanic",
           "name": "Mechanic",
           "careerSkills": [
             "brawl",
@@ -8161,6 +8178,7 @@
           ]
         },
         {
+          "id": "outlaw-tech",
           "name": "Outlaw Tech",
           "careerSkills": [
             "knowledge-education",
@@ -8415,6 +8433,7 @@
           ]
         },
         {
+          "id": "slicer",
           "name": "Slicer",
           "careerSkills": [
             "computers",
@@ -8666,6 +8685,7 @@
           ]
         },
         {
+          "id": "force-sensitive-exile",
           "name": "Force Sensitive Exile",
           "allowedAsFirstSpecialization": false,
           "talents": [
@@ -9397,6 +9417,7 @@
           ]
         },
         {
+          "id": "enforcer",
           "name": "Enforcer",
           "careerSkills": [
             "brawl",
@@ -9636,6 +9657,7 @@
           ]
         },
         {
+          "id": "demolitionist",
           "name": "Demolitionist",
           "careerSkills": [
             "computers",
@@ -9873,6 +9895,7 @@
           ]
         },
         {
+          "id": "heavy",
           "name": "Heavy",
           "careerSkills": [
             "gunnery",
@@ -10103,6 +10126,7 @@
           ]
         },
         {
+          "id": "archaeologist",
           "name": "Archaeologist",
           "careerSkills": [
             "athletics",
@@ -10305,6 +10329,7 @@
           ]
         },
         {
+          "id": "big-game-hunter",
           "name": "Big-Game Hunter",
           "careerSkills": [
             "knowledge-xenology",
@@ -10537,6 +10562,7 @@
           ]
         },
         {
+          "id": "driver",
           "name": "Driver",
           "careerSkills": [
             "cool",
@@ -10773,6 +10799,7 @@
           ]
         },
         {
+          "id": "entrepreneur",
           "name": "Entrepreneur",
           "careerSkills": [
             "discipline",
@@ -11016,6 +11043,7 @@
           ]
         },
         {
+          "id": "marshal",
           "name": "Marshal",
           "careerSkills": [
             "coercion",
@@ -11257,6 +11285,7 @@
           ]
         },
         {
+          "id": "performer",
           "name": "Performer",
           "careerSkills": [
             "charm",
@@ -11496,6 +11525,7 @@
           ]
         },
         {
+          "id": "charmer",
           "name": "Charmer",
           "careerSkills": [
             "charm",
@@ -11741,6 +11771,7 @@
           ]
         },
         {
+          "id": "gambler",
           "name": "Gambler",
           "careerSkills": [
             "computers",
@@ -11979,6 +12010,7 @@
           ]
         },
         {
+          "id": "gunsliner",
           "name": "Gunslinger",
           "careerSkills": [
             "coercion",
@@ -12221,6 +12253,7 @@
           ]
         },
         {
+          "id": "martial-artist",
           "name": "Martial Artist",
           "careerSkills": [
             "athletics",
@@ -12465,6 +12498,7 @@
           ]
         },
         {
+          "id": "operator",
           "name": "Operator",
           "careerSkills": [
             "astrogation",
@@ -12721,6 +12755,7 @@
           ]
         },
         {
+          "id": "skiptracer",
           "name": "Skiptracer",
           "careerSkills": [
             "cool",
@@ -12975,6 +13010,7 @@
           ]
         },
         {
+          "id": "cyber-tech",
           "name": "Cyber Tech",
           "careerSkills": [
             "athletics",
@@ -13216,6 +13252,7 @@
           ]
         },
         {
+          "id": "droid-tech",
           "name": "Droid Tech",
           "careerSkills": [
             "computers",
@@ -13459,6 +13496,7 @@
           ]
         },
         {
+          "id": "modder",
           "name": "Modder",
           "careerSkills": [
             "gunnery",
@@ -13701,6 +13739,9 @@
             }
           ]
         }
+      ],
+      "effects": [
+
       ]
     },
     "talent": {
