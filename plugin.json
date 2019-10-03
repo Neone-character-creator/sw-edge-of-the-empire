@@ -2246,7 +2246,7 @@
                   {
                     "name": "singlePurchasedAdvancementCharacteristic",
                     "type": "label",
-                    "text": "# `${$this.type} Advancement ${$this.value}`"
+                    "text": "# `Characteristic Advancement ${_.upperFirst($this.characteristic)} (${$this.cost})`"
                   },
                   {
                     "name": "singlePurchasedAdvancementCharacteristicRemove",
@@ -18287,14 +18287,14 @@
       ],
       "effects": [
         {
-          "action": "ADD",
-          "path": "#'$state.character.characteristics[' + $this.source.characteristic + ']'",
-          "value": 1
-        },
-        {
           "action": "SUBTRACT",
           "path": "$state.character.availableExperience",
           "value": "# ($state.character.characteristics[$this.source.characteristic] + 1) * 10"
+        },
+        {
+          "action": "ADD",
+          "path": "#'$state.character.characteristics[' + $this.source.characteristic + ']'",
+          "value": 1
         }
       ]
     },
@@ -18321,103 +18321,6 @@
     }
   },
   "rules": {
-    "advancement": {
-      "skill": {
-        "description": "Skill Training",
-        "uses": "$state.character.availableExperience",
-        "options": "# Object.keys($models.skills.prototype.definition) ",
-        "requires": "# $state.character.skills[$this].rank < 5 ",
-        "cost": "# ($state.character.skills[$this].rank + 1) * 5 ",
-        "effects": [
-          {
-            "path": "# $state.character.skills[$this]",
-            "add": 1
-          }
-        ]
-      },
-      "talent": {
-        "description": "Acquire Talent",
-        "uses": "$state.character.availableExperience",
-        "options": [
-          "# $state.character.specializations.reduce((concatenated, nextSpecialization) => {return concatenated.concat(nextSpecialization.talents)}, [])",
-          "# $this.accumulator.concat(_.flatMap($state.character.signatureAbilities, sa=> sa.talents))"
-        ],
-        "requires": {
-          "all": [
-            "# !$state.character.advancements.talents.find(a => a.option.id === $this.id)",
-            {
-              "any": [
-                "# $this.requires === undefined",
-                {
-                  "all": [
-                    {
-                      "any": [
-                        "# $this.requires.advancements === undefined",
-                        "# _.intersection($this.requires.advancements, $state.character.advancements.talents.map(a => a.id)).length > 0"
-                      ]
-                    },
-                    {
-                      "any": [
-                        "# !$this.requires.forceRating",
-                        "# $state.character.forceRating >= $this.requires.forceRating"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "cost": "# $this.tier * 5",
-        "effects": [
-          {
-            "path": "$state.character.talents",
-            "push": "# $state.selectedAdvancement.talent.option.value"
-          }
-        ]
-      },
-      "specialization": {
-        "description": "New Specialization",
-        "uses": "$state.character.availableExperience",
-        "options": [
-          "# ['Force Sensitive Exile'].concat($state.character.career.specializations.filter(s => !$state.character.specializations.map(cs => cs.name).includes(s)))",
-          "# $this.accumulator.map(n => $models.specialization.values.find(s => s.name === n))"
-        ],
-        "requires": [
-          "# $this.allowedAsFirstSpecialization !== false || $state.character.specializations.length > 0"
-        ],
-        "cost": "# ($state.character.specializations.length + 1 * 10)",
-        "effects": [
-          {
-            "path": "$state.character.specializations",
-            "push": "# $state.selectedAdvancement.specialization.option.value"
-          }
-        ]
-      },
-      "signatureAbility": {
-        "description": "New Signature Ability",
-        "uses": "$state.character.availableExperience",
-        "options": "# $state.character.career.signatureAbilities.map(sa => $models.signatureAbility.values.find(a => a.id === sa))",
-        "cost": 30,
-        "requires": {
-          "all": [
-            "# $state.character.signatureAbilities.length > $state.character.advancements.signatureAbilities.length"
-          ]
-        },
-        "effects": [
-          {
-            "effect": "PUSH",
-            "path": "$state.character.signatureAbilities",
-            "value": "# $state.selectedAdvancement.signatureAbility.option.value"
-          },
-          {
-            "effect": "PUSH",
-            "path": "$state.character.talents",
-            "value": "# $state.selectedAdvancement.signatureAbility.option.talents[0].value"
-          }
-        ]
-      }
-    },
     "obligation": {
       "extraStartingObligationOptions": [
         {
