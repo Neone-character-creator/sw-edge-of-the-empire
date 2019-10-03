@@ -1566,7 +1566,7 @@
                 "bind": "$state.character.specializations[0]",
                 "items": {
                   "translate": "# _.upperFirst($this.name)",
-                  "values": "# $state.availableAdvancements.specialization.options.filter(s => s.option.allowedAsFirstSpecialization !== false).map(s => s.option)"
+                  "values": "# _.get($state, 'character.career.specializations').map(name => $models.specialization.values.find(t => t.id === name))"
                 }
               }
             ]
@@ -4128,12 +4128,12 @@
             "vigilance"
           ],
           "specializations": [
-            "Assassin",
-            "Gadgeteer",
-            "Survivalist",
-            "Martial Artist",
-            "Operator",
-            "Skiptracer"
+            "assassin",
+            "gadgeteer",
+            "survivalist",
+            "martial-artist",
+            "operator",
+            "skiptracer"
           ],
           "signatureAbilities": [
             "always-get-my-mark",
