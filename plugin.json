@@ -172,7 +172,7 @@
                       {
                         "name": "astrogationLabel",
                         "type": "label",
-                        "text": "# 'Astrogation'"
+                        "text": "Astrogation"
                       },
                       {
                         "name": "astrogationCareerFlag",
@@ -2093,15 +2093,15 @@
               {
                 "name": "skillAdvancementLabel",
                 "type": "label",
-                "text": "# 'Skills'"
+                "text": "Skills"
               },
               {
                 "name": "skillAdvancement",
                 "type": "select",
                 "bind": "$state.selectedAdvancement.skill",
                 "items": {
-                  "text": "option",
-                  "values": "# $state.availableAdvancements.skill.options"
+                  "text": "id",
+                  "values": "# $models.skillAdvancement.values"
                 }
               },
               {
@@ -2110,8 +2110,8 @@
                 "text": "# 'Buy'",
                 "action": {
                   "type": "PUSH",
-                  "path": "$state.character.advancements.skill",
-                  "value": "#$state.selectedAdvancement.skills"
+                  "path": "$state.character.advancements.skills",
+                  "value": "#$state.selectedAdvancement.skill"
                 }
               }
             ]
@@ -2131,7 +2131,9 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.talent",
                 "items": {
-                  "values": "# _.flatMap($state.character.specializations, s => s.talents)",
+                  "values": [
+                    "# _.flatMap($state.character.specializations, s => s.talents)"
+                  ],
                   "translate": "# $this.description + ' (' + $this.cost + ')'"
                 }
               },
@@ -2353,12 +2355,14 @@
         "characteristics": "[characteristicAdvancement]",
         "talents": "[talentAdvancement]",
         "specializations": "[specializationAdvancement]",
-        "signatureAbilities": "[signatureAbilityAdvancement]"
+        "signatureAbilities": "[signatureAbilityAdvancement]",
+        "skills": "[skillAdvancement]"
       }
     },
     "skills": {
       "properties": {
         "astrogation": {
+          "id": "astrogation",
           "type": "skill",
           "value": {
             "name": "Astrogation",
@@ -2366,6 +2370,7 @@
           }
         },
         "athletics": {
+          "id": "athletics",
           "type": "skill",
           "value": {
             "name": "Athletics",
@@ -2373,6 +2378,7 @@
           }
         },
         "charm": {
+          "id": "charm",
           "type": "skill",
           "value": {
             "name": "Charm",
@@ -2380,6 +2386,7 @@
           }
         },
         "coercion": {
+          "id": "coercion",
           "type": "skill",
           "value": {
             "name": "Coercion",
@@ -2387,6 +2394,7 @@
           }
         },
         "computers": {
+          "id": "computers",
           "type": "skill",
           "value": {
             "name": "Computers",
@@ -2394,6 +2402,7 @@
           }
         },
         "cool": {
+          "id": "cool",
           "type": "skill",
           "value": {
             "name": "Cool",
@@ -2401,6 +2410,7 @@
           }
         },
         "coordination": {
+          "id": "coordination",
           "type": "skill",
           "value": {
             "name": "Coordination",
@@ -2408,6 +2418,7 @@
           }
         },
         "deception": {
+          "id": "deception",
           "type": "skill",
           "value": {
             "name": "Deception",
@@ -2415,6 +2426,7 @@
           }
         },
         "discipline": {
+          "id": "discipline",
           "type": "skill",
           "value": {
             "name": "Discipline",
@@ -2422,6 +2434,7 @@
           }
         },
         "leadership": {
+          "id": "leadership",
           "type": "skill",
           "value": {
             "name": "Leadership",
@@ -2429,6 +2442,7 @@
           }
         },
         "mechanics": {
+          "id": "mechanics",
           "type": "skill",
           "value": {
             "name": "Mechanics",
@@ -2436,6 +2450,7 @@
           }
         },
         "medicine": {
+          "id": "medicine",
           "type": "skill",
           "value": {
             "name": "Medicine",
@@ -2443,6 +2458,7 @@
           }
         },
         "negotiation": {
+          "id": "negotiation",
           "type": "skill",
           "value": {
             "name": "Negotiation",
@@ -2450,6 +2466,7 @@
           }
         },
         "perception": {
+          "id": "perception",
           "type": "skill",
           "value": {
             "name": "Perception",
@@ -2457,6 +2474,7 @@
           }
         },
         "pilotingPlanetary": {
+          "id": "pilotingPlanetary",
           "type": "skill",
           "value": {
             "name": "Piloting - Planetary ",
@@ -2464,6 +2482,7 @@
           }
         },
         "pilotingSpace": {
+          "id": "pilotingSpace",
           "type": "skill",
           "value": {
             "name": "Piloting - Space",
@@ -2471,6 +2490,7 @@
           }
         },
         "resilience": {
+          "id": "resilience",
           "type": "skill",
           "value": {
             "name": "Resilience",
@@ -2478,6 +2498,7 @@
           }
         },
         "skulduggery": {
+          "id": "skulduggery",
           "type": "skill",
           "value": {
             "name": "Skulduggery",
@@ -2485,6 +2506,7 @@
           }
         },
         "stealth": {
+          "id": "stealthy",
           "type": "skill",
           "value": {
             "name": "Stealth",
@@ -2492,6 +2514,7 @@
           }
         },
         "streetwise": {
+          "id": "streetwise",
           "type": "skill",
           "value": {
             "name": "Streetwise",
@@ -2499,6 +2522,7 @@
           }
         },
         "survival": {
+          "id": "survival",
           "type": "skill",
           "value": {
             "name": "Survival",
@@ -2506,6 +2530,7 @@
           }
         },
         "vigilance": {
+          "id": "vigilance",
           "type": "skill",
           "value": {
             "name": "Vigilance",
@@ -2513,6 +2538,7 @@
           }
         },
         "brawl": {
+          "id": "brawl",
           "type": "skill",
           "value": {
             "name": "Brawl",
@@ -2520,6 +2546,7 @@
           }
         },
         "gunnery": {
+          "id": "gunnary",
           "type": "skill",
           "value": {
             "name": "Gunnery",
@@ -2527,6 +2554,7 @@
           }
         },
         "melee": {
+          "id": "melee",
           "type": "skill",
           "value": {
             "name": "Melee",
@@ -2534,6 +2562,7 @@
           }
         },
         "rangedLight": {
+          "id": "rangedLight",
           "type": "skill",
           "value": {
             "name": "Ranged - Light",
@@ -2541,6 +2570,7 @@
           }
         },
         "rangedHeavy": {
+          "id": "rangedHeavy",
           "type": "skill",
           "value": {
             "name": "Ranged - Heavy",
@@ -2548,6 +2578,7 @@
           }
         },
         "knowledgeCoreWorlds": {
+          "id": "knowledgeCoreWorlds",
           "type": "skill",
           "value": {
             "name": "Knowledge - Core Worlds",
@@ -2555,6 +2586,7 @@
           }
         },
         "knowledgeEducation": {
+          "id": "knowledgeEducation",
           "type": "skill",
           "value": {
             "name": "Knowledge - Education",
@@ -2562,6 +2594,7 @@
           }
         },
         "knowledgeLore": {
+          "id": "knowledgeLore",
           "type": "skill",
           "value": {
             "name": "Knowledge - Lore",
@@ -2569,6 +2602,7 @@
           }
         },
         "knowledgeOuterRim": {
+          "id": "knowledgeOuterRim",
           "type": "skill",
           "value": {
             "name": "Knowledge - Outer Rim",
@@ -2576,6 +2610,7 @@
           }
         },
         "knowledgeUnderworld": {
+          "id": "knowledgeUnderworld",
           "type": "skill",
           "value": {
             "name": "Knowledge - Underworld",
@@ -2583,6 +2618,7 @@
           }
         },
         "knowledgeXenology": {
+          "id": "knowledgeXenology",
           "type": "skill",
           "value": {
             "name": "Knowledge - Xenology",
@@ -2590,6 +2626,7 @@
           }
         },
         "knowledgeOther": {
+          "id": "knowledgeOther",
           "type": "skill",
           "value": {
             "name": "Knowledge - Other",
@@ -2600,11 +2637,12 @@
     },
     "skill": {
       "properties": {
+        "id": "string",
         "name": "string",
         "isCareerSkill": {
           "type": "boolean",
           "derivedFrom": [
-            "# _.get($state, 'character.career.careerSkills', []).includes($this.name)",
+            "# _.get($state, 'character.career.careerSkills', []).includes($this.path[2])",
             "# $this.accumulator || _.get($state, 'character.specializations[0].careerSkills', []).includes($this.name)",
             "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.name))"
           ]
@@ -2613,10 +2651,10 @@
         "rank": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.name) ? 1 : 0",
+            "# $this.accumulator + ($state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.name) ? 1 : 0)",
             "# $this.accumulator + _.flatMap(_.get($state, 'character.careerStartingSkills', []).map(ssc => ssc.selected)).filter(x => x).includes($this.name) ? 1 : 0;",
-            "# $this.accumulator + $state.character.careerStartingSkills.includes($this.name) ? 1 : 0",
-            "# $this.accumulator + $state.character.specializationStartingSkills.includes($this.name) ? 1 : 0",
+            "# $this.accumulator + ($state.character.careerStartingSkills.includes($this.name) ? 1 : 0)",
+            "# $this.accumulator + ($state.character.specializationStartingSkills.includes($this.name) ? 1 : 0)",
             "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c, 'bonusSkills' + $this.name, 0)))"
           ]
         }
@@ -18316,6 +18354,162 @@
           "action": "SUBTRACT",
           "path": "$state.character.availableExperience",
           "value": "# $this.cost * 10"
+        }
+      ]
+    },
+    "skillAdvancement": {
+      "properties": {
+        "id": "string",
+        "skill": "string",
+        "cost": {
+          "type": "number",
+          "derivedFrom": "#($state.character.skills[$this.skill].rank + 1) * _.get($state, 'character.skills[' + $this.skill + '].isCareerSkill', false) ? 5 : 10"
+        }
+      },
+      "values": [
+        {
+          "id": "astrogation",
+          "skill": "astrogation"
+        },
+        {
+          "id": "athletics",
+          "skill": "athletics"
+        },
+        {
+          "id": "charm",
+          "skill": "charm"
+        },
+        {
+          "id": "coercion",
+          "skill": "coercion"
+        },
+        {
+          "id": "computers",
+          "skill": "computers"
+        },
+        {
+          "id": "cool",
+          "skill": "cool"
+        },
+        {
+          "id": "coordination",
+          "skill": "coordination"
+        },
+        {
+          "id": "deception",
+          "skill": "deception"
+        },
+        {
+          "id": "discipline",
+          "skill": "discipline"
+        },
+        {
+          "id": "leadership",
+          "skill": "leadership"
+        },
+        {
+          "id": "mechanics",
+          "skill": "mechanics"
+        },
+        {
+          "id": "medicine",
+          "skill": "medicine"
+        },
+        {
+          "id": "negotiation",
+          "skill": "negotiation"
+        },
+        {
+          "id": "perception",
+          "skill": "perception"
+        },
+        {
+          "id": "pilotingPlanetary",
+          "skill": "pilotingPlanetary"
+        },
+        {
+          "id": "pilotingSpace",
+          "skill": "pilotingSpace"
+        },
+        {
+          "id": "resilience",
+          "skill": "resilience"
+        },
+        {
+          "id": "skulduggery",
+          "skill": "skulduggery"
+        },
+        {
+          "id": "stealth",
+          "skill": "stealth"
+        },
+        {
+          "id": "streetwise",
+          "skill": "streetwise"
+        },
+        {
+          "id": "survival",
+          "skill": "survival"
+        },
+        {
+          "id": "vigilance",
+          "skill": "vigilance"
+        },
+        {
+          "id": "brawl",
+          "skill": "brawl"
+        },
+        {
+          "id": "gunnery",
+          "skill": "gunnery"
+        },
+        {
+          "id": "melee",
+          "skill": "melee"
+        },
+        {
+          "id": "rangedLight",
+          "skill": "rangedLight"
+        },
+        {
+          "id": "rangedHeavy",
+          "skill": "rangedHeavy"
+        },
+        {
+          "id": "knowledgeCoreWorlds",
+          "skill": "knowledgeCoreWorlds"
+        },
+        {
+          "id": "knowledgeEducation",
+          "skill": "knowledgeEducation"
+        },
+        {
+          "id": "knowledgeLore",
+          "skill": "knowledgeLore"
+        },
+        {
+          "id": "knowledgeUnderworld",
+          "skill": "knowledgeUnderworld"
+        },
+        {
+          "id": "knowledgeXenology",
+          "skill": "knowledgeXenology"
+        },
+        {
+          "id": "knowledgeOther",
+          "skill": "knowledgeOther"
+        }
+      ],
+      "effects": [
+        {
+          "action": "SUBTRACT",
+          "path": "$state.character.availableExperience",
+          "value": "#$this.source.cost"
+        },
+        {
+          "action": "ADD",
+          "path": "# '$state.character.skills[' + $this.source.skill + '].rank'",
+          "value": 1
         }
       ]
     }
