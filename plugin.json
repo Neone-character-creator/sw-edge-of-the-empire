@@ -2271,11 +2271,13 @@
         "startingSpecialization": "specialization",
         "specializations": {
           "type": "[specialization]",
-          "baseValue": ["# [$state.character.startingSpecialization].filter(x => x)"]
+          "baseValue": [
+            "# [$state.character.startingSpecialization].filter(x => x)"
+          ]
         },
         "startingCareerSkills": "[string]",
         "careerStartingSkills": "[string]",
-        "startingNonCareerSkillChoices" : "number",
+        "startingNonCareerSkillChoices": "number",
         "specializationStartingSkills": "[string]",
         "talents": {
           "type": "[talent]",
@@ -4288,68 +4290,35 @@
             {
               "id": "assassin-1",
               "description": "Grit",
-              "effects": {
-                "action": "PUSH",
-                "path": "$state.character.talents",
-                "value": "grit"
-              },
+              "value": "grit",
               "tier": 1,
-              "cost": 5,
-              "cost": 5,
-              "requires": {
-                "career": "Assassin"
-              }
+              "cost": 5
             },
             {
               "id": "assassin-2",
               "description": "Lethal Blows",
-              "effects": {
-                "action": "PUSH",
-                "path": "$state.character.talents",
-                "value": "#$models.talent.values['lethal-blows']"
-              },
+              "value": "lethal-blows",
               "tier": 1,
-              "cost": 5,
-              "cost": 5,
-              "requires": {
-                "career": "Assassin"
-              }
+              "cost": 5
             },
             {
               "id": "assassin-3",
               "description": "Stalker",
-              "effects": {
-                "action": "PUSH",
-                "path": "$state.character.talents",
-                "value": "stalker"
-              },
+              "value": "stalker",
               "tier": 1,
-              "cost": 5,
-              "cost": 5,
-              "requires": {
-                "career": "Assassin"
-              }
+              "cost": 5
             },
             {
               "id": "assassin-4",
               "description": "Dodge",
-              "effects": {
-                "action": "PUSH",
-                "path": "$state.character.talents",
-                "value": "dodge"
-              },
+              "value": "dodge",
               "tier": 1,
-              "cost": 5,
-              "cost": 5,
-              "requires": {
-                "career": "Assassin"
-              }
+              "cost": 5
             },
             {
               "id": "assassin-5",
               "value": "precise-aim",
               "tier": 2,
-              "cost": 10,
               "cost": 10,
               "requires": {
                 "advancements": [
@@ -4739,7 +4708,7 @@
             },
             {
               "id": "gadgeteer-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -4980,7 +4949,7 @@
             },
             {
               "id": "survivalist-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -5236,7 +5205,7 @@
             },
             {
               "id": "doctor-19",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -5461,7 +5430,7 @@
             },
             {
               "id": "politico-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -5716,7 +5685,7 @@
             },
             {
               "id": "scholar-19",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -5927,7 +5896,7 @@
             },
             {
               "id": "fringer-17",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -6180,7 +6149,7 @@
             },
             {
               "id": "scout-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -6423,7 +6392,7 @@
             },
             {
               "id": "trader-19",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -6641,7 +6610,7 @@
             },
             {
               "id": "bodyguard-17",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -6923,7 +6892,7 @@
             },
             {
               "id": "marauder-20",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -7157,7 +7126,7 @@
             },
             {
               "id": "mercenary-19",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -7390,7 +7359,7 @@
             },
             {
               "id": "pilot-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -7621,7 +7590,7 @@
             },
             {
               "id": "scoundrel-17",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -7910,7 +7879,7 @@
             },
             {
               "id": "thief-20",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -8149,7 +8118,7 @@
             },
             {
               "id": "mechanic-19",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -8391,7 +8360,7 @@
             },
             {
               "id": "outlaw-tech-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -8666,7 +8635,7 @@
             },
             {
               "id": "slicer-20",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -8900,7 +8869,7 @@
             },
             {
               "id": "force-sensitive-19",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -9615,7 +9584,7 @@
             },
             {
               "id": "enforcer-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -9856,7 +9825,7 @@
             },
             {
               "id": "demolitionist-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -10087,7 +10056,7 @@
             },
             {
               "id": "heavy-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -10291,7 +10260,7 @@
             },
             {
               "id": "archaeologist-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -10532,7 +10501,7 @@
             },
             {
               "id": "big-game-hunter-19",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -10781,7 +10750,7 @@
             },
             {
               "id": "driver-20",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -11013,7 +10982,7 @@
             },
             {
               "id": "entrepreneur-19",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -11259,7 +11228,7 @@
               "id": "marshal-19",
               "tier": 5,
               "cost": 25,
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -11508,7 +11477,7 @@
             },
             {
               "id": "performer-20",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -11728,7 +11697,7 @@
             },
             {
               "id": "charmer-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -11838,7 +11807,7 @@
             },
             {
               "id": "gambler-7",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -12203,7 +12172,7 @@
             },
             {
               "id": "gunslinger-17",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -12457,7 +12426,7 @@
             },
             {
               "id": "martial-artist-18",
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -12701,7 +12670,7 @@
               "id": "operator-17",
               "tier": 5,
               "cost": 25,
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -12982,7 +12951,7 @@
               "id": "skiptracer-19",
               "tier": 5,
               "cost": 25,
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -13237,7 +13206,7 @@
               "id": "cyber-tech-20",
               "tier": 5,
               "cost": 25,
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -13468,7 +13437,7 @@
               "id": "droid-tech-19",
               "tier": 5,
               "cost": 25,
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -13701,7 +13670,7 @@
               "id": "modder-18",
               "tier": 5,
               "cost": 25,
-              "value": {
+              "values": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -13746,6 +13715,11 @@
         }
       ],
       "effects": [
+        {
+          "action": "COMBINE",
+          "path": "$state.availableTalents",
+          "value": "# $this.source.talents"
+        }
       ]
     },
     "talent": {
@@ -14388,7 +14362,6 @@
           "id": "last-one-standing-reduce-setback",
           "name": "Last One Standing - Reduce Setback"
         },
-
         {
           "id": "lethal-blows",
           "name": "lethal-blows"
@@ -18381,7 +18354,6 @@
           "value": "#$this.source.talents"
         }
       ]
-
     },
     "characteristicAdvancement": {
       "properties": {
@@ -18433,8 +18405,11 @@
     "talentAdvancement": {
       "properties": {
         "id": "string",
-        "description": "string",
-        "talent": "string",
+        "description": {
+          "type": "string",
+          "derivedFrom": "# _.isString($this.value) ? $models.talent.values[$this.value].name : $this.value.choices + ' of ' + $this.value.options.map(vo => $models.talent.values[vo].name).join(', ')"
+        },
+        "value": "string",
         "cost": "number",
         "tier": "number"
       },
@@ -18457,7 +18432,7 @@
         "skill": "string",
         "cost": {
           "type": "number",
-          "derivedFrom": "#($state.character.skills[$this.skill].rank + 1) * _.get($state, 'character.skills[' + $this.skill + '].isCareerSkill', false) ? 5 : 10"
+          "derivedFrom": "#($state.character.skills[$this.skill].rank + 1) * (_.get($state, 'character.skills[' + $this.skill + '].isCareerSkill', false) ? 5 : 10)"
         }
       },
       "values": [
@@ -18715,31 +18690,40 @@
         {
           "id": "last-one-standing",
           "signatureAbility": "last-one-standing"
-        },{
+        },
+        {
           "id": "unmatched-protection",
           "signatureAbility": "unmatched-protection"
-        },{
+        },
+        {
           "id": "inventive-creation",
           "signatureAbility": "inventive-creation"
-        },{
+        },
+        {
           "id": "unmatched-calibration",
           "signatureAbility": "unmatched-calibration"
-        },{
+        },
+        {
           "id": "always-get-my-mark",
           "signatureAbility": "always-get-my-mark"
-        },{
+        },
+        {
           "id": "unmatched-devastation",
           "signatureAbility": "unmatched-devastation"
-        },{
+        },
+        {
           "id": "narrow-escape",
           "signatureAbility": "narrow-escape"
-        },{
+        },
+        {
           "id": "unmatched-fortune",
           "signatureAbility": "unmatched-fortune"
-        },{
+        },
+        {
           "id": "insightful-revelation",
           "signatureAbility": "insightful-revelation"
-        },{
+        },
+        {
           "id": "unmatched-expertise",
           "signatureAbility": "unmatched-expertise"
         }
