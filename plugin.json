@@ -4289,7 +4289,6 @@
           "talents": [
             {
               "id": "assassin-1",
-              "description": "Grit",
               "value": "grit",
               "tier": 1,
               "cost": 5
@@ -13956,7 +13955,7 @@
         },
         {
           "id": "defensive-slicing-improved",
-          "name": "Sefensive Slicing Improved"
+          "name": "Defensive Slicing Improved"
         },
         {
           "id": "defensive-stance",
@@ -14210,7 +14209,7 @@
         },
         {
           "id": "grit",
-          "name": "grit",
+          "name": "Grit",
           "effects": [
             {
               "path": "$state.character.strain",
@@ -14308,15 +14307,15 @@
         },
         {
           "id": "jump-up",
-          "name": "jump-up"
+          "name": "Jump Up"
         },
         {
           "id": "jury-rigged",
-          "name": "jury-rigged"
+          "name": "Jury Rigged"
         },
         {
           "id": "kill-with-kindness",
-          "name": "kill-with-kindness"
+          "name": "Kill With Kindness"
         },
         {
           "id": "knockdown",
@@ -14364,11 +14363,11 @@
         },
         {
           "id": "lethal-blows",
-          "name": "lethal-blows"
+          "name": "Lethal Blows"
         },
         {
           "id": "lets-ride",
-          "name": "lets-ride"
+          "name": "Let's Ride"
         },
         {
           "id": "loom",
@@ -14388,7 +14387,7 @@
         },
         {
           "id": "master-doctor",
-          "name": "master-doctor"
+          "name": "Master Doctor"
         },
         {
           "id": "master-driver",
@@ -14400,27 +14399,27 @@
         },
         {
           "id": "master-merchant",
-          "name": "master-merchant"
+          "name": "Master Merchant"
         },
         {
           "id": "master-of-shadows",
-          "name": "master-of-shadows"
+          "name": "Master Of Shadows"
         },
         {
           "id": "master-pilot",
-          "name": "master-pilot"
+          "name": "Master Pilot"
         },
         {
           "id": "master-slicer",
-          "name": "master-slicer"
+          "name": "Master Slicer"
         },
         {
           "id": "master-starhopper",
-          "name": "master-starhopper"
+          "name": "Master Starhopper"
         },
         {
           "id": "mental-fortress",
-          "name": "mental-fortress"
+          "name": "Mental Fortress"
         },
         {
           "id": "more-machine-than-man",
@@ -14436,15 +14435,15 @@
         },
         {
           "id": "natural-brawler",
-          "name": "natural-brawler"
+          "name": "Natural Brawler"
         },
         {
           "id": "natural-charmer",
-          "name": "natural-charmer"
+          "name": "Natural Charmer"
         },
         {
           "id": "natural-doctor",
-          "name": "natural-doctor"
+          "name": "Natural Doctor"
         },
         {
           "id": "natural-driver",
@@ -14452,15 +14451,15 @@
         },
         {
           "id": "natural-enforcer",
-          "name": "natural-enforcer"
+          "name": "Natural Enforcer"
         },
         {
           "id": "natural-hunter",
-          "name": "natural-hunter"
+          "name": "Natural Hunter"
         },
         {
           "id": "natural-marksman",
-          "name": "natural-marksman"
+          "name": "Natural Marksman"
         },
         {
           "id": "natural-merchant",
@@ -14468,35 +14467,35 @@
         },
         {
           "id": "natural-negotiator",
-          "name": "natural-negotiator"
+          "name": "Natural Negotiator"
         },
         {
           "id": "natural-outdoorsman",
-          "name": "natural-outdoorsman"
+          "name": "Natural Outdoorsman"
         },
         {
           "id": "natural-pilot",
-          "name": "natural-pilot"
+          "name": "Natural Pilot"
         },
         {
           "id": "natural-programmer",
-          "name": "natural-programmer"
+          "name": "Patural Programmer"
         },
         {
           "id": "natural-rogue",
-          "name": "natural-rogue"
+          "name": "Natural Rogue"
         },
         {
           "id": "natural-scholar",
-          "name": "natural-scholar"
+          "name": "Natural Scholar"
         },
         {
           "id": "natural-tinkerer",
-          "name": "natural-tinkerer"
+          "name": "Natural Tinkerer"
         },
         {
           "id": "nobodys-fool",
-          "name": "nobodys-fool"
+          "name": "Nobdoy's Fool"
         },
         {
           "id": "offensive-driver",
@@ -14508,11 +14507,11 @@
         },
         {
           "id": "overwhelm-emotions",
-          "name": "overwhelm-emotions"
+          "name": "Overwhelm Emotions"
         },
         {
           "id": "outdoorsman",
-          "name": "outdoorsman"
+          "name": "Outdoorsman"
         },
         {
           "id": "overbalance",
@@ -14544,7 +14543,7 @@
         },
         {
           "id": "point-blank",
-          "name": "point-blank"
+          "name": "Point Blank"
         },
         {
           "id": "powerful-blast",
@@ -14552,7 +14551,7 @@
         },
         {
           "id": "precise-aim",
-          "name": "precise-aim"
+          "name": "Precise Aim"
         },
         {
           "id": "precision-strike",
@@ -14568,11 +14567,11 @@
         },
         {
           "id": "pressure-point",
-          "name": "pressure-point"
+          "name": "Pressure Point"
         },
         {
           "id": "quick-draw",
-          "name": "quick-draw"
+          "name": "Quick Draw"
         },
         {
           "id": "quick-draw-improved",
@@ -14580,7 +14579,7 @@
         },
         {
           "id": "quick-strike",
-          "name": "quick-strike"
+          "name": "Quick Strike"
         },
         {
           "id": "rain-of-death",
@@ -14588,11 +14587,11 @@
         },
         {
           "id": "rapid-reaction",
-          "name": "rapid-reaction"
+          "name": "Rapid Reaction"
         },
         {
           "id": "rapid-recovery",
-          "name": "rapid-recovery"
+          "name": "Rapid Recovery"
         },
         {
           "id": "reconstruct-the-scene",
@@ -14600,7 +14599,7 @@
         },
         {
           "id": "redundant-systems",
-          "name": "redundant-systems"
+          "name": "Redundant Systems"
         },
         {
           "id": "reroute-processors",
@@ -14608,11 +14607,11 @@
         },
         {
           "id": "researcher",
-          "name": "researcher"
+          "name": "Researcher"
         },
         {
           "id": "resolve",
-          "name": "resolve"
+          "name": "Resolve"
         },
         {
           "id": "resourceful-refit",
@@ -14624,15 +14623,15 @@
         },
         {
           "id": "scathing-tirade",
-          "name": "scathing-tirade"
+          "name": "Scathing Tirade"
         },
         {
           "id": "scathing-tirade-improved",
-          "name": "scathing-tirade-improved"
+          "name": "Improved Scathing Tirade"
         },
         {
           "id": "scathing-tirade-supreme",
-          "name": "scathing-tirade-supreme"
+          "name": "Supreme Scathing Tirade"
         },
         {
           "id": "second-chances",
@@ -14640,7 +14639,7 @@
         },
         {
           "id": "second-wind",
-          "name": "second-wind"
+          "name": "Second Wind"
         },
         {
           "id": "selective-detonation",
@@ -14648,7 +14647,7 @@
         },
         {
           "id": "shortcut",
-          "name": "shortcut"
+          "name": "Shortcut"
         },
         {
           "id": "shortcut-improved",
@@ -14656,7 +14655,7 @@
         },
         {
           "id": "side-step",
-          "name": "side-step"
+          "name": "Side Step"
         },
         {
           "id": "signature-vehicle",
@@ -14664,7 +14663,7 @@
         },
         {
           "id": "sixth-sense",
-          "name": "sixth-sense"
+          "name": "Sixth Sense"
         },
         {
           "id": "skilled-jockey",
@@ -14672,23 +14671,23 @@
         },
         {
           "id": "skilled-slicer",
-          "name": "skilled-slicer"
+          "name": "Skilled Slicer"
         },
         {
           "id": "smooth-talker",
-          "name": "smooth-talker"
+          "name": "Smooth Talker"
         },
         {
           "id": "sniper-shot",
-          "name": "sniper-shot"
+          "name": "Sniper Shot"
         },
         {
           "id": "soft-spot",
-          "name": "soft-spot"
+          "name": "Soft Spot"
         },
         {
           "id": "solid-repairs",
-          "name": "solid-repairs"
+          "name": "Solid Repairs"
         },
         {
           "id": "sorry-for-the-mess",
@@ -14700,11 +14699,11 @@
         },
         {
           "id": "spare-clip",
-          "name": "spare-clip"
+          "name": "Spare Clip"
         },
         {
           "id": "speaks-binary",
-          "name": "speaks-binary"
+          "name": "Speaks Binary"
         },
         {
           "id": "speaks-binary-improved",
@@ -14716,7 +14715,7 @@
         },
         {
           "id": "stalker",
-          "name": "stalker"
+          "name": "Stalker"
         },
         {
           "id": "steady-nerves",
@@ -14724,47 +14723,47 @@
         },
         {
           "id": "steely-nerved",
-          "name": "steely-nerved"
+          "name": "Steely Nerved"
         },
         {
           "id": "stim-application",
-          "name": "stim-application"
+          "name": "Stim Application"
         },
         {
           "id": "stim-application-improved",
-          "name": "stim-application-improved"
+          "name": "Improved Stim Application"
         },
         {
           "id": "stim-application-supreme",
-          "name": "stim-application-supreme"
+          "name": "Supreme Stim Application"
         },
         {
           "id": "street-smarts",
-          "name": "street-smarts"
+          "name": "Street Smarts"
         },
         {
           "id": "stroke-of-genius",
-          "name": "stroke-of-genius"
+          "name": "Stroke Of Genius"
         },
         {
           "id": "strong-arm",
-          "name": "strong-arm"
+          "name": "Strong Arm"
         },
         {
           "id": "stunning-blow",
-          "name": "stunning-blow"
+          "name": "Stunning Blow"
         },
         {
           "id": "stunning-blow-improved",
-          "name": "stunning-blow-improved"
+          "name": "Improved Stunning Blow"
         },
         {
           "id": "superior-reflexes",
-          "name": "superior-reflexes"
+          "name": "Superior Reflexes"
         },
         {
           "id": "surgeon",
-          "name": "surgeon"
+          "name": "Surgeon"
         },
         {
           "id": "swift",
@@ -14776,11 +14775,11 @@
         },
         {
           "id": "targeted-blow",
-          "name": "targeted-blow"
+          "name": "Targeted Blow"
         },
         {
           "id": "technical-aptitude",
-          "name": "technical-aptitude"
+          "name": "Technical Aptitude"
         },
         {
           "id": "time-to-go",
@@ -14792,11 +14791,11 @@
         },
         {
           "id": "tinkerer",
-          "name": "tinkerer"
+          "name": "Tinkerer"
         },
         {
           "id": "touch-of-fate",
-          "name": "touch-of-fate"
+          "name": "Touch Of Fate"
         },
         {
           "id": "toughened",
@@ -14814,7 +14813,7 @@
         },
         {
           "id": "true-aim",
-          "name": "true-aim"
+          "name": "True Aim"
         },
         {
           "id": "unarmed-parry",
@@ -14826,7 +14825,7 @@
         },
         {
           "id": "uncanny-senses",
-          "name": "uncanny-senses"
+          "name": "Uncanny Senses"
         },
         {
           "id": "unrelenting-skeptic",
@@ -14842,15 +14841,15 @@
         },
         {
           "id": "utility-belt",
-          "name": "utility-belt"
+          "name": "Utility Belt"
         },
         {
           "id": "utinni",
-          "name": "utinni"
+          "name": "Utinni!"
         },
         {
           "id": "well-rounded",
-          "name": "well-rounded"
+          "name": "Well Rounded"
         },
         {
           "id": "wheel-and-deal",
