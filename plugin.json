@@ -1486,7 +1486,7 @@
           {
             "name": "speciesNonCareerSkillChoices",
             "type": "select",
-            "bind": "$state.character.humanBonusSkills",
+            "bind": "$state.character.bonusStartingSkills",
             "hiddenWhen": "# _.get($state, 'character.species.startingNonCareerSkillChoices', 0) <= 0",
             "items": {
               "maxSelections": "# _.get($state, 'character.species.startingNonCareerSkillChoices', 0)",
@@ -2275,6 +2275,7 @@
         },
         "startingCareerSkills": "[string]",
         "careerStartingSkills": "[string]",
+        "startingNonCareerSkillChoices" : "number",
         "specializationStartingSkills": "[string]",
         "talents": {
           "type": "[talent]",
@@ -2333,7 +2334,7 @@
         },
         "obligations": "[obligation]",
         "obligationBonuses": "[obligationBonus]",
-        "humanBonusSkills": "[string]",
+        "bonusStartingSkills": "[string]",
         "cybernetics": {
           "type": "[cybernetics]",
           "baseValue": [
@@ -2652,11 +2653,11 @@
         "rank": {
           "type": "number",
           "derivedFrom": [
-            "# $this.accumulator + ($state.character.humanBonusSkills.find(s => s.toLowerCase() === $this.name) ? 1 : 0)",
-            "# $this.accumulator + _.flatMap(_.get($state, 'character.careerStartingSkills', []).map(ssc => ssc.selected)).filter(x => x).includes($this.name) ? 1 : 0;",
-            "# $this.accumulator + ($state.character.careerStartingSkills.includes($this.name) ? 1 : 0)",
-            "# $this.accumulator + ($state.character.specializationStartingSkills.includes($this.name) ? 1 : 0)",
-            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c, 'bonusSkills' + $this.name, 0)))"
+            "# $this.accumulator + ($state.character.bonusStartingSkills.find(s => s.toLowerCase() === $this.path[2]) ? 1 : 0)",
+            "# $this.accumulator + _.flatMap(_.get($state, 'character.careerStartingSkills', []).map(ssc => ssc.selected)).filter(x => x).includes($this.path[2]) ? 1 : 0;",
+            "# $this.accumulator + ($state.character.careerStartingSkills.includes($this.path[2]) ? 1 : 0)",
+            "# $this.accumulator + ($state.character.specializationStartingSkills.includes($this.path[2]) ? 1 : 0)",
+            "# $this.accumulator + _.sum($state.character.cybernetics.map(c => _.get(c, 'bonusSkills.' + $this.path[2], 0)))"
           ]
         }
       }
@@ -2706,7 +2707,8 @@
           "default": 2
         },
         "specialAbilities": "[specialAbility]",
-        "naturalWeapons": "[weapon]"
+        "naturalWeapons": "[weapon]",
+        "startingNonCareerSkillChoices": "number"
       },
       "values": [
         {
