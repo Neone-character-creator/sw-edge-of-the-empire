@@ -18832,23 +18832,30 @@
   "hooks": [
     {
       "after": "PUSH",
-      "when": "# $this.path === 'selectedAdvancement.characteristic'",
+      "when": "# $this.path === 'character.advancements.characteristics'",
       "effects": [
         "# $state.selectedAdvancement.characteristic = undefined"
       ]
     },
     {
       "after": "PUSH",
-      "when": "# $this.path === 'selectedAdvancement.talent'",
+      "when": "# $this.path === 'character.advancements.talents'",
       "effects": [
         "# $state.selectedAdvancement.talent = undefined"
       ]
     },
     {
       "after": "PUSH",
-      "when": "# $this.path === 'selectedAdvancement.skill'",
+      "when": "# $this.path === 'character.advancements.skills'",
       "effects": [
         "# $state.selectedAdvancement.skill = undefined"
+      ]
+    },
+    {
+      "after": "PUSH",
+      "when": "# $this.path === 'character.advancements.specializations'",
+      "effects": [
+        "# $state.selectedAdvancement.specialization = undefined"
       ]
     },
     {
