@@ -18866,6 +18866,13 @@
         "# $state.character.startingSpecialization = null",
         "# $state.character.specializationStartingSkills = []"
       ]
+    },
+    {
+      "after": "SET",
+      "when": "#$this.path === 'character.startingSpecialization'",
+      "effects": [
+        "# $state.character.specializationStartingSkills = []"
+      ]
     }
   ]
 }
