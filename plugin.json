@@ -1563,7 +1563,7 @@
               {
                 "name": "startingSpecializationSelect",
                 "type": "select",
-                "bind": "$state.character.specializations[0]",
+                "bind": "$state.character.startingSpecialization",
                 "items": {
                   "translate": "# _.upperFirst($this.name)",
                   "values": "# _.get($state, 'character.career.specializations').map(name => $models.specialization.values.find(t => t.id === name))"
@@ -2266,7 +2266,11 @@
         "species": "species",
         "defense": "defense",
         "career": "career",
-        "specializations": "[specialization]",
+        "startingSpecialization": "specialization",
+        "specializations": {
+          "type": "[specialization]",
+          "baseValue": ["# [$state.character.startingSpecialization]"]
+        },
         "startingCareerSkills": "[string]",
         "careerStartingSkills": "[string]",
         "specializationStartingSkills": "[string]",
@@ -2638,7 +2642,7 @@
           "type": "boolean",
           "derivedFrom": [
             "# _.get($state, 'character.career.careerSkills', []).includes($this.path[2])",
-            "# $this.accumulator || _.get($state, 'character.specializations[0].careerSkills', []).includes($this.path[2])",
+            "# $this.accumulator || _.get($state, 'character.startingSpecialization.careerSkills', []).includes($this.path[2])",
             "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.path[2]))"
           ]
         },
@@ -18752,10 +18756,11 @@
       ]
     },
     {
-      "before": "SET",
+      "after": "SET",
       "when": "# $this.action.path === '$state.character.career'",
       "effects": [
-        "# ($state.character.specializations.length == 0 || confirm('This will remove your specializations.')) ? $state.character.specializations = [] : undefined"
+        "# $state.character.advancements.specializations = []",
+        "# $state.character.startingSpecialization = null"
       ]
     }
   ]
