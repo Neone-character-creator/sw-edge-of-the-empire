@@ -2063,7 +2063,7 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.characteristic",
                 "items": {
-                  "translate": "# _.upperFirst($this.characteristic) + ' (' + $this.cost + ')'",
+                  "translate": "# _.upperFirst($this.characteristic) + ' (' + $this.cost + ' xp)'",
                   "values": "# $models.characteristicAdvancement.values"
                 }
               },
@@ -2100,7 +2100,7 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.skill",
                 "items": {
-                  "text": "id",
+                  "translate": "# _.upperFirst($this.skill) + '(' + $this.cost + ' xp)'",
                   "values": "# $models.skillAdvancement.values"
                 }
               },
@@ -2186,8 +2186,9 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.specialization",
                 "items": {
-                  "text": "option.name",
-                  "values": "# $state.availableAdvancements.specialization.options"
+                  "translate": "# $models.specialization.values.find(s => $this.specialization === s.id).name + ' (' + $this.cost + ' xp)'",
+                  "disabledWhen": "# $state.character.specializations.map(cs => cs.id).includes($this.id)",
+                  "values": "# $models.specializationAdvancement.values"
                 }
               },
               {
@@ -2197,13 +2198,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.specializations",
-                  "effects": [
-                    {
-                      "type": "PUSH",
-                      "path": "$state.character.specializations",
-                      "value": "#$state.selectedAdvancement.specialization.option"
-                    }
-                  ]
+                  "value": "# $state.selectedAdvancement.specialization"
                 }
               }
             ]
@@ -4265,7 +4260,8 @@
         "id": "string",
         "name": "string",
         "careerSkills": "[string]",
-        "talents": "[talentAdvancement]"
+        "talents": "[talentAdvancement]",
+        "universal": "boolean"
       },
       "values": [
         {
@@ -7432,7 +7428,7 @@
           ]
         },
         {
-          "id": "scountrel",
+          "id": "scoundrel",
           "name": "Scoundrel",
           "careerSkills": [
             "charm",
@@ -8688,6 +8684,7 @@
           "id": "force-sensitive-exile",
           "name": "Force Sensitive Exile",
           "allowedAsFirstSpecialization": false,
+          "universal": true,
           "talents": [
             {
               "id": "force-sensitive-1",
@@ -13741,7 +13738,6 @@
         }
       ],
       "effects": [
-
       ]
     },
     "talent": {
@@ -18551,6 +18547,104 @@
           "action": "ADD",
           "path": "# '$state.character.skills[' + $this.source.skill + '].rank'",
           "value": 1
+        }
+      ]
+    },
+    "specializationAdvancement": {
+      "properties": {
+        "id": "string",
+        "specialization": "string",
+        "cost": {
+          "type": "number",
+          "derivedFrom": [
+            "# ($state.character.specializations.length + ($state.character.career.specializations.includes($this.id) ? 1 : 2)) * 10"
+          ]
+        }
+      },
+      "values": [
+        {
+          "id": "assassin",
+          "specialization": "assassin"
+        },
+        {
+          "id": "gadgeteer",
+          "specialization": "gadgeteer"
+        },
+        {
+          "id": "survivalist",
+          "specialization": "survivalist"
+        },
+        {
+          "id": "doctor",
+          "specialization": "doctor"
+        },
+        {
+          "id": "politico",
+          "specialization": "politico"
+        },
+        {
+          "id": "scholar",
+          "specialization": "scholar"
+        },
+        {
+          "id": "fringer",
+          "specialization": "scout"
+        },
+        {
+          "id": "scout",
+          "specialization": "scout"
+        },
+        {
+          "id": "trader",
+          "specialization": "trader"
+        },
+        {
+          "id": "bodyguard",
+          "specialization": "bodyguard"
+        },
+        {
+          "id": "marauder",
+          "specialization": "marauder"
+        },
+        {
+          "id": "mercenary-soldier",
+          "specialization": "mercenary-soldier"
+        },
+        {
+          "id": "pilot",
+          "specialization": "pilot"
+        },
+        {
+          "id": "scoundrel",
+          "specialization": "doctor"
+        },
+        {
+          "id": "thief",
+          "specialization": "thief"
+        },
+        {
+          "id": "mechanic",
+          "specialization": "mechanic"
+        },
+        {
+          "id": "outlaw-tech",
+          "specialization": "outlaw-tech"
+        },
+        {
+          "id": "slicer",
+          "specialization": "slicer"
+        }
+      ],
+      "effects": [
+        {
+          "action": "SUBTRACT",
+          "path": "$state.character.availableExperience",
+          "value": "# $this.source.cost"
+        },
+        {
+          "action": "PUSH",
+          "path": "$state.character.specializations",
+          "value": "# $models.specialization.values[$this.source.specialization]"
         }
       ]
     }
