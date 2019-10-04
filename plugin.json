@@ -18729,35 +18729,35 @@
   "hooks": [
     {
       "after": "PUSH",
-      "when": "# $this.action.path === '$state.selectedAdvancement.characteristic'",
+      "when": "# $this.path === 'selectedAdvancement.characteristic'",
       "effects": [
         "# $state.selectedAdvancement.characteristic = undefined"
       ]
     },
     {
       "after": "PUSH",
-      "when": "# $this.action.path === '$state.selectedAdvancement.talent'",
+      "when": "# $this.path === 'selectedAdvancement.talent'",
       "effects": [
         "# $state.selectedAdvancement.talent = undefined"
       ]
     },
     {
       "after": "PUSH",
-      "when": "# $this.action.path === '$state.selectedAdvancement.skill'",
+      "when": "# $this.path === 'selectedAdvancement.skill'",
       "effects": [
         "# $state.selectedAdvancement.skill = undefined"
       ]
     },
     {
       "after": "ADD",
-      "when": "# $this.action.path === 'character.weapons'",
+      "when": "# $this.path === 'character.weapons'",
       "effects": [
         "# $state.selectedWeapon = undefined"
       ]
     },
     {
       "after": "SET",
-      "when": "# $this.action.path === '$state.character.career'",
+      "when": "# $this.path === 'character.career'",
       "effects": [
         "# $state.character.advancements.specializations = []",
         "# $state.character.startingSpecialization = null"
