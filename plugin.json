@@ -15089,6 +15089,34 @@
           "name": "Unmatched Fortune - Shared Luck"
         },
         {
+          "id": "unmatched-mobility-base-ability",
+          "name": "Unmatched Mobility - Base Ability"
+        },
+        {
+          "id": "unmatched-mobility-destiny",
+          "name": "Unmatched Mobility - Destiny"
+        },
+        {
+          "id": "unmatched-mobility-duration",
+          "name": "Unmatched Mobility - Duration"
+        },
+        {
+          "id": "unmatched-mobility-free-maneuver",
+          "name": "Unmatched Mobility - Free Maneuver"
+        },
+        {
+          "id": "unmatched-mobility-base-ability",
+          "name": "Unmatched Mobility - Base Ability"
+        },
+        {
+          "id": "unmatched-mobility-melee-defense",
+          "name": "Unmatched Mobility - Melee Defense"
+        },
+        {
+          "id": "unmatched-mobility-ranged-defense",
+          "name": "Unmatched Mobility - Ranged Defense"
+        },
+        {
           "id": "unmatched-protection-additional-reduction",
           "name": "Unmatched Protection - Additional Resistance"
         },
@@ -18714,6 +18742,48 @@
                   "sudden-discovery-5"
                 ]
               }
+            }
+          ]
+        },
+        {
+          "id": "unmatched-mobility",
+          "name": "Unmatched Mobility",
+          "talents": [
+            {
+              "id": "unmatched-mobility-1",
+              "value": "unmatched-mobility-base-ability"
+            },
+            {
+              "id": "unmatched-mobility-2",
+              "value": "unmatched-mobility-duration"
+            },
+            {
+              "id": "unmatched-mobility-3",
+              "value": "unmatched-mobility-free-maneuver"
+            },
+            {
+              "id": "unmatched-mobility-4",
+              "value": "unmatched-mobility-free-maneuver"
+            },
+            {
+              "id": "unmatched-mobility-5",
+              "value": "unmatched-mobility-melee-defense"
+            },
+            {
+              "id": "unmatched-mobility-6",
+              "value": "unmatched-mobility-duration"
+            },
+            {
+              "id": "unmatched-mobility-7",
+              "value": "unmatched-mobility-duration"
+            },
+            {
+              "id": "unmatched-mobility-8",
+              "value": "unmatched-mobility-destiny"
+            },
+            {
+              "id": "unmatched-mobility-9",
+              "value": "unmatched-mobility-ranged-defense"
             }
           ]
         }
