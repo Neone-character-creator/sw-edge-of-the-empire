@@ -14883,6 +14883,34 @@
           "name": "Improved Stunning Blow"
         },
         {
+          "id": "sudden-discovery-add-boost",
+          "name": "Sudden Discovery - Add Boost"
+        },
+        {
+          "id": "sudden-discovery-base-ability",
+          "name": "Sudden Discovery - Base Ability"
+        },
+        {
+          "id": "sudden-discovery-change-skill",
+          "name": "Sudden Discovery - Change Skill"
+        },
+        {
+          "id": "sudden-discovery-destiny",
+          "name": "Sudden Discovery - Destiny"
+        },
+        {
+          "id": "sudden-discovery-frequency",
+          "name": "Sudden Discovery - Frequency"
+        },
+        {
+          "id": "sudden-discovery-reduce-difficulty",
+          "name": "Sudden Discovery - Reduce Difficulty"
+        },
+        {
+          "id": "sudden-discovery-reduce-setback",
+          "name": "Sudden Discovery - Reduce Setback"
+        },
+        {
           "id": "superior-reflexes",
           "name": "Superior Reflexes"
         },
@@ -18597,6 +18625,93 @@
               "requires": {
                 "advancements": [
                   "unmatched-expertise-5"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "sudden-discovery",
+          "name": "Sudden Discovery",
+          "talents": [
+            {
+              "id": "sudden-discovery-1",
+              "value": "sudden-discovery-base-ability"
+            },
+            {
+              "id": "sudden-discovery-2",
+              "value": "sudden-discovery-add-boost",
+              "requires": {
+                "advancements": [
+                  "sudden-discovery-1",
+                  "sudden-discovery-6"
+                ]
+              }
+            },
+            {
+              "id": "sudden-discovery-3",
+              "value": "sudden-discovery-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "sudden-discovery-4",
+                  "sudden-discovery-7"
+                ]
+              }
+            },
+            {
+              "id": "sudden-discovery-4",
+              "value": "sudden-discovery-reduce-setback",
+              "requires": {
+                "advancements": [
+                  "sudden-discovery-1",
+                  "sudden-discovery-3"
+                ]
+              }
+            },
+            {
+              "id": "sudden-discovery-5",
+              "value": "sudden-discovery-change-skill",
+              "requires": {
+                "advancements": [
+                  "sudden-discovery-1"
+                ]
+              }
+            },
+            {
+              "id": "sudden-discovery-6",
+              "value": "sudden-discovery-add-boost",
+              "requires": {
+                "advancements": [
+                  "sudden-discovery-2",
+                  "sudden-discovery-7"
+                ]
+              }
+            },
+            {
+              "id": "sudden-discovery-7",
+              "value": "sudden-discovery-reduce-difficulty",
+              "requires": {
+                "advancements": [
+                  "sudden-discovery-3",
+                  "sudden-discovery-6"
+                ]
+              }
+            },
+            {
+              "id": "sudden-discovery-8",
+              "value": "sudden-discovery-frequency",
+              "requires": {
+                "advancements": [
+                  "sudden-discovery-7"
+                ]
+              }
+            },
+            {
+              "id": "sudden-discovery-9",
+              "value": "destiny",
+              "requires": {
+                "advancements": [
+                  "sudden-discovery-5"
                 ]
               }
             }
