@@ -4374,7 +4374,6 @@
               "value": "quick-draw",
               "tier": 2,
               "cost": 10,
-
               "requires": {
                 "advancements": [
                   "assassin-4",
@@ -13742,6 +13741,34 @@
           "name": "All Terrain Driver"
         },
         {
+          "id": "always-get-my-mark-base-ability",
+          "name": "Always Get My Mark - Base Ability"
+        },
+        {
+          "id": "always-get-my-mark-change-skill",
+          "name": "Always Get My Mark - Change Skill"
+        },
+        {
+          "id": "always-get-my-mark-destiny",
+          "name": "Always Get My Mark - Destiny"
+        },
+        {
+          "id": "always-get-my-mark-increase-effect",
+          "name": "Always Get My Mark - Increase Effect"
+        },
+        {
+          "id": "always-get-my-mark-increase-range",
+          "name": "Always Get My Mark - Increase Range"
+        },
+        {
+          "id": "always-get-my-mark-reduce-difficulty",
+          "name": "Always Get My Mark - Base Ability"
+        },
+        {
+          "id": "always-get-my-mark-takedown",
+          "name": "Always Get My Mark - Takedown"
+        },
+        {
           "id": "anatomy-lessons",
           "name": "Anatomy Lessons"
         },
@@ -14312,6 +14339,30 @@
           "name": "intimidating"
         },
         {
+          "id": "inventive-creation-base",
+          "name": "Inventive Creation - Base Ability"
+        },
+        {
+          "id": "inventive-creation-change-sale",
+          "name": "Inventive Creation - Change Sale"
+        },
+        {
+          "id": "inventive-creation-destiny",
+          "name": "Inventive Creation - Destiny"
+        },
+        {
+          "id": "inventive-creation-increase-rarity",
+          "name": "Inventive Creation - Increase Rarity"
+        },
+        {
+          "id": "inventive-creation-reduce-difficulty",
+          "name": "Inventive Creation - Reduce Difficulty"
+        },
+        {
+          "id": "inventive-creation-reduce-setback",
+          "name": "Inventive Creation - Reduce Setback"
+        },
+        {
           "id": "iron-body",
           "name": "Iron Body"
         },
@@ -14836,6 +14887,38 @@
         {
           "id": "uncanny-senses",
           "name": "Uncanny Senses"
+        },
+        {
+          "id": "unmatched-calibration-base-ability",
+          "name": "Unmatched Calibration - Base Ability"
+        },
+        {
+          "id": "unmatched-calibration-destiny",
+          "name": "Unmatched Calibration - Destiny"
+        },
+        {
+          "id": "unmatched-calibration-frequency",
+          "name": "Unmatched Calibration - Frequency"
+        },
+        {
+          "id": "unmatched-calibration-increase-number",
+          "name": "Unmatched Calibration - Increase Number"
+        },
+        {
+          "id": "unmatched-calibration-minimize-risk",
+          "name": "Unmatched Calibration - Minimize Risk"
+        },
+        {
+          "id": "unmatched-calibration-optimization",
+          "name": "Unmatched Calibration - Optimization"
+        },
+        {
+          "id": "unmatched-calibration-remove-setback",
+          "name": "Unmatched Calibration - Remove Setback"
+        },
+        {
+          "id": "unmatched-calibration-shared-acumen",
+          "name": "Unmatched Calibration - Shared Acument"
         },
         {
           "id": "unmatched-protection-additional-reduction",
@@ -17809,7 +17892,7 @@
             },
             {
               "id": "unmatched-calibration-9",
-              "value": "unmatched-calibration-shared-acument",
+              "value": "unmatched-calibration-shared-acumen",
               "tier": 3,
               "cost": 15,
               "requires": {
@@ -17860,7 +17943,7 @@
             {
               "id": "always-get-my-mark-4",
               "value": "always-get-my-mark-increase-effect",
-              "description": "Always Get My Mark - Incease Effect",
+              "description": "Always Get My Mark - Increase Effect",
               "tier": 2,
               "cost": 10,
               "requires": {
