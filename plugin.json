@@ -14315,6 +14315,38 @@
           "name": "insight"
         },
         {
+          "id": "insightful-revelation-base-ability",
+          "name": "Insightful Revelation - Base Ability"
+        },
+        {
+          "id": "insightful-revelation-add-boost",
+          "name": "Insightful Revelation - Add Boost"
+        },
+        {
+          "id": "insightful-revelation-base-additional-skills",
+          "name": "Insightful Revelation - Additional Skills"
+        },
+        {
+          "id": "insightful-revelation-destiny",
+          "name": "Insightful Revelation - Destiny"
+        },
+        {
+          "id": "insightful-revelation-duration",
+          "name": "Insightful Revelation - Duration"
+        },
+        {
+          "id": "insightful-revelation-increase-effect",
+          "name": "Insightful Revelation - Increase Effect"
+        },
+        {
+          "id": "insightful-revelation-reduce-difficulty",
+          "name": "Insightful Revelation - Reduce Difficulty"
+        },
+        {
+          "id": "insightful-revelation-reduce-setback",
+          "name": "Insightful Revelation - Reduce Setback"
+        },
+        {
           "id": "inspiring-rhetoric",
           "name": "inspiring-rhetoric"
         },
@@ -14489,6 +14521,38 @@
         {
           "id": "museum-worthy",
           "name": "Museum Worthy"
+        },
+        {
+          "id": "narrow-escape-add-boost",
+          "name": "Narrow Escape - Add Boost"
+        },
+        {
+          "id": "narrow-escape-destiny",
+          "name": "Narrow Escape - Destiny"
+        },
+        {
+          "id": "narrow-escape-base-ability",
+          "name": "Narrow Escape - Base Ability"
+        },
+        {
+          "id": "narrow-escape-change-scale",
+          "name": "Narrow Escape - Change Scale"
+        },
+        {
+          "id": "narrow-escape-change-skill",
+          "name": "Narrow Escape - Change Skill"
+        },
+        {
+          "id": "narrow-escape-increase-effect",
+          "name": "Narrow Escape - Increase Effect"
+        },
+        {
+          "id": "narrow-escape-reduce-difficulty",
+          "name": "Narrow Escape - Reduce Difficulty"
+        },
+        {
+          "id": "narrow-escape-reduce-setback",
+          "name": "Narrow Escape - Reduce Setback"
         },
         {
           "id": "natural-athlete",
@@ -14943,6 +15007,58 @@
         {
           "id": "unmatched-devastation-target-priority",
           "name": "Unmatched Devastation - Target Priority"
+        },
+        {
+          "id": "unmatched-expertise-activation",
+          "name": "Unmatched Expertise - Activation"
+        },
+        {
+          "id": "unmatched-expertise-base-ability",
+          "name": "Unmatched Expertise - Base Ability"
+        },
+        {
+          "id": "unmatched-expertise-destiny",
+          "name": "Unmatched Expertise - Destiny"
+        },
+        {
+          "id": "unmatched-expertise-reduce-difficulty",
+          "name": "Unmatched Expertise - Reduce Difficulty"
+        },
+        {
+          "id": "unmatched-expertise-reduce-setback",
+          "name": "Unmatched Expertise - Reduce Setback"
+        },
+        {
+          "id": "unmatched-expertise-superior-reduction",
+          "name": "Unmatched Expertise - Superior Reduction"
+        },
+        {
+          "id": "unmatched-fortune-base-ability",
+          "name": "Unmatched Fortune - Base Ability"
+        },
+        {
+          "id": "unmatched-fortune-destiny",
+          "name": "Unmatched Fortune - Destiny"
+        },
+        {
+          "id": "unmatched-fortune-fortune-frequency",
+          "name": "Unmatched Fortune - Fortune Frequency"
+        },
+        {
+          "id": "unmatched-fortune-increase-effect",
+          "name": "Unmatched Fortune - Increase Effect"
+        },
+        {
+          "id": "unmatched-fortune-increase-number",
+          "name": "Unmatched Fortune - Increase Number"
+        },
+        {
+          "id": "unmatched-fortune-increase-range",
+          "name": "Unmatched Fortune - Increase Range"
+        },
+        {
+          "id": "unmatched-fortune-shared-luck",
+          "name": "Unmatched Fortune - Shared Luck"
         },
         {
           "id": "unmatched-protection-additional-reduction",
