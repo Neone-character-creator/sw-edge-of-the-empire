@@ -14838,6 +14838,30 @@
           "name": "Uncanny Senses"
         },
         {
+          "id": "unmatched-protection-additional-reduction",
+          "name": "Unmatched Protection - Additional Resistance"
+        },
+        {
+          "id": "unmatched-protection-ally",
+          "name": "Unmatched Protection - Ally"
+        },
+        {
+          "id": "unmatched-protection-base",
+          "name": "Unmatched Protection - Base Ability"
+        },
+        {
+          "id": "unmatched-protection-destiny",
+          "name": "Unmatched Protection - Destiny"
+        },
+        {
+          "id": "unmatched-protection-duration",
+          "name": "Unmatched Protection - Duration"
+        },
+        {
+          "id": "unmatched-protection-soak",
+          "name": "Unmatched Protection - Soak"
+        },
+        {
           "id": "unrelenting-skeptic",
           "name": "Unrelenting Skeptic"
         },
