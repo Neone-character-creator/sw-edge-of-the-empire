@@ -14918,7 +14918,31 @@
         },
         {
           "id": "unmatched-calibration-shared-acumen",
-          "name": "Unmatched Calibration - Shared Acument"
+          "name": "Unmatched Calibration - Shared Acumen"
+        },
+        {
+          "id": "unmatched-devastation-base-ability",
+          "name": "Unmatched Devastation - Base Ability"
+        },
+        {
+          "id": "unmatched-devastation-draw-and-fire",
+          "name": "Unmatched Devastation - Draw And Fire"
+        },
+        {
+          "id": "unmatched-devastation-increase-number",
+          "name": "Unmatched Devastation - Increase Number"
+        },
+        {
+          "id": "unmatched-devastation-improve-mobility",
+          "name": "Unmatched Devastation - Improve Mobility"
+        },
+        {
+          "id": "unmatched-devastation-remove-setback",
+          "name": "Unmatched Devastation - Remove Setback"
+        },
+        {
+          "id": "unmatched-devastation-target-priority",
+          "name": "Unmatched Devastation - Target Priority"
         },
         {
           "id": "unmatched-protection-additional-reduction",
