@@ -2136,36 +2136,47 @@
                 }
               },
               {
+                "name": "talentSubmit",
+                "type": "button",
+                "text": "Buy",
+                "hiddenWhen": "# !_.isNil(_.get($state, 'selectedAdvancement.talent.value.options'))",
+                "action": {
+                  "type": "PUSH",
+                  "path": "$state.character.advancements.talents",
+                  "value": "#$state.selectedAdvancement.talent"
+                }
+              },
+              {
                 "name": "talentAdvancementOptions",
                 "type": "container",
                 "direction": "vertical",
-                "hiddenWhen": "# !_.get($state, 'selectedAdvancement.talent.option.value.options')",
+                "hiddenWhen": "# _.isNil(_.get($state, 'selectedAdvancement.talent.value.options'))",
                 "children": [
                   {
                     "name": "talentAdvancementOptions",
                     "type": "label",
-                    "text": "# 'Choose ' + _.get($state, 'selectedAdvancement.talent.option.value.choices')"
+                    "text": "# 'Choose ' + _.get($state, 'selectedAdvancement.talent.value.choices')"
                   },
                   {
                     "name": "talentAdvancementOptions",
                     "type": "select",
-                    "bind": "$state.selectedAdvancement.talent.option.value.chosen",
+                    "bind": "$state.selectedAdvancement.talent.value.chosen",
                     "items": {
-                      "values": "# _.get($state, 'selectedAdvancement.talent.option.value.options')",
-                      "maxSelections": "# _.get($state, 'selectedAdvancement.talent.option.value.choices')"
+                      "values": "# _.get($state, 'selectedAdvancement.talent.value.options')",
+                      "maxSelections": "# _.get($state, 'selectedAdvancement.talent.value.choices')"
+                    }
+                  },
+                  {
+                    "name": "talentOptionSubmit",
+                    "type": "button",
+                    "text": "Buy",
+                    "action": {
+                      "type": "PUSH",
+                      "path": "$state.character.advancements.talents",
+                      "value": "#$state.selectedAdvancement.talent.value.chosen"
                     }
                   }
                 ]
-              },
-              {
-                "name": "talentSubmit",
-                "type": "button",
-                "text": "Buy",
-                "action": {
-                  "type": "PUSH",
-                  "path": "$state.character.advancements.talents",
-                  "value": "#$state.selectedAdvancement.talent.option"
-                }
               }
             ]
           },
@@ -2184,9 +2195,9 @@
                 "type": "select",
                 "bind": "$state.selectedAdvancement.specialization",
                 "items": {
-                  "translate": "# $models.specialization.values.find(s => $this.specialization === s.id).name + ' (' + $this.cost + ' xp)'",
+                  "translate": "# $models.specialization.values[$this.specialization].name + ' (' + $this.cost + ' xp)'",
                   "disabledWhen": "# $state.character.specializations.map(cs => cs.id).includes($this.id)",
-                  "values": "# $models.specializationAdvancement.values"
+                  "values": "# $models.specializationAdvancement.values.filter(sa => sa.universal || $state.character.career.specializations.includes(sa.id))"
                 }
               },
               {
@@ -4256,7 +4267,10 @@
           "specializations": [
             "mechanic",
             "outlaw-tech",
-            "slicer"
+            "slicer",
+            "cyber-tech",
+            "droid-tech",
+            "modder"
           ],
           "signatureAbilities": [
             "inventive-creation",
@@ -4332,7 +4346,6 @@
               "value": "jump-up",
               "tier": 2,
               "cost": 10,
-              "cost": 10,
               "requires": {
                 "advancements": [
                   "assassin-2",
@@ -4346,7 +4359,6 @@
               "id": "assassin-7",
               "value": "quick-strike",
               "tier": 2,
-              "cost": 10,
               "cost": 10,
               "requires": {
                 "advancements": [
@@ -4362,7 +4374,7 @@
               "value": "quick-draw",
               "tier": 2,
               "cost": 10,
-              "cost": 10,
+
               "requires": {
                 "advancements": [
                   "assassin-4",
@@ -4376,7 +4388,6 @@
               "value": "targeted-blow",
               "tier": 3,
               "cost": 15,
-              "cost": 15,
               "requires": {
                 "advancements": [
                   "assassin-5",
@@ -4388,7 +4399,6 @@
               "id": "assassin-10",
               "value": "stalker",
               "tier": 3,
-              "cost": 15,
               "cost": 15,
               "requires": {
                 "advancements": [
@@ -4696,7 +4706,7 @@
             },
             {
               "id": "gadgeteer-17",
-              "id": "intimidating",
+              "value": "intimidating",
               "tier": 5,
               "cost": 25,
               "requires": {
@@ -4707,7 +4717,7 @@
             },
             {
               "id": "gadgeteer-18",
-              "values": {
+              "value": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -18606,6 +18616,18 @@
           "specialization": "survivalist"
         },
         {
+          "id": "martial-artist",
+          "specialization": "martial-artist"
+        },
+        {
+          "id": "operator",
+          "specialization": "operator"
+        },
+        {
+          "id": "skiptracer",
+          "specialization": "skiptracer"
+        },
+        {
           "id": "doctor",
           "specialization": "doctor"
         },
@@ -18616,6 +18638,18 @@
         {
           "id": "scholar",
           "specialization": "scholar"
+        },
+        {
+          "id": "performer",
+          "specialization": "performer"
+        },
+        {
+          "id": "marshal",
+          "specialization": "marshal"
+        },
+        {
+          "id": "entrepreneur",
+          "specialization": "entrepreneur"
         },
         {
           "id": "fringer",
@@ -18630,6 +18664,18 @@
           "specialization": "trader"
         },
         {
+          "id": "archaeologist",
+          "specialization": "archaeologist"
+        },
+        {
+          "id": "big-game-hunter",
+          "specialization": "big-game-hunter"
+        },
+        {
+          "id": "driver",
+          "specialization": "driver"
+        },
+        {
           "id": "bodyguard",
           "specialization": "bodyguard"
         },
@@ -18640,6 +18686,18 @@
         {
           "id": "mercenary-soldier",
           "specialization": "mercenary-soldier"
+        },
+        {
+          "id": "enforcer",
+          "specialization": "enforcer"
+        },
+        {
+          "id": "demolitionist",
+          "specialization": "demolitionist"
+        },
+        {
+          "id": "heavy",
+          "specialization": "heavy"
         },
         {
           "id": "pilot",
@@ -18654,6 +18712,18 @@
           "specialization": "thief"
         },
         {
+          "id": "charmer",
+          "specialization": "charmer"
+        },
+        {
+          "id": "gambler",
+          "specialization": "gambler"
+        },
+        {
+          "id": "gunslinger",
+          "specialization": "gunslinter"
+        },
+        {
           "id": "mechanic",
           "specialization": "mechanic"
         },
@@ -18664,6 +18734,18 @@
         {
           "id": "slicer",
           "specialization": "slicer"
+        },
+        {
+          "id": "cyber-tech",
+          "specialization": "cyber-tech"
+        },
+        {
+          "id": "droid-tech",
+          "specialization": "droid-tech"
+        },
+        {
+          "id": "modder",
+          "specialization": "modder"
         }
       ],
       "effects": [
