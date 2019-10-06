@@ -2074,7 +2074,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.characteristics",
-                  "value": "#$temp.selectedAdvancement.characteristic"
+                  "value": "#_.get($temp, 'selectedAdvancement.characteristic')"
                 }
               }
             ]
@@ -2105,7 +2105,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.skills",
-                  "value": "#$temp.selectedAdvancement.skill"
+                  "value": "#_.get($temp, 'selectedAdvancement.skill')"
                 }
               }
             ]
@@ -2138,7 +2138,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.talents",
-                  "value": "#$temp.selectedAdvancement.talent"
+                  "value": "#_.get($temp, 'selectedAdvancement.talent')"
                 }
               },
               {
@@ -2202,7 +2202,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.specializations",
-                  "value": "# $temp.selectedAdvancement.specialization"
+                  "value": "# _.get($temp, 'selectedAdvancement.specialization')"
                 }
               }
             ]
@@ -2234,7 +2234,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.signatureAbilities",
-                  "value": "#$temp.selectedAdvancement.signatureAbility"
+                  "value": "#_.get($temp, 'selectedAdvancement.signatureAbility')"
                 }
               }
             ]
@@ -2261,7 +2261,7 @@
                     "action": {
                       "path": "$state.character.advancements.characteristics",
                       "type": "REMOVE",
-                      "index": "#$this"
+                      "value": "#$index"
                     }
                   }
                 ]
@@ -2290,7 +2290,7 @@
                     "action": {
                       "path": "$state.character.advancements.skills",
                       "type": "REMOVE",
-                      "index": "#$this"
+                      "value": "#$index"
                     }
                   }
                 ]
@@ -2319,7 +2319,7 @@
                     "action": {
                       "path": "$state.character.advancements.talents",
                       "type": "REMOVE",
-                      "index": "#$this"
+                      "value": "#$index"
                     }
                   }
                 ]
@@ -2348,7 +2348,36 @@
                     "action": {
                       "path": "$state.character.advancements.specializations",
                       "type": "REMOVE",
-                      "index": "#$this"
+                      "value": "#$index"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "purchasedSignatureAbilityAdvancements",
+            "type": "list",
+            "bind": "$state.character.advancements.signatureAbilities",
+            "items": {
+              "child": {
+                "name": "singlePurchasedSignatureAbilityAdvancement",
+                "type": "container",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "singlePurchasedAdvancementSignatureAbility",
+                    "type": "label",
+                    "text": "# `Signature Ability Advancement ${_.upperFirst($this.signatureAbility)} (${$this.cost})`"
+                  },
+                  {
+                    "name": "singlePurchasedAdvancementSignatureAbilityRemove",
+                    "type": "button",
+                    "text": "# `Remove`",
+                    "action": {
+                      "path": "$state.character.advancements.signatureAbilities",
+                      "type": "REMOVE",
+                      "value": "#$index"
                     }
                   }
                 ]
@@ -19342,7 +19371,7 @@
         {
           "path": "$state.character.advancements.signatureAbilities",
           "action": "PUSH",
-          "value": "#$temp.selectedAdvancement.signatureAbility"
+          "value": "#_.get($temp, 'selectedAdvancement.signatureAbility')"
         }
       ]
     }
@@ -19423,49 +19452,49 @@
   "hooks": [
     {
       "after": "PUSH",
-      "when": "# $this.path === 'character.advancements.characteristics'",
+      "when": "# $this.path === '$state.character.advancements.characteristics'",
       "effects": [
         "# $temp.selectedAdvancement.characteristic = undefined"
       ]
     },
     {
       "after": "PUSH",
-      "when": "# $this.path === 'character.advancements.talents'",
+      "when": "# $this.path === '$state.character.advancements.talents'",
       "effects": [
         "# $temp.selectedAdvancement.talent = undefined"
       ]
     },
     {
       "after": "PUSH",
-      "when": "# $this.path === 'character.advancements.skills'",
+      "when": "# $this.path === '$state.character.advancements.skills'",
       "effects": [
         "# $temp.selectedAdvancement.skill = undefined"
       ]
     },
     {
       "after": "PUSH",
-      "when": "# $this.path === 'character.advancements.specializations'",
+      "when": "# $this.path === '$state.character.advancements.specializations'",
       "effects": [
         "# $temp.selectedAdvancement.specialization = undefined"
       ]
     },
     {
       "after": "PUSH",
-      "when": "# $this.path === 'character.advancements.signatureAbilities'",
+      "when": "# $this.path === '$state.character.advancements.signatureAbilities'",
       "effects": [
         "# $temp.selectedAdvancement.signatureAbility = undefined"
       ]
     },
     {
       "after": "ADD",
-      "when": "# $this.path === 'character.weapons'",
+      "when": "# $this.path === '$state.character.weapons'",
       "effects": [
         "# $state.selectedWeapon = undefined"
       ]
     },
     {
       "after": "SET",
-      "when": "# $this.path === 'character.career'",
+      "when": "# $this.path === '$state.character.career'",
       "effects": [
         "# $state.character.advancements.specializations = []",
         "# $state.character.startingSpecialization = null",
@@ -19474,7 +19503,7 @@
     },
     {
       "after": "SET",
-      "when": "#$this.path === 'character.startingSpecialization'",
+      "when": "#$this.path === '$state.character.startingSpecialization'",
       "effects": [
         "# $state.character.specializationStartingSkills = []"
       ]
