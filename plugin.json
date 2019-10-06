@@ -2125,7 +2125,7 @@
                 "type": "select",
                 "bind": "$temp.selectedAdvancement.talent",
                 "items": {
-                  "values": "#$temp.availableTalents",
+                  "values": "#_.flatMap($state.character.specializations.map(s =>s.talents).concat($state.character.signatureAbilities.map(sa => sa.talents)))",
                   "disabledWhen": "#_.get($state, 'character.advancements.talents', []).map(ta => ta.id).includes($this.id) || ($this.requires && !_.isEmpty(_.union($state.character.advancements.talents.map(ta => ta.id), $this.requires.advancements)))",
                   "translate": "# $this.description + ' (' + $this.cost + ')'"
                 }
@@ -13837,13 +13837,6 @@
             }
           ]
         }
-      ],
-      "effects": [
-        {
-          "action": "COMBINE",
-          "path": "$temp.availableTalents",
-          "value": "# $this.source.talents"
-        }
       ]
     },
     "talent": {
@@ -14428,7 +14421,18 @@
         },
         {
           "id": "insight",
-          "name": "insight"
+          "name": "insight",
+          "effects": [
+            {
+              "action": "SET",
+              "path": "$state.character.skills.perception.isCareerSkill",
+              "value": true
+            },{
+              "action": "SET",
+              "path": "$state.character.skills.discipline.isCareerSkill",
+              "value": true
+            }
+          ]
         },
         {
           "id": "insightful-revelation-base-ability",
@@ -15028,7 +15032,14 @@
         },
         {
           "id": "superior-reflexes",
-          "name": "Superior Reflexes"
+          "name": "Superior Reflexes",
+          "effects": [
+            {
+              "action": "ADD",
+              "path": "$state.character.defense.melee",
+              "value": 1
+            }
+          ]
         },
         {
           "id": "surgeon",
@@ -18898,13 +18909,6 @@
               "value": "unmatched-mobility-ranged-defense"
             }
           ]
-        }
-      ],
-      "effects": [
-        {
-          "action": "COMBINE",
-          "path": "$temp.availableTalents",
-          "value": "#$this.source.talents"
         }
       ]
     },
