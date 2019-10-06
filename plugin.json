@@ -2223,6 +2223,7 @@
                 "bind": "$temp.selectedAdvancement.signatureAbility",
                 "items": {
                   "text": "name",
+                  "disabledWhen": "#$state.character.advancements.signatureAbilities.map(sa => sa.id).includes($this.id)",
                   "values": "# $models.signatureAbility.values.filter(sa => _.get($state, 'character.career.signatureAbilities').find(csa => sa.id === csa.id) && !$state.character.signatureAbilities.find(csa => csa.id === sa.id))"
                 }
               },
