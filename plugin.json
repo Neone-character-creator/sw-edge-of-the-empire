@@ -2309,7 +2309,7 @@
                   {
                     "name": "singlePurchasedAdvancementTalent",
                     "type": "label",
-                    "text": "# `Talent Advancement ${_.upperFirst($this.characteristic)} (${$this.cost})`"
+                    "text": "# `Talent Advancement ${_.upperFirst($this.value)} (${$this.cost})`"
                   },
                   {
                     "name": "singlePurchasedAdvancementTalentRemove",
@@ -2338,7 +2338,7 @@
                   {
                     "name": "singlePurchasedAdvancementSpecialization",
                     "type": "label",
-                    "text": "# `Characteristic Advancement ${_.upperFirst($this.specialization)} (${$this.cost})`"
+                    "text": "# `Specialization Advancement ${_.upperFirst($this.value)} (${$this.cost})`"
                   },
                   {
                     "name": "singlePurchasedAdvancementSpecializationRemove",
@@ -4703,7 +4703,7 @@
             },
             {
               "id": "gadgeteer-9",
-              "name": "toughened",
+              "value": "toughened",
               "tier": 3,
               "cost": 15,
               "requires": {
