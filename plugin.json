@@ -2186,9 +2186,16 @@
                 "text": "Specialization"
               },
               {
+                "name": "missingSpecialization",
+                "type": "label",
+                "text": "Choose a first specialization on the 'Career and Specializations' tab",
+                "hiddenWhen": "#$state.character.startingSpecialization"
+              },
+              {
                 "name": "specializationAdvancement",
                 "type": "select",
                 "bind": "$temp.selectedAdvancement.specialization",
+                "hiddenWhen": "#!$state.character.startingSpecialization",
                 "items": {
                   "translate": "# $models.specialization.values[$this.specialization].name + ' (' + $this.cost + ' xp)'",
                   "disabledWhen": "# $state.character.specializations.map(cs => cs.id).includes($this.id)",
@@ -2395,7 +2402,10 @@
         "species": "species",
         "defense": "defense",
         "career": "career",
-        "startingSpecialization": "specialization",
+        "startingSpecialization": {
+          "type": "specialization",
+          "default": null
+        },
         "specializations": {
           "type": "[specialization]",
           "baseValue": [
@@ -14427,7 +14437,8 @@
               "action": "SET",
               "path": "$state.character.skills.perception.isCareerSkill",
               "value": true
-            },{
+            },
+            {
               "action": "SET",
               "path": "$state.character.skills.discipline.isCareerSkill",
               "value": true
