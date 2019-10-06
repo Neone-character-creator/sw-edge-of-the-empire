@@ -2061,17 +2061,11 @@
               {
                 "name": "characteristicAdvancement",
                 "type": "select",
-                "bind": "$state.selectedAdvancement.characteristic",
+                "bind": "$temp.selectedAdvancement.characteristic",
                 "items": {
                   "translate": "# _.upperFirst($this.characteristic) + ' (' + $this.cost + ' xp)'",
                   "values": "# $models.characteristicAdvancement.values"
                 }
-              },
-              {
-                "name": "characteristicAdvancementCost",
-                "type": "number",
-                "bind": "$state.selectedAdvancement.characteristic.cost",
-                "label": "Cost"
               },
               {
                 "name": "characteristicSubmit",
@@ -2080,7 +2074,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.characteristics",
-                  "value": "#$state.selectedAdvancement.characteristic"
+                  "value": "#$temp.selectedAdvancement.characteristic"
                 }
               }
             ]
@@ -2098,7 +2092,7 @@
               {
                 "name": "skillAdvancement",
                 "type": "select",
-                "bind": "$state.selectedAdvancement.skill",
+                "bind": "$temp.selectedAdvancement.skill",
                 "items": {
                   "translate": "# _.upperFirst($this.skill) + '(' + $this.cost + ' xp)'",
                   "values": "# $models.skillAdvancement.values"
@@ -2111,7 +2105,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.skills",
-                  "value": "#$state.selectedAdvancement.skill"
+                  "value": "#$temp.selectedAdvancement.skill"
                 }
               }
             ]
@@ -2129,9 +2123,10 @@
               {
                 "name": "talentAdvancement",
                 "type": "select",
-                "bind": "$state.selectedAdvancement.talent",
+                "bind": "$temp.selectedAdvancement.talent",
                 "items": {
                   "values": "#$state.availableTalents",
+                  "disabledWhen": "#$this.requires && !_.isEmpty(_.union($state.character.advancements.talents.map(ta => ta.id), $this.requires.advancements))",
                   "translate": "# $this.description + ' (' + $this.cost + ')'"
                 }
               },
@@ -2143,7 +2138,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.talents",
-                  "value": "#$state.selectedAdvancement.talent"
+                  "value": "#$temp.selectedAdvancement.talent"
                 }
               },
               {
@@ -2160,7 +2155,7 @@
                   {
                     "name": "talentAdvancementOptions",
                     "type": "select",
-                    "bind": "$state.selectedAdvancement.talent.value.chosen",
+                    "bind": "$temp.selectedAdvancement.talent.value.chosen",
                     "items": {
                       "values": "# _.get($state, 'selectedAdvancement.talent.value.options')",
                       "maxSelections": "# _.get($state, 'selectedAdvancement.talent.value.choices')"
@@ -2173,7 +2168,7 @@
                     "action": {
                       "type": "PUSH",
                       "path": "$state.character.advancements.talents",
-                      "value": "#$state.selectedAdvancement.talent.value.chosen"
+                      "value": "#$temp.selectedAdvancement.talent.value.chosen"
                     }
                   }
                 ]
@@ -2193,7 +2188,7 @@
               {
                 "name": "specializationAdvancement",
                 "type": "select",
-                "bind": "$state.selectedAdvancement.specialization",
+                "bind": "$temp.selectedAdvancement.specialization",
                 "items": {
                   "translate": "# $models.specialization.values[$this.specialization].name + ' (' + $this.cost + ' xp)'",
                   "disabledWhen": "# $state.character.specializations.map(cs => cs.id).includes($this.id)",
@@ -2207,7 +2202,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.specializations",
-                  "value": "# $state.selectedAdvancement.specialization"
+                  "value": "# $temp.selectedAdvancement.specialization"
                 }
               }
             ]
@@ -2225,7 +2220,7 @@
               {
                 "name": "signatureAbilityAdvancement",
                 "type": "select",
-                "bind": "$state.selectedAdvancement.signatureAbility",
+                "bind": "$temp.selectedAdvancement.signatureAbility",
                 "items": {
                   "text": "name",
                   "values": "# $models.signatureAbility.values.filter(sa => _.get($state, 'character.career.signatureAbilities').find(csa => sa.id === csa.id) && !$state.character.signatureAbilities.find(csa => csa.id === sa.id))"
@@ -2238,7 +2233,7 @@
                 "action": {
                   "type": "PUSH",
                   "path": "$state.character.advancements.signatureAbilities",
-                  "value": "#$state.selectedAdvancement.signatureAbility"
+                  "value": "#$temp.selectedAdvancement.signatureAbility"
                 }
               }
             ]
@@ -2262,7 +2257,98 @@
                     "name": "singlePurchasedAdvancementCharacteristicRemove",
                     "type": "button",
                     "text": "# `Remove`",
-                    "action": "# {type: 'REMOVE', path: '$state.character.advancements.characteristics', index: $this}"
+                    "action": {
+                      "path": "$state.character.advancements.characteristics",
+                      "type": "REMOVE",
+                      "index": "#$this"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "purchasedSkillAdvancements",
+            "type": "list",
+            "bind": "$state.character.advancements.skills",
+            "items": {
+              "child": {
+                "name": "singlePurchasedSkillAdvancement",
+                "type": "container",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "singlePurchasedAdvancementSkill",
+                    "type": "label",
+                    "text": "# `Skill Advancement ${_.upperFirst($this.skill)} (${$this.cost})`"
+                  },
+                  {
+                    "name": "singlePurchasedAdvancementSkillRemove",
+                    "type": "button",
+                    "text": "# `Remove`",
+                    "action": {
+                      "path": "$state.character.advancements.skills",
+                      "type": "REMOVE",
+                      "index": "#$this"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "purchasedTalentAdvancements",
+            "type": "list",
+            "bind": "$state.character.advancements.talents",
+            "items": {
+              "child": {
+                "name": "singlePurchasedTalentAdvancement",
+                "type": "container",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "singlePurchasedAdvancementTalent",
+                    "type": "label",
+                    "text": "# `Talent Advancement ${_.upperFirst($this.characteristic)} (${$this.cost})`"
+                  },
+                  {
+                    "name": "singlePurchasedAdvancementTalentRemove",
+                    "type": "button",
+                    "text": "# `Remove`",
+                    "action": {
+                      "path": "$state.character.advancements.talents",
+                      "type": "REMOVE",
+                      "index": "#$this"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "purchasedSpecializationAdvancements",
+            "type": "list",
+            "bind": "$state.character.advancements.specializations",
+            "items": {
+              "child": {
+                "name": "singlePurchasedSpecializationAdvancement",
+                "type": "container",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "singlePurchasedAdvancementSpecialization",
+                    "type": "label",
+                    "text": "# `Characteristic Advancement ${_.upperFirst($this.specialization)} (${$this.cost})`"
+                  },
+                  {
+                    "name": "singlePurchasedAdvancementSpecializationRemove",
+                    "type": "button",
+                    "text": "# `Remove`",
+                    "action": {
+                      "path": "$state.character.advancements.specializations",
+                      "type": "REMOVE",
+                      "index": "#$this"
+                    }
                   }
                 ]
               }
@@ -15105,10 +15191,6 @@
           "name": "Unmatched Mobility - Free Maneuver"
         },
         {
-          "id": "unmatched-mobility-base-ability",
-          "name": "Unmatched Mobility - Base Ability"
-        },
-        {
           "id": "unmatched-mobility-melee-defense",
           "name": "Unmatched Mobility - Melee Defense"
         },
@@ -18843,6 +18925,11 @@
         }
       ]
     },
+    "requirements": {
+      "properties": {
+        "advancements": "[string]"
+      }
+    },
     "talentAdvancement": {
       "properties": {
         "id": "string",
@@ -18852,7 +18939,11 @@
         },
         "value": "string",
         "cost": "number",
-        "tier": "number"
+        "tier": "number",
+        "requires": {
+          "type": "requirements",
+          "default": null
+        }
       },
       "effects": [
         {
@@ -19250,7 +19341,7 @@
         {
           "path": "$state.character.advancements.signatureAbilities",
           "action": "PUSH",
-          "value": "#$state.selectedAdvancement.signatureAbility"
+          "value": "#$temp.selectedAdvancement.signatureAbility"
         }
       ]
     }
@@ -19333,28 +19424,28 @@
       "after": "PUSH",
       "when": "# $this.path === 'character.advancements.characteristics'",
       "effects": [
-        "# $state.selectedAdvancement.characteristic = undefined"
+        "# $temp.selectedAdvancement.characteristic = undefined"
       ]
     },
     {
       "after": "PUSH",
       "when": "# $this.path === 'character.advancements.talents'",
       "effects": [
-        "# $state.selectedAdvancement.talent = undefined"
+        "# $temp.selectedAdvancement.talent = undefined"
       ]
     },
     {
       "after": "PUSH",
       "when": "# $this.path === 'character.advancements.skills'",
       "effects": [
-        "# $state.selectedAdvancement.skill = undefined"
+        "# $temp.selectedAdvancement.skill = undefined"
       ]
     },
     {
       "after": "PUSH",
       "when": "# $this.path === 'character.advancements.specializations'",
       "effects": [
-        "# $state.selectedAdvancement.specialization = undefined"
+        "# $temp.selectedAdvancement.specialization = undefined"
       ]
     },
     {
