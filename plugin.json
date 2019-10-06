@@ -17623,6 +17623,43 @@
           "encumbrance": 2,
           "hardpoints": 0,
           "rarity": 1
+        },
+        {
+          "name": "Cloaking Coat",
+          "defense": "0",
+          "soak": 1,
+          "price": 550,
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "rarity": 8
+        },
+        {
+          "name": "Mechanic's Utility Suit",
+          "defense": 0,
+          "soak": 2,
+          "price": 1175,
+          "encumbrance": 5,
+          "hardpoints": 1,
+          "rarity": 3
+        },
+        {
+          "name": "Merr-Sonn N-57 Armor",
+          "defense": 0,
+          "soak": 2,
+          "price": 3000,
+          "encumbrance": 5,
+          "hardpoints": 5,
+          "rarity": 6
+        },
+        {
+          "name": "SoroSuub P-14 Hazardous Industry Suit",
+          "defense": 0,
+          "soak": 2,
+          "price": 1000,
+          "encumbrance": 7,
+          "hardpoints": 2,
+          "rarity": 4
+
         }
       ]
     },
