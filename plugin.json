@@ -2125,7 +2125,7 @@
                 "type": "select",
                 "bind": "$temp.selectedAdvancement.talent",
                 "items": {
-                  "values": "#$state.availableTalents",
+                  "values": "#$temp.availableTalents",
                   "disabledWhen": "#$this.requires && !_.isEmpty(_.union($state.character.advancements.talents.map(ta => ta.id), $this.requires.advancements))",
                   "translate": "# $this.description + ' (' + $this.cost + ')'"
                 }
@@ -13811,7 +13811,7 @@
       "effects": [
         {
           "action": "COMBINE",
-          "path": "$state.availableTalents",
+          "path": "$temp.availableTalents",
           "value": "# $this.source.talents"
         }
       ]
@@ -18873,7 +18873,7 @@
       "effects": [
         {
           "action": "COMBINE",
-          "path": "$state.availableTalents",
+          "path": "$temp.availableTalents",
           "value": "#$this.source.talents"
         }
       ]
