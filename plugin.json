@@ -2338,7 +2338,7 @@
                   {
                     "name": "singlePurchasedAdvancementSpecialization",
                     "type": "label",
-                    "text": "# `Specialization Advancement ${_.upperFirst($this.value)} (${$this.cost})`"
+                    "text": "# `Specialization Advancement ${_.upperFirst($this.specialization)} (${$this.cost})`"
                   },
                   {
                     "name": "singlePurchasedAdvancementSpecializationRemove",
@@ -4823,7 +4823,7 @@
             },
             {
               "id": "gadgeteer-19",
-              "value": "armor-master-Improved",
+              "value": "armor-master-improved",
               "tier": 5,
               "cost": 25,
               "requires": {
@@ -4973,7 +4973,7 @@
             },
             {
               "id": "survivalist-12",
-              "name": "natural-outdoorsman",
+              "value": "natural-outdoorsman",
               "tier": 3,
               "cost": 15,
               "requires": {
@@ -5090,7 +5090,7 @@
         },
         {
           "id": "doctor",
-          "name": "Doctor",
+          "value": "Doctor",
           "careerSkills": [
             "cool",
             "knowledge-education",
@@ -18265,7 +18265,7 @@
             },
             {
               "id": "always-get-my-mark-8",
-              "values": "always-get-my-mark-increase-range",
+              "value": "always-get-my-mark-increase-range",
               "tier": 3,
               "cost": 15,
               "requires": {
@@ -18276,7 +18276,7 @@
             },
             {
               "id": "always-get-my-mark-9",
-              "values": "always-get-my-mark-increase-effect",
+              "value": "always-get-my-mark-increase-effect",
               "tier": 3,
               "cost": 15,
               "requires": {
@@ -19446,6 +19446,13 @@
       "when": "# $this.path === 'character.advancements.specializations'",
       "effects": [
         "# $temp.selectedAdvancement.specialization = undefined"
+      ]
+    },
+    {
+      "after": "PUSH",
+      "when": "# $this.path === 'character.advancements.signatureAbilities'",
+      "effects": [
+        "# $temp.selectedAdvancement.signatureAbility = undefined"
       ]
     },
     {
