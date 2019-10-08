@@ -994,6 +994,16 @@
                         "bind": "$this.name"
                       },
                       {
+                        "name": "summaryWeaponAmmo",
+                        "type": "select",
+                        "bind": "$this.activeAmmo",
+                        "label": "Ammo",
+                        "items": {
+                          "text": "name",
+                          "values": "# $models.ammo.values.filter(a => a.type === 'micro-missile')"
+                        }
+                      },
+                      {
                         "name": "summaryWeaponSkill",
                         "type": "textfield",
                         "label": "Skill",
@@ -1689,7 +1699,7 @@
                     "type": "textfield",
                     "label": "Damage",
                     "weight": 1,
-                    "bind": "$state.selectedWeapon.damage"
+                    "bind": "$state.selectedWeapon.baseDamage"
                   },
                   {
                     "name": "newWeaponRange",
@@ -1743,6 +1753,15 @@
                             "label": "Name",
                             "weight": 2,
                             "bind": "$this.name"
+                          },
+                          {
+                            "name": "weaponAmmo",
+                            "type": "select",
+                            "bind": "#'$state.character.weapons['+$index+'].activeAmmo'",
+                            "items": {
+                              "text": "name",
+                              "values": "# $models.ammo.values.filter(a => a.type === 'micro-missile')"
+                            }
                           },
                           {
                             "name": "weaponSkill",
@@ -3072,7 +3091,7 @@
             {
               "name": "Claws",
               "skill": "brawl",
-              "damage": "Brawl + 1",
+              "baseDamage": "Brawl + 1",
               "criticalRating": 3,
               "range": "-"
             }
@@ -3084,7 +3103,7 @@
             },
             {
               "name": "Claws",
-              "description": "When a Trandoshan makes Brawl checks to deal damage to an opponent, they deal +1 damage and have a critical range of 3."
+              "description": "When a Trandoshan makes Brawl checks to deal baseDamage to an opponent, they deal +1 baseDamage and have a critical range of 3."
             }
           ]
         },
@@ -3152,7 +3171,7 @@
           "specialAbilities": [
             {
               "name": "Wookie Rage",
-              "description": "When a Wookie has suffered any wounds, they deal +1 damage with Brawl and Melee attacks"
+              "description": "When a Wookie has suffered any wounds, they deal +1 baseDamage with Brawl and Melee attacks"
             }
           ]
         },
@@ -3775,7 +3794,7 @@
             {
               "name": "Claws",
               "skill": "brawl",
-              "damage": "Brawl + 1",
+              "baseDamage": "Brawl + 1",
               "criticalRating": 3,
               "range": "-"
             }
@@ -3787,7 +3806,7 @@
             },
             {
               "name": "Claws",
-              "description": "When a Green Nikto makes Brawl checks to deal damage to an opponent, they deal +1 damage and have a Critical Rating of 3."
+              "description": "When a Green Nikto makes Brawl checks to deal baseDamage to an opponent, they deal +1 baseDamage and have a Critical Rating of 3."
             }
           ]
         },
@@ -15308,11 +15327,97 @@
         }
       ]
     },
+    "ammo": {
+      "properties": {
+        "id": "string",
+        "name": "string",
+        "baseDamage": "number",
+        "criticalRating": "number",
+        "type": "string",
+        "encumbrance": "number",
+        "hardpoints": "number",
+        "special": "[string]"
+      },
+      "values": [
+        {
+          "id": "micro-missile-anti-armor",
+          "name": "Anti Armor Micro Missile",
+          "damage": 8,
+          "criticalRating": 4,
+          "type": "micro-missile",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "special": [
+            "Breach 1",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "id": "micro-missile-explosive",
+          "name": "Explosive Micro Missile",
+          "damage": 7,
+          "criticalRating": 2,
+          "type": "micro-missile",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "special": [
+            "Blast 6",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "id": "micro-missile-flechette",
+          "name": "Flechette Micro Missile",
+          "damage": 6,
+          "criticalRating": 2,
+          "type": "micro-missile",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "special": [
+            "Blast 5",
+            "Vicious 2",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "id": "micro-missile-incendiary",
+          "name": "Incendiary Micro Missile",
+          "damage": 6,
+          "criticalRating": 3,
+          "type": "micro-missile",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "special": [
+            "Blast 6",
+            "Burn 2",
+            "Limited Ammo 1"
+          ]
+        },
+        {
+          "id": "micro-missile-ion",
+          "name": "Ion Micro Missile",
+          "damage": 10,
+          "criticalRating": 3,
+          "type": "micro-missile",
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "special": [
+            "Ion",
+            "Sunder",
+            "Limited Ammo 1"
+          ]
+        }
+      ]
+    },
     "weapon": {
       "properties": {
         "name": "string",
         "skill": "string",
-        "damage": "string",
+        "baseDamage": "number",
+        "damage": {
+          "type": "number",
+          "derivedFrom": "#$this.baseDamage + _.get($this, 'activeAmmo.damage', 0)"
+        },
         "criticalRating": "number",
         "range": "string",
         "encumbrance": "number",
@@ -15320,13 +15425,31 @@
         "price": "number",
         "isRestricted": "boolean",
         "rarity": "number",
-        "special": "[string]"
+        "special": "[string]",
+        "ammoType": {
+          "type": "string",
+          "default": null
+        },
+        "activeAmmo": {
+          "type": "ammo",
+          "default": null
+        }
       },
       "values": [
         {
+          "name": "Micro Missile Launcher",
+          "skill": "ranged (Light)",
+          "baseDamage": 0,
+          "criticalRating": 0,
+          "range": "Medium",
+          "encumbrance": 3,
+          "hardpoints": 0,
+          "ammoType": "micro-missile"
+        },
+        {
           "name": "Holdout Blaster",
           "skill": "ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 1,
@@ -15340,7 +15463,7 @@
         {
           "name": "Light Blaster Pistol",
           "skill": "ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Medium",
           "encumbrance": 1,
@@ -15354,7 +15477,7 @@
         {
           "name": "Blaster Pistol",
           "skill": "ranged (Light)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 1,
@@ -15368,7 +15491,7 @@
         {
           "name": "Heavy Blaster Pistol",
           "skill": "ranged (Light)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 2,
@@ -15382,7 +15505,7 @@
         {
           "name": "Blaster Carbine",
           "skill": "ranged (Heavy)",
-          "damage": 9,
+          "baseDamage": 9,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 3,
@@ -15396,7 +15519,7 @@
         {
           "name": "Blaster Rifle",
           "skill": "ranged (Heavy)",
-          "damage": 9,
+          "baseDamage": 9,
           "criticalRating": 3,
           "range": "Long",
           "encumbrance": 4,
@@ -15410,7 +15533,7 @@
         {
           "name": "Heavy Blaster Rifle",
           "skill": "ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 3,
           "range": "Long",
           "encumbrance": 6,
@@ -15425,7 +15548,7 @@
         {
           "name": "Light Repeating Blaster",
           "skill": "ranged (Heavy)",
-          "damage": 11,
+          "baseDamage": 11,
           "criticalRating": 3,
           "range": "Long",
           "encumbrance": 7,
@@ -15442,7 +15565,7 @@
         {
           "name": "Heavy Repeating Rifle",
           "skill": "gunnery",
-          "damage": 15,
+          "baseDamage": 15,
           "criticalRating": 2,
           "range": "Long",
           "encumbrance": 9,
@@ -15460,7 +15583,7 @@
         {
           "name": "Bowcaster",
           "skill": "ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 5,
@@ -15475,7 +15598,7 @@
         {
           "name": "Ionization Blaster",
           "skill": "ranged (Light)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 5,
           "range": "Short",
           "encumbrance": 3,
@@ -15490,7 +15613,7 @@
         {
           "name": "Disruptor Pistol",
           "skill": "ranged (Light)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 2,
@@ -15505,7 +15628,7 @@
         {
           "name": "Disruptor Rifle",
           "skill": "ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 2,
           "range": "Long",
           "encumbrance": 5,
@@ -15521,7 +15644,7 @@
         {
           "name": "Slugthrower Pistol",
           "skill": "ranged (Light)",
-          "damage": 4,
+          "baseDamage": 4,
           "criticalRating": 5,
           "range": "Short",
           "encumbrance": 1,
@@ -15532,7 +15655,7 @@
         {
           "name": "Slugthrower Rifle",
           "skill": "ranged (Heavy)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 5,
           "range": "Medium",
           "encumbrance": 5,
@@ -15546,7 +15669,7 @@
         {
           "name": "Bola / Net",
           "skill": "ranged (Light)",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 0,
           "range": "Short",
           "encumbrance": 0.3,
@@ -15562,7 +15685,7 @@
         {
           "name": "Flame Projector",
           "skill": "ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 6,
@@ -15577,7 +15700,7 @@
         {
           "name": "Missile Tube",
           "skill": "gunnery",
-          "damage": 20,
+          "baseDamage": 20,
           "criticalRating": 2,
           "range": "Extreme",
           "encumbrance": 7,
@@ -15597,7 +15720,7 @@
         {
           "name": "Frag Grenade",
           "skill": "ranged (Light)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 1,
@@ -15612,7 +15735,7 @@
         {
           "name": "Stun Grenade",
           "skill": "ranged (Light)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 0,
           "range": "Short",
           "encumbrance": 1,
@@ -15629,7 +15752,7 @@
         {
           "name": "Thermal Detonator",
           "skill": "ranged (Light)",
-          "damage": 20,
+          "baseDamage": 20,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 1,
@@ -15647,7 +15770,7 @@
         {
           "name": "Brass Knuckles",
           "skill": "brawl",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 4,
           "range": "Engaged",
           "encumbrance": 1,
@@ -15661,7 +15784,7 @@
         {
           "name": "Shock Gloves",
           "skill": "brawl",
-          "damage": 0,
+          "baseDamage": 0,
           "criticalRating": 5,
           "range": "Engaged",
           "encumbrance": 0,
@@ -15675,7 +15798,7 @@
         {
           "name": "Combat Knife",
           "skill": "Melee",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 1,
@@ -15687,7 +15810,7 @@
         {
           "name": "Gaffi Stick",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 3,
@@ -15702,7 +15825,7 @@
         {
           "name": "Force Pike",
           "skill": "Melee",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 3,
@@ -15717,7 +15840,7 @@
         {
           "name": "Lightsaber",
           "skill": "Lightsaber",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 1,
           "range": "Engaged",
           "encumbrance": 1,
@@ -15734,7 +15857,7 @@
         {
           "name": "Truncheon",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 5,
           "range": "Engaged",
           "encumbrance": 2,
@@ -15748,7 +15871,7 @@
         {
           "name": "Vibro-Ax",
           "skill": "Melee",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 4,
@@ -15764,7 +15887,7 @@
         {
           "name": "Vibroknife",
           "skill": "Melee",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 1,
@@ -15779,7 +15902,7 @@
         {
           "name": "Vibrosword",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 3,
@@ -15795,7 +15918,7 @@
         {
           "name": "Model 44 Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 1,
@@ -15809,7 +15932,7 @@
         {
           "name": "Model 80 Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 2,
           "range": "Medium",
           "encumbrance": 2,
@@ -15823,7 +15946,7 @@
         {
           "name": "IR-5 Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 2,
@@ -15838,7 +15961,7 @@
         {
           "name": "DL-7H Heavy Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 2,
           "range": "Medium",
           "encumbrance": 2,
@@ -15849,7 +15972,7 @@
         {
           "name": "ACP Array Gun",
           "skill": "Ranged (Heavy)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 5,
@@ -15864,7 +15987,7 @@
         {
           "name": "DH-X Heavy Blaster Rifle",
           "skill": "Ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 3,
           "range": "Long",
           "encumbrance": 7,
@@ -15879,7 +16002,7 @@
         {
           "name": "OK-98 Blaster Carbine",
           "skill": "Ranged (Heavy)",
-          "damage": 9,
+          "baseDamage": 9,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 4,
@@ -15893,7 +16016,7 @@
         {
           "name": "SE-14r Light Repeating Blaster",
           "skill": "Ranged (Light)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 2,
@@ -15908,7 +16031,7 @@
         {
           "name": "VX Sidewinder Repeating Blaster",
           "skill": "Gunnery",
-          "damage": 12,
+          "baseDamage": 12,
           "criticalRating": 3,
           "range": "Long",
           "encumbrance": 8,
@@ -15925,7 +16048,7 @@
         {
           "name": "HOB Heavy Repeating Blaster",
           "skill": "Gunnery",
-          "damage": 15,
+          "baseDamage": 15,
           "criticalRating": 3,
           "range": "Extreme",
           "encumbrance": 10,
@@ -15942,7 +16065,7 @@
         {
           "name": "Assault Carbine",
           "skill": "Ranged (Heavy)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 5,
           "range": "Short",
           "encumbrance": 4,
@@ -15957,7 +16080,7 @@
         {
           "name": "Fiver Pistol",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 2,
@@ -15972,7 +16095,7 @@
         {
           "name": "Flamestrike",
           "skill": "Gunnery",
-          "damage": 9,
+          "baseDamage": 9,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 8,
@@ -15989,7 +16112,7 @@
         {
           "name": "Flechette Launcher (Anti-Infantry)",
           "skill": "Gunnery",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 6,
@@ -16008,7 +16131,7 @@
         {
           "name": "Flechette Launcher (Anti_Vehicle)",
           "skill": "Gunnery",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 2,
           "range": "Medium",
           "encumbrance": 6,
@@ -16026,7 +16149,7 @@
         {
           "name": "Grenade Launcher",
           "skill": "Gunnery",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 4,
           "range": "Medium",
           "encumbrance": 85,
@@ -16042,7 +16165,7 @@
         {
           "name": "Blast Knuckles",
           "skill": "Brawl",
-          "damage": 4,
+          "baseDamage": 4,
           "criticalRating": 4,
           "range": "Engaged",
           "encumbrance": 2,
@@ -16056,7 +16179,7 @@
         {
           "name": "Vamblade",
           "skill": "Brawl",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 2,
@@ -16070,7 +16193,7 @@
         {
           "name": "Vibroknuclkes",
           "skill": "Brawl",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 1,
@@ -16085,7 +16208,7 @@
         {
           "name": "Ryyk Blade",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 3,
@@ -16101,7 +16224,7 @@
         {
           "name": "Therm-Ax",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 4,
@@ -16117,7 +16240,7 @@
         {
           "name": "Vibro-Greatsword",
           "skill": "Melee",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 4,
@@ -16133,7 +16256,7 @@
         {
           "name": "X-30 Lancer",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Long",
           "encumbrance": 1,
@@ -16148,7 +16271,7 @@
         {
           "name": "E-11s",
           "skill": "Ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 3,
           "range": "Extreme",
           "encumbrance": 6,
@@ -16165,7 +16288,7 @@
         {
           "name": "LBR-9",
           "skill": "Ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 0,
           "range": "Long",
           "encumbrance": 6,
@@ -16180,7 +16303,7 @@
         {
           "name": "Model 77",
           "skill": "Ranged (Heavy)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 0,
           "range": "Long",
           "encumbrance": 3,
@@ -16195,7 +16318,7 @@
         {
           "name": "Model 38",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 3,
           "range": "Extreme",
           "encumbrance": 5,
@@ -16210,7 +16333,7 @@
         {
           "name": "Hammer",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 5,
@@ -16225,7 +16348,7 @@
         {
           "name": "Net Gun",
           "skill": "Ranged (Heavy)",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 0,
           "range": "Short",
           "encumbrance": 4,
@@ -16239,7 +16362,7 @@
         {
           "name": "Glop Grenade",
           "skill": "Ranged (Light)",
-          "damage": 0,
+          "baseDamage": 0,
           "criticalRating": 0,
           "range": "Short",
           "encumbrance": 1,
@@ -16254,7 +16377,7 @@
         {
           "name": "G9-GP Pulse Drill",
           "skill": "Melee",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Long",
           "encumbrance": 1,
@@ -16269,7 +16392,7 @@
         {
           "name": "Huntsman Vibrospear",
           "skill": "Melee",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 4,
@@ -16284,7 +16407,7 @@
         {
           "name": "Mk VIII Vibrosaw",
           "skill": "Melee",
-          "damage": 4,
+          "baseDamage": 4,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 6,
@@ -16301,7 +16424,7 @@
         {
           "name": "12 Defender",
           "skill": "Ranged (Light)",
-          "damage": 4,
+          "baseDamage": 4,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 6,
@@ -16318,7 +16441,7 @@
         {
           "name": "12 Defender",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 5,
           "range": "Short",
           "encumbrance": 1,
@@ -16333,7 +16456,7 @@
         {
           "name": "Quickfire",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 1,
@@ -16347,7 +16470,7 @@
         {
           "name": "Sonic Rifle",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 6,
           "range": "Long",
           "encumbrance": 4,
@@ -16363,7 +16486,7 @@
         {
           "name": "Spray Stick",
           "skill": "Ranged (Heavy)",
-          "damage": 0,
+          "baseDamage": 0,
           "criticalRating": 0,
           "range": "Long",
           "encumbrance": 4,
@@ -16380,7 +16503,7 @@
         {
           "name": "Suppressor",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 0,
           "range": "Medium",
           "encumbrance": 4,
@@ -16396,7 +16519,7 @@
         {
           "name": "Tangle Gun",
           "skill": "Ranged (Heavy)",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 2,
@@ -16410,7 +16533,7 @@
         {
           "name": "Czerka Arms A95 Stingbeam",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 1,
@@ -16425,7 +16548,7 @@
         {
           "name": "Czerka Arms 411 Holdout Blaster",
           "skill": "Ranged (Light)",
-          "damage": 4,
+          "baseDamage": 4,
           "criticalRating": 4,
           "range": "Medium",
           "encumbrance": 1,
@@ -16439,7 +16562,7 @@
         {
           "name": "Liquidsilver L7 Light Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 1,
@@ -16453,7 +16576,7 @@
         {
           "name": "Merr-Sonn Model 53 'Quicktrigger' Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 1,
@@ -16467,7 +16590,7 @@
         {
           "name": "Raider Arms Model 1 'Nova Viper' Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 2,
@@ -16483,7 +16606,7 @@
         {
           "name": "Czerka Arms C-10 'Dragoneye Reaper' Heavy Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 3,
@@ -16497,7 +16620,7 @@
         {
           "name": "Herloss HBt-4 Hunting Blaster",
           "skill": "Ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 5,
@@ -16512,7 +16635,7 @@
         {
           "name": "Corondexx VES-700 Pulse Rifle",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 4,
@@ -16527,7 +16650,7 @@
         {
           "name": "Felebreck Droid Disabler",
           "skill": "Ranged (Light)",
-          "damage": 12,
+          "baseDamage": 12,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 1,
@@ -16543,7 +16666,7 @@
         {
           "name": "FWG-5 Flechette Pistol",
           "skill": "Ranged (Light)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 1,
@@ -16558,7 +16681,7 @@
         {
           "name": "Adostic Arms 8-Gauge Scatter Gun",
           "skill": "Ranged (Heavy)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 6,
           "range": "Short",
           "encumbrance": 1,
@@ -16573,7 +16696,7 @@
         {
           "name": "Ascian Throwing Dagger",
           "skill": "Ranged (Light)",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 1,
@@ -16588,7 +16711,7 @@
         {
           "name": "Knockout Grenade",
           "skill": "Ranged (Light)",
-          "damage": 12,
+          "baseDamage": 12,
           "criticalRating": 0,
           "range": "Short",
           "encumbrance": 1,
@@ -16604,7 +16727,7 @@
         {
           "name": "SSB-1 Static Pistol",
           "skill": "Ranged (Light)",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 2,
@@ -16619,7 +16742,7 @@
         {
           "name": "TaggeCo CryoBan Projector",
           "skill": "Ranged (Heavy)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 3,
@@ -16635,7 +16758,7 @@
         {
           "name": "Shock Boots",
           "skill": "Brawl",
-          "damage": 0,
+          "baseDamage": 0,
           "criticalRating": 5,
           "range": "Engaged",
           "encumbrance": 2,
@@ -16650,7 +16773,7 @@
         {
           "name": "Punch Dagger",
           "skill": "Melee",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 1,
@@ -16664,7 +16787,7 @@
         {
           "name": "Vibrorapier",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 2,
@@ -16679,7 +16802,7 @@
         {
           "name": "Blade-breaker",
           "skill": "Melee",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 1,
@@ -16695,7 +16818,7 @@
         {
           "name": "Boonta Blaster",
           "skill": "Ranged (Light)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 1,
@@ -16709,7 +16832,7 @@
         {
           "name": "Greff-Timms ATA Pulse-Wave Blaster",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 2,
@@ -16723,7 +16846,7 @@
         {
           "name": "Greff-Timms ATA Pulse-Wave Blaster",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 2,
@@ -16737,7 +16860,7 @@
         {
           "name": "ACP Repeater Gun",
           "skill": "Ranged (Heavy)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 3,
@@ -16752,7 +16875,7 @@
         {
           "name": "Weequay Blaster Lance",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 3,
           "range": "Extreme",
           "encumbrance": 5,
@@ -16767,7 +16890,7 @@
         {
           "name": "SakTek D-29 Repulsor Rifle",
           "skill": "Gunnery",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 4,
           "range": "Medium",
           "encumbrance": 3,
@@ -16783,7 +16906,7 @@
         {
           "name": "Kelvarek Consolidated Arms KD-30 'Dissuader' Pistol",
           "skill": "Ranged (Light)",
-          "damage": 4,
+          "baseDamage": 4,
           "criticalRating": 5,
           "range": "Short",
           "encumbrance": 2,
@@ -16798,7 +16921,7 @@
         {
           "name": "Prax Arms Stealth-2VX Palm Shooter",
           "skill": "Ranged (Light)",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 5,
           "range": "Short",
           "encumbrance": 0,
@@ -16812,7 +16935,7 @@
         {
           "name": "Vodran Hunting Rifle",
           "skill": "Ranged (Heavy)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 4,
           "range": "Long",
           "encumbrance": 4,
@@ -16826,7 +16949,7 @@
         {
           "name": "Tenloss L70 Acid Projector",
           "skill": "Ranged (Heavy)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 4,
@@ -16842,7 +16965,7 @@
         {
           "name": "Poison Gas Grenade",
           "skill": "Ranged (Light)",
-          "damage": 0,
+          "baseDamage": 0,
           "criticalRating": 0,
           "range": "Short",
           "encumbrance": 1,
@@ -16857,7 +16980,7 @@
         {
           "name": "Arg'garok",
           "skill": "Melee",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 5,
@@ -16874,7 +16997,7 @@
         {
           "name": "Beastmaster's Vibro-glave",
           "skill": "Melee",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 3,
@@ -16889,7 +17012,7 @@
         {
           "name": "Morgukai Cortosis Staff",
           "skill": "Melee",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 1,
           "range": "Engaged",
           "encumbrance": 3,
@@ -16905,7 +17028,7 @@
         {
           "name": "Neuronic Whip",
           "skill": "Melee",
-          "damage": 1,
+          "baseDamage": 1,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 1,
@@ -16921,7 +17044,7 @@
         {
           "name": "Tuskbeast Pike",
           "skill": "Melee",
-          "damage": 4,
+          "baseDamage": 4,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 3,
@@ -16936,7 +17059,7 @@
         {
           "name": "CDEF Pistol",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Medium",
           "encumbrance": 1,
@@ -16951,7 +17074,7 @@
         {
           "name": "Dueling Pistol",
           "skill": "Ranged (Light)",
-          "damage": 9,
+          "baseDamage": 9,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 2,
@@ -16967,7 +17090,7 @@
         {
           "name": "HL-27 Light Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 1,
@@ -16982,7 +17105,7 @@
         {
           "name": "XL-2 'Flashfire' Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 1,
@@ -16997,7 +17120,7 @@
         {
           "name": "H-7 'Equalizer' Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 2,
           "range": "Medium",
           "encumbrance": 2,
@@ -17012,7 +17135,7 @@
         {
           "name": "Spukami Pocket Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 1,
@@ -17026,7 +17149,7 @@
         {
           "name": "CR-2 Heavy Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 4,
           "range": "Medium",
           "encumbrance": 2,
@@ -17040,7 +17163,7 @@
         {
           "name": "SKZ Sporting Blaster",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 2,
           "range": "Medium",
           "encumbrance": 2,
@@ -17055,7 +17178,7 @@
         {
           "name": "ASP-9 Autopistol",
           "skill": "Ranged (Light)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 2,
           "range": "Medium",
           "encumbrance": 1,
@@ -17069,7 +17192,7 @@
         {
           "name": "Mark V Hunting Rifle",
           "skill": "Ranged (Heavy)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 5,
           "range": "Long",
           "encumbrance": 5,
@@ -17084,7 +17207,7 @@
         {
           "name": "Selonian Shard Shooter",
           "skill": "Ranged (Heavy)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 3,
           "range": "Medium",
           "encumbrance": 4,
@@ -17099,7 +17222,7 @@
         {
           "name": "Corellian Compound Bow",
           "skill": "Ranged (Heavy)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 5,
           "range": "Medium",
           "encumbrance": 3,
@@ -17116,7 +17239,7 @@
         {
           "name": "Styanax Lance",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 8,
@@ -17133,7 +17256,7 @@
         {
           "name": "Corellian Cutlass",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 2,
@@ -17148,7 +17271,7 @@
         {
           "name": "J-7b Beamdrill",
           "skill": "Melee",
-          "damage": 9,
+          "baseDamage": 9,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 6,
@@ -17165,7 +17288,7 @@
         {
           "name": "Drall Flashstick",
           "skill": "Melee",
-          "damage": 9,
+          "baseDamage": 9,
           "criticalRating": 0,
           "range": "Engaged",
           "encumbrance": 2,
@@ -17180,7 +17303,7 @@
         {
           "name": "Selonian Glaive",
           "skill": "Melee",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 5,
@@ -17195,7 +17318,7 @@
         {
           "name": "'Precision-X' Marksman Rifle",
           "skill": "Ranged (Heavy)",
-          "damage": 9,
+          "baseDamage": 9,
           "criticalRating": 3,
           "range": "Long",
           "encumbrance": 5,
@@ -17210,7 +17333,7 @@
         {
           "name": "'Subduer-9' Riot Blaster",
           "skill": "Ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 6,
           "range": "Short",
           "encumbrance": 6,
@@ -17226,7 +17349,7 @@
         {
           "name": "'Firecaller' Light Flame Projector",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 4,
@@ -17243,7 +17366,7 @@
         {
           "name": "Grapnel-Harpoon Launcher",
           "skill": "Ranged (Light)",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 5,
           "range": "Medium",
           "encumbrance": 2,
@@ -17257,7 +17380,7 @@
         {
           "name": "Nova Design 'Impact' Repulsor Cannon",
           "skill": "Ranged (Heavy)",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 6,
           "range": "Medium",
           "encumbrance": 5,
@@ -17275,7 +17398,7 @@
         {
           "name": "'Firecaller' Light Flame Projector",
           "skill": "Ranged (Heavy)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 4,
@@ -17292,7 +17415,7 @@
         {
           "name": "Anti-Armor Micro-Rocket",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 1,
@@ -17307,7 +17430,7 @@
         {
           "name": "Explosive Micro-Rocket",
           "skill": "Ranged (Heavy)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 1,
@@ -17322,7 +17445,7 @@
         {
           "name": "Flechette Micro-Rocket",
           "skill": "Ranged (Heavy)",
-          "damage": 6,
+          "baseDamage": 6,
           "criticalRating": 2,
           "range": "Short",
           "encumbrance": 1,
@@ -17338,7 +17461,7 @@
         {
           "name": "Incendiary Micro-Rocket",
           "skill": "Ranged (Heavy)",
-          "damage": 8,
+          "baseDamage": 8,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 1,
@@ -17354,7 +17477,7 @@
         {
           "name": "Ion Micro-Rocket",
           "skill": "Ranged (Heavy)",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 3,
           "range": "Short",
           "encumbrance": 1,
@@ -17370,7 +17493,7 @@
         {
           "name": "Micro-Rocket Launcher Pistol",
           "skill": "Ranged (Light)",
-          "damage": 0,
+          "baseDamage": 0,
           "criticalRating": 0,
           "range": "Medium",
           "encumbrance": 3,
@@ -17381,7 +17504,7 @@
         {
           "name": "Czerka 'Peacekeeper' Stun Baton",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 4,
           "range": "Engaged",
           "encumbrance": 3,
@@ -17397,7 +17520,7 @@
         {
           "name": "Ion Pike",
           "skill": "Melee",
-          "damage": 10,
+          "baseDamage": 10,
           "criticalRating": 3,
           "range": "Engaged",
           "encumbrance": 2,
@@ -17413,7 +17536,7 @@
         {
           "name": "BlasTech DL-19C Blaster Pistol",
           "skill": "Ranged (Light)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Medium",
           "encumbrance": 1,
@@ -17427,7 +17550,7 @@
         {
           "name": "DDC MR6 Modular Rifle",
           "skill": "Ranged (Heavy)",
-          "damage": 7,
+          "baseDamage": 7,
           "criticalRating": 4,
           "range": "Medium",
           "encumbrance": 3,
@@ -17441,7 +17564,7 @@
         {
           "name": "Electromag-Pulse Disruptor",
           "skill": "Melee",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Engaged",
           "encumbrance": 1,
@@ -17456,7 +17579,7 @@
         {
           "name": "Ion Thruster Gun",
           "skill": "Ranged (Heavy)",
-          "damage": 5,
+          "baseDamage": 5,
           "criticalRating": 4,
           "range": "Short",
           "encumbrance": 8,
@@ -17473,7 +17596,7 @@
         {
           "name": "Multi-Goo Gun",
           "skill": "Ranged (Light)",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 0,
           "range": "Short",
           "encumbrance": 2,
@@ -17489,7 +17612,7 @@
         {
           "name": "Repulsor Gun",
           "skill": "Ranged (Heavy)",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 5,
           "range": "Short",
           "encumbrance": 5,
@@ -17503,7 +17626,7 @@
         {
           "name": "Rivet Gun",
           "skill": "Ranged (Light)",
-          "damage": 4,
+          "baseDamage": 4,
           "criticalRating": 3,
           "range": "Rngaged",
           "encumbrance": 4,
@@ -17519,7 +17642,7 @@
         {
           "name": "Hand Grinder",
           "skill": "Melee",
-          "damage": 2,
+          "baseDamage": 2,
           "criticalRating": 4,
           "range": "Engaged",
           "encumbrance": 5,
@@ -17535,7 +17658,7 @@
         {
           "name": "Welding Rod",
           "skill": "Melee",
-          "damage": 3,
+          "baseDamage": 3,
           "criticalRating": 2,
           "range": "Engaged",
           "encumbrance": 4,
@@ -17659,7 +17782,6 @@
           "encumbrance": 7,
           "hardpoints": 2,
           "rarity": 4
-
         }
       ]
     },
@@ -17749,7 +17871,7 @@
             {
               "name": "Cybernetic Weapon",
               "skill": "ranged (Light)",
-              "damage": 5,
+              "baseDamage": 5,
               "criticalRating": 4,
               "range": "Medium",
               "encumbrance": 1,
@@ -17822,7 +17944,7 @@
             {
               "name": "Repulsor Fist",
               "skill": "brawl",
-              "damage": 8,
+              "baseDamage": 8,
               "criticalRating": 3,
               "range": "melee",
               "special": [
