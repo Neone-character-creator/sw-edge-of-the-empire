@@ -17808,6 +17808,38 @@
           "encumbrance": 1,
           "hardpoints": 1,
           "rarity": 8
+        },
+        {
+          "name": "Catch Vest",
+          "defense": 0,
+          "soak": 2,
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "rarity": 3
+        },
+        {
+          "name": "Nomad Greatcoat",
+          "defense": 0,
+          "soak": 1,
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "rarity": 4
+        },
+        {
+          "name": "Type III 'Berethron' Armor",
+          "defense": 1,
+          "soak": 1,
+          "encumbrance": 3,
+          "hardpoints": 3,
+          "rarity": 6
+        },
+        {
+          "name": "Combat Flight Suit",
+          "defense": 1,
+          "soak": 0,
+          "encumbrance": 4,
+          "hardpoints": 2,
+          "rarity": 6
         }
       ]
     },
