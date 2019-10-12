@@ -15443,7 +15443,7 @@
       "values": [
         {
           "name": "Micro Missile Launcher",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 0,
           "criticalRating": 0,
           "range": "Medium",
@@ -15453,7 +15453,7 @@
         },
         {
           "name": "Holdout Blaster",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 5,
           "criticalRating": 4,
           "range": "Short",
@@ -15467,7 +15467,7 @@
         },
         {
           "name": "Light Blaster Pistol",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 5,
           "criticalRating": 4,
           "range": "Medium",
@@ -15481,7 +15481,7 @@
         },
         {
           "name": "Blaster Pistol",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 6,
           "criticalRating": 3,
           "range": "Medium",
@@ -15495,7 +15495,7 @@
         },
         {
           "name": "Heavy Blaster Pistol",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 7,
           "criticalRating": 3,
           "range": "Medium",
@@ -15509,7 +15509,7 @@
         },
         {
           "name": "Blaster Carbine",
-          "skill": "ranged (Heavy)",
+          "skill": "Ranged (Heavy)",
           "baseDamage": 9,
           "criticalRating": 3,
           "range": "Medium",
@@ -15523,7 +15523,7 @@
         },
         {
           "name": "Blaster Rifle",
-          "skill": "ranged (Heavy)",
+          "skill": "Ranged (Heavy)",
           "baseDamage": 9,
           "criticalRating": 3,
           "range": "Long",
@@ -15537,7 +15537,7 @@
         },
         {
           "name": "Heavy Blaster Rifle",
-          "skill": "ranged (Heavy)",
+          "skill": "Ranged (Heavy)",
           "baseDamage": 10,
           "criticalRating": 3,
           "range": "Long",
@@ -15552,7 +15552,7 @@
         },
         {
           "name": "Light Repeating Blaster",
-          "skill": "ranged (Heavy)",
+          "skill": "Ranged (Heavy)",
           "baseDamage": 11,
           "criticalRating": 3,
           "range": "Long",
@@ -15587,7 +15587,7 @@
         },
         {
           "name": "Bowcaster",
-          "skill": "ranged (Heavy)",
+          "skill": "Ranged (Heavy)",
           "baseDamage": 10,
           "criticalRating": 3,
           "range": "Medium",
@@ -15602,7 +15602,7 @@
         },
         {
           "name": "Ionization Blaster",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 10,
           "criticalRating": 5,
           "range": "Short",
@@ -15617,7 +15617,7 @@
         },
         {
           "name": "Disruptor Pistol",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 10,
           "criticalRating": 2,
           "range": "Short",
@@ -15632,7 +15632,7 @@
         },
         {
           "name": "Disruptor Rifle",
-          "skill": "ranged (Heavy)",
+          "skill": "Ranged (Heavy)",
           "baseDamage": 10,
           "criticalRating": 2,
           "range": "Long",
@@ -15648,7 +15648,7 @@
         },
         {
           "name": "Slugthrower Pistol",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 4,
           "criticalRating": 5,
           "range": "Short",
@@ -15659,7 +15659,7 @@
         },
         {
           "name": "Slugthrower Rifle",
-          "skill": "ranged (Heavy)",
+          "skill": "Ranged (Heavy)",
           "baseDamage": 7,
           "criticalRating": 5,
           "range": "Medium",
@@ -15673,7 +15673,7 @@
         },
         {
           "name": "Bola / Net",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 2,
           "criticalRating": 0,
           "range": "Short",
@@ -15689,7 +15689,7 @@
         },
         {
           "name": "Flame Projector",
-          "skill": "ranged (Heavy)",
+          "skill": "Ranged (Heavy)",
           "baseDamage": 8,
           "criticalRating": 2,
           "range": "Short",
@@ -15724,7 +15724,7 @@
         },
         {
           "name": "Frag Grenade",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 8,
           "criticalRating": 4,
           "range": "Short",
@@ -15739,7 +15739,7 @@
         },
         {
           "name": "Stun Grenade",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 8,
           "criticalRating": 0,
           "range": "Short",
@@ -15756,7 +15756,7 @@
         },
         {
           "name": "Thermal Detonator",
-          "skill": "ranged (Light)",
+          "skill": "Ranged (Light)",
           "baseDamage": 20,
           "criticalRating": 2,
           "range": "Short",
@@ -17797,7 +17797,7 @@
           "naturalWeapons": [
             {
               "name": "Cybernetic Weapon",
-              "skill": "ranged (Light)",
+              "skill": "Ranged (Light)",
               "baseDamage": 5,
               "criticalRating": 4,
               "range": "Medium",
