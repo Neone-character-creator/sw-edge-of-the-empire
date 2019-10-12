@@ -17792,6 +17792,22 @@
           "encumbrance": 3,
           "hardpoints": 0,
           "rarity": 7
+        },
+        {
+          "name": "Hutt Shell Armor",
+          "defense": 2,
+          "soak": 2,
+          "encumbrance": 6,
+          "hardpoints": 4,
+          "rarity": 9
+        },
+        {
+          "name": "Sakiyan Shadowsuit",
+          "defense": 0,
+          "soak": 1,
+          "encumbrance": 1,
+          "hardpoints": 1,
+          "rarity": 8
         }
       ]
     },
