@@ -17709,6 +17709,65 @@
           "encumbrance": 7,
           "hardpoints": 2,
           "rarity": 4
+        },
+        {
+          "name": "Enviro-suit",
+          "defense": 0,
+          "soak": 2,
+          "price": 750,
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "rarity": 2
+        },
+        {
+          "name": "Shockrider Crash Suit",
+          "defense": 0,
+          "soak": 2,
+          "price": 3000,
+          "encumbrance": 2,
+          "hardpoints": 1,
+          "rarity": 3
+        },
+        {
+          "name": "Tracker Utility Vest",
+          "defense": 0,
+          "soak": 0,
+          "price": 100,
+          "encumbrance": 0,
+          "hardpoints": 1,
+          "rarity": 2
+        },
+        {
+          "name": "Mountaineer Armor",
+          "defense": 1,
+          "soak": 0,
+          "encumbrance": 3,
+          "hardpoints": 2,
+          "rarity": 6
+        },
+        {
+          "name": "Creshaldyne Riot Armor",
+          "defense": 1,
+          "soak": 1,
+          "encumbrance": 3,
+          "hardpoints": 1,
+          "rarity": 6
+        },
+        {
+          "name": "Kamperdine Armored Jackets",
+          "defense": 0,
+          "soak": 2,
+          "encumbrance": 1,
+          "hardpoints": 0,
+          "rarity": 7
+        },
+        {
+          "name": "Reinforced Environment Gear",
+          "defense": 0,
+          "soak": 1,
+          "encumbrance": 2,
+          "hardpoints": 2,
+          "rarity": 4
         }
       ]
     },
