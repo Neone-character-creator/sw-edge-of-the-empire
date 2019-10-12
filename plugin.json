@@ -1555,7 +1555,7 @@
             "type": "select",
             "bind": "$state.character.careerStartingSkills",
             "items": {
-              "translate": "# _.upperFirst($this)",
+              "translate": "# $models.skills.prototype.definition[$this].value.name",
               "maxSelections": "# $state.character.species && $state.character.species.startingCareerSkillChoices",
               "values": "# _.get($state, 'character.career.careerSkills', [])"
             }
@@ -1591,7 +1591,7 @@
             "type": "select",
             "bind": "$state.character.specializationStartingSkills",
             "items": {
-              "translate": "# _.upperFirst($this)",
+              "translate": "# $models.skills.prototype.definition[$this].value.name",
               "maxSelections": "# $state.character.species && $state.character.species.startingSpecializationSkillChoices",
               "values": "# _.get($state, 'character.specializations[0].careerSkills', [])"
             }
@@ -2633,16 +2633,16 @@
             "characteristic": "Cunning"
           }
         },
-        "pilotingPlanetary": {
-          "id": "pilotingPlanetary",
+        "piloting-planetary": {
+          "id": "piloting-planetary",
           "type": "skill",
           "value": {
             "name": "Piloting - Planetary ",
             "characteristic": "Agility"
           }
         },
-        "pilotingSpace": {
-          "id": "pilotingSpace",
+        "piloting-space": {
+          "id": "piloting-space",
           "type": "skill",
           "value": {
             "name": "Piloting - Space",
@@ -3310,8 +3310,8 @@
             {
               "options": [
                 "brawl",
-                "ranged-heavy",
-                "ranged-light"
+                "rangedHeavy",
+                "rangedLight"
               ],
               "choices": 1
             }
@@ -4288,7 +4288,7 @@
             "perception",
             "piloting-planetary",
             "piloting-space",
-            "ranged-heavy",
+            "rangedHeavy",
             "streetwise",
             "streetwise",
             "vigilance"
@@ -4360,7 +4360,7 @@
             "discipline",
             "melee",
             "piloting-planetary",
-            "ranged-light",
+            "rangedLight",
             "resilience",
             "vigilance"
           ],
@@ -4443,7 +4443,7 @@
           "name": "Assassin",
           "careerSkills": [
             "melee",
-            "ranged-heavy",
+            "rangedHeavy",
             "skulduggery",
             "stealth"
           ],
@@ -4691,7 +4691,7 @@
             "brawl",
             "coercion",
             "mechanics",
-            "ranged-light"
+            "rangedLight"
           ],
           "requires": [
             "#$state.character.career.name === 'Bounty Hunter'"
@@ -6591,7 +6591,7 @@
             "gunnery",
             "perception",
             "piloting-planetary",
-            "ranged-heavy"
+            "rangedHeavy"
           ],
           "requires": [
             "#$state.character.career.name === 'Hired Gun'"
@@ -7078,7 +7078,7 @@
             "discipline",
             "gunnery",
             "leadership",
-            "ranged-heavy"
+            "rangedHeavy"
           ],
           "requires": [
             "#$state.character.career.name === 'Hired Gun'"
@@ -7569,7 +7569,7 @@
             "charm",
             "cool",
             "deception",
-            "ranged-light"
+            "rangedLight"
           ],
           "requires": [
             "#$state.character.career.name === 'Smuggler'"
@@ -10032,7 +10032,7 @@
           "careerSkills": [
             "gunnery",
             "perception",
-            "ranged-heavy",
+            "rangedHeavy",
             "resilience"
           ],
           "requires": [
@@ -10465,7 +10465,7 @@
           "name": "Big-Game Hunter",
           "careerSkills": [
             "knowledge-xenology",
-            "ranged-heavy",
+            "rangedHeavy",
             "stealth",
             "survival"
           ],
@@ -11180,7 +11180,7 @@
           "careerSkills": [
             "coercion",
             "knowledge-underworld",
-            "ranged-light",
+            "rangedLight",
             "vigilance"
           ],
           "requires": [
@@ -12148,7 +12148,7 @@
             "coercion",
             "cool",
             "knowledge-outer rim",
-            "ranged-light"
+            "rangedLight"
           ],
           "requires": [
             "#$state.character.career.name === 'Smuggler'"
@@ -19156,12 +19156,12 @@
           "skill": "perception"
         },
         {
-          "id": "pilotingPlanetary",
-          "skill": "pilotingPlanetary"
+          "id": "piloting-planetary",
+          "skill": "piloting-planetary"
         },
         {
-          "id": "pilotingSpace",
-          "skill": "pilotingSpace"
+          "id": "piloting-space",
+          "skill": "piloting-space"
         },
         {
           "id": "resilience",
