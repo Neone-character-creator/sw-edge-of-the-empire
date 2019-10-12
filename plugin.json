@@ -17880,6 +17880,26 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Biofeedback Regulator",
+          "cost": 3000
+        },
+        {
+          "name": "Escape Circuit",
+          "cost": 1000
+        },
+        {
+          "name": "Network Slicing Uplink",
+          "cost": 1250
+        },
+        {
+          "name": "Neural Recorder",
+          "cost": 250
+        },
+        {
+          "name": "Surge Override Switch",
+          "cost": 1000
         }
       ]
     },
