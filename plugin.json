@@ -1671,7 +1671,7 @@
                   {
                     "name": "addWeapon",
                     "type": "button",
-                    "text": "# 'Add'",
+                    "text": "Add",
                     "weight": 1,
                     "disabledWhen": "# !_.get($state, 'selectedWeapon')",
                     "action": "# {type:'PUSH', path:'$state.character.weapons', value:$state.selectedWeapon}"
@@ -4215,6 +4215,11 @@
           "path": "$state.character.characteristics.presence",
           "action": "ADD",
           "value": "#$this.source.baseCharacteristics.presence"
+        },
+        {
+          "path": "$state.character.characteristics.willpower",
+          "action": "ADD",
+          "value": "#$this.source.baseCharacteristics.willpower"
         },
         {
           "path": "$state.character.totalExperience",
@@ -15331,7 +15336,7 @@
       "properties": {
         "id": "string",
         "name": "string",
-        "baseDamage": "number",
+        "damage": "number",
         "criticalRating": "number",
         "type": "string",
         "encumbrance": "number",
@@ -17410,84 +17415,6 @@
             "Burn 2",
             "Pierce 2",
             "Vicious 3"
-          ]
-        },
-        {
-          "name": "Anti-Armor Micro-Rocket",
-          "skill": "Ranged (Heavy)",
-          "baseDamage": 8,
-          "criticalRating": 4,
-          "range": "Short",
-          "encumbrance": 1,
-          "hardpoints": 1,
-          "price": 300,
-          "rarity": 5,
-          "special": [
-            "Breach 1",
-            "Limited Ammo 1"
-          ]
-        },
-        {
-          "name": "Explosive Micro-Rocket",
-          "skill": "Ranged (Heavy)",
-          "baseDamage": 7,
-          "criticalRating": 2,
-          "range": "Short",
-          "encumbrance": 1,
-          "hardpoints": 1,
-          "price": 150,
-          "rarity": 4,
-          "special": [
-            "Blast 6",
-            "Limited Ammo 1"
-          ]
-        },
-        {
-          "name": "Flechette Micro-Rocket",
-          "skill": "Ranged (Heavy)",
-          "baseDamage": 6,
-          "criticalRating": 2,
-          "range": "Short",
-          "encumbrance": 1,
-          "hardpoints": 1,
-          "price": 175,
-          "rarity": 5,
-          "special": [
-            "Blast 5",
-            "Vicious 2",
-            "Limited Ammo 1"
-          ]
-        },
-        {
-          "name": "Incendiary Micro-Rocket",
-          "skill": "Ranged (Heavy)",
-          "baseDamage": 8,
-          "criticalRating": 3,
-          "range": "Short",
-          "encumbrance": 1,
-          "hardpoints": 1,
-          "price": 175,
-          "rarity": 5,
-          "special": [
-            "Blast 6",
-            "Burn 2",
-            "Limited Ammo 1"
-          ]
-        },
-        {
-          "name": "Ion Micro-Rocket",
-          "skill": "Ranged (Heavy)",
-          "baseDamage": 10,
-          "criticalRating": 3,
-          "range": "Short",
-          "encumbrance": 1,
-          "hardpoints": 1,
-          "price": 100,
-          "rarity": 5,
-          "special": [
-            "Ion",
-            "Sunder",
-            "Limited Ammo 1"
           ]
         },
         {
