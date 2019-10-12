@@ -17840,6 +17840,37 @@
           "encumbrance": 4,
           "hardpoints": 2,
           "rarity": 6
+        },
+        {
+          "name": "Armored Drop Suit",
+          "defense": 1,
+          "soak": 1,
+          "encumbrance": 6,
+          "hardpoints": 2,
+          "rarity": 7
+        },
+        {
+          "name": "Hunter's Trophy Armor (completed)",
+          "defense": 0,
+          "soak": 2,
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "rarity": 9
+        },
+        {
+          "name": "Hunter's Trophy Armor (custom-made)",
+          "defense": 0,
+          "soak": 2,
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "rarity": 6
+        },
+        {
+          "name": "Mandalorian Armor",
+          "defense": 1,
+          "soak": 2,
+          "encumbrance": 5,
+          "rarity": 8
         }
       ]
     },
