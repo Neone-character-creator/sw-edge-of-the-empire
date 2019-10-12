@@ -17768,6 +17768,30 @@
           "encumbrance": 2,
           "hardpoints": 2,
           "rarity": 4
+        },
+        {
+          "name": "Blast Vest",
+          "defense": 0,
+          "soak": 1,
+          "encumbrance": 3,
+          "hardpoints": 1,
+          "rarity": 3
+        },
+        {
+          "name": "Mimetic Suit",
+          "defense": 1,
+          "soak": 1,
+          "encumbrance": 2,
+          "hardpoints": 2,
+          "rarity": 8
+        },
+        {
+          "name": "Smuggler's Trenchcoat",
+          "defense": 1,
+          "soak": 1,
+          "encumbrance": 3,
+          "hardpoints": 0,
+          "rarity": 7
         }
       ]
     },
