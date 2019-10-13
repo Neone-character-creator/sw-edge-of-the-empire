@@ -1036,7 +1036,7 @@
                         "type": "textfield",
                         "label": "Special",
                         "weight": 2,
-                        "value": "#$this.special"
+                        "value": "# ($this.special || []).concat(_.get($this, 'activeAmmo.special'))"
                       }
                     ]
                   }
@@ -1801,7 +1801,7 @@
                             "type": "textfield",
                             "label": "Special",
                             "weight": 2,
-                            "value": "#$this.special"
+                            "value": "# ($this.special || []).concat(_.get($this, 'activeAmmo.special'))"
                           }
                         ]
                       }
