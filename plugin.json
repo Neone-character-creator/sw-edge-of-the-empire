@@ -17630,19 +17630,35 @@
           "id": "augmented-spin-barrel",
           "name": "Augmented Spin Barrel",
           "hardpointsRequired": 2,
-          "damageModifier": 1
+          "damageModifier": 1,
+          "options": [
+            "weapon-damage",
+            "weapon-damage-2",
+            "weapon-quality-accurate",
+            "weapon-quality-pierce"
+          ]
         },
         {
           "id": "balanced-hilt",
           "name": "Balanced Hilt",
           "hardpointsRequires": 2,
-          "weaponQuality": "Accurate (+1)"
+          "weaponQuality": "Accurate (+1)",
+          "options": [
+            "weapon-quality-accurate",
+            "decrease-encumbrance"
+          ]
         },
         {
           "id": "blaster-actuating-module",
           "name": "Blaster Actuating Module",
           "damageModifier": 1,
-          "hardpointsRequired": 1
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-damage",
+            "weapon-damage-2",
+            "weapon-quality-pierce-1",
+            "weapon-quality-pierce-2"
+          ]
         },
         {
           "id": "bipod-mount",
@@ -17652,44 +17668,77 @@
         {
           "id": "bowcaster-automatic-recocker",
           "name": "Bowcaster Automatic Recocker",
-          "hardpointsRequired": 1
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-quality-autofire"
+          ]
         },
         {
           "id": "bowcaster-accelerator-enhancement",
           "name": "Bowcaster Accelerator Enhancement",
           "damageModifier": 1,
-          "hardpointsRequired": 1
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-damage",
+            "weapon-damage-2",
+            "weapon-quality-pierce-1",
+            "weapon-quality-pierce-2"
+          ]
         },
         {
           "id": "filed-front-sight",
           "name": "Filed Front Sight",
-          "innateTalent": "quick-draw"
+          "innateTalent": "quick-draw",
+          "options": [
+            "reduced-concealment-difficulty"
+          ]
         },
         {
           "id": "forearm-grip",
           "name": "Forearm Grip",
-          "hardpointsRequired": 1
+          "hardpointsRequired": 1,
+          "options": [
+            "talent-point-blank",
+            "weapon-quality-accurate"
+          ]
         },
         {
           "id": "marksman-barrel",
           "name": "Marksman Barrel",
-          "weaponQuality": "Cumbersome 2"
+          "weaponQuality": "Cumbersome 2",
+          "options": [
+            "weapon-quality-accurate",
+            "weapon-quality-accurate-2",
+            "talent-sniper-shot"
+          ]
         },
         {
           "id": "mono-molecular-edge",
           "name": "Mono-Molecular Edge",
-          "critRatingModifier": -1
+          "critRatingModifier": -1,
+          "options": [
+            "weapon-quality-pierce",
+            "weapon-quality-pierce-2"
+          ]
         },
         {
           "id": "multi-optic-sight",
           "name": "Multi-Optic Sight",
-          "hardpointsRequired": 1
+          "hardpointsRequired": 1,
+          "options": [
+            "skill-perception",
+            "skill-perception-2"
+          ]
         },
         {
           "id": "spread-barrel",
           "name": "Spread Barrel",
           "weaponQuality": "Blast 4",
-          "hardpointsRequired": 2
+          "hardpointsRequired": 2,
+          "options": [
+            "weapon-quality-blast",
+            "weapon-quality-blast-2"
+          ]
         },
         {
           "id": "serrated-edge",
@@ -17706,13 +17755,23 @@
         {
           "id": "shortened-barrel",
           "name": "Shortened Barrel",
-          "hardpointsRequired": 1
+          "hardpointsRequired": 1,
+          "options": [
+            "talent-quick-draw"
+          ]
         },
         {
           "id": "under-barrel-grenade-launcher",
           "name": "Under-Barrel Grenade Launcher",
           "weaponQuality": "Cumbersome 1",
-          "hardpointsRequired": 2
+          "hardpointsRequired": 2,
+          "options": [
+            "limited-ammo",
+            "limited-ammo-2",
+            "limited-ammo-3",
+            "limited-ammo-4",
+            "limited-ammo-5"
+          ]
         },
         {
           "id": "under-barrel-flame-projector",
@@ -17728,22 +17787,36 @@
         {
           "id": "tripod-mount",
           "name": "Tripod Mount",
-          "hardpointsRequired": 2
+          "hardpointsRequired": 2,
+          "options": [
+            "cumbersome",
+            "cumbersome-2"
+          ]
         },
         {
           "id": "weapon-sling",
           "name": "Weapon Sling",
-          "hardpointsRequired": 1
+          "hardpointsRequired": 1,
+          "options": [
+            "talent-quick-draw"
+          ]
         },
         {
           "id": "weapon-harness",
           "name": "Weapon Harness",
-          "hardpointsRequired": 2
+          "hardpointsRequired": 2,
+          "options": [
+            "talent-brace"
+          ]
         },
         {
           "id": "weighted-head",
           "name": "Weighted Head",
-          "damageModifier": 1
+          "damageModifier": 1,
+          "options": [
+            "weapon-damage",
+            "weapon-quality-concussive"
+          ]
         }
       ]
     },
@@ -17802,7 +17875,136 @@
       ]
     },
     "weaponAttachmentOption": {
-      "properties":{}
+      "properties": {
+        "id": "string",
+        "name": "string",
+        "damageModifier": "number",
+        "weaponQuality": "string",
+        "innateTalent": "string",
+        "skillBonus": "string",
+        "characteristicBonus": "string",
+        "hardpointsRequires": "number",
+        "critRatingModifier": "string",
+        "options": "[string]"
+      },
+      "values": [
+        {
+          "id": "weapon-damage",
+          "name": "Weapon Damage +1",
+          "damageModifier": 1
+        },
+        {
+          "id": "weapon-damage-2",
+          "name": "Weapon Damage +1",
+          "damageModifier": 1
+        },
+        {
+          "id": "weapon-quality-accurate",
+          "name": "Weapon Quality (Accurate)",
+          "weaponQuality": "Accurate 1"
+        },
+        {
+          "id": "weapon-quality-accurate-2",
+          "name": "Weapon Quality (Accurate)",
+          "weaponQuality": "Accurate 1"
+        },
+        {
+          "id": "weapon-quality-pierce",
+          "name": "Weapon Quality (Pierce)",
+          "weaponQuality": "Pierce 1"
+        },
+        {
+          "id": "weapon-quality-pierce-2",
+          "name": "Weapon Quality (Pierce)",
+          "weaponQuality": "Pierce 1"
+        },
+        {
+          "id": "decrease-encumbrance",
+          "name": "Decrease Encumbrance"
+        },
+        {
+          "id": "weapon-quality-autofire",
+          "name": "Weapon Quality (Autofire)"
+        },
+        {
+          "id": "reduced-concealment-difficulty",
+          "name": "Reduced Concealment Difficulty"
+        },
+        {
+          "id": "talent-point-blank",
+          "name": "Talent (Point Blank)",
+          "innateTalent": "point-blank"
+        },
+        {
+          "id": "talent-sniper-shot",
+          "name": "Talent (Sniper Shot)",
+          "innateTalent": "sniper-shot"
+        },
+        {
+          "id": "skill-perception",
+          "name": "Skill (Perception)",
+          "skillBonus": "perception"
+        },
+        {
+          "id": "skill-perception-2",
+          "name": "Skill (Perception)",
+          "skillBonus": "perception"
+        },
+        {
+          "id": "weapon-quality-blast",
+          "name": "Blast 1",
+          "weaponQuality": "Blast 1"
+        },
+        {
+          "id": "weapon-quality-blast-2",
+          "name": "Blast 1",
+          "weaponQuality": "Blast 1"
+        },
+        {
+          "id": "limited-ammo",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "limited-ammo-2",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "limited-ammo-3",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "limited-ammo-4",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "limited-ammo-5",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "cumbersome",
+          "name": "Cumbersome -1",
+          "weaponQuality": "Cumbersome -1"
+        },{
+          "id": "cumbersome-2",
+          "name": "Cumbersome -1",
+          "weaponQuality": "Cumbersome -1"
+        },
+        {
+          "id": "talent-brace",
+          "name": "Talent (Brace)",
+          "innateTalent": "brace"
+        },
+        {
+          "id": "weapon-quality-concussive",
+          "name": "Quality (Concussive +1)",
+          "weaponQuality": "Concussive 1"
+        }
+      ]
     },
     "armor": {
       "properties": {
