@@ -991,7 +991,7 @@
                         "type": "textfield",
                         "label": "Name",
                         "weight": 2,
-                        "bind": "$this.name"
+                        "value": "#$this.name"
                       },
                       {
                         "name": "summaryWeaponAmmo",
@@ -1008,35 +1008,35 @@
                         "type": "textfield",
                         "label": "Skill",
                         "weight": 1,
-                        "bind": "$this.skill"
+                        "value": "#$this.skill"
                       },
                       {
                         "name": "summaryWeaponDamage",
                         "type": "textfield",
                         "label": "Damage",
                         "weight": 1,
-                        "bind": "$this.damage"
+                        "value": "#$this.damage"
                       },
                       {
                         "name": "summaryWeaponRange",
                         "type": "textfield",
                         "label": "Range",
                         "weight": 1,
-                        "bind": "$this.range"
+                        "value": "#$this.range"
                       },
                       {
                         "name": "summaryWeaponCrit",
                         "type": "number",
                         "label": "Crit",
                         "weight": 1,
-                        "bind": "$this.criticalRating"
+                        "value": "#$this.criticalRating"
                       },
                       {
                         "name": "summaryWeaponSpecial",
                         "type": "textfield",
                         "label": "Special",
                         "weight": 2,
-                        "bind": "$this.special"
+                        "value": "#$this.special"
                       }
                     ]
                   }
@@ -1762,6 +1762,7 @@
                             "name": "weaponAmmo",
                             "type": "select",
                             "bind": "#'$state.character.weapons['+$index+'].activeAmmo'",
+                            "label": "Ammo",
                             "items": {
                               "text": "name",
                               "values": "# $models.ammo.values.filter(a => a.type === 'micro-missile')"
