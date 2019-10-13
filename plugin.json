@@ -2036,6 +2036,7 @@
                                 "bind": "#'$temp.selectedArmorAttachment[' + $index + ']'",
                                 "items": {
                                   "text": "name",
+                                  "disabledWhen": "#$state.character.armor[$index].attachments.map(a => a.id).includes($this.id)",
                                   "values": "#$models.armorAttachment.values"
                                 }
                               }
@@ -2059,6 +2060,7 @@
                                   {
                                     "name": "armorItemOptions",
                                     "type": "select",
+                                    "disabledWhen": "#$this.options.length === 0",
                                     "bind": "#'$state.character.armor[' + $parent.index + '].attachments[' + $index + '].activeOptions'",
                                     "items": {
                                       "translate": "#$models.armorAttachmentOption.values[$this].name",
