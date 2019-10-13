@@ -1268,7 +1268,7 @@
                     "name": "totalObligation",
                     "type": "number",
                     "label": "Total Obligation",
-                    "text": "# _.sum($state.character.obligations.map(o => o.rating))"
+                    "text": "# $state.character.totalObligation"
                   },
                   {
                     "name": "newObligation",
@@ -2491,6 +2491,12 @@
           ]
         },
         "obligations": "[obligation]",
+        "totalObligation": {
+          "type": "number",
+          "derivedFrom": [
+            "_.sum($state.character.obligations.map(o => o.rating))"
+          ]
+        },
         "obligationBonuses": "[obligationBonus]",
         "bonusStartingSkills": "[string]",
         "cybernetics": {
