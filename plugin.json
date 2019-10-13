@@ -923,7 +923,7 @@
                       {
                         "name": "xenologyLabel",
                         "type": "label",
-                        "text": "# 'Xenology'"
+                        "text": "Xenology"
                       },
                       {
                         "name": "xenologyCareerFlag",
