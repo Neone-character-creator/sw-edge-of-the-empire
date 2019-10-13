@@ -1868,7 +1868,7 @@
                                         "type": "select",
                                         "bind": "#'$state.character.weapons[' + $parent.index + '].attachments[' + $index + '].activeOptions'",
                                         "items": {
-                                          "translate": "#$models.weaponAttachmentOption.values[$this].name",
+                                          "translate": "#$models.attachmentOption.values[$this].name",
                                           "maxSelections": "#$this.options.length",
                                           "values": "#$this.options"
                                         }
@@ -2063,7 +2063,7 @@
                                     "disabledWhen": "#$this.options.length === 0",
                                     "bind": "#'$state.character.armor[' + $parent.index + '].attachments[' + $index + '].activeOptions'",
                                     "items": {
-                                      "translate": "#$models.armorAttachmentOption.values[$this].name",
+                                      "translate": "#$models.attachmentOption.values[$this].name",
                                       "maxSelections": "#$this.options.length",
                                       "values": "#$this.options"
                                     }
@@ -17959,6 +17959,34 @@
             "weapon-damage",
             "weapon-quality-concussive"
           ]
+        },
+        {
+          "id": "gene-lock",
+          "name": "Gene-lock",
+          "hardpointsRequired": 1,
+          "options": [
+            "self-destruct"
+          ]
+        },
+        {
+          "id": "laser-sight",
+          "name": "Laser Sight",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "pistol-grip",
+          "name": "Pistol Grip",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "secondary-missile-system",
+          "name": "Secondary Missile System",
+          "hardpointsRequired": 3
+        },
+        {
+          "id": "wrist-mount",
+          "name": "Wrist Mount",
+          "hardpointsRequired": 2
         }
       ]
     },
@@ -18028,10 +18056,44 @@
           "id": "vacuum-sealed",
           "name": "Vacuum Sealed",
           "hardpointsRequired": 1
+        },
+        {
+          "id": "integrated-med-systems",
+          "name": "Integrated Med Systems",
+          "hardpointsRequired": 2,
+          "options": [
+            "additional-healing",
+            "additional-healing-2"
+          ]
+        },
+        {
+          "id": "hands-free-weapon-system",
+          "name": "Hands-Free Weapon System",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "multi-band-comlink",
+          "name": "Multi-Band Comlink"
+        },
+        {
+          "id": "integrated-scanner",
+          "name": "Integrated Scanner",
+          "hardpointsRequired": 1,
+          "options": [
+            "skill-perception"
+          ]
+        },
+        {
+          "id": "range-finder",
+          "name": "Range Finder",
+          "hardpointsRequired": 0,
+          "options": [
+            "talent-sniper-shot"
+          ]
         }
       ]
     },
-    "weaponAttachmentOption": {
+    "attachmentOption": {
       "properties": {
         "id": "string",
         "name": "string",
@@ -18162,15 +18224,11 @@
           "id": "weapon-quality-concussive",
           "name": "Quality (Concussive +1)",
           "weaponQuality": "Concussive 1"
-        }
-      ]
-    },
-    "armorAttachmentOption": {
-      "properties": {
-        "id": "string",
-        "name": "string"
-      },
-      "values": [
+        },
+        {
+          "id": "self-destruct",
+          "name": "Self Destruct"
+        },
         {
           "id": "skill-vigilance",
           "name": "Skill (Vigilance)"
@@ -18198,6 +18256,18 @@
         {
           "id": "skill-stealth",
           "name": "Skill (Stealth)"
+        },
+        {
+          "id": "additional-healing",
+          "name": "Additional Healing"
+        },
+        {
+          "id": "additional-healing-2",
+          "name": "Additional Healing"
+        },
+        {
+          "id": "skill-perception",
+          "name": "Skill (Perception)"
         }
       ]
     },
