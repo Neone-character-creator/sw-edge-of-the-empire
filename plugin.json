@@ -17611,6 +17611,199 @@
         }
       ]
     },
+    "weaponAttachment": {
+      "properties": {
+        "id": "string",
+        "description": "string",
+        "name": "string",
+        "damageModifier": "number",
+        "weaponQuality": "string",
+        "innateTalent": "string",
+        "skillBonus": "string",
+        "characteristicBonus": "string",
+        "hardpointsRequires": "number",
+        "critRatingModifier": "string",
+        "options": "[string]"
+      },
+      "values": [
+        {
+          "id": "augmented-spin-barrel",
+          "name": "Augmented Spin Barrel",
+          "hardpointsRequired": 2,
+          "damageModifier": 1
+        },
+        {
+          "id": "balanced-hilt",
+          "name": "Balanced Hilt",
+          "hardpointsRequires": 2,
+          "weaponQuality": "Accurate (+1)"
+        },
+        {
+          "id": "blaster-actuating-module",
+          "name": "Blaster Actuating Module",
+          "damageModifier": 1,
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "bipod-mount",
+          "name": "Bipod Mount",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "bowcaster-automatic-recocker",
+          "name": "Bowcaster Automatic Recocker",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "bowcaster-accelerator-enhancement",
+          "name": "Bowcaster Accelerator Enhancement",
+          "damageModifier": 1,
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "filed-front-sight",
+          "name": "Filed Front Sight",
+          "innateTalent": "quick-draw"
+        },
+        {
+          "id": "forearm-grip",
+          "name": "Forearm Grip",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "marksman-barrel",
+          "name": "Marksman Barrel",
+          "weaponQuality": "Cumbersome 2"
+        },
+        {
+          "id": "mono-molecular-edge",
+          "name": "Mono-Molecular Edge",
+          "critRatingModifier": -1
+        },
+        {
+          "id": "multi-optic-sight",
+          "name": "Multi-Optic Sight",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "spread-barrel",
+          "name": "Spread Barrel",
+          "weaponQuality": "Blast 4",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "serrated-edge",
+          "name": "Serrated Edge",
+          "weaponQuality": "Vicious 1",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "superior-weapon-customization",
+          "name": "Superior Weapon Customization",
+          "weaponQuality": "Superior 1",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "shortened-barrel",
+          "name": "Shortened Barrel",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "under-barrel-grenade-launcher",
+          "name": "Under-Barrel Grenade Launcher",
+          "weaponQuality": "Cumbersome 1",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "under-barrel-flame-projector",
+          "name": "Under-Barrel Flame Projector",
+          "weaponQuality": "Cumbersome 1",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "telescopic-optic-sight",
+          "name": "Telescopic Optic Sight",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "tripod-mount",
+          "name": "Tripod Mount",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "weapon-sling",
+          "name": "Weapon Sling",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "weapon-harness",
+          "name": "Weapon Harness",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "weighted-head",
+          "name": "Weighted Head",
+          "damageModifier": 1
+        }
+      ]
+    },
+    "armorAttachment": {
+      "properties": {
+        "id": "string",
+        "name": "string",
+        "armorQuality": "string",
+        "hardpointsRequired": "number",
+        "bonusAttribute": "string"
+      },
+      "values": [
+        {
+          "id": "cortosis-weave",
+          "name": "Cortosis Weave",
+          "armorQuality": "Cortosis",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "thermal-shielding-system",
+          "name": "Thermal Shielding System",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "heating-system",
+          "name": "Heating System",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "enhanced-optics-suite",
+          "name": "Enhanced Optics Suite",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "strength-enhancing-system",
+          "name": "Strength Enhancing System",
+          "bonusAttribute": "brawn",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "optical-camouflage-system",
+          "name": "Optical Camouflage System",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "superior-armor-customization",
+          "name": "Superior Armor Customization",
+          "armorQuality": "Superior",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "vacuum-sealed",
+          "name": "Vacuum Sealed",
+          "hardpointsRequired": 1
+        }
+      ]
+    },
+    "weaponAttachmentOption": {
+      "properties":{}
+    },
     "armor": {
       "properties": {
         "name": "string",
