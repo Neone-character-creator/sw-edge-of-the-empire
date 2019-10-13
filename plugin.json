@@ -1745,14 +1745,18 @@
                             "type": "button",
                             "text": "X",
                             "weight": 1,
-                            "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $this}"
+                            "action": {
+                              "type": "REMOVE",
+                              "path": "$state.character.weapons",
+                              "value": "#$index"
+                            }
                           },
                           {
                             "name": "weaponName",
                             "type": "textfield",
                             "label": "Name",
                             "weight": 2,
-                            "bind": "$this.name"
+                            "value": "#$this.name"
                           },
                           {
                             "name": "weaponAmmo",
@@ -1768,35 +1772,35 @@
                             "type": "textfield",
                             "label": "Skill",
                             "weight": 1,
-                            "bind": "$this.skill"
+                            "value": "#$this.skill"
                           },
                           {
                             "name": "weaponDamage",
                             "type": "textfield",
                             "label": "Damage",
                             "weight": 1,
-                            "bind": "$this.damage"
+                            "value": "#$this.damage"
                           },
                           {
                             "name": "weaponRange",
                             "type": "textfield",
                             "label": "Range",
                             "weight": 1,
-                            "bind": "$this.range"
+                            "value": "#$this.range"
                           },
                           {
                             "name": "weaponCrit",
                             "type": "number",
                             "label": "Crit",
                             "weight": 1,
-                            "bind": "$this.criticalRating"
+                            "value": "#$this.criticalRating"
                           },
                           {
                             "name": "weaponSpecial",
                             "type": "textfield",
                             "label": "Special",
                             "weight": 2,
-                            "bind": "$this.special"
+                            "value": "#$this.special"
                           }
                         ]
                       }
