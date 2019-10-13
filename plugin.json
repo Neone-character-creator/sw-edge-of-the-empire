@@ -1692,7 +1692,7 @@
                     "type": "textfield",
                     "label": "Ammo Type",
                     "weight": 1,
-                    "value": "#$state.selectedWeapon.ammoType"
+                    "value": "#_.get($state, 'selectedWeapon.ammoType')"
                   },
                   {
                     "name": "newWeaponSkill",
@@ -1745,70 +1745,139 @@
                       "child": {
                         "name": "weaponItem",
                         "type": "container",
-                        "direction": "horizontal",
+                        "direction": "vertical",
                         "children": [
                           {
-                            "name": "removeWeapon",
-                            "type": "button",
-                            "text": "X",
-                            "weight": 1,
-                            "action": {
-                              "type": "REMOVE",
-                              "path": "$state.character.weapons",
-                              "value": "#$index"
-                            }
+                            "name": "weaponItemStats",
+                            "type": "container",
+                            "direction": "horizontal",
+                            "children": [
+                              {
+                                "name": "removeWeapon",
+                                "type": "button",
+                                "text": "X",
+                                "weight": 1,
+                                "action": {
+                                  "type": "REMOVE",
+                                  "path": "$state.character.weapons",
+                                  "value": "#$index"
+                                }
+                              },
+                              {
+                                "name": "weaponName",
+                                "type": "textfield",
+                                "label": "Name",
+                                "weight": 2,
+                                "value": "#$this.name"
+                              },
+                              {
+                                "name": "weaponAmmo",
+                                "type": "select",
+                                "bind": "#'$state.character.weapons['+$index+'].activeAmmo'",
+                                "label": "Ammo",
+                                "items": {
+                                  "text": "name",
+                                  "values": "# $models.ammo.values.filter(a => a.type === 'micro-missile')"
+                                }
+                              },
+                              {
+                                "name": "weaponSkill",
+                                "type": "textfield",
+                                "label": "Skill",
+                                "weight": 1,
+                                "value": "#$this.skill"
+                              },
+                              {
+                                "name": "weaponDamage",
+                                "type": "textfield",
+                                "label": "Damage",
+                                "weight": 1,
+                                "value": "#$this.damage"
+                              },
+                              {
+                                "name": "weaponRange",
+                                "type": "textfield",
+                                "label": "Range",
+                                "weight": 1,
+                                "value": "#$this.range"
+                              },
+                              {
+                                "name": "weaponCrit",
+                                "type": "number",
+                                "label": "Crit",
+                                "weight": 1,
+                                "value": "#$this.criticalRating"
+                              },
+                              {
+                                "name": "weaponSpecial",
+                                "type": "textfield",
+                                "label": "Special",
+                                "weight": 2,
+                                "value": "# ($this.special || []).concat(_.get($this, 'activeAmmo.special'))"
+                              }
+                            ]
                           },
                           {
-                            "name": "weaponName",
-                            "type": "textfield",
-                            "label": "Name",
-                            "weight": 2,
-                            "value": "#$this.name"
-                          },
-                          {
-                            "name": "weaponAmmo",
-                            "type": "select",
-                            "bind": "#'$state.character.weapons['+$index+'].activeAmmo'",
-                            "label": "Ammo",
-                            "items": {
-                              "text": "name",
-                              "values": "# $models.ammo.values.filter(a => a.type === 'micro-missile')"
-                            }
-                          },
-                          {
-                            "name": "weaponSkill",
-                            "type": "textfield",
-                            "label": "Skill",
-                            "weight": 1,
-                            "value": "#$this.skill"
-                          },
-                          {
-                            "name": "weaponDamage",
-                            "type": "textfield",
-                            "label": "Damage",
-                            "weight": 1,
-                            "value": "#$this.damage"
-                          },
-                          {
-                            "name": "weaponRange",
-                            "type": "textfield",
-                            "label": "Range",
-                            "weight": 1,
-                            "value": "#$this.range"
-                          },
-                          {
-                            "name": "weaponCrit",
-                            "type": "number",
-                            "label": "Crit",
-                            "weight": 1,
-                            "value": "#$this.criticalRating"
-                          },
-                          {
-                            "name": "weaponSpecial",
-                            "type": "textfield",
-                            "label": "Special",
-                            "weight": 2,
-                            "value": "# ($this.special || []).concat(_.get($this, 'activeAmmo.special'))"
+                            "name": "weaponItemAttachments",
+                            "type": "container",
+                            "direction": "vertical",
+                            "children": [
+                              {
+                                "name": "newWeaponAttachment",
+                                "type": "container",
+                                "direction": "horizontal",
+                                "children": [
+                                  {
+                                    "name": "addWeaponAttachment",
+                                    "type": "button",
+                                    "text": "+",
+                                    "action": {
+                                      "type": "PUSH",
+                                      "path": "#`$state.character.weapons[` + $index + `].attachments`",
+                                      "value": "# _.get($temp, 'selectedWeaponAttachment', [])[$index]"
+                                    }
+                                  },
+                                  {
+                                    "name": "newWeaponAttachment",
+                                    "type": "select",
+                                    "bind": "#'$temp.selectedWeaponAttachment[' + $index + ']'",
+                                    "items": {
+                                      "text": "name",
+                                      "values": "#$models.weaponAttachment.values"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "weaponItemAttachments",
+                                "type": "list",
+                                "bind": "#`$state.character.weapons[` + $index + `].attachments`",
+                                "items": {
+                                  "child": {
+                                    "name": "weaponItemAttachment",
+                                    "type": "container",
+                                    "direction": "horizontal",
+                                    "children": [
+                                      {
+                                        "name": "weaponItemName",
+                                        "type": "textfield",
+                                        "value": "#$this.name"
+                                      },
+                                      {
+                                        "name": "weaponItemOptions",
+                                        "type": "select",
+                                        "bind": "#'$state.character.weapons[' + $parent.index + '].attachments[' + $index + '].activeOptions'",
+                                        "items": {
+                                          "translate": "#$models.weaponAttachmentOption.values[$this].name",
+                                          "maxSelections": "#$this.options.length",
+                                          "values": "#$this.options"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
                           }
                         ]
                       }
@@ -15450,7 +15519,8 @@
         "activeAmmo": {
           "type": "ammo",
           "default": null
-        }
+        },
+        "attachments": "[weaponAttachment]"
       },
       "values": [
         {
@@ -17623,7 +17693,8 @@
         "characteristicBonus": "string",
         "hardpointsRequires": "number",
         "critRatingModifier": "string",
-        "options": "[string]"
+        "options": "[string]",
+        "activeOptions": "[string]"
       },
       "values": [
         {
@@ -17885,7 +17956,8 @@
         "characteristicBonus": "string",
         "hardpointsRequires": "number",
         "critRatingModifier": "string",
-        "options": "[string]"
+        "options": "[string]",
+        "activeOptions": "[string]"
       },
       "values": [
         {
@@ -17989,7 +18061,8 @@
           "id": "cumbersome",
           "name": "Cumbersome -1",
           "weaponQuality": "Cumbersome -1"
-        },{
+        },
+        {
           "id": "cumbersome-2",
           "name": "Cumbersome -1",
           "weaponQuality": "Cumbersome -1"
