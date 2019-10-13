@@ -1688,6 +1688,13 @@
                     }
                   },
                   {
+                    "name": "newWeaponAmmo",
+                    "type": "textfield",
+                    "label": "Ammo Type",
+                    "weight": 1,
+                    "value": "#$state.selectedWeapon.ammoType"
+                  },
+                  {
                     "name": "newWeaponSkill",
                     "type": "textfield",
                     "label": "Skill",
