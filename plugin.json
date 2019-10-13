@@ -1898,63 +1898,6 @@
                 "text": "# 'Armor'"
               },
               {
-                "name": "armorList",
-                "type": "list",
-                "keyProperty": "name",
-                "bind": "$state.character.armor",
-                "items": {
-                  "child": {
-                    "name": "armorItem",
-                    "type": "container",
-                    "direction": "horizontal",
-                    "children": [
-                      {
-                        "name": "removeArmor",
-                        "type": "button",
-                        "text": "X",
-                        "weight": 1,
-                        "action": "# {type:'REMOVE', path: '$state.character.armor', remove: $this}"
-                      },
-                      {
-                        "name": "armorName",
-                        "type": "textfield",
-                        "label": "Name",
-                        "weight": 2,
-                        "bind": "$this.name"
-                      },
-                      {
-                        "name": "armorDefense",
-                        "type": "number",
-                        "label": "Defense",
-                        "weight": 1,
-                        "bind": "$this.defense"
-                      },
-                      {
-                        "name": "armorSoak",
-                        "type": "number",
-                        "label": "Soak",
-                        "weight": 1,
-                        "bind": "$this.soak"
-                      },
-                      {
-                        "name": "armorEncumbrance",
-                        "type": "number",
-                        "label": "Encumbrance",
-                        "weight": 1,
-                        "bind": "$this.encumbrance"
-                      },
-                      {
-                        "name": "armorHardpoints",
-                        "type": "number",
-                        "label": "Hard Points",
-                        "weight": 1,
-                        "bind": "$this.hardpoints"
-                      }
-                    ]
-                  }
-                }
-              },
-              {
                 "name": "newArmor",
                 "type": "container",
                 "children": [
@@ -2006,6 +1949,132 @@
                     "bind": "$state.selectedArmor.hardpoints"
                   }
                 ]
+              },
+              {
+                "name": "armorList",
+                "type": "list",
+                "keyProperty": "name",
+                "bind": "$state.character.armor",
+                "items": {
+                  "child": {
+                    "name": "armorItem",
+                    "type": "container",
+                    "direction": "vertical",
+                    "children": [
+                      {
+                        "name": "armorItemDetails",
+                        "type": "container",
+                        "direction": "horizontal",
+                        "children": [
+                          {
+                            "name": "removeArmor",
+                            "type": "button",
+                            "text": "X",
+                            "weight": 1,
+                            "action": "# {type:'REMOVE', path: '$state.character.armor', remove: $this}"
+                          },
+                          {
+                            "name": "armorName",
+                            "type": "textfield",
+                            "label": "Name",
+                            "weight": 2,
+                            "bind": "$this.name"
+                          },
+                          {
+                            "name": "armorDefense",
+                            "type": "number",
+                            "label": "Defense",
+                            "weight": 1,
+                            "bind": "$this.defense"
+                          },
+                          {
+                            "name": "armorSoak",
+                            "type": "number",
+                            "label": "Soak",
+                            "weight": 1,
+                            "bind": "$this.soak"
+                          },
+                          {
+                            "name": "armorEncumbrance",
+                            "type": "number",
+                            "label": "Encumbrance",
+                            "weight": 1,
+                            "bind": "$this.encumbrance"
+                          },
+                          {
+                            "name": "armorHardpoints",
+                            "type": "number",
+                            "label": "Hard Points",
+                            "weight": 1,
+                            "bind": "$this.hardpoints"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "armorItemAttachments",
+                        "type": "container",
+                        "direction": "vertical",
+                        "children": [
+                          {
+                            "name": "newArmorAttachment",
+                            "type": "container",
+                            "direction": "horizontal",
+                            "children": [
+                              {
+                                "name": "addArmorAttachment",
+                                "type": "button",
+                                "text": "+",
+                                "action": {
+                                  "type": "PUSH",
+                                  "path": "#`$state.character.armor[` + $index + `].attachments`",
+                                  "value": "# _.get($temp, 'selectedArmorAttachment', [])[$index]"
+                                }
+                              },
+                              {
+                                "name": "newArmorAttachment",
+                                "type": "select",
+                                "bind": "#'$temp.selectedArmorAttachment[' + $index + ']'",
+                                "items": {
+                                  "text": "name",
+                                  "values": "#$models.armorAttachment.values"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "armorItemAttachments",
+                            "type": "list",
+                            "bind": "#`$state.character.armor[` + $index + `].attachments`",
+                            "items": {
+                              "child": {
+                                "name": "armorItemAttachment",
+                                "type": "container",
+                                "direction": "horizontal",
+                                "children": [
+                                  {
+                                    "name": "armorItemName",
+                                    "type": "textfield",
+                                    "value": "#$this.name"
+                                  },
+                                  {
+                                    "name": "armorItemOptions",
+                                    "type": "select",
+                                    "bind": "#'$state.character.armor[' + $parent.index + '].attachments[' + $index + '].activeOptions'",
+                                    "items": {
+                                      "translate": "#$models.armorAttachmentOption.values[$this].name",
+                                      "maxSelections": "#$this.options.length",
+                                      "values": "#$this.options"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
               }
             ]
           },
@@ -17897,7 +17966,9 @@
         "name": "string",
         "armorQuality": "string",
         "hardpointsRequired": "number",
-        "bonusAttribute": "string"
+        "bonusAttribute": "string",
+        "options": "[string]",
+        "activeOptions": "[string]"
       },
       "values": [
         {
@@ -18088,7 +18159,8 @@
         "encumbrance": "number",
         "hardpoints": "number",
         "isRestricted": "boolean",
-        "rarity": "number"
+        "rarity": "number",
+        "attachments": "[armorAttachment]"
       },
       "values": [
         {
