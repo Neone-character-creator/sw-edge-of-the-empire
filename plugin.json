@@ -17990,18 +17990,31 @@
         {
           "id": "enhanced-optics-suite",
           "name": "Enhanced Optics Suite",
-          "hardpointsRequired": 1
+          "hardpointsRequired": 1,
+          "options": [
+            "skill-vigilance"
+          ]
         },
         {
           "id": "strength-enhancing-system",
           "name": "Strength Enhancing System",
           "bonusAttribute": "brawn",
-          "hardpointsRequired": 2
+          "hardpointsRequired": 2,
+          "options": [
+            "skill-athletics",
+            "skill-athletics-2",
+            "talent-brace",
+            "talent-brance-1"
+          ]
         },
         {
           "id": "optical-camouflage-system",
           "name": "Optical Camouflage System",
-          "hardpointsRequired": 2
+          "hardpointsRequired": 2,
+          "options": [
+            "talent-master-of-shadows",
+            "skill-stealth"
+          ]
         },
         {
           "id": "superior-armor-customization",
@@ -18147,6 +18160,42 @@
           "id": "weapon-quality-concussive",
           "name": "Quality (Concussive +1)",
           "weaponQuality": "Concussive 1"
+        }
+      ]
+    },
+    "armorAttachmentOption": {
+      "properties": {
+        "id": "string",
+        "name": "string"
+      },
+      "values": [
+        {
+          "id": "skill-vigilance",
+          "name": "Skill (Vigilance)"
+        },
+        {
+          "id": "skill-athletics",
+          "name": "Skill (Athletics)"
+        },
+        {
+          "id": "skill-athletics-2",
+          "name": "Skill (Athletics)"
+        },
+        {
+          "id": "talent-brace",
+          "name": "Talent (Brace)"
+        },
+        {
+          "id": "talent-brace-2",
+          "name": "Talent (Brace)"
+        },
+        {
+          "id": "talent-master-of-shadows",
+          "name": "Talent (Master of Shadows)"
+        },
+        {
+          "id": "skill-stealth",
+          "name": "Skill (Stealth)"
         }
       ]
     },
