@@ -923,7 +923,7 @@
                       {
                         "name": "xenologyLabel",
                         "type": "label",
-                        "text": "# 'Xenology'"
+                        "text": "Xenology"
                       },
                       {
                         "name": "xenologyCareerFlag",
@@ -991,7 +991,7 @@
                         "type": "textfield",
                         "label": "Name",
                         "weight": 2,
-                        "bind": "$this.name"
+                        "value": "#$this.name"
                       },
                       {
                         "name": "summaryWeaponAmmo",
@@ -1008,35 +1008,35 @@
                         "type": "textfield",
                         "label": "Skill",
                         "weight": 1,
-                        "bind": "$this.skill"
+                        "value": "#$this.skill"
                       },
                       {
                         "name": "summaryWeaponDamage",
                         "type": "textfield",
                         "label": "Damage",
                         "weight": 1,
-                        "bind": "$this.damage"
+                        "value": "#$this.damage"
                       },
                       {
                         "name": "summaryWeaponRange",
                         "type": "textfield",
                         "label": "Range",
                         "weight": 1,
-                        "bind": "$this.range"
+                        "value": "#$this.range"
                       },
                       {
                         "name": "summaryWeaponCrit",
                         "type": "number",
                         "label": "Crit",
                         "weight": 1,
-                        "bind": "$this.criticalRating"
+                        "value": "#$this.criticalRating"
                       },
                       {
                         "name": "summaryWeaponSpecial",
                         "type": "textfield",
                         "label": "Special",
                         "weight": 2,
-                        "bind": "$this.special"
+                        "value": "# ($this.special || []).concat(_.get($this, 'activeAmmo.special'))"
                       }
                     ]
                   }
@@ -1688,6 +1688,13 @@
                     }
                   },
                   {
+                    "name": "newWeaponAmmo",
+                    "type": "textfield",
+                    "label": "Ammo Type",
+                    "weight": 1,
+                    "value": "#_.get($state, 'selectedWeapon.ammoType')"
+                  },
+                  {
                     "name": "newWeaponSkill",
                     "type": "textfield",
                     "label": "Skill",
@@ -1738,65 +1745,139 @@
                       "child": {
                         "name": "weaponItem",
                         "type": "container",
-                        "direction": "horizontal",
+                        "direction": "vertical",
                         "children": [
                           {
-                            "name": "removeWeapon",
-                            "type": "button",
-                            "text": "X",
-                            "weight": 1,
-                            "action": "# {type:'REMOVE', path: '$state.character.weapons', remove: $this}"
+                            "name": "weaponItemStats",
+                            "type": "container",
+                            "direction": "horizontal",
+                            "children": [
+                              {
+                                "name": "removeWeapon",
+                                "type": "button",
+                                "text": "X",
+                                "weight": 1,
+                                "action": {
+                                  "type": "REMOVE",
+                                  "path": "$state.character.weapons",
+                                  "value": "#$index"
+                                }
+                              },
+                              {
+                                "name": "weaponName",
+                                "type": "textfield",
+                                "label": "Name",
+                                "weight": 2,
+                                "value": "#$this.name"
+                              },
+                              {
+                                "name": "weaponAmmo",
+                                "type": "select",
+                                "bind": "#'$state.character.weapons['+$index+'].activeAmmo'",
+                                "label": "Ammo",
+                                "items": {
+                                  "text": "name",
+                                  "values": "# $models.ammo.values.filter(a => a.type === 'micro-missile')"
+                                }
+                              },
+                              {
+                                "name": "weaponSkill",
+                                "type": "textfield",
+                                "label": "Skill",
+                                "weight": 1,
+                                "value": "#$this.skill"
+                              },
+                              {
+                                "name": "weaponDamage",
+                                "type": "textfield",
+                                "label": "Damage",
+                                "weight": 1,
+                                "value": "#$this.damage"
+                              },
+                              {
+                                "name": "weaponRange",
+                                "type": "textfield",
+                                "label": "Range",
+                                "weight": 1,
+                                "value": "#$this.range"
+                              },
+                              {
+                                "name": "weaponCrit",
+                                "type": "number",
+                                "label": "Crit",
+                                "weight": 1,
+                                "value": "#$this.criticalRating"
+                              },
+                              {
+                                "name": "weaponSpecial",
+                                "type": "textfield",
+                                "label": "Special",
+                                "weight": 2,
+                                "value": "# ($this.special || []).concat(_.get($this, 'activeAmmo.special'))"
+                              }
+                            ]
                           },
                           {
-                            "name": "weaponName",
-                            "type": "textfield",
-                            "label": "Name",
-                            "weight": 2,
-                            "bind": "$this.name"
-                          },
-                          {
-                            "name": "weaponAmmo",
-                            "type": "select",
-                            "bind": "#'$state.character.weapons['+$index+'].activeAmmo'",
-                            "items": {
-                              "text": "name",
-                              "values": "# $models.ammo.values.filter(a => a.type === 'micro-missile')"
-                            }
-                          },
-                          {
-                            "name": "weaponSkill",
-                            "type": "textfield",
-                            "label": "Skill",
-                            "weight": 1,
-                            "bind": "$this.skill"
-                          },
-                          {
-                            "name": "weaponDamage",
-                            "type": "textfield",
-                            "label": "Damage",
-                            "weight": 1,
-                            "bind": "$this.damage"
-                          },
-                          {
-                            "name": "weaponRange",
-                            "type": "textfield",
-                            "label": "Range",
-                            "weight": 1,
-                            "bind": "$this.range"
-                          },
-                          {
-                            "name": "weaponCrit",
-                            "type": "number",
-                            "label": "Crit",
-                            "weight": 1,
-                            "bind": "$this.criticalRating"
-                          },
-                          {
-                            "name": "weaponSpecial",
-                            "type": "textfield",
-                            "label": "Special",
-                            "weight": 2,
-                            "bind": "$this.special"
+                            "name": "weaponItemAttachments",
+                            "type": "container",
+                            "direction": "vertical",
+                            "children": [
+                              {
+                                "name": "newWeaponAttachment",
+                                "type": "container",
+                                "direction": "horizontal",
+                                "children": [
+                                  {
+                                    "name": "addWeaponAttachment",
+                                    "type": "button",
+                                    "text": "+",
+                                    "action": {
+                                      "type": "PUSH",
+                                      "path": "#`$state.character.weapons[` + $index + `].attachments`",
+                                      "value": "# _.get($temp, 'selectedWeaponAttachment', [])[$index]"
+                                    }
+                                  },
+                                  {
+                                    "name": "newWeaponAttachment",
+                                    "type": "select",
+                                    "bind": "#'$temp.selectedWeaponAttachment[' + $index + ']'",
+                                    "items": {
+                                      "text": "name",
+                                      "values": "#$models.weaponAttachment.values"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "weaponItemAttachments",
+                                "type": "list",
+                                "bind": "#`$state.character.weapons[` + $index + `].attachments`",
+                                "items": {
+                                  "child": {
+                                    "name": "weaponItemAttachment",
+                                    "type": "container",
+                                    "direction": "horizontal",
+                                    "children": [
+                                      {
+                                        "name": "weaponItemName",
+                                        "type": "textfield",
+                                        "value": "#$this.name"
+                                      },
+                                      {
+                                        "name": "weaponItemOptions",
+                                        "type": "select",
+                                        "bind": "#'$state.character.weapons[' + $parent.index + '].attachments[' + $index + '].activeOptions'",
+                                        "items": {
+                                          "translate": "#$models.attachmentOption.values[$this].name",
+                                          "maxSelections": "#$this.options.length",
+                                          "values": "#$this.options"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
                           }
                         ]
                       }
@@ -1815,63 +1896,6 @@
                 "name": "armorLabel",
                 "type": "label",
                 "text": "# 'Armor'"
-              },
-              {
-                "name": "armorList",
-                "type": "list",
-                "keyProperty": "name",
-                "bind": "$state.character.armor",
-                "items": {
-                  "child": {
-                    "name": "armorItem",
-                    "type": "container",
-                    "direction": "horizontal",
-                    "children": [
-                      {
-                        "name": "removeArmor",
-                        "type": "button",
-                        "text": "X",
-                        "weight": 1,
-                        "action": "# {type:'REMOVE', path: '$state.character.armor', remove: $this}"
-                      },
-                      {
-                        "name": "armorName",
-                        "type": "textfield",
-                        "label": "Name",
-                        "weight": 2,
-                        "bind": "$this.name"
-                      },
-                      {
-                        "name": "armorDefense",
-                        "type": "number",
-                        "label": "Defense",
-                        "weight": 1,
-                        "bind": "$this.defense"
-                      },
-                      {
-                        "name": "armorSoak",
-                        "type": "number",
-                        "label": "Soak",
-                        "weight": 1,
-                        "bind": "$this.soak"
-                      },
-                      {
-                        "name": "armorEncumbrance",
-                        "type": "number",
-                        "label": "Encumbrance",
-                        "weight": 1,
-                        "bind": "$this.encumbrance"
-                      },
-                      {
-                        "name": "armorHardpoints",
-                        "type": "number",
-                        "label": "Hard Points",
-                        "weight": 1,
-                        "bind": "$this.hardpoints"
-                      }
-                    ]
-                  }
-                }
               },
               {
                 "name": "newArmor",
@@ -1925,6 +1949,134 @@
                     "bind": "$state.selectedArmor.hardpoints"
                   }
                 ]
+              },
+              {
+                "name": "armorList",
+                "type": "list",
+                "keyProperty": "name",
+                "bind": "$state.character.armor",
+                "items": {
+                  "child": {
+                    "name": "armorItem",
+                    "type": "container",
+                    "direction": "vertical",
+                    "children": [
+                      {
+                        "name": "armorItemDetails",
+                        "type": "container",
+                        "direction": "horizontal",
+                        "children": [
+                          {
+                            "name": "removeArmor",
+                            "type": "button",
+                            "text": "X",
+                            "weight": 1,
+                            "action": "# {type:'REMOVE', path: '$state.character.armor', remove: $this}"
+                          },
+                          {
+                            "name": "armorName",
+                            "type": "textfield",
+                            "label": "Name",
+                            "weight": 2,
+                            "bind": "$this.name"
+                          },
+                          {
+                            "name": "armorDefense",
+                            "type": "number",
+                            "label": "Defense",
+                            "weight": 1,
+                            "bind": "$this.defense"
+                          },
+                          {
+                            "name": "armorSoak",
+                            "type": "number",
+                            "label": "Soak",
+                            "weight": 1,
+                            "bind": "$this.soak"
+                          },
+                          {
+                            "name": "armorEncumbrance",
+                            "type": "number",
+                            "label": "Encumbrance",
+                            "weight": 1,
+                            "bind": "$this.encumbrance"
+                          },
+                          {
+                            "name": "armorHardpoints",
+                            "type": "number",
+                            "label": "Hard Points",
+                            "weight": 1,
+                            "bind": "$this.hardpoints"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "armorItemAttachments",
+                        "type": "container",
+                        "direction": "vertical",
+                        "children": [
+                          {
+                            "name": "newArmorAttachment",
+                            "type": "container",
+                            "direction": "horizontal",
+                            "children": [
+                              {
+                                "name": "addArmorAttachment",
+                                "type": "button",
+                                "text": "+",
+                                "action": {
+                                  "type": "PUSH",
+                                  "path": "#`$state.character.armor[` + $index + `].attachments`",
+                                  "value": "# _.get($temp, 'selectedArmorAttachment', [])[$index]"
+                                }
+                              },
+                              {
+                                "name": "newArmorAttachment",
+                                "type": "select",
+                                "bind": "#'$temp.selectedArmorAttachment[' + $index + ']'",
+                                "items": {
+                                  "text": "name",
+                                  "disabledWhen": "#$state.character.armor[$index].attachments.map(a => a.id).includes($this.id)",
+                                  "values": "#$models.armorAttachment.values"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "armorItemAttachments",
+                            "type": "list",
+                            "bind": "#`$state.character.armor[` + $index + `].attachments`",
+                            "items": {
+                              "child": {
+                                "name": "armorItemAttachment",
+                                "type": "container",
+                                "direction": "horizontal",
+                                "children": [
+                                  {
+                                    "name": "armorItemName",
+                                    "type": "textfield",
+                                    "value": "#$this.name"
+                                  },
+                                  {
+                                    "name": "armorItemOptions",
+                                    "type": "select",
+                                    "disabledWhen": "#$this.options.length === 0",
+                                    "bind": "#'$state.character.armor[' + $parent.index + '].attachments[' + $index + '].activeOptions'",
+                                    "items": {
+                                      "translate": "#$models.attachmentOption.values[$this].name",
+                                      "maxSelections": "#$this.options.length",
+                                      "values": "#$this.options"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
               }
             ]
           },
@@ -15444,7 +15596,8 @@
         "activeAmmo": {
           "type": "ammo",
           "default": null
-        }
+        },
+        "attachments": "[weaponAttachment]"
       },
       "values": [
         {
@@ -17605,6 +17758,944 @@
         }
       ]
     },
+    "weaponAttachment": {
+      "properties": {
+        "id": "string",
+        "description": "string",
+        "name": "string",
+        "damageModifier": "number",
+        "weaponQuality": "string",
+        "innateTalent": "string",
+        "skillBonus": "string",
+        "characteristicBonus": "string",
+        "hardpointsRequires": "number",
+        "critRatingModifier": "string",
+        "options": "[string]",
+        "activeOptions": "[string]"
+      },
+      "values": [
+        {
+          "id": "augmented-spin-barrel",
+          "name": "Augmented Spin Barrel",
+          "hardpointsRequired": 2,
+          "damageModifier": 1,
+          "options": [
+            "weapon-damage",
+            "weapon-damage-2",
+            "weapon-quality-accurate",
+            "weapon-quality-pierce"
+          ]
+        },
+        {
+          "id": "balanced-hilt",
+          "name": "Balanced Hilt",
+          "hardpointsRequires": 2,
+          "weaponQuality": "Accurate (+1)",
+          "options": [
+            "weapon-quality-accurate",
+            "decrease-encumbrance"
+          ]
+        },
+        {
+          "id": "blaster-actuating-module",
+          "name": "Blaster Actuating Module",
+          "damageModifier": 1,
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-damage",
+            "weapon-damage-2",
+            "weapon-quality-pierce-1",
+            "weapon-quality-pierce-2"
+          ]
+        },
+        {
+          "id": "bipod-mount",
+          "name": "Bipod Mount",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "bowcaster-automatic-recocker",
+          "name": "Bowcaster Automatic Recocker",
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-quality-autofire"
+          ]
+        },
+        {
+          "id": "bowcaster-accelerator-enhancement",
+          "name": "Bowcaster Accelerator Enhancement",
+          "damageModifier": 1,
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-damage",
+            "weapon-damage-2",
+            "weapon-quality-pierce-1",
+            "weapon-quality-pierce-2"
+          ]
+        },
+        {
+          "id": "filed-front-sight",
+          "name": "Filed Front Sight",
+          "innateTalent": "quick-draw",
+          "options": [
+            "reduced-concealment-difficulty"
+          ]
+        },
+        {
+          "id": "forearm-grip",
+          "name": "Forearm Grip",
+          "hardpointsRequired": 1,
+          "options": [
+            "talent-point-blank",
+            "weapon-quality-accurate"
+          ]
+        },
+        {
+          "id": "marksman-barrel",
+          "name": "Marksman Barrel",
+          "weaponQuality": "Cumbersome 2",
+          "options": [
+            "weapon-quality-accurate",
+            "weapon-quality-accurate-2",
+            "talent-sniper-shot"
+          ]
+        },
+        {
+          "id": "mono-molecular-edge",
+          "name": "Mono-Molecular Edge",
+          "critRatingModifier": -1,
+          "options": [
+            "weapon-quality-pierce",
+            "weapon-quality-pierce-2"
+          ]
+        },
+        {
+          "id": "multi-optic-sight",
+          "name": "Multi-Optic Sight",
+          "hardpointsRequired": 1,
+          "options": [
+            "skill-perception",
+            "skill-perception-2"
+          ]
+        },
+        {
+          "id": "spread-barrel",
+          "name": "Spread Barrel",
+          "weaponQuality": "Blast 4",
+          "hardpointsRequired": 2,
+          "options": [
+            "weapon-quality-blast",
+            "weapon-quality-blast-2"
+          ]
+        },
+        {
+          "id": "serrated-edge",
+          "name": "Serrated Edge",
+          "weaponQuality": "Vicious 1",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "superior-weapon-customization",
+          "name": "Superior Weapon Customization",
+          "weaponQuality": "Superior 1",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "shortened-barrel",
+          "name": "Shortened Barrel",
+          "hardpointsRequired": 1,
+          "options": [
+            "talent-quick-draw"
+          ]
+        },
+        {
+          "id": "under-barrel-grenade-launcher",
+          "name": "Under-Barrel Grenade Launcher",
+          "weaponQuality": "Cumbersome 1",
+          "hardpointsRequired": 2,
+          "options": [
+            "limited-ammo",
+            "limited-ammo-2",
+            "limited-ammo-3",
+            "limited-ammo-4",
+            "limited-ammo-5"
+          ]
+        },
+        {
+          "id": "under-barrel-flame-projector",
+          "name": "Under-Barrel Flame Projector",
+          "weaponQuality": "Cumbersome 1",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "telescopic-optic-sight",
+          "name": "Telescopic Optic Sight",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "tripod-mount",
+          "name": "Tripod Mount",
+          "hardpointsRequired": 2,
+          "options": [
+            "cumbersome",
+            "cumbersome-2"
+          ]
+        },
+        {
+          "id": "weapon-sling",
+          "name": "Weapon Sling",
+          "hardpointsRequired": 1,
+          "options": [
+            "talent-quick-draw"
+          ]
+        },
+        {
+          "id": "weapon-harness",
+          "name": "Weapon Harness",
+          "hardpointsRequired": 2,
+          "options": [
+            "talent-brace"
+          ]
+        },
+        {
+          "id": "weighted-head",
+          "name": "Weighted Head",
+          "damageModifier": 1,
+          "options": [
+            "weapon-damage",
+            "weapon-quality-concussive"
+          ]
+        },
+        {
+          "id": "gene-lock",
+          "name": "Gene-lock",
+          "hardpointsRequired": 1,
+          "options": [
+            "self-destruct"
+          ]
+        },
+        {
+          "id": "laser-sight",
+          "name": "Laser Sight",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "pistol-grip",
+          "name": "Pistol Grip",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "secondary-missile-system",
+          "name": "Secondary Missile System",
+          "hardpointsRequired": 3
+        },
+        {
+          "id": "wrist-mount",
+          "name": "Wrist Mount",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "poison-resevoir",
+          "name": "Poison Resevoir",
+          "hardpointsRequired": 1,
+          "options": [
+            "poison-dose",
+            "poison-dose-1",
+            "poison-dose-2",
+            "poison-dose-3"
+          ]
+        },
+        {
+          "id": "blaster-suppressor",
+          "name": "Blaster Suppressor",
+          "hardpointsRequired": 1,
+          "options": [
+            "talent-quick-strike",
+            "initiative-bonus",
+            "initiative-bonus-2"
+          ]
+        },
+        {
+          "id": "custom-grip",
+          "name": "Custom Grip",
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-quality-accurate"
+          ]
+        },
+        {
+          "id": "enhanced-xciter",
+          "name": "Enhanced Xciter",
+          "hardpointsRequired": 2,
+          "options": [
+            "weapon-quality-pierce",
+            "weapon-quality-pierce-2",
+            "weapon-quality-pierce-3"
+          ]
+        },
+        {
+          "id": "gyrostabilizer",
+          "name": "Gyrostabilizer",
+          "hardpointsRequired": 2,
+          "options": [
+            "cumbersome",
+            "cumbersone-2",
+            "cumbersome-3",
+            "talent-barrage"
+          ]
+        },
+        {
+          "id": "integrated-scanner",
+          "name": "Integrated Scanner",
+          "hardpointsRequired": 2,
+          "options": [
+            "reduce-initiative-penalty",
+            "reduce-initiative-penalty-2"
+          ]
+        },
+        {
+          "id": "optimized-energy-cell",
+          "name": "Optimized Energy Cell",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "overcharged-actuating-module",
+          "name": "Overcharged Actuating Module",
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-damage"
+          ]
+        },
+        {
+          "id": "rapid-recharge-xciter",
+          "name": "Rapid-Recharge Xciter",
+          "hardpointsRequired": 1,
+          "options": [
+            "decrease-inaccuracy",
+            "decrease-inaccuracy-2"
+          ]
+        },
+        {
+          "id": "removed-safety-features",
+          "name": "Removed Safety Features"
+        },
+        {
+          "id": "secondary-ion-blaster",
+          "name": "Secondary Ion Blaster",
+          "options": [
+            "secondary-weapon-damage",
+            "secondary-weapon-damage-1"
+          ]
+        },
+        {
+          "id": "sonic-scope",
+          "name": "Sonic Scope",
+          "hardpointsRequired": 1,
+          "options": [
+            "skill-cool",
+            "skill-vigilance",
+            "talent-precise-aim",
+            "talent-precise-aim-2"
+          ]
+        },
+        {
+          "id": "stripped-down",
+          "name": "Stripped Down",
+          "hardpointsRequired": 3,
+          "options": [
+            "reduced-encumbrance"
+          ]
+        },
+        {
+          "id": "underbarrel-grapnel-launcher",
+          "name": "Underbarrel Grapnel Launcher",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "vibro-bayonet",
+          "name": "Vibro Bayonet",
+          "hardpointsRequired": 1,
+          "options": [
+            "secondary-weapon-damage",
+            "secondary-weapon-damage-2"
+          ]
+        },
+        {
+          "id": "marked-target-firing-lock",
+          "name": "Marked-Target Firing Lock",
+          "hardpointsRequired": 1,
+          "options": [
+            "reduce-threat-on-attack"
+          ]
+        },
+        {
+          "id": "shock-pulse-emitter",
+          "name": "Shock Pulse Emitter",
+          "hardpointsRequired": 2,
+          "options": [
+            "weapon-quality-stun",
+            "weapon-quality-stun-2",
+            "weapon-quality-disorient"
+          ]
+        },
+        {
+          "id": "under-barrel-micro-rocket-rack",
+          "name": "Under-Barrel Micro-Rocket Rack",
+          "hardpointsRequired": 3,
+          "options": [
+            "additional-microrocket",
+            "additional-microrocket-2"
+          ]
+        }
+      ]
+    },
+    "armorAttachment": {
+      "properties": {
+        "id": "string",
+        "name": "string",
+        "armorQuality": "string",
+        "hardpointsRequired": "number",
+        "bonusAttribute": "string",
+        "options": "[string]",
+        "activeOptions": "[string]"
+      },
+      "values": [
+        {
+          "id": "cortosis-weave",
+          "name": "Cortosis Weave",
+          "armorQuality": "Cortosis",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "thermal-shielding-system",
+          "name": "Thermal Shielding System",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "heating-system",
+          "name": "Heating System",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "enhanced-optics-suite",
+          "name": "Enhanced Optics Suite",
+          "hardpointsRequired": 1,
+          "options": [
+            "skill-vigilance"
+          ]
+        },
+        {
+          "id": "strength-enhancing-system",
+          "name": "Strength Enhancing System",
+          "bonusAttribute": "brawn",
+          "hardpointsRequired": 2,
+          "options": [
+            "skill-athletics",
+            "skill-athletics-2",
+            "talent-brace",
+            "talent-brance-1"
+          ]
+        },
+        {
+          "id": "optical-camouflage-system",
+          "name": "Optical Camouflage System",
+          "hardpointsRequired": 2,
+          "options": [
+            "talent-master-of-shadows",
+            "skill-stealth"
+          ]
+        },
+        {
+          "id": "superior-armor-customization",
+          "name": "Superior Armor Customization",
+          "armorQuality": "Superior",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "vacuum-sealed",
+          "name": "Vacuum Sealed",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "integrated-med-systems",
+          "name": "Integrated Med Systems",
+          "hardpointsRequired": 2,
+          "options": [
+            "additional-healing",
+            "additional-healing-2"
+          ]
+        },
+        {
+          "id": "hands-free-weapon-system",
+          "name": "Hands-Free Weapon System",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "multi-band-comlink",
+          "name": "Multi-Band Comlink"
+        },
+        {
+          "id": "integrated-scanner",
+          "name": "Integrated Scanner",
+          "hardpointsRequired": 1,
+          "options": [
+            "skill-perception"
+          ]
+        },
+        {
+          "id": "range-finder",
+          "name": "Range Finder",
+          "hardpointsRequired": 0,
+          "options": [
+            "talent-sniper-shot"
+          ]
+        },
+        {
+          "id": "threat-monitor",
+          "name": "Threat Monitor",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "amphibious-modification",
+          "name": "Amphibious Modification",
+          "hardpointsRequired": 1,
+          "options": [
+            "extra-oxygen",
+            "extra-oxygen-2"
+          ]
+        },
+        {
+          "id": "custom-fit",
+          "name": "Custom Fit",
+          "hardpointsRequired": 1,
+          "options": [
+            "reduce-athletics-stealth-penalty"
+          ]
+        },
+        {
+          "id": "integrated-ascension-gear",
+          "name": "Integrated Ascension Gear",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "integrated-slicer-gear",
+          "name": "Integrated Slicer Gear",
+          "hardpointsRequired": 3,
+          "options": [
+            "talent-technical-aptitude"
+          ]
+        },
+        {
+          "id": "ion-shielding",
+          "name": "Ion Shielding",
+          "hardpointsRequired": 1,
+          "options": [
+            "increased-ion-defense"
+          ]
+        },
+        {
+          "id": "radiation-shielding",
+          "name": "Radiation Shielding",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "reinforced-gauntlets",
+          "name": "Reinforced Gauntlets",
+          "hardpointsRequired": 2,
+          "options": [
+            "talent-durable"
+          ]
+        },
+        {
+          "id": "self-repair-systems",
+          "name": "Self-Repair Systems",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "integrated-holsters",
+          "name": "Integrated Holsters",
+          "hardpointsRequired": 2,
+          "options": [
+            "conceal-weapons",
+            "conceal-weapons-2",
+            "holster-additional-weapon",
+            "holster-additional-weapon-2",
+            "holster-additional-weapon-3",
+            "talent-quick-draw"
+          ]
+        },
+        {
+          "id": "micro-rocket-armor-mounting",
+          "name": "Micro-Rocket Armor Mounting",
+          "requiredHardpoints": 2,
+          "options": [
+            "additional-micro-rocket",
+            "additional-micro-rocket-2",
+            "additional-micro-rocket-3",
+            "additional-micro-rocket-4",
+            "additional-micro-rocket-5",
+            "reduce-secondary-attack-penalty"
+          ]
+        },
+        {
+          "id": "repulsor-assisted-lifting",
+          "name": "Repulsor-Assisted Lifting",
+          "requiredHardpoints": 2,
+          "options": [
+            "encumbrance-brawn-bonus",
+            "encumbrance-brawn-bonus-2",
+            "skill-athletics",
+            "skill-athletics-2"
+          ]
+        },
+        {
+          "id": "tracking-system",
+          "name": "Tracking System",
+          "requiredHardpoints": 2,
+          "options": [
+            "skill-vigilance",
+            "skill-survival"
+          ]
+        }
+      ]
+    },
+    "attachmentOption": {
+      "properties": {
+        "id": "string",
+        "name": "string",
+        "damageModifier": "number",
+        "weaponQuality": "string",
+        "innateTalent": "string",
+        "skillBonus": "string",
+        "characteristicBonus": "string",
+        "hardpointsRequires": "number",
+        "critRatingModifier": "string",
+        "options": "[string]",
+        "activeOptions": "[string]"
+      },
+      "values": [
+        {
+          "id": "weapon-damage",
+          "name": "Weapon Damage +1",
+          "damageModifier": 1
+        },
+        {
+          "id": "weapon-damage-2",
+          "name": "Weapon Damage +1",
+          "damageModifier": 1
+        },
+        {
+          "id": "weapon-quality-accurate",
+          "name": "Weapon Quality (Accurate)",
+          "weaponQuality": "Accurate 1"
+        },
+        {
+          "id": "weapon-quality-accurate-2",
+          "name": "Weapon Quality (Accurate)",
+          "weaponQuality": "Accurate 1"
+        },
+        {
+          "id": "weapon-quality-pierce",
+          "name": "Weapon Quality (Pierce)",
+          "weaponQuality": "Pierce 1"
+        },
+        {
+          "id": "weapon-quality-pierce-2",
+          "name": "Weapon Quality (Pierce)",
+          "weaponQuality": "Pierce 1"
+        },
+        {
+          "id": "weapon-quality-pierce-3",
+          "name": "Weapon Quality (Pierce)",
+          "weaponQuality": "Pierce 1"
+        },
+        {
+          "id": "decrease-encumbrance",
+          "name": "Decrease Encumbrance"
+        },
+        {
+          "id": "weapon-quality-autofire",
+          "name": "Weapon Quality (Autofire)"
+        },
+        {
+          "id": "reduced-concealment-difficulty",
+          "name": "Reduced Concealment Difficulty"
+        },
+        {
+          "id": "talent-point-blank",
+          "name": "Talent (Point Blank)",
+          "innateTalent": "point-blank"
+        },
+        {
+          "id": "talent-quick-strike",
+          "name": "Talent (Quick Strike)"
+        },
+        {
+          "id": "talent-sniper-shot",
+          "name": "Talent (Sniper Shot)",
+          "innateTalent": "sniper-shot"
+        },
+        {
+          "id": "skill-perception",
+          "name": "Skill (Perception)",
+          "skillBonus": "perception"
+        },
+        {
+          "id": "skill-perception-2",
+          "name": "Skill (Perception)",
+          "skillBonus": "perception"
+        },
+        {
+          "id": "weapon-quality-blast",
+          "name": "Blast 1",
+          "weaponQuality": "Blast 1"
+        },
+        {
+          "id": "weapon-quality-blast-2",
+          "name": "Blast 1",
+          "weaponQuality": "Blast 1"
+        },
+        {
+          "id": "limited-ammo",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "limited-ammo-2",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "limited-ammo-3",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "limited-ammo-4",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "limited-ammo-5",
+          "name": "Limited Ammo 1",
+          "weaponQuality": 1
+        },
+        {
+          "id": "cumbersome",
+          "name": "Cumbersome -1",
+          "weaponQuality": "Cumbersome -1"
+        },
+        {
+          "id": "cumbersome-2",
+          "name": "Cumbersome -1",
+          "weaponQuality": "Cumbersome -1"
+        },
+        {
+          "id": "cumbersome-3",
+          "name": "Cumbersome -1",
+          "weaponQuality": "Cumbersome -1"
+        },
+        {
+          "id": "talent-brace",
+          "name": "Talent (Brace)",
+          "innateTalent": "brace"
+        },
+        {
+          "id": "talent-barrage",
+          "name": "Talent (Barrage)",
+          "innateTalent": "barrage"
+        },
+        {
+          "id": "weapon-quality-concussive",
+          "name": "Quality (Concussive +1)",
+          "weaponQuality": "Concussive 1"
+        },
+        {
+          "id": "self-destruct",
+          "name": "Self Destruct"
+        },
+        {
+          "id": "skill-vigilance",
+          "name": "Skill (Vigilance)"
+        },
+        {
+          "id": "skill-athletics",
+          "name": "Skill (Athletics)"
+        },
+        {
+          "id": "skill-athletics-2",
+          "name": "Skill (Athletics)"
+        },
+        {
+          "id": "talent-brace",
+          "name": "Talent (Brace)"
+        },
+        {
+          "id": "talent-brace-2",
+          "name": "Talent (Brace)"
+        },
+        {
+          "id": "talent-master-of-shadows",
+          "name": "Talent (Master of Shadows)"
+        },
+        {
+          "id": "skill-stealth",
+          "name": "Skill (Stealth)"
+        },
+        {
+          "id": "additional-healing",
+          "name": "Additional Healing"
+        },
+        {
+          "id": "additional-healing-2",
+          "name": "Additional Healing"
+        },
+        {
+          "id": "skill-perception",
+          "name": "Skill (Perception)"
+        },
+        {
+          "id": "poison-dose",
+          "name": "Extra Poison Dose"
+        },
+        {
+          "id": "poison-dose-2",
+          "name": "Extra Poison Dose"
+        },
+        {
+          "id": "poison-dose-3",
+          "name": "Extra Poison Dose"
+        },
+        {
+          "id": "poison-dose-4",
+          "name": "Extra Poison Dose"
+        },
+        {
+          "id": "initiative-bonus",
+          "name": "Initiative Bonus"
+        },
+        {
+          "id": "initiative-bonus-1",
+          "name": "Initiative Bonus"
+        },
+        {
+          "id": "reduce-initiative-penalty",
+          "name": "Reduce Initiative Penalty"
+        },
+        {
+          "id": "reduce-initiative-penalty-2",
+          "name": "Reduce Initiative Penalty"
+        },
+        {
+          "id": "decrease-inaccuracy",
+          "name": "Decrease Inaccuracy"
+        },
+        {
+          "id": "decrease-inaccuracy-2",
+          "name": "Decrease Inaccuracy"
+        },
+        {
+          "id": "secondary-weapon-damage",
+          "name": "Increase Secondary Damage"
+        },
+        {
+          "id": "secondary-weapon-damage-2",
+          "name": "Increase Secondary Damage"
+        },
+        {
+          "id": "reduce-encumbrance",
+          "name": "Reduce Encumbrance"
+        },
+        {
+          "id": "reduce-encumbrance-2",
+          "name": "Reduce Encumbrance"
+        },
+        {
+          "id": "extra-oxygen",
+          "name": "Extra Oxygen"
+        },
+        {
+          "id": "extra-oxygen-2",
+          "name": "Extra Oxygen",
+        },
+        {
+          "id": "reduce-athletics-stealth-penalty",
+          "name": "Reduce Athletics & Stealth Penalty"
+        },
+        {
+          "id": "talent-technical-aptitude",
+          "name": "Talent (Technical Aptitude)"
+        },
+        {
+          "id": "talent-durable",
+          "name": "Talent (Durable)"
+        },
+        {
+          "id": "reduce-threat-on-attack",
+          "name": "Reduce Threat on Attack"
+        },
+        {
+          "id": "weapon-quality-stun",
+          "name": "Weapon Quality (Stun 1)"
+        },
+        {
+          "id": "weapon-quality-stun-2",
+          "name": "Weapon Quality (Stun 1)"
+        },
+        {
+          "id": "weapon-quality-disorient",
+          "name": "Weapon Quality (Disorient)"
+        },
+        {
+          "id": "additional-microrocket",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "additional-microrocket-2",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "additional-microrocket-3",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "additional-microrocket-4",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "additional-microrocket-5",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "reduce-secondary-attack-penalty",
+          "name": "Reduce 2nd weapon penalty"
+        },
+        {
+          "id": "conceal-weapons",
+          "name": "Add penalty to find weapons"
+        },
+        {
+          "id": "conceal-weapons-2",
+          "name": "Add penalty to find weapons"
+        },
+        {
+          "id": "holster-additional-weapon",
+          "name": "Holster Additional Weapon"
+        },
+        {
+          "id": "holster-additional-weapon-2",
+          "name": "Holster Additional Weapon"
+        },
+        {
+          "id": "holster-additional-weapon-3",
+          "name": "Holster Additional Weapon"
+        },
+        {
+          "id": "skill-survival",
+          "name": "Skill (Survival)"
+        }
+      ]
+    },
     "armor": {
       "properties": {
         "name": "string",
@@ -17614,7 +18705,8 @@
         "encumbrance": "number",
         "hardpoints": "number",
         "isRestricted": "boolean",
-        "rarity": "number"
+        "rarity": "number",
+        "attachments": "[armorAttachment]"
       },
       "values": [
         {
@@ -17846,6 +18938,37 @@
           "encumbrance": 4,
           "hardpoints": 2,
           "rarity": 6
+        },
+        {
+          "name": "Armored Drop Suit",
+          "defense": 1,
+          "soak": 1,
+          "encumbrance": 6,
+          "hardpoints": 2,
+          "rarity": 7
+        },
+        {
+          "name": "Hunter's Trophy Armor (completed)",
+          "defense": 0,
+          "soak": 2,
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "rarity": 9
+        },
+        {
+          "name": "Hunter's Trophy Armor (custom-made)",
+          "defense": 0,
+          "soak": 2,
+          "encumbrance": 4,
+          "hardpoints": 1,
+          "rarity": 6
+        },
+        {
+          "name": "Mandalorian Armor",
+          "defense": 1,
+          "soak": 2,
+          "encumbrance": 5,
+          "rarity": 8
         }
       ]
     },
