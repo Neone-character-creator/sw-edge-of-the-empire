@@ -18221,6 +18221,62 @@
           "id": "threat-monitor",
           "name": "Threat Monitor",
           "hardpointsRequired": 1
+        },
+        {
+          "id": "amphibious-modification",
+          "name": "Amphibious Modification",
+          "hardpointsRequired": 1,
+          "options": [
+            "extra-oxygen",
+            "extra-oxygen-2"
+          ]
+        },
+        {
+          "id": "custom-fit",
+          "name": "Custom Fit",
+          "hardpointsRequired": 1,
+          "options": [
+            "reduce-athletics-stealth-penalty"
+          ]
+        },
+        {
+          "id": "integrated-ascension-gear",
+          "name": "Integrated Ascension Gear",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "integrated-slicer-gear",
+          "name": "Integrated Slicer Gear",
+          "hardpointsRequired": 3,
+          "options": [
+            "talent-technical-aptitude"
+          ]
+        },
+        {
+          "id": "ion-shielding",
+          "name": "Ion Shielding",
+          "hardpointsRequired": 1,
+          "options": [
+            "increased-ion-defense"
+          ]
+        },
+        {
+          "id": "radiation-shielding",
+          "name": "Radiation Shielding",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "reinforced-gauntlets",
+          "name": "Reinforced Gauntlets",
+          "hardpointsRequired": 2,
+          "options": [
+            "talent-durable"
+          ]
+        },
+        {
+          "id": "self-repair-systems",
+          "name": "Self-Repair Systems",
+          "hardpointsRequired": 2
         }
       ]
     },
@@ -18474,6 +18530,26 @@
         {
           "id": "reduce-encumbrance-2",
           "name": "Reduce Encumbrance"
+        },
+        {
+          "id": "extra-oxygen",
+          "name": "Extra Oxygen"
+        },
+        {
+          "id": "extra-oxygen-2",
+          "name": "Extra Oxygen",
+        },
+        {
+          "id": "reduce-athletics-stealth-penalty",
+          "name": "Reduce Athletics & Stealth Penalty"
+        },
+        {
+          "id": "talent-technical-aptitude",
+          "name": "Talent (Technical Aptitude)"
+        },
+        {
+          "id": "talent-durable",
+          "name": "Talent (Durable)"
         }
       ]
     },
