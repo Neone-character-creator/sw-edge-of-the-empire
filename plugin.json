@@ -18008,6 +18008,111 @@
             "initiative-bonus",
             "initiative-bonus-2"
           ]
+        },
+        {
+          "id": "custom-grip",
+          "name": "Custom Grip",
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-quality-accurate"
+          ]
+        },
+        {
+          "id": "enhanced-xciter",
+          "name": "Enhanced Xciter",
+          "hardpointsRequired": 2,
+          "options": [
+            "weapon-quality-pierce",
+            "weapon-quality-pierce-2",
+            "weapon-quality-pierce-3"
+          ]
+        },
+        {
+          "id": "gyrostabilizer",
+          "name": "Gyrostabilizer",
+          "hardpointsRequired": 2,
+          "options": [
+            "cumbersome",
+            "cumbersone-2",
+            "cumbersome-3",
+            "talent-barrage"
+          ]
+        },
+        {
+          "id": "integrated-scanner",
+          "name": "Integrated Scanner",
+          "hardpointsRequired": 2,
+          "options": [
+            "reduce-initiative-penalty",
+            "reduce-initiative-penalty-2"
+          ]
+        },
+        {
+          "id": "optimized-energy-cell",
+          "name": "Optimized Energy Cell",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "overcharged-actuating-module",
+          "name": "Overcharged Actuating Module",
+          "hardpointsRequired": 1,
+          "options": [
+            "weapon-damage"
+          ]
+        },
+        {
+          "id": "rapid-recharge-xciter",
+          "name": "Rapid-Recharge Xciter",
+          "hardpointsRequired": 1,
+          "options": [
+            "decrease-inaccuracy",
+            "decrease-inaccuracy-2"
+          ]
+        },
+        {
+          "id": "removed-safety-features",
+          "name": "Removed Safety Features"
+        },
+        {
+          "id": "secondary-ion-blaster",
+          "name": "Secondary Ion Blaster",
+          "options": [
+            "secondary-weapon-damage",
+            "secondary-weapon-damage-1"
+          ]
+        },
+        {
+          "id": "sonic-scope",
+          "name": "Sonic Scope",
+          "hardpointsRequired": 1,
+          "options": [
+            "skill-cool",
+            "skill-vigilance",
+            "talent-precise-aim",
+            "talent-precise-aim-2"
+          ]
+        },
+        {
+          "id": "stripped-down",
+          "name": "Stripped Down",
+          "hardpointsRequired": 3,
+          "options": [
+            "reduced-encumbrance"
+          ]
+        },
+        {
+          "id": "underbarrel-grapnel-launcher",
+          "name": "Underbarrel Grapnel Launcher",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "vibro-bayonet",
+          "name": "Vibro Bayonet",
+          "hardpointsRequired": 1,
+          "options": [
+            "secondary-weapon-damage",
+            "secondary-weapon-damage-2"
+          ]
         }
       ]
     },
@@ -18165,6 +18270,11 @@
           "weaponQuality": "Pierce 1"
         },
         {
+          "id": "weapon-quality-pierce-3",
+          "name": "Weapon Quality (Pierce)",
+          "weaponQuality": "Pierce 1"
+        },
+        {
           "id": "decrease-encumbrance",
           "name": "Decrease Encumbrance"
         },
@@ -18246,9 +18356,19 @@
           "weaponQuality": "Cumbersome -1"
         },
         {
+          "id": "cumbersome-3",
+          "name": "Cumbersome -1",
+          "weaponQuality": "Cumbersome -1"
+        },
+        {
           "id": "talent-brace",
           "name": "Talent (Brace)",
           "innateTalent": "brace"
+        },
+        {
+          "id": "talent-barrage",
+          "name": "Talent (Barrage)",
+          "innateTalent": "barrage"
         },
         {
           "id": "weapon-quality-concussive",
@@ -18322,6 +18442,38 @@
         {
           "id": "initiative-bonus-1",
           "name": "Initiative Bonus"
+        },
+        {
+          "id": "reduce-initiative-penalty",
+          "name": "Reduce Initiative Penalty"
+        },
+        {
+          "id": "reduce-initiative-penalty-2",
+          "name": "Reduce Initiative Penalty"
+        },
+        {
+          "id": "decrease-inaccuracy",
+          "name": "Decrease Inaccuracy"
+        },
+        {
+          "id": "decrease-inaccuracy-2",
+          "name": "Decrease Inaccuracy"
+        },
+        {
+          "id": "secondary-weapon-damage",
+          "name": "Increase Secondary Damage"
+        },
+        {
+          "id": "secondary-weapon-damage-2",
+          "name": "Increase Secondary Damage"
+        },
+        {
+          "id": "reduce-encumbrance",
+          "name": "Reduce Encumbrance"
+        },
+        {
+          "id": "reduce-encumbrance-2",
+          "name": "Reduce Encumbrance"
         }
       ]
     },
