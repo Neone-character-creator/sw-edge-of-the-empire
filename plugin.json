@@ -17987,6 +17987,27 @@
           "id": "wrist-mount",
           "name": "Wrist Mount",
           "hardpointsRequired": 2
+        },
+        {
+          "id": "poison-resevoir",
+          "name": "Poison Resevoir",
+          "hardpointsRequired": 1,
+          "options": [
+            "poison-dose",
+            "poison-dose-1",
+            "poison-dose-2",
+            "poison-dose-3"
+          ]
+        },
+        {
+          "id": "blaster-suppressor",
+          "name": "Blaster Suppressor",
+          "hardpointsRequired": 1,
+          "options": [
+            "talent-quick-strike",
+            "initiative-bonus",
+            "initiative-bonus-2"
+          ]
         }
       ]
     },
@@ -18090,6 +18111,11 @@
           "options": [
             "talent-sniper-shot"
           ]
+        },
+        {
+          "id": "threat-monitor",
+          "name": "Threat Monitor",
+          "hardpointsRequired": 1
         }
       ]
     },
@@ -18154,6 +18180,10 @@
           "id": "talent-point-blank",
           "name": "Talent (Point Blank)",
           "innateTalent": "point-blank"
+        },
+        {
+          "id": "talent-quick-strike",
+          "name": "Talent (Quick Strike)"
         },
         {
           "id": "talent-sniper-shot",
@@ -18268,6 +18298,30 @@
         {
           "id": "skill-perception",
           "name": "Skill (Perception)"
+        },
+        {
+          "id": "poison-dose",
+          "name": "Extra Poison Dose"
+        },
+        {
+          "id": "poison-dose-2",
+          "name": "Extra Poison Dose"
+        },
+        {
+          "id": "poison-dose-3",
+          "name": "Extra Poison Dose"
+        },
+        {
+          "id": "poison-dose-4",
+          "name": "Extra Poison Dose"
+        },
+        {
+          "id": "initiative-bonus",
+          "name": "Initiative Bonus"
+        },
+        {
+          "id": "initiative-bonus-1",
+          "name": "Initiative Bonus"
         }
       ]
     },
