@@ -18113,6 +18113,33 @@
             "secondary-weapon-damage",
             "secondary-weapon-damage-2"
           ]
+        },
+        {
+          "id": "marked-target-firing-lock",
+          "name": "Marked-Target Firing Lock",
+          "hardpointsRequired": 1,
+          "options": [
+            "reduce-threat-on-attack"
+          ]
+        },
+        {
+          "id": "shock-pulse-emitter",
+          "name": "Shock Pulse Emitter",
+          "hardpointsRequired": 2,
+          "options": [
+            "weapon-quality-stun",
+            "weapon-quality-stun-2",
+            "weapon-quality-disorient"
+          ]
+        },
+        {
+          "id": "under-barrel-micro-rocket-rack",
+          "name": "Under-Barrel Micro-Rocket Rack",
+          "hardpointsRequired": 3,
+          "options": [
+            "additional-microrocket",
+            "additional-microrocket-2"
+          ]
         }
       ]
     },
@@ -18277,6 +18304,52 @@
           "id": "self-repair-systems",
           "name": "Self-Repair Systems",
           "hardpointsRequired": 2
+        },
+        {
+          "id": "integrated-holsters",
+          "name": "Integrated Holsters",
+          "hardpointsRequired": 2,
+          "options": [
+            "conceal-weapons",
+            "conceal-weapons-2",
+            "holster-additional-weapon",
+            "holster-additional-weapon-2",
+            "holster-additional-weapon-3",
+            "talent-quick-draw"
+          ]
+        },
+        {
+          "id": "micro-rocket-armor-mounting",
+          "name": "Micro-Rocket Armor Mounting",
+          "requiredHardpoints": 2,
+          "options": [
+            "additional-micro-rocket",
+            "additional-micro-rocket-2",
+            "additional-micro-rocket-3",
+            "additional-micro-rocket-4",
+            "additional-micro-rocket-5",
+            "reduce-secondary-attack-penalty"
+          ]
+        },
+        {
+          "id": "repulsor-assisted-lifting",
+          "name": "Repulsor-Assisted Lifting",
+          "requiredHardpoints": 2,
+          "options": [
+            "encumbrance-brawn-bonus",
+            "encumbrance-brawn-bonus-2",
+            "skill-athletics",
+            "skill-athletics-2"
+          ]
+        },
+        {
+          "id": "tracking-system",
+          "name": "Tracking System",
+          "requiredHardpoints": 2,
+          "options": [
+            "skill-vigilance",
+            "skill-survival"
+          ]
         }
       ]
     },
@@ -18550,6 +18623,70 @@
         {
           "id": "talent-durable",
           "name": "Talent (Durable)"
+        },
+        {
+          "id": "reduce-threat-on-attack",
+          "name": "Reduce Threat on Attack"
+        },
+        {
+          "id": "weapon-quality-stun",
+          "name": "Weapon Quality (Stun 1)"
+        },
+        {
+          "id": "weapon-quality-stun-2",
+          "name": "Weapon Quality (Stun 1)"
+        },
+        {
+          "id": "weapon-quality-disorient",
+          "name": "Weapon Quality (Disorient)"
+        },
+        {
+          "id": "additional-microrocket",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "additional-microrocket-2",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "additional-microrocket-3",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "additional-microrocket-4",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "additional-microrocket-5",
+          "name": "Additional Microrocket"
+        },
+        {
+          "id": "reduce-secondary-attack-penalty",
+          "name": "Reduce 2nd weapon penalty"
+        },
+        {
+          "id": "conceal-weapons",
+          "name": "Add penalty to find weapons"
+        },
+        {
+          "id": "conceal-weapons-2",
+          "name": "Add penalty to find weapons"
+        },
+        {
+          "id": "holster-additional-weapon",
+          "name": "Holster Additional Weapon"
+        },
+        {
+          "id": "holster-additional-weapon-2",
+          "name": "Holster Additional Weapon"
+        },
+        {
+          "id": "holster-additional-weapon-3",
+          "name": "Holster Additional Weapon"
+        },
+        {
+          "id": "skill-survival",
+          "name": "Skill (Survival)"
         }
       ]
     },
