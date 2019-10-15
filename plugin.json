@@ -18527,10 +18527,6 @@
           "name": "Skill (Athletics)"
         },
         {
-          "id": "talent-brace",
-          "name": "Talent (Brace)"
-        },
-        {
           "id": "talent-brace-2",
           "name": "Talent (Brace)"
         },
@@ -18549,10 +18545,6 @@
         {
           "id": "additional-healing-2",
           "name": "Additional Healing"
-        },
-        {
-          "id": "skill-perception",
-          "name": "Skill (Perception)"
         },
         {
           "id": "poison-dose",
@@ -18616,7 +18608,7 @@
         },
         {
           "id": "extra-oxygen-2",
-          "name": "Extra Oxygen",
+          "name": "Extra Oxygen"
         },
         {
           "id": "reduce-athletics-stealth-penalty",
