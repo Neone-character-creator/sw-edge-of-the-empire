@@ -210,5 +210,14 @@
   "weapons[3].attachments[2].description" : "Weapon 4 Attachments Base Modifiers 3",
   "weapons[3].attachments[3].name" : "Weapon 4 Attachments Name 4",
   "weapons[3].attachments[3].hardpointsRequired" : "Weapon 4 Attachments Hard Point Requirement 4",
-  "weapons[3].attachments[3].description" : "Weapon 4 Attachments Base Modifiers 4"
+  "weapons[3].attachments[3].description" : "Weapon 4 Attachments Base Modifiers 4",
+
+  "cybernetics[0].name": "Cybernetic Implant Make/ Model 1",
+  "cybernetics[1].name": "Cybernetic Implant Make/ Model 2",
+  "cybernetics[2].name": "Cybernetic Implant Make/ Model 3",
+  "cybernetics[3].name": "Cybernetic Implant Make/ Model 4",
+  "cybernetics[4].name": "Cybernetic Implant Make/ Model 5",
+  "cybernetics[5].name": "Cybernetic Implant Make/ Model 6",
+  "cybernetics[6].name": "Cybernetic Implant Make/ Model 7",
+  "cybernetics[7].name": "Cybernetic Implant Make/ Model 8"
 }
