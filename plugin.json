@@ -2974,7 +2974,7 @@
         "isCareerSkill": {
           "type": "boolean",
           "derivedFrom": [
-            "# _.get($state, 'character.career.careerSkills', []).includes($this.path[2])",
+            "# $this.accumulator || _.get($state, 'character.career.careerSkills', []).includes($this.path[2])",
             "# $this.accumulator || _.get($state, 'character.startingSpecialization.careerSkills', []).includes($this.path[2])",
             "# $this.accumulator || ($state.character.species && $state.character.species.careerSkills.includes($this.path[2]))"
           ]
