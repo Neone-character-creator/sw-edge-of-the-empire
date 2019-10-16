@@ -120,6 +120,8 @@
   "talents[33].name": "Character Talents Name 34",
   "talents[34].name": "Character Talents Name 35",
   "talents[35].name": "Character Talents Name 36",
+
+  "armor[0].name": "Armor Type 1",
   "armor[0].soak": "Armor soak 1",
   "armor[0].meleeDefense": "Armor Melee Defense 1",
   "armor[0].rangedDefense": "Armor Ranged Defense 1",
