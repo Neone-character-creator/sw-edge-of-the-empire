@@ -1859,12 +1859,22 @@
                                     "direction": "horizontal",
                                     "children": [
                                       {
-                                        "name": "weaponItemName",
+                                        "name": "removeWeaponAttachment",
+                                        "type": "button",
+                                        "text": "X",
+                                        "action": {
+                                          "path": "#'$state.character.weapons[' + $parent.index + '].attachments'",
+                                          "type": "REMOVE",
+                                          "value": "#$index"
+                                        }
+                                      },
+                                      {
+                                        "name": "weaponAttachmentItemName",
                                         "type": "textfield",
                                         "value": "#$this.name"
                                       },
                                       {
-                                        "name": "weaponItemOptions",
+                                        "name": "weaponAttachmentItemOptions",
                                         "type": "select",
                                         "bind": "#'$state.character.weapons[' + $parent.index + '].attachments[' + $index + '].activeOptions'",
                                         "items": {
@@ -1971,7 +1981,11 @@
                             "type": "button",
                             "text": "X",
                             "weight": 1,
-                            "action": "# {type:'REMOVE', path: '$state.character.armor', remove: $this}"
+                            "action": {
+                              "path": "$state.character.armor",
+                              "type": "REMOVE",
+                              "value": "#$index"
+                            }
                           },
                           {
                             "name": "armorName",
@@ -4391,13 +4405,13 @@
         "ranged": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.armor.map(a => a.defense).reduce((a,b)=>a+b, 0)"
+            "# $state.character.armor.map(a => a.rangedDefense).reduce((a,b)=>a+b, 0)"
           ]
         },
         "melee": {
           "type": "number",
           "derivedFrom": [
-            "# $state.character.armor.map(a => a.defense).reduce((a,b)=>a+b, 0)"
+            "# $state.character.armor.map(a => a.meleeDefense).reduce((a,b)=>a+b, 0)"
           ]
         }
       }
@@ -18997,6 +19011,7 @@
     "cybernetics": {
       "properties": {
         "name": "string",
+        "description": "string",
         "cost": "number",
         "characteristicBonus": "characteristics",
         "soakBonus": "number",
