@@ -17768,7 +17768,7 @@
         "innateTalent": "string",
         "skillBonus": "string",
         "characteristicBonus": "string",
-        "hardpointsRequires": "number",
+        "hardpointsRequired": "number",
         "critRatingModifier": "string",
         "options": "[string]",
         "activeOptions": "[string]"
@@ -17789,7 +17789,7 @@
         {
           "id": "balanced-hilt",
           "name": "Balanced Hilt",
-          "hardpointsRequires": 2,
+          "hardpointsRequired": 2,
           "weaponQuality": "Accurate (+1)",
           "options": [
             "weapon-quality-accurate",
@@ -18368,7 +18368,7 @@
         "innateTalent": "string",
         "skillBonus": "string",
         "characteristicBonus": "string",
-        "hardpointsRequires": "number",
+        "hardpointsRequired": "number",
         "critRatingModifier": "string",
         "options": "[string]",
         "activeOptions": "[string]"
@@ -18691,7 +18691,8 @@
     "armor": {
       "properties": {
         "name": "string",
-        "defense": "number",
+        "meleeDefense": "number",
+        "rangedDefense": "number",
         "soak": "number",
         "price": "number",
         "encumbrance": "number",
@@ -18703,7 +18704,8 @@
       "values": [
         {
           "name": "Adverse Environment Gear",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 1,
           "price": 500,
           "encumbrance": 2,
@@ -18712,7 +18714,8 @@
         },
         {
           "name": "Armored Clothing",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 1,
           "price": 1000,
           "encumbrance": 3,
@@ -18721,7 +18724,8 @@
         },
         {
           "name": "Heavy Battle Armor",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 2,
           "price": 5000,
           "encumbrance": 6,
@@ -18730,7 +18734,8 @@
         },
         {
           "name": "Heavy Clothing",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 1,
           "price": 50,
           "encumbrance": 1,
@@ -18739,7 +18744,8 @@
         },
         {
           "name": "Laminate",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "price": 2500,
           "encumbrance": 4,
@@ -18748,7 +18754,8 @@
         },
         {
           "name": "Personal Deflector Shield",
-          "defense": 2,
+          "meleeDefense": 2,
+          "rangedDefense": 2,
           "soak": 0,
           "price": 2500,
           "encumbrance": 3,
@@ -18766,7 +18773,8 @@
         },
         {
           "name": "Cloaking Coat",
-          "defense": "0",
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 1,
           "price": 550,
           "encumbrance": 4,
@@ -18775,7 +18783,8 @@
         },
         {
           "name": "Mechanic's Utility Suit",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "price": 1175,
           "encumbrance": 5,
@@ -18784,7 +18793,8 @@
         },
         {
           "name": "Merr-Sonn N-57 Armor",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "price": 3000,
           "encumbrance": 5,
@@ -18793,7 +18803,8 @@
         },
         {
           "name": "SoroSuub P-14 Hazardous Industry Suit",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "price": 1000,
           "encumbrance": 7,
@@ -18933,7 +18944,8 @@
         },
         {
           "name": "Armored Drop Suit",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 1,
           "encumbrance": 6,
           "hardpoints": 2,
@@ -18941,7 +18953,8 @@
         },
         {
           "name": "Hunter's Trophy Armor (completed)",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "encumbrance": 4,
           "hardpoints": 1,
@@ -18949,7 +18962,8 @@
         },
         {
           "name": "Hunter's Trophy Armor (custom-made)",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "encumbrance": 4,
           "hardpoints": 1,
@@ -18957,7 +18971,8 @@
         },
         {
           "name": "Mandalorian Armor",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 2,
           "encumbrance": 5,
           "rarity": 8
