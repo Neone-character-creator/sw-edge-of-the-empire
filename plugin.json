@@ -19198,6 +19198,18 @@
         {
           "name": "Surge Override Switch",
           "cost": 1000
+        },
+        {
+          "name": "Appraiser's Eye",
+          "cost": 700
+        },
+        {
+          "name": "Cybernetic Cavity",
+          "cost": 775
+        },
+        {
+          "name": "Digital Lockpick",
+          "cost": 2750
         }
       ]
     },
