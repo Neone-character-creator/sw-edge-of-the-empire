@@ -18778,7 +18778,8 @@
         },
         {
           "name": "Padded Armor",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "price": 500,
           "encumbrance": 2,
@@ -18827,7 +18828,8 @@
         },
         {
           "name": "Enviro-suit",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "price": 750,
           "encumbrance": 2,
@@ -18845,7 +18847,8 @@
         },
         {
           "name": "Tracker Utility Vest",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 0,
           "price": 100,
           "encumbrance": 0,
@@ -18854,7 +18857,8 @@
         },
         {
           "name": "Mountaineer Armor",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 0,
           "encumbrance": 3,
           "hardpoints": 2,
@@ -18862,7 +18866,8 @@
         },
         {
           "name": "Creshaldyne Riot Armor",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 1,
           "encumbrance": 3,
           "hardpoints": 1,
@@ -18870,7 +18875,8 @@
         },
         {
           "name": "Kamperdine Armored Jackets",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "encumbrance": 1,
           "hardpoints": 0,
@@ -18878,7 +18884,8 @@
         },
         {
           "name": "Reinforced Environment Gear",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 1,
           "encumbrance": 2,
           "hardpoints": 2,
@@ -18886,7 +18893,8 @@
         },
         {
           "name": "Blast Vest",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 1,
           "encumbrance": 3,
           "hardpoints": 1,
@@ -18894,7 +18902,8 @@
         },
         {
           "name": "Mimetic Suit",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 1,
           "encumbrance": 2,
           "hardpoints": 2,
@@ -18902,7 +18911,8 @@
         },
         {
           "name": "Smuggler's Trenchcoat",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 1,
           "encumbrance": 3,
           "hardpoints": 0,
@@ -18910,7 +18920,8 @@
         },
         {
           "name": "Hutt Shell Armor",
-          "defense": 2,
+          "rangedDefense": 2,
+          "meleeDefense": 2,
           "soak": 2,
           "encumbrance": 6,
           "hardpoints": 4,
@@ -18918,7 +18929,8 @@
         },
         {
           "name": "Sakiyan Shadowsuit",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 1,
           "encumbrance": 1,
           "hardpoints": 1,
@@ -18926,7 +18938,8 @@
         },
         {
           "name": "Catch Vest",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 2,
           "encumbrance": 1,
           "hardpoints": 0,
@@ -18934,7 +18947,8 @@
         },
         {
           "name": "Nomad Greatcoat",
-          "defense": 0,
+          "meleeDefense": 0,
+          "rangedDefense": 0,
           "soak": 1,
           "encumbrance": 1,
           "hardpoints": 0,
@@ -18942,7 +18956,8 @@
         },
         {
           "name": "Type III 'Berethron' Armor",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 1,
           "encumbrance": 3,
           "hardpoints": 3,
@@ -18950,7 +18965,8 @@
         },
         {
           "name": "Combat Flight Suit",
-          "defense": 1,
+          "meleeDefense": 1,
+          "rangedDefense": 1,
           "soak": 0,
           "encumbrance": 4,
           "hardpoints": 2,
