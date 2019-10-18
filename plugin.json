@@ -18067,8 +18067,9 @@
           "hardpointsRequired": 2
         },
         {
-          "id": "poison-resevoir",
-          "name": "Poison Resevoir",
+          "id": "poison-reservoir",
+          "name": "Poison Reservoir",
+          "description": "Store 1 dose of poison, done weapon as a maneuver",
           "hardpointsRequired": 1,
           "options": [
             "poison-dose",
@@ -18080,6 +18081,7 @@
         {
           "id": "blaster-suppressor",
           "name": "Blaster Suppressor",
+          "description": "Add ■■ to Perception and Vigilance checks to locate shooter",
           "hardpointsRequired": 1,
           "options": [
             "talent-quick-strike",
@@ -18245,9 +18247,6 @@
           "name": "Underslung Scattergun",
           "description": "Enable scattergun secondary weapon",
           "hardpointsRequired": 3
-        },
-        {
-          "id":
         }
       ]
     },
@@ -18363,6 +18362,7 @@
         {
           "id": "threat-monitor",
           "name": "Threat Monitor",
+          "description": "Add automatic [Triumph] to initiative checks",
           "hardpointsRequired": 1
         },
         {
