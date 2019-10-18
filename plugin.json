@@ -1723,10 +1723,17 @@
                     "bind": "$state.selectedWeapon.criticalRating"
                   },
                   {
+                    "name": "newWeaponHardpoints",
+                    "type": "number",
+                    "label": "Hardpoints",
+                    "weight": 1,
+                    "bind": "$state.selectedWeapon.hardpoints"
+                  },
+                  {
                     "name": "newWeaponSpecial",
                     "type": "textfield",
                     "label": "Special",
-                    "weight": 2,
+                    "weight": 1,
                     "bind": "$state.selectedWeapon.special"
                   }
                 ]
@@ -1774,6 +1781,7 @@
                                 "name": "weaponAmmo",
                                 "type": "select",
                                 "bind": "#'$state.character.weapons['+$index+'].activeAmmo'",
+                                "weight": 1,
                                 "label": "Ammo",
                                 "items": {
                                   "text": "name",
@@ -1809,10 +1817,17 @@
                                 "value": "#$this.criticalRating"
                               },
                               {
+                                "name": "weaponHardpoints",
+                                "type": "number",
+                                "label": "Hardpoints",
+                                "weight": 1,
+                                "value": "#$this.hardpoints"
+                              },
+                              {
                                 "name": "weaponSpecial",
                                 "type": "textfield",
                                 "label": "Special",
-                                "weight": 2,
+                                "weight": 1,
                                 "value": "# ($this.special || []).concat(_.get($this, 'activeAmmo.special'))"
                               }
                             ]
@@ -1842,8 +1857,9 @@
                                     "type": "select",
                                     "bind": "#'$temp.selectedWeaponAttachment[' + $index + ']'",
                                     "items": {
-                                      "disabledWhen": "# $state.character.weapons[$index].attachments.map(wa => wa.id).includes($this.id)",
+                                      "disabledWhen": "# $state.character.weapons[$index].attachments.map(wa => wa.id).includes($this.id) || _.sum($state.character.weapons[$index].attachments.map(wa => wa.hardpointsRequired)) + $this.hardpointsRequired > $state.character.weapons[$index].hardpoints",
                                       "text": "name",
+                                      "translate": "#$this.name + ' (' + $this.hardpointsRequired + ' HP )'",
                                       "values": "#$models.weaponAttachment.values"
                                     }
                                   }
@@ -1874,18 +1890,28 @@
                                         "name": "weaponAttachmentItemName",
                                         "type": "textfield",
                                         "value": "#$this.name",
+                                        "label": "Name",
                                         "weight": 2
                                       },
                                       {
                                         "name": "weaponAttachmentItemDescription",
                                         "type": "textfield",
                                         "value": "#$this.description",
-                                        "weight": 6
+                                        "label": "Description",
+                                        "weight": 5
+                                      },
+                                      {
+                                        "name": "weaponAttachmentItemHardpointsUsed",
+                                        "type" : "number",
+                                        "value": "#$this.hardpointsRequired",
+                                        "weight": 1,
+                                        "label": "Hardpoints Used"
                                       },
                                       {
                                         "name": "weaponAttachmentItemOptions",
                                         "type": "select",
                                         "bind": "$parent.value.activeOptions",
+                                        "label": "Options",
                                         "items": {
                                           "translate": "#$models.attachmentOption.values[$this].name",
                                           "maxSelections": "#$this.options.length",
