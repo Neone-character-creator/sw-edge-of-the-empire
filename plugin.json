@@ -18218,6 +18218,30 @@
             "additional-microrocket",
             "additional-microrocket-2"
           ]
+        },
+        {
+          "id": "overcharge-valve",
+          "name": "Overcharge Valve",
+          "description": "As Incidental, weapon gains Prepare 1 and Damage +4 to next attack then runs out of ammo",
+          "hardpointsRequired": 2
+        },
+        {
+          "id": "paired-weapons",
+          "name": "Paired Weapons",
+          "description": "Reduce [Advantage] required to hit with secondary weapon by 1.",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "set-trigger",
+          "name": "Set Trigger",
+          "description": "Add automatic [Hit] [Threat] to first combat check each combat.",
+          "hardpointsRequired": 1
+        },
+        {
+          "id": "underslung-scatter-gun",
+          "name": "Underslung Scattergun",
+          "description": "Enable scattergun secondary weapon",
+          "hardpointsRequired": 3
         }
       ]
     },
