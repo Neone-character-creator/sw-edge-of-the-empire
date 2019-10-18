@@ -18195,6 +18195,7 @@
         {
           "id": "marked-target-firing-lock",
           "name": "Marked-Target Firing Lock",
+          "description": "Designate a target when Aiming, cancel [Threat] and can't attack other targets",
           "hardpointsRequired": 1,
           "options": [
             "reduce-threat-on-attack"
@@ -18203,6 +18204,7 @@
         {
           "id": "shock-pulse-emitter",
           "name": "Shock Pulse Emitter",
+          "description": "Gain Stun (+2) Quality",
           "hardpointsRequired": 2,
           "options": [
             "weapon-quality-stun",
@@ -18213,6 +18215,7 @@
         {
           "id": "under-barrel-micro-rocket-rack",
           "name": "Under-Barrel Micro-Rocket Rack",
+          "description": "Add Micro-Rocket Rack secondary weapon",
           "hardpointsRequired": 3,
           "options": [
             "additional-microrocket",
@@ -18242,6 +18245,9 @@
           "name": "Underslung Scattergun",
           "description": "Enable scattergun secondary weapon",
           "hardpointsRequired": 3
+        },
+        {
+          "id":
         }
       ]
     },
@@ -18418,6 +18424,7 @@
         {
           "id": "integrated-holsters",
           "name": "Integrated Holsters",
+          "description": "Increase Encumbrance by 4, holster 2 weapons of Encumbrance 3 or less which ignore encumbrance",
           "hardpointsRequired": 2,
           "options": [
             "conceal-weapons",
@@ -18431,6 +18438,7 @@
         {
           "id": "micro-rocket-armor-mounting",
           "name": "Micro-Rocket Armor Mounting",
+          "description": "Increase encumbrance by 3, add Micro-Rocket Launcher secondary weapon",
           "requiredHardpoints": 2,
           "options": [
             "additional-micro-rocket",
@@ -18444,6 +18452,7 @@
         {
           "id": "repulsor-assisted-lifting",
           "name": "Repulsor-Assisted Lifting",
+          "description": "Add 5 to Brawn for encumbrance",
           "requiredHardpoints": 2,
           "options": [
             "encumbrance-brawn-bonus",
@@ -18455,6 +18464,7 @@
         {
           "id": "tracking-system",
           "name": "Tracking System",
+          "description": "Select target via LOS or sensor, upgrade checks to track target by 1",
           "requiredHardpoints": 2,
           "options": [
             "skill-vigilance",
