@@ -2215,20 +2215,24 @@
                     "name": "addItem",
                     "type": "button",
                     "text": "Add",
-                    "disabledWhen": "# !_.get($state, 'selectedOtherItem')",
-                    "action": "# {type:'PUSH', path: '$state.character.otherItems', value: $state.selectedOtherItem}"
+                    "disabledWhen": "# !_.get($temp, 'selectedOtherItem')",
+                    "action": {
+                      "type": "PUSH",
+                      "path": "$state.character.otherItems",
+                      "value": "#$temp.selectedOtherItem"
+                    }
                   },
                   {
                     "name": "newOtherItemName",
                     "type": "textfield",
                     "label": "Item Name",
-                    "bind": "$state.selectedOtherItem.name"
+                    "bind": "$temp.selectedOtherItem.name"
                   },
                   {
-                    "name": "newOtherItemWeight",
+                    "name": "newOtherItemEncumbrance",
                     "type": "number",
-                    "label": "Weight",
-                    "bind": "$state.selectedOtherItem.weight"
+                    "label": "Encumbrance",
+                    "bind": "$temp.selectedOtherItem.encumbrance"
                   }
                 ]
               },
@@ -2240,16 +2244,17 @@
                   "child": {
                     "name": "otherItem",
                     "type": "container",
+                    "direction": "horizontal",
                     "children": [
                       {
                         "name": "otherItemName",
                         "type": "textfield",
-                        "value": "#$this.name"
+                        "bind": "$this.name"
                       },
                       {
-                        "name": "otherItemWeight",
+                        "name": "otherItemEncumbrance",
                         "type": "number",
-                        "value": "#$this.weight"
+                        "bind": "$this.encumbrance"
                       }
                     ]
                   }
@@ -2685,7 +2690,7 @@
         },
         "armor": "[armor]",
         "credits": "number",
-        "otherItems": "[string]",
+        "otherItems": "[item]",
         "motivations": {
           "type": "[string]",
           "default": [
@@ -2715,7 +2720,25 @@
             "# $this.accumulator + _.sum($state.character.obligationBonuses.map(o => o.bonusCyberneticsCredits))"
           ]
         },
-        "signatureAbilities": "[signatureAbilities]"
+        "signatureAbilities": "[signatureAbilities]",
+        "encumbrance": {
+          "type": "number",
+          "derivedFrom": [
+            "# _.sum($state.character.weapons.map(w => w.encumbrance))",
+            "# $this.accumulator + _.sum($state.character.armor.map(a => a.encumbrance))",
+            "# $this.accumulator + _.sum($state.character.otherItems.map(i => i.encumbrance))"
+          ]
+        },
+        "encumbranceThreshold": {
+          "type": "number",
+          "derivedFrom": ["# $state.character.characteristics.brawn + 5"]
+        }
+      }
+    },
+    "item": {
+      "properties": {
+        "name": "string",
+        "encumbrance": "string"
       }
     },
     "advancements": {

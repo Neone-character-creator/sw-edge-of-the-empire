@@ -221,5 +221,7 @@
   "cybernetics[6].name": "Cybernetic Implant Make/ Model 7",
   "cybernetics[7].name": "Cybernetic Implant Make/ Model 8",
 
-  "credits" : "Personal Finances Available Credits"
+  "credits" : "Personal Finances Available Credits",
+  "encumbrance" : "Worn / Generally Carried Encumberance Current",
+  "encumbranceThreshold": "Worn / Generally Carried Encumberance Threshold"
 }
