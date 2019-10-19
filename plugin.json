@@ -18097,6 +18097,7 @@
         {
           "id": "custom-grip",
           "name": "Custom Grip",
+          "description": "Remove ■ from combat checks owner makes, anyone else adds ■■.",
           "hardpointsRequired": 1,
           "options": [
             "weapon-quality-accurate"
@@ -18105,6 +18106,7 @@
         {
           "id": "enhanced-xciter",
           "name": "Enhanced Xciter",
+          "description": "Decrease Crit Rating by 1, may explode.",
           "hardpointsRequired": 2,
           "options": [
             "weapon-quality-pierce",
@@ -18115,6 +18117,7 @@
         {
           "id": "gyrostabilizer",
           "name": "Gyrostabilizer",
+          "description": "Decrease Cumbersome by 1",
           "hardpointsRequired": 2,
           "options": [
             "cumbersome",
@@ -18126,6 +18129,7 @@
         {
           "id": "integrated-scanner",
           "name": "Integrated Scanner",
+          "description": "Wielder may use general purpose scanner while wielded. Add [Triumph][Triumph] to initiative checks",
           "hardpointsRequired": 2,
           "options": [
             "reduce-initiative-penalty",
