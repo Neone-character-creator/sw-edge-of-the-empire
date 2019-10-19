@@ -2121,6 +2121,12 @@
                 "text": "Cybernetics"
               },
               {
+                "name": "cyberneticsLimit",
+                "type": "number",
+                "label": "Cybernetics Limit Remaining",
+                "value": "#$state.character.cyberneticsLimit - $state.character.cybernetics.length"
+              },
+              {
                 "name": "cyberneticsList",
                 "type": "list",
                 "keyProperty": "name",
@@ -2700,7 +2706,14 @@
             "# _.get($state, 'character.bonusCybernetics')"
           ]
         },
+        "cyberneticsLimit": {
+          "type": "number",
+          "derivedFrom": [
+            "#$state.character.characteristics.brawn + $state.character.bonusCyberneticsCap"
+          ]
+        },
         "bonusCybernetics": "[cybernetics]",
+        "bonusCyberneticsCap": "number",
         "bonusCyberneticsMaxCost": {
           "type": "number",
           "derivedFrom": [
@@ -3091,7 +3104,8 @@
         },
         "specialAbilities": "[specialAbility]",
         "naturalWeapons": "[weapon]",
-        "startingNonCareerSkillChoices": "number"
+        "startingNonCareerSkillChoices": "number",
+        "bonusCyberneticsCap": "number"
       },
       "values": [
         {
@@ -3958,7 +3972,8 @@
           "bonusCybernetics": {
             "choices": 2,
             "maxTotalCost": 5000
-          }
+          },
+          "bonusCyberneticsCap": 3
         },
         {
           "name": "Nikto - Red",
@@ -4450,6 +4465,11 @@
           "path": "$state.character.totalExperience",
           "action": "ADD",
           "value": "#$this.source.startingExperience"
+        },
+        {
+          "path": "$state.character.bonusCyberneticsCap",
+          "action": "ADD",
+          "value": "#$this.source.bonusCyberneticsCap"
         }
       ]
     },
