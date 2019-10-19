@@ -1133,26 +1133,6 @@
                         "bind": "$state.character.otherItems[$index]"
                       }
                     }
-                  },
-                  {
-                    "name": "newOtherItem",
-                    "type": "container",
-                    "children": [
-                      {
-                        "name": "addOtherItem",
-                        "type": "button",
-                        "text": "Add",
-                        "weight": 1,
-                        "action": "# {type:'PUSH', path: 'character.otherItems', value: $state.newItem }"
-                      },
-                      {
-                        "name": "newOtherItem",
-                        "type": "textfield",
-                        "label": "New Item",
-                        "weight": 11,
-                        "bind": "$state.newItem"
-                      }
-                    ]
                   }
                 ]
               }
@@ -1902,7 +1882,7 @@
                                       },
                                       {
                                         "name": "weaponAttachmentItemHardpointsUsed",
-                                        "type" : "number",
+                                        "type": "number",
                                         "value": "#$this.hardpointsRequired",
                                         "weight": 1,
                                         "label": "Hardpoints Used"
@@ -2248,13 +2228,21 @@
                     "children": [
                       {
                         "name": "otherItemName",
+                        "label": "Item",
                         "type": "textfield",
-                        "bind": "$this.name"
+                        "bind": "#'$state.character.otherItems[' + $index + '].name'"
+                      },
+                      {
+                        "name": "otherItemQuantity",
+                        "label": "Quantity",
+                        "type": "number",
+                        "bind": "#'$state.character.otherItems[' + $index + '].quantity'"
                       },
                       {
                         "name": "otherItemEncumbrance",
                         "type": "number",
-                        "bind": "$this.encumbrance"
+                        "label": "Encumbrance",
+                        "bind": "#'$state.character.otherItems[' + $index + '].encumbrance'"
                       }
                     ]
                   }
@@ -2726,18 +2714,24 @@
           "derivedFrom": [
             "# _.sum($state.character.weapons.map(w => w.encumbrance))",
             "# $this.accumulator + _.sum($state.character.armor.map(a => a.encumbrance))",
-            "# $this.accumulator + _.sum($state.character.otherItems.map(i => i.encumbrance))"
+            "# $this.accumulator + _.sum($state.character.otherItems.map(i => i.encumbrance * Math.max(i.quantity, 0)))"
           ]
         },
         "encumbranceThreshold": {
           "type": "number",
-          "derivedFrom": ["# $state.character.characteristics.brawn + 5"]
+          "derivedFrom": [
+            "# $state.character.characteristics.brawn + 5"
+          ]
         }
       }
     },
     "item": {
       "properties": {
         "name": "string",
+        "quantity": {
+          "type": "number",
+          "default": 1
+        },
         "encumbrance": "string"
       }
     },
