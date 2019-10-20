@@ -1630,6 +1630,52 @@
         ]
       },
       {
+        "name": "Force Powers",
+        "type": "view",
+        "direction": "vertical",
+        "children": [
+          {
+            "name": "forcePowers",
+            "type": "container",
+            "label": "Force Powers",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "forcePower",
+                "type": "label",
+                "text": "Force Powers"
+              },
+              {
+                "name": "forcePowers",
+                "type": "list",
+                "bind": "$state.character.forcePowers",
+                "items": {
+                  "child": {
+                    "name": "forcePowerItem",
+                    "type": "container",
+                    "direction": "horizontal",
+                    "children": [
+                      {
+                        "name": "forcePowerName",
+                        "type": "textfield",
+                        "value": "#$this.name",
+                        "label": "Name"
+                      },
+                      {
+                        "name": "forcePowerDescription",
+                        "type": "textfield",
+                        "value": "#$this.description",
+                        "label": "Description"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "Equipment",
         "type": "view",
         "children": [
@@ -2345,8 +2391,8 @@
                 "type": "select",
                 "bind": "$temp.selectedAdvancement.talent",
                 "items": {
-                  "values": "#_.flatMap($state.character.specializations.map(s =>s.talents).concat($state.character.signatureAbilities.map(sa => sa.talents)))",
-                  "disabledWhen": "#_.get($state, 'character.advancements.talents', []).map(ta => ta.id).includes($this.id) || ($this.requires && !_.isEmpty(_.union($state.character.advancements.talents.map(ta => ta.id), $this.requires.advancements)))",
+                  "values": "#_.flatMap($state.character.specializations.map(s =>s.talents).concat($state.character.signatureAbilities.map(sa => sa.talents))).concat(_.flatMap(_.get($state, 'character.forcePowers', []), ))",
+                  "disabledWhen": "#_.get($state, 'character.advancements.talents', []).map(ta => ta.id).includes($this.id) || ($this.requires && !_.isEmpty(_.union($state.character.advancements.talents.map(ta => ta.id), $this.requires.advancements)) && _.get($this, 'requires.forceRating', 0) <= _.get($state, 'character.forceRating', 0))",
                   "translate": "# $this.description + ' (' + $this.cost + ')'"
                 }
               },
@@ -2431,6 +2477,54 @@
                   "path": "$state.character.advancements.specializations",
                   "value": "# _.get($temp, 'selectedAdvancement.specialization')"
                 }
+              }
+            ]
+          },
+          {
+            "name": "forcePowerAdvancement",
+            "type": "container",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "forceRatingRequired",
+                "type": "label",
+                "hiddenWhen": "#$state.character.forceRating > 0",
+                "text": "Gain force rating of at least 1 to purchase force powers."
+              },
+              {
+                "name": "newForcePower",
+                "type": "container",
+                "hiddenWhen": "#$state.character.forceRating <= 0",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "newForcePower",
+                    "type": "button",
+                    "text": "+",
+                    "action": {
+                      "type": "PUSH",
+                      "path": "$state.character.advancements.forcePowers",
+                      "value": "#_.get($temp, 'selectedAdvancement.forcePower')"
+                    }
+                  },
+                  {
+                    "name": "newForcePowerName",
+                    "type": "select",
+                    "label": "Power",
+                    "bind": "$temp.selectedAdvancement.forcePower",
+                    "items": {
+                      "translate": "#_.get($models.forcePower.values, _.get($this, 'forcePower') + '.name')",
+                      "values": "# $models.forcePowerAdvancement.values",
+                      "disabledWhen": "# $state.character.advancements.forcePowers.map(fp => fp.id).includes($this.id)"
+                    }
+                  },
+                  {
+                    "name": "newForcePowerDescription",
+                    "type": "textfield",
+                    "label": "Description",
+                    "value": "#_.get($models.forcePower.values, _.get($temp, 'selectedAdvancement.forcePower.forcePower') + '.description')"
+                  }
+                ]
               }
             ]
           },
@@ -2610,6 +2704,35 @@
                 ]
               }
             }
+          },
+          {
+            "name": "purchasedForcePowerAdvancements",
+            "type": "list",
+            "bind": "$state.character.advancements.forcePowers",
+            "items": {
+              "child": {
+                "name": "singlePurchasedForcePowerAdvancement",
+                "type": "container",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "singlePurchasedAdvancementForcePower",
+                    "type": "label",
+                    "text": "# `Force Power Advancement ${$models.forcePower.values[$this.forcePower].name} (${$this.cost})`"
+                  },
+                  {
+                    "name": "singlePurchasedAdvancementForcePowerRemove",
+                    "type": "button",
+                    "text": "# `Remove`",
+                    "action": {
+                      "path": "$state.character.advancements.forcePowers",
+                      "type": "REMOVE",
+                      "value": "#$index"
+                    }
+                  }
+                ]
+              }
+            }
           }
         ]
       }
@@ -2735,8 +2858,439 @@
           "derivedFrom": [
             "# $state.character.characteristics.brawn + 5"
           ]
-        }
+        },
+        "forcePowers": "[forcePower]"
       }
+    },
+    "forcePower": {
+      "properties": {
+        "id": "string",
+        "name": "string",
+        "description": "string",
+        "cost": "number",
+        "requires": "requirements"
+      },
+      "values": [
+        {
+          "id": "force-influence-basic-power",
+          "name": "Influence - Basic Power",
+          "description": "Spend ○ to inflict 1 strain to a living target user is engaged with",
+          "enhancements": [
+            {
+              "id": "force-influence-control-charisma",
+              "value": "force-influence-control-charisma",
+              "cost": 15,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-range",
+                  "force-influence-magnitude"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-control-emotion",
+              "value": "force-influence-control-emotion",
+              "requires": {
+                "forcePowers": [
+                  "force-influence-basic-power"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-duration",
+              "value": "force-influence-duration",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-duration-2",
+                  "force-influence-duration-3"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-duration-2",
+              "value": "force-influence-duration",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-strength"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-duration-3",
+              "value": "force-influence-duration",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-duration-2",
+                  "force-influence-duration-4"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-duration-4",
+              "value": "force-influence-duration",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-duration",
+                  "force-influence-duration-3"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-magnitude",
+              "value": "force-influence-magnitude",
+              "cost": 5,
+              "requires": {
+                "forcePowers": [
+                  "force-influence-basic-power"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-magnitude-2",
+              "value": "force-influence-magnitude",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-control-charisma"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-magnitude-3",
+              "value": "force-influence-magnitude",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-magnitude-2"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-strength",
+              "value": "force-influence-strength",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-control-emotion"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-range",
+              "value": "force-influence-range",
+              "cost": 5,
+              "requires": {
+                "forcePowers": [
+                  "force-power-influence"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-range-2",
+              "value": "force-influence-range",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-control-charisma"
+                ]
+              }
+            },
+            {
+              "id": "force-influence-range-3",
+              "value": "force-influence-range",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-influence-range-2"
+                ]
+              }
+            }
+          ],
+          "requires": {
+            "forceRating": 1
+          }
+        },
+        {
+          "id": "force-move-basic-power",
+          "name": "Move - Basic Power",
+          "description": "User may spend ○ to move one object of silhouette 0 that at a minimum and maximum short range.",
+          "enhancements": [
+            {
+              "id": "force-move-control-fine",
+              "value": "force-move-control-fine",
+              "cost": 15,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-control-pull",
+                  "force-move-range-3"
+                ]
+              }
+            },
+            {
+              "id": "force-move-control-pull",
+              "value": "force-move-control-pull",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-control-throw"
+                ]
+              }
+            },
+            {
+              "id": "force-move-control-throw",
+              "value": "force-move-control-throw",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-range",
+                  "force-move-range-2"
+                ]
+              }
+            },
+            {
+              "id": "force-move-magnitude",
+              "value": "force-move-magnitude",
+              "cost": 5,
+              "requires": {
+                "forcePowers": [
+                  "force-move-basic-power"
+                ]
+              }
+            },
+            {
+              "id": "force-move-magnitude-2",
+              "value": "force-move-magnitude",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-magnitude"
+                ]
+              }
+            },
+            {
+              "id": "force-move-magnitude-3",
+              "value": "force-move-magnitude",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-magnitude-2"
+                ]
+              }
+            },
+            {
+              "id": "force-move-magnitude-4",
+              "value": "force-move-magnitude",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-magnitude-3"
+                ]
+              }
+            },
+            {
+              "id": "force-move-range",
+              "value": "force-move-range",
+              "cost": 5,
+              "requires": {
+                "forcePowers": [
+                  "force-move-basic-power"
+                ]
+              }
+            },
+            {
+              "id": "force-move-range-2",
+              "value": "force-move-range",
+              "cost": 5,
+              "requires": {
+                "forcePowers": [
+                  "force-move-basic-power"
+                ]
+              }
+            },
+            {
+              "id": "force-move-range-3",
+              "value": "force-move-range",
+              "cost": 15,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-control-throw"
+                ]
+              }
+            },
+            {
+              "id": "force-move-strength",
+              "value": "force-move-strength",
+              "cost": 10,
+              "requires": {
+                "forcePowers": [
+                  "force-move-basic-power"
+                ]
+              }
+            },
+            {
+              "id": "force-move-strength-2",
+              "value": "force-move-range",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-strength"
+                ]
+              }
+            },
+            {
+              "id": "force-move-strength-3",
+              "value": "force-move-range",
+              "cost": 15,
+              "requires": {
+                "talentAdvancements": [
+                  "force-move-strength-2"
+                ]
+              }
+            },
+            {
+              "id": "force-move-strength-4",
+              "name": "Move - Strength",
+              "description": "Spend ○ to increase silhouette able to be targeted by 1.",
+              "cost": 15,
+              "requires": {
+                "forcePowerEnhancements": [
+                  "force-move-strength-3"
+                ]
+              }
+            }
+          ],
+          "requires": {
+            "forceRating": 1
+          }
+        },
+        {
+          "id": "force-sense-basic-power",
+          "name": "Sense - Basic Power",
+          "description": "The Force user can sense the force interacting with the world around him.",
+          "enhancements": [
+            {
+              "id": "force-sense-control-accuracy",
+              "value": "force-sense-control-accuracy",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-strength"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-control-evasion",
+              "value": "force-sense-control-evasion",
+              "cost": 10,
+              "requires": {
+                "forcePowers": [
+                  "force-sense-basic-power"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-control-telepathy",
+              "value": "force-sense-control-telepathy",
+              "cost": 10,
+              "requires": {
+                "forcePowers": [
+                  "force-sense-basic-power"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-duration",
+              "value": "force-sense-duration",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-control-evasion"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-magnitude",
+              "value": "force-sense-magnitude",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-control-telepathy"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-magnitude-2",
+              "value": "force-sense-magnitude",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-magnitude"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-magnitude-3",
+              "value": "force-sense-magnitude",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-magnitude-2"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-range",
+              "name": "Sense - Range",
+              "description": "Spend ○ to increase range by 1 band.",
+              "cost": 5,
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-control-telepathy"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-range-2",
+              "name": "Sense - Range",
+              "description": "Spend ○ to increase range by 1 band.",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-range"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-range-3",
+              "name": "Sense - Range",
+              "description": "Spend ○ to increase range by 1 band.",
+              "cost": 10,
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-range-2"
+                ]
+              }
+            },
+            {
+              "id": "force-sense-strength",
+              "name": "Sense - Strength",
+              "description": "When using Sense ongoing effect, upgrade the pool twice.",
+              "requires": {
+                "talentAdvancements": [
+                  "force-sense-control-evasion"
+                ]
+              }
+            }
+          ],
+          "requires": {
+            "forceRating": 1
+          }
+        }
+      ]
     },
     "item": {
       "properties": {
@@ -2754,7 +3308,8 @@
         "talents": "[talentAdvancement]",
         "specializations": "[specializationAdvancement]",
         "signatureAbilities": "[signatureAbilityAdvancement]",
-        "skills": "[skillAdvancement]"
+        "skills": "[skillAdvancement]",
+        "forcePowers": "[forcePowerAdvancement]"
       }
     },
     "skills": {
@@ -6020,7 +6575,7 @@
               "tier": 4,
               "cost": 20,
               "requires": {
-                "advancement": [
+                "advancements": [
                   "scholar-14",
                   "scholar-17"
                 ]
@@ -9116,14 +9671,22 @@
               "tier": 2,
               "cost": 10,
               "requires": {
-                "forceRating": 1
+                "forceRating": 1,
+                "advancements": [
+                  "force-sensitive-10"
+                ]
               }
             },
             {
               "id": "force-sensitive-7",
               "value": "intense-focus",
               "tier": 2,
-              "cost": 10
+              "cost": 10,
+              "requires": {
+                "advancements": [
+                  "force-sensitive-11"
+                ]
+              }
             },
             {
               "id": "force-sensitive-8",
@@ -9138,7 +9701,7 @@
             },
             {
               "id": "force-sensitive-9",
-              "value": "force-sense-danger",
+              "value": "sense-danger",
               "tier": 3,
               "cost": 15,
               "requires": {
@@ -9151,7 +9714,7 @@
             },
             {
               "id": "force-sensitive-10",
-              "value": "force-sense-emotions",
+              "value": "sense-emotions",
               "tier": 3,
               "cost": 15,
               "requires": {
@@ -9258,7 +9821,7 @@
             },
             {
               "id": "force-sensitive-18",
-              "value": "forceRating",
+              "value": "force-rating",
               "tier": 5,
               "cost": 25,
               "requires": {
@@ -9272,7 +9835,7 @@
             },
             {
               "id": "force-sensitive-19",
-              "values": {
+              "value": {
                 "options": [
                   "dedication-agility",
                   "dedication-brawn",
@@ -9303,492 +9866,6 @@
                   "force-sensitive-16",
                   "force-sensitive-19"
                 ]
-              }
-            },
-            {
-              "id": "force-sense-1",
-              "value": "force-sense-basic-power",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-2",
-              "value": "force-sense-control-evasion",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-3",
-              "value": "force-sense-duration",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-2"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-4",
-              "value": "force-sense-strength",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-3"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-5",
-              "value": "force-sense-control-accuracy",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-4"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-6",
-              "value": "force-sense-control-telepathy",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-7",
-              "value": "force-sense-range",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-7"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-8",
-              "value": "force-sense-range",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-7"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-9",
-              "value": "force-sense-range",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-8"
-                ]
-              }
-            },
-            {
-              "id": "force-sense-10",
-              "value": "force-sense-magnitude",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-6"
-                ]
-              }
-            },
-            {
-              "id": "force-sense-11",
-              "value": "force-sense-magnitude",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-10"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-sense-12",
-              "value": "force-sense-magnitude",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-sense-11"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-1",
-              "value": "force-influence-basic-power",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-2",
-              "value": "force-influence-range",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-influence-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-3",
-              "value": "force-influence-magnitude",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-influence-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-4",
-              "value": "force-influence-control-emotion",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-influence-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-5",
-              "value": "force-influence-control-charisma",
-              "tier": 3,
-              "cost": 15,
-              "requires": {
-                "advancements": [
-                  "force-influence-2",
-                  "force-influence-3"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-6",
-              "value": "force-influence-strength",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-influence-4"
-                ]
-              }
-            },
-            {
-              "id": "force-influence-7",
-              "value": "force-influence-range",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancement": [
-                  "force-influence-5"
-                ]
-              }
-            },
-            {
-              "id": "force-influence-8",
-              "value": "force-influence-magnitude",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-influence-5"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-9",
-              "value": "force-influence-duration",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-influence-10"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-10",
-              "value": "force-influence-duration",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-influence-6"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-11",
-              "value": "force-influence-range",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-influence-7"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-12",
-              "value": "force-influence-magnitude",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-influence-8"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-13",
-              "value": "force-influence-duration",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-influence-9",
-                  "force-influence-14"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-influence-14",
-              "value": "force-influence-duration",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-influence-10",
-                  "force-influence-13"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-1",
-              "value": "force-move-basic-power",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-2",
-              "value": "force-move-magnitude",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-move-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-3",
-              "value": "force-move-strength",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-move-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-4",
-              "value": "force-move-range",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-move-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-5",
-              "value": "force-move-range",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-move-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-6",
-              "value": "force-move-magnitude",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-move-2"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-7",
-              "tier": 2,
-              "cost": 10,
-              "value": "force-move-strength",
-              "requires": {
-                "advancements": [
-                  "force-move-3"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-8",
-              "value": "force-move-control-throw",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-move-4",
-                  "force-move-5"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-9",
-              "value": "force-move-magnitude",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-move-6"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-10",
-              "value": "force-move-strength",
-              "tier": 3,
-              "cost": 15,
-              "requires": {
-                "advancements": [
-                  "force-move-1"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-11",
-              "value": "force-move-control-pull",
-              "tier": 1,
-              "cost": 5,
-              "requires": {
-                "advancements": [
-                  "force-move-7",
-                  "force-move-15"
-                ],
-                "force=rating": 1
-              }
-            },
-            {
-              "id": "force-move-12",
-              "value": "force-move-range",
-              "tier": 3,
-              "cost": 15,
-              "requires": {
-                "advancements": [
-                  "force-move-8",
-                  "force-move-15"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-13",
-              "value": "force-move-magnitude",
-              "tier": 2,
-              "cost": 10,
-              "requires": {
-                "advancements": [
-                  "force-move-9"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-14",
-              "value": "force-move-strength",
-              "tier": 4,
-              "cost": 20,
-              "requires": {
-                "advancements": [
-                  "force-move-10"
-                ],
-                "forceRating": 1
-              }
-            },
-            {
-              "id": "force-move-15",
-              "value": "force-move-control-fine",
-              "tier": 3,
-              "cost": 15,
-              "requires": {
-                "advancements": [
-                  "force-move-12",
-                  "force-move-11"
-                ],
-                "forceRating": 1
               }
             }
           ]
@@ -11220,8 +11297,8 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-1",
-                  "entrepreneus-6",
-                  "entrepreneus-9"
+                  "entrepreneur-6",
+                  "entrepreneur-9"
                 ]
               }
             },
@@ -11233,7 +11310,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-5",
-                  "entrepreneus-10"
+                  "entrepreneur-10"
                 ]
               }
             },
@@ -11245,7 +11322,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-3",
-                  "entrepreneus-8"
+                  "entrepreneur-8"
                 ]
               }
             },
@@ -11257,7 +11334,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-7",
-                  "entrepreneus-12"
+                  "entrepreneur-12"
                 ]
               }
             },
@@ -11269,7 +11346,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-5",
-                  "entrepreneus-10"
+                  "entrepreneur-10"
                 ]
               }
             },
@@ -11281,7 +11358,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-6",
-                  "entrepreneus-9"
+                  "entrepreneur-9"
                 ]
               }
             },
@@ -11293,7 +11370,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-7",
-                  "entrepreneus-12"
+                  "entrepreneur-12"
                 ]
               }
             },
@@ -11305,7 +11382,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-8",
-                  "entrepreneus-11"
+                  "entrepreneur-11"
                 ]
               }
             },
@@ -11317,7 +11394,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-9",
-                  "entrepreneus-14",
+                  "entrepreneur-14",
                   "entrepreneur-17"
                 ]
               }
@@ -11330,7 +11407,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-13",
-                  "entrepreneus-18"
+                  "entrepreneur-18"
                 ]
               }
             },
@@ -11342,7 +11419,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-16",
-                  "entrepreneus-19"
+                  "entrepreneur-19"
                 ]
               }
             },
@@ -11354,7 +11431,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-6",
-                  "entrepreneus-9"
+                  "entrepreneur-9"
                 ]
               }
             },
@@ -11366,7 +11443,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-13",
-                  "entrepreneus-18"
+                  "entrepreneur-18"
                 ]
               }
             },
@@ -11378,7 +11455,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-14",
-                  "entrepreneus-17",
+                  "entrepreneur-17",
                   "entrepreneur-19"
                 ]
               }
@@ -11413,7 +11490,7 @@
               "requires": {
                 "advancements": [
                   "entrepreneur-16",
-                  "entrepreneus-19"
+                  "entrepreneur-19"
                 ]
               }
             }
@@ -14489,108 +14566,115 @@
           "name": "Forager"
         },
         {
-          "id": "forceRating",
-          "name": "Force Rating"
-        },
-        {
-          "id": "force-influence-basic-power",
-          "name": "Influence - Basic Power"
-        },
-        {
           "id": "force-influence-control-charisma",
-          "name": "Influence - Control Charisma"
+          "name": "Influence - Control Charisma",
+          "description": "When making a Coerce, Charm, Deception, Leadership or Negotiation check, roll power check and spend ○ to gain [hit] or [triumph]."
         },
         {
           "id": "force-influence-control-emotion",
-          "name": "Influence - Control Emotion"
+          "name": "Influence - Control Emotion",
+          "description": "Make opposed Discipline vs Discipline check, on success subject gains emotional state or beliefs untrue fact for 1 round/5 minutes."
         },
         {
           "id": "force-influence-duration",
-          "name": "Influence - Duration"
+          "name": "Influence - Duration",
+          "description": "Spend ○  to increase duration by 1"
         },
         {
           "id": "force-influence-magnitude",
-          "name": "Influence - Magnitude"
+          "name": "Influence - Magnitude",
+          "description": "Spend ○ to increase targets affected by 1"
         },
         {
           "id": "force-influence-strength",
-          "name": "Influence - Strength"
+          "name": "Influence - Strength",
+          "description": "Inflict 2 strain"
         },
         {
           "id": "force-influence-range",
+          "description": "Spend ○ to increase power range by 1.",
           "name": "Influence - Range"
         },
         {
-          "id": "force-move-basic-power",
-          "name": "Move - Basic Power"
-        },
-        {
           "id": "force-move-control-fine",
-          "name": "Move - Control Fine Control"
+          "name": "Move - Control Fine Control",
+          "description": "Can perform fine manipulation of objects."
         },
         {
           "id": "force-move-control-pull",
-          "name": "Move - Control Pull"
+          "name": "Move - Control Pull",
+          "description": "Can pull objects out of secure mountings or opponent's grasp"
         },
         {
           "id": "force-move-control-throw",
-          "name": "Move - Control Throw"
+          "name": "Move - Control Throw",
+          "description": "Make attack check using Discipline along with Move force check, dealing damage equal to silhouette x 10"
         },
         {
           "id": "force-move-magnitude",
-          "name": "Move - Magnitude"
+          "name": "Move - Magnitude",
+          "description": "Spend ○ to increase targets affected by 1"
         },
         {
           "id": "force-move-range",
-          "name": "Move - Range"
+          "name": "Move - Range",
+          "description": "Spend ○ to increase power maximum range by 1 band",
+          "cost": 5,
+          "requires": {
+            "forcePowers": [
+              "force-move-basic-power"
+            ]
+          }
         },
         {
           "id": "force-move-strength",
-          "name": "Move - Strength"
+          "name": "Move - Strength",
+          "description": "Spend ○ to increase silhouette able to be targeted by 1.",
+          "cost": 10,
+          "requires": {
+            "forcePowers": [
+              "force-move-basic-power"
+            ]
+          }
         },
         {
           "id": "force-rating",
           "name": "Force Rating"
         },
         {
-          "id": "force-sense-basic-power",
-          "name": "Sense - Basic Power"
-        },
-        {
           "id": "force-sense-control-accuracy",
+          "description": "Ongoing Effect: Commit ⬡. Once per round, upgrade the ability of a combat check once.",
           "name": "Sense Control - Accuracy"
         },
         {
           "id": "force-sense-control-evasion",
+          "description": "Ongoing Effect: Commit ⬡. Once per round, upgrade the difficulty of an attack pool once.",
           "name": "Sense Control - Evade"
         },
         {
           "id": "force-sense-control-telepathy",
+          "description": "Effect: Spend ○. Sense the current thoughts on one living target engaged with user.",
           "name": "Sense Control - Telepathy"
         },
         {
-          "id": "force-sense-danger",
-          "name": "Sense Danger"
-        },
-        {
           "id": "force-sense-duration",
-          "name": "Sense - Duration"
+          "name": "Sense - Duration",
+          "description": "Sense's ongoing effects may be triggered one additional time per round"
         },
         {
           "id": "force-sense-magnitude",
-          "name": "Sense Control - Magnitude"
+          "name": "Sense Control - Magnitude",
+          "description": "Spend ○ to increase number of targets affected by 1"
         },
         {
           "id": "force-sense-range",
-          "name": "Sense - Range"
+          "name": "Sense - Range",
+          "description": "Spend ○ to increase range by 1 band."
         },
         {
           "id": "force-sense-strength",
-          "name": "Sense - Strength"
-        },
-        {
-          "id": "force-sense-emotions",
-          "name": "Sense Emotions"
+          "name": "Sense - Strength",
+          "description": "When using Sense ongoing effect, upgrade the pool twice."
         },
         {
           "id": "fortune-favors-the-bold",
@@ -14760,7 +14844,7 @@
         },
         {
           "id": "intense-focus",
-          "name": "intense-focus"
+          "name": "Intense Focus"
         },
         {
           "id": "intense-presence",
@@ -15169,6 +15253,14 @@
         {
           "id": "selective-detonation",
           "name": "Selective Detonation"
+        },
+        {
+          "id": "sense-danger",
+          "name": "Sense Danger"
+        },
+        {
+          "id": "sense-emotions",
+          "name": "Sense Emotions"
         },
         {
           "id": "shortcut",
@@ -20570,6 +20662,37 @@
         }
       ]
     },
+    "forcePowerAdvancement": {
+      "properties": {
+        "id": "string",
+        "forcePower": "string",
+        "cost": "number"
+      },
+      "values": [
+        {
+          "id": "influence",
+          "forcePower": "force-influence-basic-power",
+          "cost": 10
+        },
+        {
+          "id": "move",
+          "forcePower": "force-move-basic-power",
+          "cost": 10
+        },
+        {
+          "id": "sense",
+          "forcePower": "force-sense-basic-power",
+          "cost": 10
+        }
+      ],
+      "effects": [
+        {
+          "action": "PUSH",
+          "path": "$state.character.forcePowers",
+          "value": "#$models.forcePower.values[$this.source.forcePower]"
+        }
+      ]
+    },
     "skillAdvancement": {
       "properties": {
         "id": "string",
@@ -20730,6 +20853,7 @@
       "properties": {
         "id": "string",
         "specialization": "string",
+        "universal": "boolean",
         "cost": {
           "type": "number",
           "derivedFrom": [
@@ -20856,7 +20980,7 @@
         },
         {
           "id": "gunslinger",
-          "specialization": "gunslinter"
+          "specialization": "gunslinger"
         },
         {
           "id": "mechanic",
@@ -20881,6 +21005,11 @@
         {
           "id": "modder",
           "specialization": "modder"
+        },
+        {
+          "id": "force-sensitive-exile",
+          "specialization": "force-sensitive-exile",
+          "universal": true
         }
       ],
       "effects": [
@@ -21071,7 +21200,7 @@
       "after": "ADD",
       "when": "# $this.path === '$state.character.weapons'",
       "effects": [
-        "# $state.selectedWeapon = undefined"
+        "# $temp.selectedWeapon = undefined"
       ]
     },
     {
@@ -21088,6 +21217,13 @@
       "when": "#$this.path === '$state.character.startingSpecialization'",
       "effects": [
         "# $state.character.specializationStartingSkills = []"
+      ]
+    },
+    {
+      "after": "PUSH",
+      "when": "#$this.path === '$state.character.advancements.forcePowers'",
+      "effects": [
+        "#$temp.selectedAdvancement.forcePower = undefined"
       ]
     }
   ]

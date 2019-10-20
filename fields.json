@@ -332,5 +332,14 @@
   "otherItems\\[34\\].encumbrance": "Worn / Generally Carried Encumberance 35",
   "otherItems\\[35\\].name": "Worn / Generally Carried Item 36",
   "otherItems\\[35\\].quantity" : "Worn / Generally Carried Quantity 36",
-  "otherItems\\[35\\].encumbrance": "Worn / Generally Carried Encumberance 36"
+  "otherItems\\[35\\].encumbrance": "Worn / Generally Carried Encumberance 36",
+
+  "forcePowers\\[0\\].name": "Force Power Name 1",
+  "forcePowers\\[1\\].name": "Force Power Name 2",
+  "forcePowers\\[2\\].name": "Force Power Name 3",
+  "forcePowers\\[3\\].name": "Force Power Name 4",
+  "forcePowers\\[0\\].description" : "Force Power Description 1",
+  "forcePowers\\[1\\].description" : "Force Power Description 2",
+  "forcePowers\\[2\\].description" : "Force Power Description 3",
+  "forcePowers\\[3\\].description" : "Force Power Description 4"
 }
