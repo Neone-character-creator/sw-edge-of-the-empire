@@ -2391,8 +2391,12 @@
                 "type": "select",
                 "bind": "$temp.selectedAdvancement.talent",
                 "items": {
-                  "values": "#_.flatMap($state.character.specializations.map(s =>s.talents).concat($state.character.signatureAbilities.map(sa => sa.talents))).concat(_.flatMap(_.get($state, 'character.forcePowers', []), ))",
-                  "disabledWhen": "#_.get($state, 'character.advancements.talents', []).map(ta => ta.id).includes($this.id) || ($this.requires && !_.isEmpty(_.union($state.character.advancements.talents.map(ta => ta.id), $this.requires.advancements)) && _.get($this, 'requires.forceRating', 0) <= _.get($state, 'character.forceRating', 0))",
+                  "values": "#_.flatMap($state.character.specializations.map(s =>s.talents).concat($state.character.signatureAbilities.map(sa => sa.talents))).concat(_.flatMap(_.get($state, 'character.forcePowers', []).map(fp => fp.enhancements)))",
+                  "disabledWhen": [
+                    "#_.get($state, 'character.advancements.talents', []).map(ta => ta.id).includes($this.id)",
+                    "#$this.accumulator || (!_.isNil(_.get($this, 'requires.advancements')) && _.isEmpty(_.intersection(_.flatMap(Object.keys($state.character.advancements).map(a => $state.character.advancements[a])).map(ta => ta.id), $this.requires.advancements)))",
+                    "#$this.accumulator || _.get($this, 'requires.forceRating', 0) > _.get($state, 'character.forceRating', 0)"
+                  ],
                   "translate": "# $this.description + ' (' + $this.cost + ')'"
                 }
               },
@@ -2868,7 +2872,8 @@
         "name": "string",
         "description": "string",
         "cost": "number",
-        "requires": "requirements"
+        "requires": "requirements",
+        "enhancements": "[talentAdvancement]"
       },
       "values": [
         {
@@ -2881,7 +2886,7 @@
               "value": "force-influence-control-charisma",
               "cost": 15,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-range",
                   "force-influence-magnitude"
                 ]
@@ -2890,8 +2895,9 @@
             {
               "id": "force-influence-control-emotion",
               "value": "force-influence-control-emotion",
+              "cost": 10,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-influence-basic-power"
                 ]
               }
@@ -2901,7 +2907,7 @@
               "value": "force-influence-duration",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-duration-2",
                   "force-influence-duration-3"
                 ]
@@ -2912,7 +2918,7 @@
               "value": "force-influence-duration",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-strength"
                 ]
               }
@@ -2922,7 +2928,7 @@
               "value": "force-influence-duration",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-duration-2",
                   "force-influence-duration-4"
                 ]
@@ -2933,7 +2939,7 @@
               "value": "force-influence-duration",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-duration",
                   "force-influence-duration-3"
                 ]
@@ -2944,7 +2950,7 @@
               "value": "force-influence-magnitude",
               "cost": 5,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-influence-basic-power"
                 ]
               }
@@ -2954,7 +2960,7 @@
               "value": "force-influence-magnitude",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-control-charisma"
                 ]
               }
@@ -2964,7 +2970,7 @@
               "value": "force-influence-magnitude",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-magnitude-2"
                 ]
               }
@@ -2974,7 +2980,7 @@
               "value": "force-influence-strength",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-control-emotion"
                 ]
               }
@@ -2984,7 +2990,7 @@
               "value": "force-influence-range",
               "cost": 5,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-power-influence"
                 ]
               }
@@ -2994,7 +3000,7 @@
               "value": "force-influence-range",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-control-charisma"
                 ]
               }
@@ -3004,7 +3010,7 @@
               "value": "force-influence-range",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-influence-range-2"
                 ]
               }
@@ -3024,7 +3030,7 @@
               "value": "force-move-control-fine",
               "cost": 15,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-control-pull",
                   "force-move-range-3"
                 ]
@@ -3035,7 +3041,7 @@
               "value": "force-move-control-pull",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-control-throw"
                 ]
               }
@@ -3045,7 +3051,7 @@
               "value": "force-move-control-throw",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-range",
                   "force-move-range-2"
                 ]
@@ -3056,7 +3062,7 @@
               "value": "force-move-magnitude",
               "cost": 5,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-move-basic-power"
                 ]
               }
@@ -3066,7 +3072,7 @@
               "value": "force-move-magnitude",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-magnitude"
                 ]
               }
@@ -3076,7 +3082,7 @@
               "value": "force-move-magnitude",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-magnitude-2"
                 ]
               }
@@ -3086,7 +3092,7 @@
               "value": "force-move-magnitude",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-magnitude-3"
                 ]
               }
@@ -3096,7 +3102,7 @@
               "value": "force-move-range",
               "cost": 5,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-move-basic-power"
                 ]
               }
@@ -3106,7 +3112,7 @@
               "value": "force-move-range",
               "cost": 5,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-move-basic-power"
                 ]
               }
@@ -3116,7 +3122,7 @@
               "value": "force-move-range",
               "cost": 15,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-control-throw"
                 ]
               }
@@ -3126,7 +3132,7 @@
               "value": "force-move-strength",
               "cost": 10,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-move-basic-power"
                 ]
               }
@@ -3136,7 +3142,7 @@
               "value": "force-move-range",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-strength"
                 ]
               }
@@ -3146,7 +3152,7 @@
               "value": "force-move-range",
               "cost": 15,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-move-strength-2"
                 ]
               }
@@ -3177,7 +3183,7 @@
               "value": "force-sense-control-accuracy",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-strength"
                 ]
               }
@@ -3187,7 +3193,7 @@
               "value": "force-sense-control-evasion",
               "cost": 10,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-sense-basic-power"
                 ]
               }
@@ -3197,7 +3203,7 @@
               "value": "force-sense-control-telepathy",
               "cost": 10,
               "requires": {
-                "forcePowers": [
+                "advancements": [
                   "force-sense-basic-power"
                 ]
               }
@@ -3207,7 +3213,7 @@
               "value": "force-sense-duration",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-control-evasion"
                 ]
               }
@@ -3217,7 +3223,7 @@
               "value": "force-sense-magnitude",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-control-telepathy"
                 ]
               }
@@ -3227,7 +3233,7 @@
               "value": "force-sense-magnitude",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-magnitude"
                 ]
               }
@@ -3237,7 +3243,7 @@
               "value": "force-sense-magnitude",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-magnitude-2"
                 ]
               }
@@ -3248,7 +3254,7 @@
               "description": "Spend ○ to increase range by 1 band.",
               "cost": 5,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-control-telepathy"
                 ]
               }
@@ -3259,7 +3265,7 @@
               "description": "Spend ○ to increase range by 1 band.",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-range"
                 ]
               }
@@ -3270,7 +3276,7 @@
               "description": "Spend ○ to increase range by 1 band.",
               "cost": 10,
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-range-2"
                 ]
               }
@@ -3280,7 +3286,7 @@
               "name": "Sense - Strength",
               "description": "When using Sense ongoing effect, upgrade the pool twice.",
               "requires": {
-                "talentAdvancements": [
+                "advancements": [
                   "force-sense-control-evasion"
                 ]
               }
@@ -14621,7 +14627,7 @@
           "description": "Spend ○ to increase power maximum range by 1 band",
           "cost": 5,
           "requires": {
-            "forcePowers": [
+            "advancements": [
               "force-move-basic-power"
             ]
           }
@@ -14632,7 +14638,7 @@
           "description": "Spend ○ to increase silhouette able to be targeted by 1.",
           "cost": 10,
           "requires": {
-            "forcePowers": [
+            "advancements": [
               "force-move-basic-power"
             ]
           }
@@ -20670,17 +20676,17 @@
       },
       "values": [
         {
-          "id": "influence",
+          "id": "force-influence-basic-power",
           "forcePower": "force-influence-basic-power",
           "cost": 10
         },
         {
-          "id": "move",
+          "id": "force-move-basic-power",
           "forcePower": "force-move-basic-power",
           "cost": 10
         },
         {
-          "id": "sense",
+          "id": "force-sense-basic-power",
           "forcePower": "force-sense-basic-power",
           "cost": 10
         }
