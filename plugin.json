@@ -2822,7 +2822,7 @@
         "totalObligation": {
           "type": "number",
           "derivedFrom": [
-            "_.sum($state.character.obligations.map(o => o.rating))"
+            "#_.sum($state.character.obligations.map(o => o.rating))"
           ]
         },
         "obligationBonuses": "[obligationBonus]",
