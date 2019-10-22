@@ -341,5 +341,15 @@
   "forcePowers\\[0\\].description" : "Force Power Description 1",
   "forcePowers\\[1\\].description" : "Force Power Description 2",
   "forcePowers\\[2\\].description" : "Force Power Description 3",
-  "forcePowers\\[3\\].description" : "Force Power Description 4"
+  "forcePowers\\[3\\].description" : "Force Power Description 4",
+
+  "obligations\\[0\\].type": "Obligation Type 1",
+  "obligations\\[1\\].type": "Obligation Type 2",
+  "obligations\\[2\\].type": "Obligation Type 3",
+  "obligations\\[0\\].description": "Obligation Description 1",
+  "obligations\\[1\\].description": "Obligation Description 2",
+  "obligations\\[2\\].description": "Obligation Description 3",
+  "obligations\\[0\\].rating": "Obligation value 1",
+  "obligations\\[1\\].rating": "Obligation value 2",
+  "obligations\\[2\\].rating": "Obligation value 3"
 }
