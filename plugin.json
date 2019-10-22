@@ -20696,6 +20696,11 @@
           "action": "PUSH",
           "path": "$state.character.forcePowers",
           "value": "#$models.forcePower.values[$this.source.forcePower]"
+        },
+        {
+          "action": "SUBTRACT",
+          "path": "$state.character.availableExperience",
+          "value": "#$this.source.cost"
         }
       ]
     },
