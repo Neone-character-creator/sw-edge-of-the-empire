@@ -2879,7 +2879,7 @@
         {
           "id": "force-influence-basic-power",
           "name": "Influence - Basic Power",
-          "description": "Spend ○ to inflict 1 strain to a living target user is engaged with",
+          "description": "Spend [light side point] to inflict 1 strain to a living target user is engaged with",
           "enhancements": [
             {
               "id": "force-influence-control-charisma",
@@ -3023,7 +3023,7 @@
         {
           "id": "force-move-basic-power",
           "name": "Move - Basic Power",
-          "description": "User may spend ○ to move one object of silhouette 0 that at a minimum and maximum short range.",
+          "description": "User may spend [light side point] to move one object of silhouette 0 that at a minimum and maximum short range.",
           "enhancements": [
             {
               "id": "force-move-control-fine",
@@ -3160,7 +3160,7 @@
             {
               "id": "force-move-strength-4",
               "name": "Move - Strength",
-              "description": "Spend ○ to increase silhouette able to be targeted by 1.",
+              "description": "Spend [light side point] to increase silhouette able to be targeted by 1.",
               "cost": 15,
               "requires": {
                 "forcePowerEnhancements": [
@@ -3251,7 +3251,7 @@
             {
               "id": "force-sense-range",
               "name": "Sense - Range",
-              "description": "Spend ○ to increase range by 1 band.",
+              "description": "Spend [light side point] to increase range by 1 band.",
               "cost": 5,
               "requires": {
                 "advancements": [
@@ -3262,7 +3262,7 @@
             {
               "id": "force-sense-range-2",
               "name": "Sense - Range",
-              "description": "Spend ○ to increase range by 1 band.",
+              "description": "Spend [light side point] to increase range by 1 band.",
               "cost": 10,
               "requires": {
                 "advancements": [
@@ -3273,7 +3273,7 @@
             {
               "id": "force-sense-range-3",
               "name": "Sense - Range",
-              "description": "Spend ○ to increase range by 1 band.",
+              "description": "Spend [light side point] to increase range by 1 band.",
               "cost": 10,
               "requires": {
                 "advancements": [
@@ -14574,7 +14574,7 @@
         {
           "id": "force-influence-control-charisma",
           "name": "Influence - Control Charisma",
-          "description": "When making a Coerce, Charm, Deception, Leadership or Negotiation check, roll power check and spend ○ to gain [hit] or [triumph]."
+          "description": "When making a Coerce, Charm, Deception, Leadership or Negotiation check, roll power check and spend [light side point] to gain [hit] or [triumph]."
         },
         {
           "id": "force-influence-control-emotion",
@@ -14584,12 +14584,12 @@
         {
           "id": "force-influence-duration",
           "name": "Influence - Duration",
-          "description": "Spend ○  to increase duration by 1"
+          "description": "Spend [light side point]  to increase duration by 1"
         },
         {
           "id": "force-influence-magnitude",
           "name": "Influence - Magnitude",
-          "description": "Spend ○ to increase targets affected by 1"
+          "description": "Spend [light side point] to increase targets affected by 1"
         },
         {
           "id": "force-influence-strength",
@@ -14598,7 +14598,7 @@
         },
         {
           "id": "force-influence-range",
-          "description": "Spend ○ to increase power range by 1.",
+          "description": "Spend [light side point] to increase power range by 1.",
           "name": "Influence - Range"
         },
         {
@@ -14619,12 +14619,12 @@
         {
           "id": "force-move-magnitude",
           "name": "Move - Magnitude",
-          "description": "Spend ○ to increase targets affected by 1"
+          "description": "Spend [light side point] to increase targets affected by 1"
         },
         {
           "id": "force-move-range",
           "name": "Move - Range",
-          "description": "Spend ○ to increase power maximum range by 1 band",
+          "description": "Spend [light side point] to increase power maximum range by 1 band",
           "cost": 5,
           "requires": {
             "advancements": [
@@ -14635,7 +14635,7 @@
         {
           "id": "force-move-strength",
           "name": "Move - Strength",
-          "description": "Spend ○ to increase silhouette able to be targeted by 1.",
+          "description": "Spend [light side point] to increase silhouette able to be targeted by 1.",
           "cost": 10,
           "requires": {
             "advancements": [
@@ -14659,7 +14659,7 @@
         },
         {
           "id": "force-sense-control-telepathy",
-          "description": "Effect: Spend ○. Sense the current thoughts on one living target engaged with user.",
+          "description": "Effect: Spend [light side point]. Sense the current thoughts on one living target engaged with user.",
           "name": "Sense Control - Telepathy"
         },
         {
@@ -14670,12 +14670,12 @@
         {
           "id": "force-sense-magnitude",
           "name": "Sense Control - Magnitude",
-          "description": "Spend ○ to increase number of targets affected by 1"
+          "description": "Spend [light side point] to increase number of targets affected by 1"
         },
         {
           "id": "force-sense-range",
           "name": "Sense - Range",
-          "description": "Spend ○ to increase range by 1 band."
+          "description": "Spend [light side point] to increase range by 1 band."
         },
         {
           "id": "force-sense-strength",
