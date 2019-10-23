@@ -1118,19 +1118,19 @@
                 "bind": "$state.character.credits"
               },
               {
-                "name": "otherItemsParent",
+                "name": "carriedItemsParent",
                 "type": "container",
                 "direction": "vertical",
                 "children": [
                   {
-                    "name": "summaryOtherItems",
+                    "name": "summaryCarriedItems",
                     "type": "list",
-                    "bind": "$state.character.otherItems",
+                    "bind": "$state.character.carriedItems",
                     "items": {
                       "child": {
-                        "name": "otherItem",
+                        "name": "carriedItem",
                         "type": "textfield",
-                        "bind": "$state.character.otherItems[$index]"
+                        "bind": "$state.character.carriedItems[$index]"
                       }
                     }
                   }
@@ -2229,6 +2229,80 @@
             ]
           },
           {
+            "name": "carriedItems",
+            "type": "container",
+            "direction": "vertical",
+            "children": [
+              {
+                "name": "carriedItems",
+                "type": "label",
+                "text": "Carried Items"
+              },
+              {
+                "name": "newCarriedItem",
+                "type": "container",
+                "direction": "horizontal",
+                "children": [
+                  {
+                    "name": "addCarriedItem",
+                    "type": "button",
+                    "text": "Add",
+                    "disabledWhen": "# !_.get($temp, 'selectedCarriedItem')",
+                    "action": {
+                      "type": "PUSH",
+                      "path": "$state.character.carriedItems",
+                      "value": "#$temp.selectedCarriedItem"
+                    }
+                  },
+                  {
+                    "name": "newCarriedItemName",
+                    "type": "textfield",
+                    "label": "Item Name",
+                    "bind": "$temp.selectedCarriedItem.name"
+                  },
+                  {
+                    "name": "newCarriedItemEncumbrance",
+                    "type": "number",
+                    "label": "Encumbrance",
+                    "bind": "$temp.selectedCarriedItem.encumbrance"
+                  }
+                ]
+              },
+              {
+                "name": "carriedItems",
+                "type": "list",
+                "bind": "$state.character.carriedItems",
+                "items": {
+                  "child": {
+                    "name": "carriedItem",
+                    "type": "container",
+                    "direction": "horizontal",
+                    "children": [
+                      {
+                        "name": "carriedItemName",
+                        "label": "Item",
+                        "type": "textfield",
+                        "bind": "#'$state.character.carriedItems[' + $index + '].name'"
+                      },
+                      {
+                        "name": "carriedItemQuantity",
+                        "label": "Quantity",
+                        "type": "number",
+                        "bind": "#'$state.character.carriedItems[' + $index + '].quantity'"
+                      },
+                      {
+                        "name": "carriedItemEncumbrance",
+                        "type": "number",
+                        "label": "Encumbrance",
+                        "bind": "#'$state.character.carriedItems[' + $index + '].encumbrance'"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
             "name": "otherItems",
             "type": "container",
             "direction": "vertical",
@@ -2236,7 +2310,7 @@
               {
                 "name": "otherItems",
                 "type": "label",
-                "text": "Other Items"
+                "text": "Other Property"
               },
               {
                 "name": "newItem",
@@ -2247,24 +2321,24 @@
                     "name": "addItem",
                     "type": "button",
                     "text": "Add",
-                    "disabledWhen": "# !_.get($temp, 'selectedOtherItem')",
+                    "disabledWhen": "# !_.get($temp, 'selectedotherItem')",
                     "action": {
                       "type": "PUSH",
                       "path": "$state.character.otherItems",
-                      "value": "#$temp.selectedOtherItem"
+                      "value": "#$temp.selectedotherItem"
                     }
                   },
                   {
                     "name": "newOtherItemName",
                     "type": "textfield",
                     "label": "Item Name",
-                    "bind": "$temp.selectedOtherItem.name"
+                    "bind": "$temp.selectedotherItem.name"
                   },
                   {
                     "name": "newOtherItemEncumbrance",
                     "type": "number",
                     "label": "Encumbrance",
-                    "bind": "$temp.selectedOtherItem.encumbrance"
+                    "bind": "$temp.selectedotherItem.encumbrance"
                   }
                 ]
               },
@@ -2811,6 +2885,7 @@
         },
         "armor": "[armor]",
         "credits": "number",
+        "carriedItems": "[item]",
         "otherItems": "[item]",
         "motivations": {
           "type": "[string]",
@@ -2854,7 +2929,7 @@
           "derivedFrom": [
             "# _.sum($state.character.weapons.map(w => w.encumbrance))",
             "# $this.accumulator + _.sum($state.character.armor.map(a => a.encumbrance))",
-            "# $this.accumulator + _.sum($state.character.otherItems.map(i => i.encumbrance * Math.max(i.quantity, 0)))"
+            "# $this.accumulator + _.sum($state.character.carriedItems.map(i => i.encumbrance * Math.max(i.quantity, 0)))"
           ]
         },
         "encumbranceThreshold": {
