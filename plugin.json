@@ -2286,89 +2286,21 @@
                       },
                       {
                         "name": "carriedItemQuantity",
-                        "label": "Quantity",
+                        "label": "Carried",
                         "type": "number",
-                        "bind": "#'$state.character.carriedItems[' + $index + '].quantity'"
+                        "bind": "#'$state.character.carriedItems[' + $index + '].quantityCarried'"
+                      },
+                      {
+                        "name": "ownedItemQuantity",
+                        "label": "Owned",
+                        "type": "number",
+                        "bind": "#'$state.character.carriedItems[' + $index + '].quantityOwned'"
                       },
                       {
                         "name": "carriedItemEncumbrance",
                         "type": "number",
                         "label": "Encumbrance",
                         "bind": "#'$state.character.carriedItems[' + $index + '].encumbrance'"
-                      }
-                    ]
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "otherItems",
-            "type": "container",
-            "direction": "vertical",
-            "children": [
-              {
-                "name": "otherItems",
-                "type": "label",
-                "text": "Other Property"
-              },
-              {
-                "name": "newItem",
-                "type": "container",
-                "direction": "horizontal",
-                "children": [
-                  {
-                    "name": "addItem",
-                    "type": "button",
-                    "text": "Add",
-                    "disabledWhen": "# !_.get($temp, 'selectedotherItem')",
-                    "action": {
-                      "type": "PUSH",
-                      "path": "$state.character.otherItems",
-                      "value": "#$temp.selectedotherItem"
-                    }
-                  },
-                  {
-                    "name": "newOtherItemName",
-                    "type": "textfield",
-                    "label": "Item Name",
-                    "bind": "$temp.selectedotherItem.name"
-                  },
-                  {
-                    "name": "newOtherItemEncumbrance",
-                    "type": "number",
-                    "label": "Encumbrance",
-                    "bind": "$temp.selectedotherItem.encumbrance"
-                  }
-                ]
-              },
-              {
-                "name": "otherItems",
-                "type": "list",
-                "bind": "$state.character.otherItems",
-                "items": {
-                  "child": {
-                    "name": "otherItem",
-                    "type": "container",
-                    "direction": "horizontal",
-                    "children": [
-                      {
-                        "name": "otherItemName",
-                        "label": "Item",
-                        "type": "textfield",
-                        "bind": "#'$state.character.otherItems[' + $index + '].name'"
-                      },
-                      {
-                        "name": "otherItemQuantity",
-                        "label": "Quantity",
-                        "type": "number",
-                        "bind": "#'$state.character.otherItems[' + $index + '].quantity'"
-                      },
-                      {
-                        "name": "otherItemEncumbrance",
-                        "type": "number",
-                        "label": "Encumbrance",
-                        "bind": "#'$state.character.otherItems[' + $index + '].encumbrance'"
                       }
                     ]
                   }
@@ -2929,7 +2861,7 @@
           "derivedFrom": [
             "# _.sum($state.character.weapons.map(w => w.encumbrance))",
             "# $this.accumulator + _.sum($state.character.armor.map(a => a.encumbrance))",
-            "# $this.accumulator + _.sum($state.character.carriedItems.map(i => i.encumbrance * Math.max(i.quantity, 0)))"
+            "# $this.accumulator + _.sum($state.character.carriedItems.map(i => i.encumbrance * Math.max(i.quantityCarried, 0)))"
           ]
         },
         "encumbranceThreshold": {
@@ -3376,11 +3308,14 @@
     "item": {
       "properties": {
         "name": "string",
-        "quantity": {
+        "quantityOwned": {
+          "type": "number"
+        },
+        "quantityCarried": {
           "type": "number",
           "default": 1
         },
-        "encumbrance": "string"
+        "encumbrance": "number"
       }
     },
     "advancements": {
