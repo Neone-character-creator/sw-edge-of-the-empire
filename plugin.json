@@ -3,6 +3,7 @@
   "pluginVersion": "1.0",
   "authorName": "Damien Marble",
   "pdfPath": "pdf.pdf",
+  "fieldsPath": "fields.json",
   "views": {
     "name": "app",
     "children": [
