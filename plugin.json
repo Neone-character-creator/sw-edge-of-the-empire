@@ -2789,7 +2789,13 @@
         "availableExperience": {
           "type": "number",
           "derivedFrom": [
-            "# $this.accumulator + $state.character.totalExperience"
+            "# $state.character.totalExperience",
+            "# $this.accumulator - $state.character.advancements.characteristics.map(a => a.cost)",
+            "# $this.accumulator - $state.character.advancements.talents.map(a => a.cost)",
+            "# $this.accumulator - $state.character.advancements.specializations.map(a => a.cost)",
+            "# $this.accumulator - $state.character.advancements.signatureAbilities.map(a => a.cost)",
+            "# $this.accumulator - $state.character.advancements.skills.map(a => a.cost)",
+            "# $this.accumulator - $state.character.advancements.forcePowers.map(a => a.cost)"
           ]
         },
         "totalExperience": {
@@ -20656,7 +20662,7 @@
         "id": "string",
         "description": {
           "type": "string",
-          "derivedFrom": "# _.isString($this.value) ? $models.talent.values[$this.value].name : $this.value.choices + ' of ' + $this.value.options.map(vo => $models.talent.values[vo].name).join(', ')"
+          "derivedFrom": "# $this.parent ? (_.isString($this.parent) ? $models.talent.values[$this.parent].name : $this.parent.choices + ' of ' + $this.parent.options.map(vo => $models.talent.values[vo].name).join(', ')) : ''"
         },
         "value": "string",
         "cost": "number",
@@ -20721,7 +20727,7 @@
         "skill": "string",
         "cost": {
           "type": "number",
-          "derivedFrom": "#($state.character.skills[$this.skill].rank + 1) * (_.get($state, 'character.skills[' + $this.skill + '].isCareerSkill', false) ? 5 : 10)"
+          "derivedFrom": "#($state.character.skills[$this.parent.skill].rank + 1) * (_.get($state, 'character.skills[' + $this.parent.skill + '].isCareerSkill', false) ? 5 : 10)"
         }
       },
       "values": [
